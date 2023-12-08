@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userAuthController;
 use App\Http\Controllers\pagesController;
+use App\Http\Controllers\adminPagesController;
+use App\Http\Controllers\adminController;
 
 // General pages
 Route::get("/",[pagesController::class, "home"]);
+Route::get("/latest-news",[pagesController::class, "latestNews"]);
 Route::get("/dishes",[pagesController::class, "dishes"]);
 Route::get("/attractions", [pagesController::class, "attractions"]);
 Route::get("/dream", [pagesController::class, "dream"]);
@@ -13,6 +16,9 @@ Route::get("/food-shop", [pagesController::class, "foodShop"]);
 Route::get("/about-us", [pagesController::class, "aboutUs"]);
 
 // Admin backend pages
+Route::get("/admin/dashboard",[adminPagesController::class, "dashboard"]);
+
+// Admin handle
 
 // Auth pages
 Route::get("/auth/register", [pagesController::class, "register"]);

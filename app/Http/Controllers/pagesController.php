@@ -29,6 +29,10 @@ class pagesController extends Controller
         return view("login");
     }
 
+    public function latestNews(Request $request){
+        return view("latestNews");
+    }
+
     public function dishes(Request $request){
         return view("dishes");
     }
