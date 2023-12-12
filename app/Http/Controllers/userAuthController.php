@@ -6,6 +6,7 @@ use App\Models\wn_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Helpers\Helper;
 
 class userAuthController extends Controller
 {
@@ -24,7 +25,7 @@ class userAuthController extends Controller
         $data = [
             "username"=>$request->registerUsername,
             "real_name"=>$request->registerRealName,
-            "uuid"=>"123",
+            "uuid"=>Helper::prefixedUuid("user_"),
             "email"=>$request->registerEmail,
             "password"=>Hash::make($password),
         ];

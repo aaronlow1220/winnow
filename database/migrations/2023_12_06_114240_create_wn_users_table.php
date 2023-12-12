@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,7 +12,7 @@ return new class extends Migration
     {
         Schema::create('wn_users', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->uuid("uuid");
+            $table->string("uuid");
             $table->string("username")->nullable();
             $table->string("real_name")->nullable();
             $table->string("email")->nullable();
@@ -25,6 +24,7 @@ return new class extends Migration
             $table->string("address")->nullable();
             $table->string("profile_picture")->nullable();
             $table->string("status")->default("ACTIVE");
+            $table->boolean("is_admin")->default(false);
             $table->string("remember_token")->nullable();
             $table->timestamp("created_at")->useCurrent();
             $table->timestamp("modified_at")->useCurrent()->useCurrentOnUpdate();
