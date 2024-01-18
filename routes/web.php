@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userAuthController;
 use App\Http\Controllers\pagesController;
 use App\Http\Controllers\adminPagesController;
-use App\Http\Controllers\adminController;
+use App\Http\Controllers\adminImageController;
 
 // General pages
 Route::get("/", [pagesController::class, "home"]);
@@ -18,9 +18,10 @@ Route::get("/permission-error", [pagesController::class, "permissionError"]);
 
 // Admin backend pages
 Route::get("/admin/dashboard", [adminPagesController::class, "dashboard"]);
-Route::get("/admin/dashboard/article", [adminPagesController::class, "article"]);
+Route::get("/admin/dashboard/article/latest-news-list", [adminPagesController::class, "latest_news_list"]);
 
 // Admin handle
+Route::post("/admin/post/imageUpload",[adminImageController::class,"store"])->name("ck.upload");
 
 // Auth pages
 Route::get("/auth/register", [pagesController::class, "register"]);

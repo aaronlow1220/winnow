@@ -9,14 +9,14 @@ class adminPagesController extends Controller
 {
     public function dashboard(Request $request){
         if(Helper::isAdmin()){
-            return view("admin/dashboard");
+            return view("admin/home");
         }
         return redirect("/permission-error");
     }
 
-    public function article(Request $request){
+    public function latest_news_list(Request $request){
         if(Helper::isAdmin()){
-            return view("admin/article");
+            return view("admin/latest-news-list");
         }
         return redirect("/permission-error");
     }
