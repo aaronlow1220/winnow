@@ -14,7 +14,6 @@ class userAuthController extends Controller
         $table = "wn_users";
         $validate = $request->validate([
             "registerUsername"=>"required",
-            "registerRealName"=>"required",
             "registerEmail"=>"required|unique:".$table.",email",
             "registerPassword"=>"required",
             "registerConfirmPassword"=>"required|same:registerPassword",
@@ -24,7 +23,6 @@ class userAuthController extends Controller
 
         $data = [
             "username"=>$request->registerUsername,
-            "real_name"=>$request->registerRealName,
             "uuid"=>Helper::prefixedUuid("user_"),
             "email"=>$request->registerEmail,
             "password"=>Hash::make($password),

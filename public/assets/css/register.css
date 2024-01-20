@@ -1,0 +1,417 @@
+@font-face {
+    font-family: 'NotoSansTC-Medium';
+    src: url(../font/NotoSansTC-Medium.otf);
+}
+
+@font-face {
+    font-family: 'NotoSansTC-Regular';
+    src: url(../font/NotoSansTC-Regular.otf);
+}
+
+@font-face {
+    font-family: 'NotoSerifTC-Medium';
+    src: url(../font/NotoSerifTC-Medium.otf);
+}
+
+@font-face {
+    font-family: 'NotoSerifTC-Regular';
+    src: url(../font/NotoSerifTC-Regular.otf);
+}
+
+@font-face {
+    font-family: 'NotoSerifTC-Bold';
+    src: url(../font/NotoSerifTC-Bold.otf);
+}
+
+
+
+/* Reset & Box Model */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'NotoSerifTC-Regular';
+}
+
+h1,
+h2 {
+    font-family: 'NotoSerifTC-Bold';
+}
+
+h3,
+h4 {
+    font-family: 'NotoSerifTC-Medium';
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 78px;
+}
+
+h2 {
+    font-size: 54px;
+}
+
+h3 {
+    font-size: 40px;
+}
+
+h4 {
+    font-size: 32px;
+}
+
+:root {
+    --Main: rgba(0, 0, 0, 0.88);
+    --Secondary: rgba(0, 0, 0, 0.60);
+    --Inactive: rgba(0, 0, 0, 0.40);
+}
+
+.text-main {
+    color: var(--Main);
+}
+
+.text-secondary {
+    color: var(--Secondary);
+}
+
+.text-inactive {
+    color: var(--Inactive);
+}
+
+.color-white {
+    color: white;
+}
+
+.font-notosanstc-medium {
+    font-family: 'NotoSansTC-Medium';
+}
+
+.font-notosanstc-regular {
+    font-family: 'NotoSansTC-Regular';
+}
+
+.font-notoseriftc-medium {
+    font-family: 'NotoSerifTC-Medium';
+}
+
+.font-notoseriftc-regular {
+    font-family: 'NotoSerifTC-Regular';
+}
+
+.font-notoseriftc-bold {
+    font-family: 'NotoSerifTC-Bold';
+}
+
+/* Typography */
+html,
+body {
+    font-size: 16px;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
+
+.fs-1rem {
+    font-size: 1rem;
+}
+
+.fs-1-25rem {
+    font-size: 1.25rem;
+}
+
+.fs-1-5rem {
+    font-size: 1.5rem;
+}
+
+.fs-2-75rem {
+    font-size: 2.75rem;
+}
+
+.fs-3rem {
+    font-size: 3rem;
+
+}
+
+
+
+
+
+
+.fs-5-375rem {
+    font-size: 5.375rem;
+}
+
+.line-height-110 {
+    line-height: 110%;
+}
+
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+}
+
+/* Layout */
+.flex {
+    display: flex;
+}
+
+.flex-1-0-0 {
+    flex: 1 0 0;
+}
+
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.sticky {
+    position: sticky;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.h-3-375rem {
+    height: 3.375rem;
+}
+
+.h-100vh {
+    height: 100vh;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-85 {
+    width: 85%;
+}
+
+.w-37-625rem {
+    width: 37.625rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.top-138px {
+    top: 138px;
+}
+
+.right-3-375rem {
+    right: 3.375rem;
+}
+
+.right-8rem {
+    right: 8rem;
+}
+
+.left--3px {
+    left: -3px;
+}
+
+.left-47px {
+    left: 47px;
+}
+
+.left-3-375rem {
+    left: 3.375rem;
+}
+
+.vertical-lr {
+    writing-mode: vertical-lr;
+}
+
+/* Flexbox Alignment */
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap-0-75rem {
+    gap: 0.75rem;
+}
+
+.gap-1-5rem {
+    gap: 1.5rem;
+}
+
+.gap-1-75rem {
+    gap: 1.75rem;
+}
+
+.gap-3rem {
+    gap: 3rem;
+}
+
+.max-w-50rem {
+    max-width: 50rem;
+}
+
+.max-w-30rem {
+    max-width: 30rem;
+}
+
+
+/* Spacing */
+.text-indent-1-19em {
+    text-indent: 1.19em;
+}
+
+.padding-2rem-0 {
+    padding: 2rem 0;
+}
+
+.p-l-10 {
+    padding-left: 10px;
+}
+
+.p-4rem-0-2-5rem-0 {
+    padding: 4rem 0rem 2.5rem 0rem;
+}
+
+.p-x-8rem {
+    padding: 0 8rem;
+}
+
+/* Borders & Backgrounds */
+.border-none {
+    border: none;
+}
+
+.border-top-1px {
+    border-top: 1px solid rgba(0, 0, 0, 0.40);
+}
+
+.border-top-bottom {
+    border-top: 0.06px solid rgba(0, 0, 0, 0.40);
+    border-bottom: 0.06px solid rgba(0, 0, 0, 0.40);
+}
+
+.border-radius-0-125rem {
+    border-radius: 0.125rem;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.main-bg {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("../img/login_bg1.jpg") center/cover no-repeat, lightgray;
+}
+
+.main-bg2 {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("../img/register_bg1.jpg") center/cover no-repeat, lightgray;
+}
+
+
+/* Forms & Inputs */
+.outline-none {
+    outline: none;
+}
+
+#ad-tittle {
+    position: absolute;
+    left: 134px;
+    top: 53px;
+}
+
+.ad-content {
+    width: 575px;
+    color: white;
+    font-family: 'NotoSerifTC-Regular';
+    font-size: 1.5rem;
+}
+
+.ad-content1 {
+    display: flex;
+}
+
+.ad-content2 {
+    position: absolute;
+    width: 575px;
+    left: 76px;
+    bottom: 76px;
+}
+
+#sub-main {
+    width: 100%;
+    max-width: 1900px;
+}
+
+#register {
+    width: 100%;
+    max-width: 480px;
+    padding: 0px 48px;
+}
+
+#register input {
+    width: 100%;
+    height: 56px;
+    border: 1px solid var(--Secondary, rgba(0, 0, 0, 0.60));
+}
+
+.btn {
+    background-color: var(--Secondary, rgba(0, 0, 0, 0.60));
+    transition: 0.3s ease;
+    color: white;
+}
+
+.hover-decoration:hover{
+    text-decoration:underline;
+}
+
+.btn:hover {
+    background-color: var(--Main, rgba(0, 0, 0, 0.88));
+}
+
+form {
+    width: 100%;
+}

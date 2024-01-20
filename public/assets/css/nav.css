@@ -1,0 +1,29 @@
+nav {
+    height: 3.375rem;
+    border-top: 0.06px solid rgba(0, 0, 0, 0.40);
+    border-bottom: 0.06px solid rgba(0, 0, 0, 0.40);
+    background-color: white;
+}
+
+nav a {
+    font-size: 1.25rem;
+    color: var(--Secondary);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--Main);
+}
+
+#nav_logo {
+    display: flex;
+    position: absolute;
+    left: 3.375rem;
+}
+
+#customer-interaction-icons {
+    display: flex;
+    position: absolute;
+    gap: 1.75rem;
+    right: 3.375rem;
+}
