@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string("uuid");
             $table->string("category_uid")->nullable();
             $table->string("name")->nullable();
-            $table->string("status")->nullable();
+            $table->string("alias")->nullable();
+            $table->string("status")->nullable()->default("ACTIVE");
             $table->timestamp("created_at")->useCurrent();
             $table->timestamp("modified_at")->useCurrent()->useCurrentOnUpdate();
         });

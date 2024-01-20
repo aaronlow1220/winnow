@@ -12,5 +12,8 @@
 @if ($isAdmin)
 <h3>isAdmin = {{ $isAdmin }}</h3>
 @endif
+
+<a href="{{ route("testUpload") }}">Test Upload</a>
+<a href="{{ route("testCategory") }}">Test Category</a>
 </body>
 </html>

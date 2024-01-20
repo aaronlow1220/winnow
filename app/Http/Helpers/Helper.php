@@ -16,6 +16,7 @@ use App\Models\wn_user;
 
 class Helper
 {
+    // User
     /**
      * Generate uuid with custom prefix
      *
@@ -42,4 +43,3 @@ class Helper
         return $isAdmin;
     }
 }
-?>

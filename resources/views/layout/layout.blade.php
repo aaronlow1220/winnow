@@ -15,13 +15,13 @@
         <nav class="flex justify-center align-items-center relative">
             <a id="nav_logo" href="index.html"><img src="{{ asset('assets/img/Logo.png') }}" alt="logo" /></a>
             <div class="flex flex-1-0-0 justify-space-between max-w-50rem text-secondary">
-                <a href="news.html">最新消息</a>
-                <a href="attractions.html">忠貞景點</a>
-                <a href="{{ route("dishes") }}">迷香忠貞</a>
-                <a href="dream.html">夢想忠貞</a>
-                <a href="shopping.html">忠貞購物</a>
-                <a href="about.html">關於我們</a>
-                <a href=".html">聯絡我們</a>
+                <a href="/latest-news">最新消息</a>
+                <a href="/attractions">忠貞景點</a>
+                <a href="/dishes">迷香忠貞</a>
+                <a href="/dreams">夢想忠貞</a>
+                <a href="/shopping">忠貞購物</a>
+                <a href="/about-us">關於我們</a>
+                <a href="/contact-us">聯絡我們</a>
             </div>
             <div id="customer-interaction-icons">
                 <a href="{{ route('auth.login') }}" class="flex"><img id="icon_person"
