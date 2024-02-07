@@ -5,9 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('page-title')</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/food.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/nav.css') }}">
-    <script src="{{ asset('assets/js/food.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
+    @stack("category")
+    @stack('login')
 </head>
 
 <body>
@@ -31,7 +32,7 @@
             </div>
         </nav>
     </header>
-@yield("main-content")
+    @yield('main-content')
     <footer>
         <div class="contact-section">
             <div class="contact-info-r">
