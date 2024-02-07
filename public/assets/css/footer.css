@@ -1,0 +1,67 @@
+footer {
+    align-self: stretch;
+    /*padding: 32px 128px;*/
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.contact-section {
+    padding: 4rem 0rem 2.5rem 0rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+.contact-info-r {
+    text-align: right;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.25rem;
+    font-family: Noto Serif TC;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.contact-info-l {
+    text-align: left;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.25rem;
+    font-family: Noto Serif TC;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+.social-media-icons {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.footer-text {
+    width: 85%;
+    border-top: 1px rgba(0, 0, 0, 0.4) solid;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.25rem;
+    font-family: Noto Serif TC;
+    font-weight: 500;
+    word-wrap: break-word;
+    padding: 2rem 0rem;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.2em;
+}
+
+.row-column {
+    display: flex;
+    flex-direction: row;
+}
