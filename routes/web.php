@@ -5,6 +5,7 @@ use App\Http\Controllers\userAuthController;
 use App\Http\Controllers\pagesController;
 use App\Http\Controllers\adminPagesController;
 use App\Http\Controllers\adminImageController;
+use App\Http\Controllers\adminHandleController;
 
 // test
 Route::get("/testUpload", [pagesController::class,"testUpload"])->name("testUpload");
@@ -15,11 +16,20 @@ Route::post("/testCategoryHandle", [pagesController::class,"testCategoryHandle"]
 Route::post("/testSubCategoryHandle", [pagesController::class,"testSubCategoryHandle"])->name("testSubCategoryHandle");
 
 // Admin backend pages
-Route::get("/admin/dashboard", [adminPagesController::class, "dashboard"])->name("admin.dashboard");
-Route::get("/admin/dashboard/article/latest-news-list", [adminPagesController::class, "latest_news_list"]);
+Route::name("admin.")->group(function(){
+    Route::get("/admin/dashboard", [adminPagesController::class, "dashboard"])->name("dashboard");
+    Route::get("/admin/dashboard/article", [adminPagesController::class, "article_list"])->name("article");
+    Route::get("/admin/dashboard/create-article", [adminPagesController::class, "create_article"])->name("create_article");
+});
 
 // Admin handle
 Route::post("/admin/post/imageUpload",[adminImageController::class,"store"])->name("ck.upload");
+
+Route::name("handle.")->group(function(){
+    Route::post("/admin/post/get-sub-category-handle",[adminHandleController::class,"getSubCategory"])->name("getSubCategory");
+    Route::post("/admin/post/create-post-handle",[adminHandleController::class,"storePost"])->name("storePost");
+});
+
 
 // Auth pages
 Route::name('auth.')->group(function () {
@@ -28,9 +38,11 @@ Route::name('auth.')->group(function () {
 });
 
 // Auth
-Route::post("/auth/register-user", [userAuthController::class, "registerUser"]);
-Route::post("/auth/login-user", [userAuthController::class, "loginUser"]);
-Route::get("/auth/logout", [userAuthController::class, "logout"]);
+Route::name('authHandle.')->group(function () {
+    Route::post("/auth/register-user", [userAuthController::class, "registerUser"])->name("registerUser");
+    Route::post("/auth/login-user", [userAuthController::class, "loginUser"])->name("loginUser");
+    Route::get("/auth/logout", [userAuthController::class, "logout"])->name("logout");
+});
 
 // General pages
 // Route::get("/", [pagesController::class, "home"])->name("home");

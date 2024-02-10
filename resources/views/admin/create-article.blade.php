@@ -1,0 +1,106 @@
+@extends('admin/layout/dashboard-layout')
+
+@section('dashboard-content')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="{{ asset('assets/vendor/ckeditor5/ckeditor.js') }}"></script>
+    <form class="func" action="{{ route('handle.storePost') }}" method="POST">
+        @csrf
+        <div class="func-bar">
+            <button class="func-btn" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                    <path
+                        d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM480-240q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z"
+                        fill="currentcolor" />
+                </svg>
+                <span>儲存</span>
+            </button>
+            <a class="func-btn" href="{{ url()->previous() }}">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                    <path
+                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+                        fill="currentcolor" />
+                </svg>
+                <span>取消</span>
+            </a>
+        </div>
+        <div class="editor-container">
+            <div class="editor-left">
+                <div id="editor"></div>
+            </div>
+            <div class="editor-right">
+                <div class="editor-in">
+                    <label for="editor-title">標題</label>
+                    <input type="text" name="" id="editor-title" class="editor-input">
+                </div>
+                <div class="editor-in">
+                    <label for="editor-category">類別</label>
+                    <select name="" id="editor-category" class="editor-input">
+                        <option value="">--請選擇--</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->uuid }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="editor-in">
+                    <label for="editor-sub-category">子類別</label>
+                    <select name="" id="editor-sub-category" class="editor-input">
+                        <option value="">--請選擇--</option>
+                    </select>
+                </div>
+                <div class="editor-in">
+                    <label for="editor-status">狀態</label>
+                    <select name="" id="editor-status" class="editor-input">
+                        <option value="public">公開</option>
+                        <option value="unlisted">不公開</option>
+                        <option value="private">私人</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
+    <script>
+        let editor = document.querySelector("#editor");
+
+        ClassicEditor.create(editor, {
+            ckfinder: {
+                uploadUrl: "{{ route('ck.upload', ['_token' => csrf_token()]) }}",
+            },
+        }).catch((error) => {
+            console.error(error);
+        });
+
+        var categorySelect = document.querySelector("#editor-category");
+
+        $(document).ready(function() {
+            $(categorySelect).on("change", function() {
+                console.log(this.value);
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: "{{ route('handle.getSubCategory') }}",
+                    type: 'post',
+                    data: {
+                        selectCat: this.value
+                    },
+                    dataType: 'JSON',
+                    success: function(response) {
+                        var subCatList = 0;
+                        subCategory = response.subCategory;
+                        var subCatList = $('#editor-sub-category');
+                        subCatList.empty();
+
+                        subCategory.forEach(function(subCat) {
+                            subCatList.append("<option value='" + subCat.uuid + "'>" +
+                                subCat.name + "</option>");
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
+@endsection

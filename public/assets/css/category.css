@@ -1,72 +1,51 @@
 @font-face {
-    font-family: "NotoSansTC-Medium";
+    font-family: 'NotoSansTC-Medium';
     src: url(../font/NotoSansTC-Medium.otf);
 }
 
 @font-face {
-    font-family: "NotoSansTC-Regular";
+    font-family: 'NotoSansTC-Regular';
     src: url(../font/NotoSansTC-Regular.otf);
 }
 
 @font-face {
-    font-family: "NotoSerifTC-Medium";
+    font-family: 'NotoSerifTC-Medium';
     src: url(../font/NotoSerifTC-Medium.otf);
 }
 
 @font-face {
-    font-family: "NotoSerifTC-Regular";
+    font-family: 'NotoSerifTC-Regular';
     src: url(../font/NotoSerifTC-Regular.otf);
 }
 
 @font-face {
-    font-family: "NotoSerifTC-Bold";
+    font-family: 'NotoSerifTC-Bold';
     src: url(../font/NotoSerifTC-Bold.otf);
 }
+
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "NotoSerifTC-Regular";
+    font-family: 'NotoSerifTC-Regular';
 }
 
 h1,
 h2 {
-    font-family: "NotoSerifTC-Bold";
+    font-family: 'NotoSerifTC-Bold';
 }
 
 h3,
 h4 {
-    font-family: "NotoSerifTC-Medium";
+    font-family: 'NotoSerifTC-Medium';
     font-weight: 500;
-}
-
-h1 {
-    font-size: 78px;
-}
-
-h2 {
-    font-size: 54px;
-}
-
-h3 {
-    font-size: 40px;
-}
-
-h4 {
-    font-size: 32px;
-}
-
-.body1 {
-    font-size: 20px;
-    font-family: "NotoSansTC-Regular";
-    line-height: 36px;
 }
 
 :root {
     --Main: rgba(0, 0, 0, 0.88);
-    --Secondary: rgba(0, 0, 0, 0.6);
-    --Inactive: rgba(0, 0, 0, 0.4);
+    --Secondary: rgba(0, 0, 0, 0.60);
+    --Inactive: rgba(0, 0, 0, 0.40);
 }
 
 .text-main {
@@ -86,29 +65,30 @@ h4 {
 }
 
 .font-notosanstc-medium {
-    font-family: "NotoSansTC-Medium";
+    font-family: 'NotoSansTC-Medium';
 }
 
 .font-notosanstc-regular {
-    font-family: "NotoSansTC-Regular";
+    font-family: 'NotoSansTC-Regular';
 }
 
 .font-notoseriftc-medium {
-    font-family: "NotoSerifTC-Medium";
+    font-family: 'NotoSerifTC-Medium';
 }
 
 .font-notoseriftc-regular {
-    font-family: "NotoSerifTC-Regular";
+    font-family: 'NotoSerifTC-Regular';
 }
 
 .font-notoseriftc-bold {
-    font-family: "NotoSerifTC-Bold";
+    font-family: 'NotoSerifTC-Bold';
 }
 
 html,
 body {
     font-size: 16px;
 }
+
 
 .flex {
     display: flex;
@@ -150,14 +130,15 @@ body {
     max-width: 50rem;
 }
 
+
+
+
 header {
     top: 0px;
 }
 
 body {
     min-height: 100vh;
-    padding: 0px;
-    margin: 0px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -165,67 +146,9 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-footer {
-    align-self: stretch;
-    /*padding: 32px 128px;*/
-    flex-direction: column;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.04);
-}
-
-.contact-section {
-    padding: 4rem 0rem 2.5rem 0rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 4rem;
-}
-
-.contact-info-r {
-    text-align: right;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.25rem;
-    font-family: Noto Serif TC;
-    font-weight: 500;
-    word-wrap: break-word;
-}
-
-.contact-info-l {
-    text-align: left;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.25rem;
-    font-family: Noto Serif TC;
-    font-weight: 500;
-    word-wrap: break-word;
-}
-
-.social-media-icons {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.footer-text {
-    width: 85%;
-    border-top: 1px rgba(0, 0, 0, 0.4) solid;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.25rem;
-    font-family: Noto Serif TC;
-    font-weight: 500;
-    word-wrap: break-word;
-    padding: 2rem 0rem;
-}
-
 .flex-column {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 1.2em;
 }
 
 .row-column {
@@ -241,37 +164,33 @@ main {
     align-items: center;
 }
 
-.sub-main {
+#sub-main {
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0px;
-    max-width: 87.5rem;
     width: 100%;
 }
 
-#page_title {
-    margin: 5.75rem 0 3rem 0;
-}
+
 
 .tabs {
     background-color: white;
     display: flex;
     flex-direction: row;
-    border-bottom: 1px rgba(0, 0, 0, 0.4) solid;
+    border-bottom: 1px rgba(0, 0, 0, 0.40) solid;
+
 }
 
 .tab-button {
-    color: var(--Inactive, rgba(0, 0, 0, 0.4));
+    color: var(--Inactive, rgba(0, 0, 0, 0.40));
     background-color: inherit;
     border: none;
     float: left;
     outline: none;
     cursor: pointer;
-    font-family: "NotoSerifTC-Medium";
-    padding: 0.625rem 2rem;
+    font-family: 'NotoSerifTC-Medium';
     transition: 0.1s;
-    font-size: 1.5rem;
     height: 3.375rem;
 }
 
@@ -283,35 +202,31 @@ main {
 .active-tab {
     color: var(--Main);
     border-bottom: 3px rgb(0, 0, 0) solid;
+
 }
 
-.a {
+/* .a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0;
     margin: 0;
-    gap: 8rem;
-}
-
-.article {
-    padding: 3.75rem 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 60%;
-}
+    gap: clamp(3rem, -3.875rem + 10vw, 8rem);
+} */
 
 .tab-content {
-    background-color: white;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    gap: clamp(3rem, -3.875rem + 10vw, 8rem);
 }
 
 .tab-content img {
     width: 100%;
     max-width: 100%;
+
 }
 
 .title {
@@ -337,14 +252,8 @@ main {
     display: flex;
 }
 
-.card {
-    width: 100%;
-    display: flex;
+.card>div {
     justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    color: black;
-    gap: 1rem;
 }
 
 /*
@@ -362,7 +271,7 @@ main {
 .card_tittle {
     color: #000;
     font-size: 24px;
-    font-family: "NotoSerifTC-Medium";
+    font-family: 'NotoSerifTC-Medium';
     font-weight: 500;
 }
 
@@ -370,14 +279,14 @@ main {
     overflow: hidden;
     color: var(--Secondary);
     text-overflow: ellipsis;
-    font-family: "NotoSansTC-Regular";
+    font-family: 'NotoSansTC-Regular';
     font-size: 1rem;
     margin: 0;
     padding: 0;
 }
 
 .date {
-    font-family: "NotoSansTC-Regular";
+    font-family: 'NotoSansTC-Regular';
     color: var(--Inactive);
     font-size: 0.8125rem;
     font-style: normal;
@@ -392,7 +301,151 @@ main {
     width: 100%;
     /* 分隔線的寬度 */
     height: 0.0625rem;
+    ;
     /* 分隔線的高度 */
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.20);
     /* 分隔線的顏色 */
+}
+
+@media (max-width: 1099.99px) {
+    h1 {
+        font-size: 44px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    .body1 {
+        font-size: 15px;
+        font-family: 'NotoSansTC-Regular';
+        line-height: 36px;
+    }
+
+    #page_title,
+    .card-container {
+        display: flex;
+    }
+
+    main {
+        padding: 0px 16px;
+    }
+
+    #sub-main {
+        justify-content: center;
+        align-items: center;
+        max-width: 550px;
+    }
+
+    #page_title {
+        margin: 22px 0 3rem 0;
+    }
+
+    .tabs {
+        width: 100%;
+    }
+
+    .tab-button {
+        font-size: 18px;
+        width: 100%;
+    }
+/* 
+    .a {
+        width: 100%;
+    } */
+
+    .article {
+        width: 100%;
+        display: none;
+    }
+
+    .card-container {
+        width: 100%;
+    }
+
+    .card {
+        display: none;
+    }
+
+    .m_card {
+        display: flex;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-decoration: none;
+        flex-direction: column;
+        color: black;
+        gap: 1rem;
+    }
+
+    nav{
+        border-bottom: none;
+    }
+}
+
+@media (min-width: 1100px) {
+
+    h1 {
+        font-size: 78px;
+    }
+
+    h2 {
+        font-size: 54px;
+    }
+
+    h3 {
+        font-size: 40px;
+    }
+
+    h4 {
+        font-size: 32px;
+    }
+
+    .body1 {
+        font-size: 20px;
+        font-family: 'NotoSansTC-Regular';
+        line-height: 36px;
+    }
+
+    #sub-main {
+        max-width: 1400px;
+    }
+
+    #page_title {
+        margin: 5.75rem 0 3rem 0;
+    }
+
+    .tab-button {
+        font-size: 24px;
+        width: 90px;
+    }
+
+    .tab-content>div:nth-child(1) {
+        padding: 3.75rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 60%;
+    }
+
+    .card {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-decoration: none;
+        color: black;
+        gap: 1rem;
+    }
+
+    .m_card {
+        display: none;
+    }
 }

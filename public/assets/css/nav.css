@@ -1,7 +1,6 @@
 nav {
     height: 3.375rem;
-    border-top: 0.06px solid rgba(0, 0, 0, 0.40);
-    border-bottom: 0.06px solid rgba(0, 0, 0, 0.40);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.40);
     background-color: white;
 }
 
@@ -18,12 +17,107 @@ nav a:hover {
 #nav_logo {
     display: flex;
     position: absolute;
-    left: 3.375rem;
+}
+
+label {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+}
+
+#burger {
+    display: none;
 }
 
 #customer-interaction-icons {
     display: flex;
     position: absolute;
-    gap: 1.75rem;
-    right: 3.375rem;
+}
+
+@media (max-width: 1299.99px) {
+    #nav_logo {
+        left: 56px;
+    }
+
+    nav>div:nth-of-type(1) {
+        display: none;
+        position: fixed;
+        top: 54px;
+        width: 100%;
+        height: 220px;
+        background-color: white;
+        align-items: flex-start;
+        padding: 20px 16px 0 16px;
+        gap: max(6.4px, min(29.6px, 2.5%));
+        justify-content: center;
+    }
+
+    nav>div:nth-of-type(1)>a {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+
+    nav>div:nth-of-type(1)>a>div {
+        writing-mode: vertical-lr;
+        letter-spacing: 17px;
+    }
+
+    nav>div:nth-of-type(1)>a>img {
+        width: 20px;
+        height: 20px;
+    }
+
+    label {
+        left: 16px;
+        width: 24px;
+        height: 24px;
+    }
+
+    #burger:checked~div {
+        display: flex;
+    }
+
+    #customer-interaction-icons {
+        gap: 14px;
+        right: 16px;
+    }
+
+    #overlay {
+        display: none;
+        position: fixed;
+        top: 274px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--Secondary);
+    }
+}
+
+@media (min-width: 1300px) {
+    nav>div:nth-of-type(1) {
+        display: flex;
+        flex: 1 0 0;
+        justify-content: space-between;
+        max-width: 50rem;
+    }
+
+    nav>div:nth-of-type(1)>a>img {
+        display: none;
+    }
+
+    #nav_logo {
+        left: 3.375rem;
+    }
+
+    label {
+        display: none;
+    }
+
+    #customer-interaction-icons {
+        gap: 1.75rem;
+        right: 3.375rem;
+    }
 }

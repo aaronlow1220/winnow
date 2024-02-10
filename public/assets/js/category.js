@@ -14,7 +14,7 @@ function openTab(evt, tabName) {
     }
 
     // 顯示當前選中的標籤內容並添加 "active" 類到按鈕
-    document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName).style.display = "flex";
     evt.currentTarget.className += " active-tab";
 }
 
@@ -23,7 +23,7 @@ tabcontent = document.getElementsByClassName("tab-content");
 for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
 }
-document.getElementById("tab1").style.display = "block";
+document.getElementById("tab1").style.display = "flex";
 
 
 
@@ -38,3 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+const navLinks = document.querySelectorAll('nav div a');
+if (navLinks && navLinks.length >= 3) {
+  navLinks[2].classList.add('text-main');
+}

@@ -1,16 +1,53 @@
-/* noto-sans-tc-regular - latin */
 @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Noto Sans TC';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../font/noto-sans-tc-v35-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
-  /* noto-sans-tc-600 - latin */
-  @font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Noto Sans TC';
-    font-style: normal;
+    font-family: "Noto Sans TC";
+    font-weight: 900;
+    src: url("../../font/admin/NotoSansTC-Black.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans TC";
+    font-weight: 800;
+    src: url("../../font/admin/NotoSansTC-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans TC";
+    font-weight: 700;
+    src: url("../../font/admin/NotoSansTC-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans TC";
     font-weight: 600;
-    src: url('../font/noto-sans-tc-v35-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
+    src: url("../../font/admin/NotoSansTC-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans TC";
+    font-weight: 500;
+    src: url("../../font/admin/NotoSansTC-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans TC";
+    font-weight: 400;
+    src: url("../../font/admin/NotoSansTC-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans TC";
+    font-weight: 300;
+    src: url("../../font/admin/NotoSansTC-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans TC";
+    font-weight: 200;
+    src: url("../../font/admin/NotoSansTC-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Noto Sans TC";
+    font-weight: 100;
+    src: url("../../font/admin/NotoSansTC-Thin.ttf") format("truetype");
+}

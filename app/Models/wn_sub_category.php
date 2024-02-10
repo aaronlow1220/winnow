@@ -13,5 +13,7 @@ class wn_sub_category extends Model
 
     protected $fillable= ["uuid", "category_uid", "name", "alias", "status"];
 
+    protected $hidden = ["id"];
+
     protected $updated_at = "modified_at";
 }
