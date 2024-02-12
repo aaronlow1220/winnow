@@ -1,7 +1,7 @@
 @extends('admin/layout/dashboard-layout')
 
-@section("dashboard-title")
-    類別管理 - 類別
+@section('dashboard-title')
+    人員管理 - 使用者
 @endsection
 
 @section('dashboard-content')
@@ -31,23 +31,25 @@
                     <tr>
                         <th><input type="checkbox" name="selectAll" id="selectAll" onclick="checkSelect()" /></th>
                         <th>名稱</th>
-                        <th>網址</th>
+                        <th>電子郵件地址</th>
                         <th>狀態</th>
                         <th>修改時間</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($users as $user)
                         <tr>
                             <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                            <td><a href="{{ route('admin.editCategory',['id'=> $category->uuid]) }}">{{ $category->name }}</a></td>
-                            <td>{{ $category->alias }}</td>
-                            <td>{{ $category->status }}</td>
-                            <td>{{ $category->modified_at }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+                            <td><a
+                                    href="{{ route('admin.editUser',['id'=> $user->uuid]) }}">{{ $user->username }}</a>
+                            </td>
+                            <td>{{ $user->email }}</td>
+                        <td>{{ $user->status }}</td>
+                        <td>{{ $user->modified_at }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
+</div>
 @endsection

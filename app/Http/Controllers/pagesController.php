@@ -39,25 +39,7 @@ class pagesController extends Controller
         return view("login");
     }
 
-    public function latestNews(Request $request)
-    {
-        return view("latestNews");
-    }
-
-    public function dishes(Request $request)
-    {
-        return view("dishes");
-    }
-
-    public function attractions(Request $request)
-    {
-        return view("attractions");
-    }
-
-    public function dream(Request $request)
-    {
-        return view("dream");
-    }
+    
 
     public function foodShop(Request $request)
     {

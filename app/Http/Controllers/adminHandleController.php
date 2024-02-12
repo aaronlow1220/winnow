@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helpers\Helper;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 use App\Models\wn_category;
 use App\Models\wn_sub_category;
-use Illuminate\Http\Response;
+use App\Models\wn_user;
 
 class adminHandleController extends Controller
 {
@@ -66,6 +69,33 @@ class adminHandleController extends Controller
         try {
             wn_sub_category::where("uuid", $request->subCategory)->update($data);
             return back()->with("success", "success");
+        } catch (\Illuminate\Database\QueryException $ex) {
+            return back()->with("failed", "failed");
+        }
+    }
+
+    public function editUser(Request $request)
+    {
+        $validate = $request->validate([
+            "subCategory" => "required",
+            "subCategoryName" => "required",
+            "alias" => "required",
+            "category" => "required",
+            "status" => "required"
+        ]);
+    }
+
+    public function resetPassword(string $id)
+    {
+        $user = wn_user::where("uuid", $id)->first();
+        $default = Helper::randomPassword();
+        $data = [
+            "password" => Hash::make($default)
+        ];
+
+        try {
+            wn_user::where("uuid", $id)->update($data);
+            return back()->with(["success" => "success","reset-pass" => $default]);
         } catch (\Illuminate\Database\QueryException $ex) {
             return back()->with("failed", "failed");
         }

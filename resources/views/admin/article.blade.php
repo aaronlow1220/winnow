@@ -35,7 +35,7 @@
                         <th>子分類</th>
                         <th>作者</th>
                         <th>狀態</th>
-                        <th>建立時間</th>
+                        <th>修改時間</th>
                         <th>點擊次數</th>
                     </tr>
                 </thead>

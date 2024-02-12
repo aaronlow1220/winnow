@@ -24,6 +24,10 @@ Route::name("admin.")->group(function(){
     Route::get("/admin/dashboard/edit-category/{id}", [adminPagesController::class, "editCategory"])->name("editCategory");
     Route::get("/admin/dashboard/sub-category", [adminPagesController::class, "subCategory"])->name("subCategory");
     Route::get("/admin/dashboard/edit-sub-category/{id}", [adminPagesController::class, "editSubCategory"])->name("editSubCategory");
+    Route::get("/admin/dashboard/user", [adminPagesController::class, "user"])->name("user");
+    Route::get("/admin/dashboard/moderator", [adminPagesController::class, "moderator"])->name("moderator");
+    Route::get("/admin/dashboard/edit-user/{id}", [adminPagesController::class, "editUser"])->name("editUser");
+    Route::get("/admin/dashboard/settings", [adminPagesController::class, "settings"])->name("settings");
 });
 
 // Admin handle
@@ -32,6 +36,8 @@ Route::name("handle.")->group(function(){
     Route::post("/admin/post/get-sub-category-handle",[adminHandleController::class,"getSubCategory"])->name("getSubCategory");
     Route::post("/admin/post/edit-category-handle",[adminHandleController::class,"editCategory"])->name("editCategory");
     Route::post("/admin/post/edit-sub-category-handle",[adminHandleController::class,"editSubCategory"])->name("editSubCategory");
+    Route::post("/admin/post/edit-user-handle",[adminHandleController::class,"editUser"])->name("editUser");
+    Route::get("/admin/post/reset-password-handle/{id}",[adminHandleController::class,"resetPassword"])->name("resetPassword");
     Route::post("/admin/post/create-post-handle",[adminHandleController::class,"storePost"])->name("storePost");
 });
 
@@ -50,7 +56,7 @@ Route::name('authHandle.')->group(function () {
 });
 
 // General pages
-// Route::get("/", [pagesController::class, "home"])->name("home");
+Route::get("/", [pagesController::class, "home"])->name("home");
 // Route::get("/latest-news", [pagesController::class, "latestNews"]);
 // Route::get("/dishes", [pagesController::class, "dishes"])->name("dishes");
 // Route::get("/attractions", [pagesController::class, "attractions"]);

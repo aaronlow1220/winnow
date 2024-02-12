@@ -34,7 +34,7 @@
                         <th>網址</th>
                         <th>母類別</th>
                         <th>狀態</th>
-                        <th>建立時間</th>
+                        <th>修改時間</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,7 +54,7 @@
                             @endforeach
                         </td>
                         <td>{{ $subCategory->status }}</td>
-                        <td>{{ $subCategory->created_at }}</td>
+                        <td>{{ $subCategory->modified_at }}</td>
                     </tr>
                 @endforeach
             </tbody>

@@ -44,7 +44,7 @@ class Helper
     }
 
     // Image Processing
-    function resize_jpg($source, $destination) {
+    public static function resize_jpg($source, $destination) {
         $size = getimagesize($source);
         $width = $size[0];
         $height = $size[1];
@@ -64,7 +64,7 @@ class Helper
         imagedestroy($resized);
     } 
 
-    function resize_png($source, $destination) {
+    public static function resize_png($source, $destination) {
         $size = getimagesize($source);
         $width = $size[0];
         $height = $size[1];
@@ -84,5 +84,16 @@ class Helper
 
         imagedestroy($original);
         imagedestroy($resized);
-    } 
+    }
+
+    public static function randomPassword() {
+        $alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        $pass = array();
+        $alphaLength = strlen($alphabet) - 1;
+        for ($i = 0; $i < 8; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+        return implode($pass);
+    }
 }

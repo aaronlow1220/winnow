@@ -7,6 +7,8 @@ use App\Http\Helpers\Helper;
 use App\Models\wn_category;
 use App\Models\wn_post;
 use App\Models\wn_sub_category;
+use App\Models\wn_web_setting;
+use App\Models\wn_user;
 
 class adminPagesController extends Controller
 {
@@ -78,6 +80,43 @@ class adminPagesController extends Controller
             "subCategories" => $subCategory,
             "categories" => $category
         ]);
+        // }
+        // return redirect("/permission-error");
+    }
+
+    public function settings(Request $request)
+    {
+        // if(Helper::isAdmin()){
+        $settings = wn_web_setting::all();
+        return view("admin/settings", ["settings" => $settings]);
+        // }
+        // return redirect("/permission-error");
+    }
+
+    public function moderator(Request $request)
+    {
+        // if(Helper::isAdmin()){
+        $moderators = wn_user::all()->where("is_admin",1);
+        return view("admin/moderator", ["moderators" => $moderators]);
+        // }
+        // return redirect("/permission-error");
+    }
+
+    public function user(Request $request)
+    {
+        // if(Helper::isAdmin()){
+        $users = wn_user::all()->where("is_admin",0);
+        return view("admin/user", ["users" => $users]);
+        // }
+        // return redirect("/permission-error");
+    }
+
+    public function editUser(String $id)
+    {
+
+        // if(Helper::isAdmin()){
+        $users = wn_user::where("uuid",$id)->first();
+        return view("admin/edit-user", ["users" => $users]);
         // }
         // return redirect("/permission-error");
     }
