@@ -13,5 +13,5 @@ class wn_user extends Authenticatable
 
     protected $fillable = ["uuid", "username", "email", "password"];
 
-    protected $updated_at = "modified_at";
+    const UPDATED_AT = "modified_at";
 }

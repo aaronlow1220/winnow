@@ -27,10 +27,11 @@
                     <h3>歡迎回來</h3>
                     <!-- formprocess.php -->
                     <form action="{{ route('authHandle.loginUser') }}" method="post" class="flex flex-column gap-3rem">
+                        @csrf
                         <div class="flex flex-column gap-1-5rem">
-                            <input type="text" name="email" placeholder="電子郵件"
+                            <input type="email" name="loginEmail" placeholder="電子郵件"
                                 class="input-width-height fs-1-25rem text-indent-1-19em  border-radius-0-125rem text-inactive">
-                            <input type="text" name="password" placeholder="密碼"
+                            <input type="password" name="loginPassword" placeholder="密碼"
                                 class="input-width-height fs-1-25rem text-indent-1-19em  border-radius-0-125rem text-inactive">
                         </div>
                         <input type="submit" value="登入"

@@ -1,5 +1,9 @@
 @extends('admin/layout/dashboard-layout')
 
+@section("dashboard-title")
+    文章管理
+@endsection
+
 @section('dashboard-content')
     <div class="func">
         <div class="func-bar">

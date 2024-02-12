@@ -20,13 +20,18 @@ Route::name("admin.")->group(function(){
     Route::get("/admin/dashboard", [adminPagesController::class, "dashboard"])->name("dashboard");
     Route::get("/admin/dashboard/article", [adminPagesController::class, "article_list"])->name("article");
     Route::get("/admin/dashboard/create-article", [adminPagesController::class, "create_article"])->name("create_article");
+    Route::get("/admin/dashboard/category", [adminPagesController::class, "category"])->name("category");
+    Route::get("/admin/dashboard/edit-category/{id}", [adminPagesController::class, "editCategory"])->name("editCategory");
+    Route::get("/admin/dashboard/sub-category", [adminPagesController::class, "subCategory"])->name("subCategory");
+    Route::get("/admin/dashboard/edit-sub-category/{id}", [adminPagesController::class, "editSubCategory"])->name("editSubCategory");
 });
 
 // Admin handle
 Route::post("/admin/post/imageUpload",[adminImageController::class,"store"])->name("ck.upload");
-
 Route::name("handle.")->group(function(){
     Route::post("/admin/post/get-sub-category-handle",[adminHandleController::class,"getSubCategory"])->name("getSubCategory");
+    Route::post("/admin/post/edit-category-handle",[adminHandleController::class,"editCategory"])->name("editCategory");
+    Route::post("/admin/post/edit-sub-category-handle",[adminHandleController::class,"editSubCategory"])->name("editSubCategory");
     Route::post("/admin/post/create-post-handle",[adminHandleController::class,"storePost"])->name("storePost");
 });
 

@@ -13,5 +13,5 @@ class wn_post extends Model
 
     protected $fillable= ["uuid", "admin_uid", "alias", "category_uid", "sub_category_uid", "title", "content", "media_location", "hits", "status"];
 
-    protected $updated_at = "modified_at";
+    const UPDATED_AT = "modified_at";
 }

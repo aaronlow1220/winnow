@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/nav.css') }}">
 </head>
 
-<body>
+<body class="flex flex-column justify-space-between h-100vh">
     <header id="nav" class="sticky">
         <nav class="flex justify-center align-items-center relative">
             <label for="burger">☰</label>

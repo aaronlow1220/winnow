@@ -706,6 +706,21 @@ main .btn-send:hover {
     overflow-y: auto;
 }
 
+.msg-box{
+    padding: 0.7rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.msg-box.success{
+    color: white;
+    background-color: #00c851;
+}
+
+.msg-box.failed{
+    color: white;
+    background-color: #d4443a;
+}
+
 @media screen and (max-width: 768px) {
     #content {
         position: relative;

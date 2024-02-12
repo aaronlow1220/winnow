@@ -26,12 +26,15 @@
                 <div class="flex flex-column align-items-center gap-3rem fs-1-25rem">
                     <h3>帳號註冊</h3>
                     <form action="{{ route('authHandle.registerUser') }}" method="post" class="flex flex-column gap-3rem">
+                        @csrf
                         <div class="flex flex-column gap-1-5rem">
-                            <input type="text" name="email" placeholder="電子郵件"
+                            <input type="text" name="registerUsername" placeholder="使用者名稱"
                                 class="input-width-height fs-1-25rem text-indent-1-19em  border-radius-0-125rem text-inactive">
-                            <input type="text" name="password" placeholder="密碼"
+                            <input type="email" name="registerEmail" placeholder="電子郵件"
                                 class="input-width-height fs-1-25rem text-indent-1-19em  border-radius-0-125rem text-inactive">
-                            <input type="text" name="password" placeholder="確認密碼"
+                            <input type="password" name="registerPassword" placeholder="密碼"
+                                class="input-width-height fs-1-25rem text-indent-1-19em  border-radius-0-125rem text-inactive">
+                            <input type="password" name="registerConfirmPassword" placeholder="確認密碼"
                                 class="input-width-height fs-1-25rem text-indent-1-19em  border-radius-0-125rem text-inactive">
                         </div>
                         <input type="submit" value="註冊"

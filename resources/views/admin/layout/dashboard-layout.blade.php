@@ -54,8 +54,8 @@
                     </span>
                 </a>
                 <ul class="side-dropdown">
-                    <li><a href="#">類別</a></li>
-                    <li><a href="#">子類別</a></li>
+                    <li><a href="{{ route('admin.category') }}">類別</a></li>
+                    <li><a href="{{ route('admin.subCategory') }}">子類別</a></li>
                 </ul>
             </li>
             <li>
@@ -178,7 +178,7 @@
 
         <!-- MAIN -->
         <main>
-            <h1 class="title">忠貞社區發展協會官方網頁</h1>
+            <h1 class="title">@yield('dashboard-title')</h1>
             @yield('dashboard-content')
         </main>
         <!-- MAIN -->
