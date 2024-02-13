@@ -22,9 +22,11 @@
                             未設定
                         @endif
                     </div>
-                    <button type="button" id="name">
-                        <img src="{{ asset('assets/img/chevron_right.svg') }}">
-                    </button>
+                    <a href="{{ route('accountChange', ['info' => 'name']) }}">
+                        <button id="name">
+                            <img src="{{ asset('assets/img/chevron_right.svg') }}">
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -39,9 +41,26 @@
                             未設定
                         @endif
                     </div>
-                    <button id="phone">
-                        <img src="{{ asset('assets/img/chevron_right.svg') }}">
-                    </button>
+                    <a href="{{ route('accountChange', ['info' => 'telephone']) }}">
+                        <button id="phone">
+                            <img src="{{ asset('assets/img/chevron_right.svg') }}">
+                        </button>
+                    </a>
+                </div>
+                <div class="justify-space-between">
+                    <div class="body1 text-inactive">手機</div>
+                    <div class="body1 text-main">
+                        @if (!empty($users->phone))
+                            {{ $users->phone }}
+                        @else
+                            未設定
+                        @endif
+                    </div>
+                    <a href="{{ route('accountChange', ['info' => 'phone']) }}">
+                        <button id="phone">
+                            <img src="{{ asset('assets/img/chevron_right.svg') }}">
+                        </button>
+                    </a>
                 </div>
                 <div class="justify-space-between">
                     <div class="body1 text-inactive">電子郵件</div>
@@ -52,9 +71,12 @@
                             未設定
                         @endif
                     </div>
-                    <button id="email">
-                        <img src="{{ asset('assets/img/chevron_right.svg') }}">
-                    </button>
+                    <a href="{{ route('accountChange', ['info' => 'email']) }}">
+                        <button id="email">
+                            <img src="{{ asset('assets/img/chevron_right.svg') }}">
+                        </button>
+                    </a>
+
                 </div>
             </div>
 
@@ -69,9 +91,11 @@
                             未設定
                         @endif
                     </div>
-                    <button id="contact_address">
-                        <img src="{{ asset('assets/img/chevron_right.svg') }}">
-                    </button>
+                    <a href="{{ route('accountChange', ['info' => 'contact-address']) }}">
+                        <button id="contact-address">
+                            <img src="{{ asset('assets/img/chevron_right.svg') }}">
+                        </button>
+                    </a>
                 </div>
                 <div class="justify-space-between">
                     <div class="body1 text-inactive">寄送地址</div>
@@ -82,18 +106,22 @@
                             未設定
                         @endif
                     </div>
-                    <button id="delivery_address">
-                        <img src="{{ asset('assets/img/chevron_right.svg') }}">
-                    </button>
+                    <a href="{{ route('accountChange', ['info' => 'delivery-address']) }}">
+                        <button id="delivery_address">
+                            <img src="{{ asset('assets/img/chevron_right.svg') }}">
+                        </button>
+                    </a>
                 </div>
             </div>
             <div class="info_card">
                 <h4>訂單查詢</h4>
                 <div class="justify-space-between">
                     <div class="body1 text-secondary">訂單</div>
-                    <button id="order">
-                        <img src="{{ asset('assets/img/chevron_right.svg') }}">
-                    </button>
+                    <a href="">
+                        <button id="order">
+                            <img src="{{ asset('assets/img/chevron_right.svg') }}">
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

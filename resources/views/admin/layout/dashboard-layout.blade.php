@@ -72,7 +72,7 @@
             </li>
             <li class="divider" data-text="電子商務">電子商務</li>
             <li>
-                <a href="">
+                <a href="{{ route('admin.product') }}">
                     <span class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                             <path

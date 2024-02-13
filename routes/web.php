@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userAuthController;
 use App\Http\Controllers\pagesController;
+use App\Http\Controllers\pagesHandleController;
 use App\Http\Controllers\adminPagesController;
 use App\Http\Controllers\adminImageController;
 use App\Http\Controllers\adminHandleController;
@@ -21,6 +22,7 @@ Route::name("admin.")->group(function(){
     Route::get("/admin/dashboard/article", [adminPagesController::class, "article_list"])->name("article");
     Route::get("/admin/dashboard/create-article", [adminPagesController::class, "create_article"])->name("create_article");
     Route::get("/admin/dashboard/category", [adminPagesController::class, "category"])->name("category");
+    Route::get("/admin/dashboard/product", [adminPagesController::class, "product"])->name("product");
     Route::get("/admin/dashboard/edit-category/{id}", [adminPagesController::class, "editCategory"])->name("editCategory");
     Route::get("/admin/dashboard/sub-category", [adminPagesController::class, "subCategory"])->name("subCategory");
     Route::get("/admin/dashboard/edit-sub-category/{id}", [adminPagesController::class, "editSubCategory"])->name("editSubCategory");
@@ -58,6 +60,13 @@ Route::name('authHandle.')->group(function () {
 // General pages
 Route::get("/", [pagesController::class, "home"])->name("home");
 Route::get("/account", [pagesController::class, "account"])->name("account");
+Route::get("/cart", [pagesController::class, "cart"])->name("cart");
+Route::get("/accountChange/{info}", [pagesController::class,"accountChange"])->name("accountChange");
+
+Route::name('pageHandle.')->group(function () {
+    // Route::get('/accountChange/{info}', [pagesHandleController::class, "accountChange"])->name("accountChange");
+});
+
 // Route::get("/latest-news", [pagesController::class, "latestNews"]);
 // Route::get("/dishes", [pagesController::class, "dishes"])->name("dishes");
 // Route::get("/attractions", [pagesController::class, "attractions"]);

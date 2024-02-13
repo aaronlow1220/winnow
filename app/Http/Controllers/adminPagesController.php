@@ -84,6 +84,10 @@ class adminPagesController extends Controller
         // return redirect("/permission-error");
     }
 
+    public function product(Request $request){
+        return view("admin/product");
+    }
+
     public function settings(Request $request)
     {
         // if(Helper::isAdmin()){

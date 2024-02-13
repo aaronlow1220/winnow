@@ -56,7 +56,7 @@
                     </select>
                 </div>
                 <div class="editor-in">
-                    <label for="editor-resetPassword">Email</label>
+                    <label for="editor-resetPassword">重置密碼</label>
                     <div id="editor-resetPassword" class="reset-btn">重置密碼</div>
                     @if (session()->has('reset-pass'))
                         預設密碼為：{{ session()->get('reset-pass') }}
