@@ -100,4 +100,8 @@ class adminHandleController extends Controller
             return back()->with("failed", "failed");
         }
     }
+
+    public function addProduct(Request $request){
+        return;
+    }
 }

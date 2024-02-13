@@ -87,6 +87,10 @@ class adminPagesController extends Controller
     public function product(Request $request){
         return view("admin/product");
     }
+    
+    public function addProduct(Request $request){
+        return view("admin/add-product");
+    }
 
     public function settings(Request $request)
     {
