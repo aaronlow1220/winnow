@@ -16,7 +16,7 @@
         <nav class="flex justify-center align-items-center relative">
             <label for="burger">☰</label>
             <input type="checkbox" id="burger">
-            <a id="nav_logo" href="index.html"><img src="{{ asset('assets/img/Logo.png') }}" alt="logo" /></a>
+            <a id="nav_logo" href="{{ route('home') }}"><img src="{{ asset('assets/img/Logo.png') }}" alt="logo" /></a>
             <div class="flex text-secondary">
               <a href="/latest-news"><div>最新消息</div><img src="{{ asset('assets/img/arrow.svg') }}" /></a>
               <a href="/attractions"><div>忠貞景點</div><img src="{{ asset('assets/img/arrow.svg') }}" /></a>
@@ -27,7 +27,7 @@
               <a href="/contact-us"><div>聯絡我們</div><img src="{{ asset('assets/img/arrow.svg') }}" /></a>
             </div>
             <div id="customer-interaction-icons">
-              <a href="{{ route('auth.login') }}" class="flex"><img id="icon_person" src="{{ asset('assets/img/Person.svg') }}" alt="login" /></a>
+              <a href="{{ route('account') }}" class="flex"><img id="icon_person" src="{{ asset('assets/img/Person.svg') }}" alt="login" /></a>
               <a href="cart.html" class="flex"><img id="icon_shopping_cart" src="{{ asset('assets/img/Shopping.svg') }}" alt="shoppingCart" /></a>
             </div>
             <div id="overlay"></div>

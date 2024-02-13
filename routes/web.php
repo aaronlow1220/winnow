@@ -57,6 +57,7 @@ Route::name('authHandle.')->group(function () {
 
 // General pages
 Route::get("/", [pagesController::class, "home"])->name("home");
+Route::get("/account", [pagesController::class, "account"])->name("account");
 // Route::get("/latest-news", [pagesController::class, "latestNews"]);
 // Route::get("/dishes", [pagesController::class, "dishes"])->name("dishes");
 // Route::get("/attractions", [pagesController::class, "attractions"]);
