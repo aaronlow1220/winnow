@@ -52,7 +52,7 @@
                     <label for="editor-isAdmin">管理員</label>
                     <select name="isAdmin" id="editor-isAdmin" class="editor-input">
                         <option value="1" @if ($users->is_admin == 1) selected @endif>是</option>
-                        <option value="0" @if ($users->status == 0) selected @endif>否</option>
+                        <option value="0" @if ($users->is_admin == 0) selected @endif>否</option>
                     </select>
                 </div>
                 <div class="editor-in">

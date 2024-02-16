@@ -4,7 +4,7 @@
  *
  * @category PHP
  * @author Aaron Low <aaronlow1220@gmail.com>
- * @copyright 2023 Aaron
+ * @copyright 2024 Aaron
  *
  */
 
