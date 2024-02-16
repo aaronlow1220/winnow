@@ -44,22 +44,6 @@ h4 {
     font-weight: 500;
 }
 
-h1 {
-    font-size: 78px;
-}
-
-h2 {
-    font-size: 54px;
-}
-
-h3 {
-    font-size: 40px;
-}
-
-h4 {
-    font-size: 32px;
-}
-
 :root {
     --Main: rgba(0, 0, 0, 0.88);
     --Secondary: rgba(0, 0, 0, 0.60);
@@ -257,6 +241,9 @@ body {
     writing-mode: vertical-lr;
 }
 
+header{
+    z-index: 100;
+}
 /* Flexbox Alignment */
 
 .align-items-center {
@@ -414,4 +401,69 @@ body {
 
 form {
     width: 100%;
+}
+
+
+@media (max-width: 1099.99px) {
+    h1 {
+        font-size: 44px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    .body1 {
+        font-size: 15px;
+        font-family: 'NotoSansTC-Regular';
+        line-height: 36px;
+    }
+
+    #sub-main {
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    #sub-main >div:nth-child(1){
+        display: none  ;
+    }
+
+    #login {
+        width: 100%;
+    }
+
+
+}
+
+@media (min-width: 1100px) {
+    h1 {
+        font-size: 78px;
+    }
+
+    h2 {
+        font-size: 54px;
+    }
+
+    h3 {
+        font-size: 40px;
+    }
+
+    h4 {
+        font-size: 32px;
+    }
+
+    .body1 {
+        font-size: 20px;
+        font-family: 'NotoSansTC-Regular';
+        line-height: 36px;
+    }
 }

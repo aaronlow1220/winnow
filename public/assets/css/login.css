@@ -1,46 +1,44 @@
 @font-face {
-    font-family: 'NotoSansTC-Medium';
+    font-family: "NotoSansTC-Medium";
     src: url(../font/NotoSansTC-Medium.otf);
 }
 
 @font-face {
-    font-family: 'NotoSansTC-Regular';
+    font-family: "NotoSansTC-Regular";
     src: url(../font/NotoSansTC-Regular.otf);
 }
 
 @font-face {
-    font-family: 'NotoSerifTC-Medium';
+    font-family: "NotoSerifTC-Medium";
     src: url(../font/NotoSerifTC-Medium.otf);
 }
 
 @font-face {
-    font-family: 'NotoSerifTC-Regular';
+    font-family: "NotoSerifTC-Regular";
     src: url(../font/NotoSerifTC-Regular.otf);
 }
 
 @font-face {
-    font-family: 'NotoSerifTC-Bold';
+    font-family: "NotoSerifTC-Bold";
     src: url(../font/NotoSerifTC-Bold.otf);
 }
-
-
 
 /* Reset & Box Model */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'NotoSerifTC-Regular';
+    font-family: "NotoSerifTC-Regular";
 }
 
 h1,
 h2 {
-    font-family: 'NotoSerifTC-Bold';
+    font-family: "NotoSerifTC-Bold";
 }
 
 h3,
 h4 {
-    font-family: 'NotoSerifTC-Medium';
+    font-family: "NotoSerifTC-Medium";
     font-weight: 500;
 }
 
@@ -62,8 +60,8 @@ h4 {
 
 :root {
     --Main: rgba(0, 0, 0, 0.88);
-    --Secondary: rgba(0, 0, 0, 0.60);
-    --Inactive: rgba(0, 0, 0, 0.40);
+    --Secondary: rgba(0, 0, 0, 0.6);
+    --Inactive: rgba(0, 0, 0, 0.4);
 }
 
 .text-main {
@@ -83,23 +81,23 @@ h4 {
 }
 
 .font-notosanstc-medium {
-    font-family: 'NotoSansTC-Medium';
+    font-family: "NotoSansTC-Medium";
 }
 
 .font-notosanstc-regular {
-    font-family: 'NotoSansTC-Regular';
+    font-family: "NotoSansTC-Regular";
 }
 
 .font-notoseriftc-medium {
-    font-family: 'NotoSerifTC-Medium';
+    font-family: "NotoSerifTC-Medium";
 }
 
 .font-notoseriftc-regular {
-    font-family: 'NotoSerifTC-Regular';
+    font-family: "NotoSerifTC-Regular";
 }
 
 .font-notoseriftc-bold {
-    font-family: 'NotoSerifTC-Bold';
+    font-family: "NotoSerifTC-Bold";
 }
 
 /* Typography */
@@ -138,13 +136,7 @@ body {
 
 .fs-3rem {
     font-size: 3rem;
-
 }
-
-
-
-
-
 
 .fs-5-375rem {
     font-size: 5.375rem;
@@ -153,7 +145,6 @@ body {
 .line-height-110 {
     line-height: 110%;
 }
-
 
 .font-weight-500 {
     font-weight: 500;
@@ -171,7 +162,6 @@ body {
 .flex-1-0-0 {
     flex: 1 0 0;
 }
-
 
 .flex-row {
     flex-direction: row;
@@ -287,7 +277,6 @@ body {
     max-width: 30rem;
 }
 
-
 /* Spacing */
 .text-indent-1-19em {
     text-indent: 1.19em;
@@ -315,12 +304,12 @@ body {
 }
 
 .border-top-1px {
-    border-top: 1px solid rgba(0, 0, 0, 0.40);
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
 }
 
 .border-top-bottom {
-    border-top: 0.06px solid rgba(0, 0, 0, 0.40);
-    border-bottom: 0.06px solid rgba(0, 0, 0, 0.40);
+    border-top: 0.06px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 0.06px solid rgba(0, 0, 0, 0.4);
 }
 
 .border-radius-0-125rem {
@@ -332,19 +321,27 @@ body {
 }
 
 .main-bg {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("../img/login_bg1.jpg") center/cover no-repeat, lightgray;
+    background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.6) 100%
+        ),
+        url("../img/login_bg1.jpg") center/cover no-repeat, lightgray;
 }
 
 .main-bg2 {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("../img/log.jpg") center/cover no-repeat, lightgray;
+    background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0.6) 100%
+        ),
+        url("../img/log.jpg") center/cover no-repeat, lightgray;
 }
 
 /* Forms & Inputs */
 .outline-none {
     outline: none;
 }
-
-
 
 #ad-tittle {
     position: absolute;
@@ -355,7 +352,7 @@ body {
 .ad-content {
     width: 575px;
     color: white;
-    font-family: 'NotoSerifTC-Regular';
+    font-family: "NotoSerifTC-Regular";
     font-size: 1.5rem;
 }
 
@@ -384,11 +381,11 @@ body {
 #login input {
     width: 100%;
     height: 56px;
-    border: 1px solid var(--Secondary, rgba(0, 0, 0, 0.60));
+    border: 1px solid var(--Secondary, rgba(0, 0, 0, 0.6));
 }
 
 .btn {
-    background-color: var(--Secondary, rgba(0, 0, 0, 0.60));
+    background-color: var(--Secondary, rgba(0, 0, 0, 0.6));
     transition: 0.3s ease;
     color: white;
 }

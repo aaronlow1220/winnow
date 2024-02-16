@@ -2,6 +2,11 @@
 
 @section('page-title', $cat->name)
 
+@push('category')
+    <link rel="stylesheet" href="{{ asset('assets/css/category.css') }}" />
+    <script src="{{ asset('assets/js/category.js') }}" defer></script>
+@endpush
+
 @section('main-content')
     <main>
         <div class="sub-main">
@@ -9,7 +14,8 @@
 
             <div class="tabs">
                 @foreach ($subCat as $sub)
-                <button @if($loop->iteration===1) class="tab-button active-tab" @else class="tab-button" @endif onclick="openTab(event, 'tab{{ $loop->iteration }}')">{{ $sub->name }}</button>
+                    <button @if ($loop->iteration === 1) class="tab-button active-tab" @else class="tab-button" @endif
+                        onclick="openTab(event, 'tab{{ $loop->iteration }}')">{{ $sub->name }}</button>
                 @endforeach
                 {{-- <button class="tab-button active-tab" onclick="openTab(event, 'tab1')">雲南</button>
                 <button class="tab-button" onclick="openTab(event, 'tab2')">眷村</button>
