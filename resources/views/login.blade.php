@@ -1,14 +1,12 @@
-@extends('layout/layout')
-
-
+@extends('layout/auth-layout')
 
 @section('page-title', '登入')
 
 @push('login')
-    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
 @endpush
 
-@section('main-content')
+@section('auth-main-content')
     <main class="flex justify-center h-100 main-bg2">
         <div id="sub-main" class="relative flex align-items-center h-100">
             <div class="flex justify-center w-100">
@@ -27,18 +25,20 @@
             <div id="login" class="flex right-0 flex flex-column justify-center bg-white h-100">
                 <div class="flex flex-column align-items-center gap-3rem fs-1-25rem">
                     <h3>歡迎回來</h3>
-                    <form action="/formprocess.php" method="post" class="flex flex-column gap-3rem">
+                    <!-- formprocess.php -->
+                    <form action="{{ route('authHandle.loginUser') }}" method="post" class="flex flex-column gap-3rem">
+                        @csrf
                         <div class="flex flex-column gap-1-5rem">
-                            <input type="text" name="loginEmail" placeholder="電子郵件"
+                            <input type="email" name="loginEmail" placeholder="電子郵件"
                                 class="input-width-height fs-1-25rem text-indent-1-19em  border-radius-0-125rem text-inactive">
-                            <input type="text" name="loginPassword" placeholder="密碼"
+                            <input type="password" name="loginPassword" placeholder="密碼"
                                 class="input-width-height fs-1-25rem text-indent-1-19em  border-radius-0-125rem text-inactive">
                         </div>
-                        <p><input type="submit" value="登入"
-                                class="btn input-width-height fs-1-25rem  border-radius-0-125rem text-secondary">
-                        </p>
+                        <input type="submit" value="登入"
+                            class="btn input-width-height fs-1-25rem  border-radius-0-125rem text-secondary">
+
                     </form>
-                    <p class="text-inactive">沒有帳號? <a href="register.html"
+                    <p class="text-inactive">沒有帳號? <a href="{{ route('auth.register') }}"
                             class="text-secondary text-decoration-none font-notoseriftc-medium hover-decoration">註冊</a>
                     </p>
                 </div>

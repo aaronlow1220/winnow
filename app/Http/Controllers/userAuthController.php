@@ -35,8 +35,8 @@ class userAuthController extends Controller
     public function loginUser(Request $request){
 
         $credentials = $request->validate([
-            'loginEmail' => "required|email",
-            'loginPassword' => "required",
+            "loginEmail" => "required|email",
+            "loginPassword" => "required",
         ]);
 
         $data = [
@@ -46,12 +46,12 @@ class userAuthController extends Controller
 
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended("/");
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+            "email" => "The provided credentials do not match our records.",
+        ])->onlyInput("email");
     }
 
     public function logout(Request $request){

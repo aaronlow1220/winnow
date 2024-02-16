@@ -1,67 +1,159 @@
-footer {
-    align-self: stretch;
-    /*padding: 32px 128px;*/
-    flex-direction: column;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.04);
+@media (max-width: 1099.99px) {
+    footer {
+        padding: 64px 128px;
+        display: flex;
+        background: rgba(0, 0, 0, 0.04);
+        justify-content: center;
+    }
+
+    footer>div{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 48px;
+    }
+
+    #contact-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    #logo-section {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+    }
+
+    #logo-section>div {
+        display: flex;
+        align-items: center;
+        height: 32px;
+    }
+
+    #logo-section>img {
+        padding: 0px;
+        height: 32px;
+    }
+
+    #contact-info {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        gap: 12px;
+    }
+
+    #contact-info>div {
+        display: flex;
+        min-width: max-content;
+        gap: 12px;
+    }
+
+
+    .social-media-icons {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .social-media-icons>img {
+        height: 32px;
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .footer-text {
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.60);
+        font-size: var(--body1);
+        font-family: 'NotoSerifTC-Medium';
+        font-weight: 500;
+        word-wrap: break-word;
+        min-width: max-content;
+    }
 }
 
-.contact-section {
-    padding: 4rem 0rem 2.5rem 0rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 4rem;
-}
+@media (min-width: 1100px) {
+    footer {
+        padding: 64px 128px;
+        display: flex;
+        background: rgba(0, 0, 0, 0.04);
+        justify-content: center;
+    }
 
-.contact-info-r {
-    text-align: right;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.25rem;
-    font-family: Noto Serif TC;
-    font-weight: 500;
-    word-wrap: break-word;
-}
+    footer>div {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        align-content: flex-end;
+        gap: 42px;
+        max-width: 1700px;
+    }
 
-.contact-info-l {
-    text-align: left;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.25rem;
-    font-family: Noto Serif TC;
-    font-weight: 500;
-    word-wrap: break-word;
-}
+    #contact-section {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 36px;
+    }
 
-.social-media-icons {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
-}
+    #logo-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4rem;
+        align-items: center;
+    }
 
-.footer-text {
-    width: 85%;
-    border-top: 1px rgba(0, 0, 0, 0.4) solid;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.25rem;
-    font-family: Noto Serif TC;
-    font-weight: 500;
-    word-wrap: break-word;
-    padding: 2rem 0rem;
-}
+    #logo-section>div {
+        display: flex;
+        align-items: center;
+        height: 68px;
+    }
 
-.flex-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 1.2em;
-}
+    #logo-section>img {
+        padding: 16px 0px;
+    }
 
-.row-column {
-    display: flex;
-    flex-direction: row;
+    #contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 48px;
+    }
+
+    #contact-info>div {
+        display: flex;
+        min-width: max-content;
+        gap: 12px;
+    }
+
+
+    .social-media-icons {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .footer-text {
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.60);
+        font-size: var(--body1);
+        font-family: 'NotoSerifTC-Medium';
+        font-weight: 500;
+        word-wrap: break-word;
+        min-width: max-content;
+    }
 }

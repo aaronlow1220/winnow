@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\wn_category;
 use App\Models\wn_post;
 use App\Models\wn_sub_category;
+use App\Models\wn_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Helpers\Helper;
@@ -39,24 +40,67 @@ class pagesController extends Controller
         return view("login");
     }
 
-    public function latestNews(Request $request)
+    public function account(Request $request)
     {
-        return view("latestNews");
+        if (!Auth::check()) {
+            return redirect()->route("auth.login");
+        }
+
+        return view("account", ["users" => Auth::user()]);
     }
 
-    public function dishes(Request $request)
+    public function accountChange(string $info)
     {
-        return view("dishes");
+        if (!Auth::check()) {
+            return redirect()->route("auth.login");
+        }
+        $type = "";
+        $mod = "";
+        $userData = "";
+
+        switch ($info) {
+            case "name":
+                $type = "text";
+                $mod = "名稱";
+                $userData = Auth::user()->username;
+                break;
+            case "contact-address":
+                $type = "text";
+                $mod = "聯絡地址";
+                $userData = Auth::user()->contact_address;
+                break;
+            case "delivery-address":
+                $type = "text";
+                $mod = "郵寄地址";
+                $userData = Auth::user()->delivery_address;
+
+                break;
+            case "phone":
+                $type = "text";
+                $mod = "手機";
+                $userData = Auth::user()->phone;
+                break;
+            case "telephone":
+                $type = "text";
+                $mod = "電話";
+                $userData = Auth::user()->telephone;
+
+                break;
+            case "email":
+                $type = "email";
+                $mod = "電子郵箱地址";
+                $userData = Auth::user()->email;
+                break;
+            default:
+                break;
+        }
+
+        return view("account-change", ["type" => $type, "mod" => $mod, "user" => $userData]);
     }
 
-    public function attractions(Request $request)
+    public function cart(Request $request)
     {
-        return view("attractions");
-    }
-
-    public function dream(Request $request)
-    {
-        return view("dream");
+        return view("cart");
     }
 
     public function foodShop(Request $request)
@@ -69,12 +113,13 @@ class pagesController extends Controller
         return view("aboutUs");
     }
 
-    public function category(string $category){
+    public function category(string $category)
+    {
         $cat = wn_category::where("alias", $category)->first();
         $subCat = wn_sub_category::all()->where("category_uid", $cat->uuid);
         return view("category", [
-            "cat"=> $cat,
-            "subCat"=>$subCat,
+            "cat" => $cat,
+            "subCat" => $subCat,
         ]);
     }
 
@@ -100,14 +145,14 @@ class pagesController extends Controller
     {
         $table = "wn_categories";
         $validate = $request->validate([
-            "categoryName" => "required|unique:".$table.",name",
-            "alias"=>"required|unique:".$table.",alias"
+            "categoryName" => "required|unique:" . $table . ",name",
+            "alias" => "required|unique:" . $table . ",alias"
         ]);
 
         $data = [
-            "uuid"=>Helper::prefixedUuid("category_"),
-            "name"=>$request->categoryName,
-            "alias"=>$request->alias
+            "uuid" => Helper::prefixedUuid("category_"),
+            "name" => $request->categoryName,
+            "alias" => $request->alias
         ];
         wn_category::create($data);
         return redirect("testCategory");
@@ -116,23 +161,23 @@ class pagesController extends Controller
     public function testSubCategory(Request $request)
     {
         $category = wn_category::all()->where("status", "ACTIVE");
-        return view("test/testSubCategory", ["categories"=>$category]);
+        return view("test/testSubCategory", ["categories" => $category]);
     }
 
     public function testSubCategoryHandle(Request $request)
     {
         $table = "wn_sub_categories";
         $validate = $request->validate([
-            "categoryUid"=>"required",
-            "subCategoryName" => "required|unique:".$table.",name",
-            "alias"=>"required|unique:".$table.",alias"
+            "categoryUid" => "required",
+            "subCategoryName" => "required|unique:" . $table . ",name",
+            "alias" => "required|unique:" . $table . ",alias"
         ]);
 
         $data = [
-            "uuid"=>Helper::prefixedUuid("subCategory_"),
-            "category_uid"=>$request->categoryUid,
-            "name"=>$request->subCategoryName,
-            "alias"=>$request->alias
+            "uuid" => Helper::prefixedUuid("subCategory_"),
+            "category_uid" => $request->categoryUid,
+            "name" => $request->subCategoryName,
+            "alias" => $request->alias
         ];
         wn_sub_category::create($data);
         return redirect("testSubCategory");

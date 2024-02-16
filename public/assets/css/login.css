@@ -1,25 +1,25 @@
 @font-face {
-    font-family: "NotoSansTC-Medium";
+    font-family: 'NotoSansTC-Medium';
     src: url(../font/NotoSansTC-Medium.otf);
 }
 
 @font-face {
-    font-family: "NotoSansTC-Regular";
+    font-family: 'NotoSansTC-Regular';
     src: url(../font/NotoSansTC-Regular.otf);
 }
 
 @font-face {
-    font-family: "NotoSerifTC-Medium";
+    font-family: 'NotoSerifTC-Medium';
     src: url(../font/NotoSerifTC-Medium.otf);
 }
 
 @font-face {
-    font-family: "NotoSerifTC-Regular";
+    font-family: 'NotoSerifTC-Regular';
     src: url(../font/NotoSerifTC-Regular.otf);
 }
 
 @font-face {
-    font-family: "NotoSerifTC-Bold";
+    font-family: 'NotoSerifTC-Bold';
     src: url(../font/NotoSerifTC-Bold.otf);
 }
 
@@ -28,40 +28,24 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "NotoSerifTC-Regular";
+    font-family: 'NotoSerifTC-Regular';
 }
 
 h1,
 h2 {
-    font-family: "NotoSerifTC-Bold";
+    font-family: 'NotoSerifTC-Bold';
 }
 
 h3,
 h4 {
-    font-family: "NotoSerifTC-Medium";
+    font-family: 'NotoSerifTC-Medium';
     font-weight: 500;
-}
-
-h1 {
-    font-size: 78px;
-}
-
-h2 {
-    font-size: 54px;
-}
-
-h3 {
-    font-size: 40px;
-}
-
-h4 {
-    font-size: 32px;
 }
 
 :root {
     --Main: rgba(0, 0, 0, 0.88);
-    --Secondary: rgba(0, 0, 0, 0.6);
-    --Inactive: rgba(0, 0, 0, 0.4);
+    --Secondary: rgba(0, 0, 0, 0.60);
+    --Inactive: rgba(0, 0, 0, 0.40);
 }
 
 .text-main {
@@ -81,23 +65,23 @@ h4 {
 }
 
 .font-notosanstc-medium {
-    font-family: "NotoSansTC-Medium";
+    font-family: 'NotoSansTC-Medium';
 }
 
 .font-notosanstc-regular {
-    font-family: "NotoSansTC-Regular";
+    font-family: 'NotoSansTC-Regular';
 }
 
 .font-notoseriftc-medium {
-    font-family: "NotoSerifTC-Medium";
+    font-family: 'NotoSerifTC-Medium';
 }
 
 .font-notoseriftc-regular {
-    font-family: "NotoSerifTC-Regular";
+    font-family: 'NotoSerifTC-Regular';
 }
 
 .font-notoseriftc-bold {
-    font-family: "NotoSerifTC-Bold";
+    font-family: 'NotoSerifTC-Bold';
 }
 
 /* Typography */
@@ -136,7 +120,13 @@ body {
 
 .fs-3rem {
     font-size: 3rem;
+
 }
+
+
+
+
+
 
 .fs-5-375rem {
     font-size: 5.375rem;
@@ -145,6 +135,7 @@ body {
 .line-height-110 {
     line-height: 110%;
 }
+
 
 .font-weight-500 {
     font-weight: 500;
@@ -162,6 +153,7 @@ body {
 .flex-1-0-0 {
     flex: 1 0 0;
 }
+
 
 .flex-row {
     flex-direction: row;
@@ -235,6 +227,9 @@ body {
     writing-mode: vertical-lr;
 }
 
+header{
+    z-index: 100;
+}
 /* Flexbox Alignment */
 
 .align-items-center {
@@ -277,6 +272,7 @@ body {
     max-width: 30rem;
 }
 
+
 /* Spacing */
 .text-indent-1-19em {
     text-indent: 1.19em;
@@ -304,12 +300,12 @@ body {
 }
 
 .border-top-1px {
-    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(0, 0, 0, 0.40);
 }
 
 .border-top-bottom {
-    border-top: 0.06px solid rgba(0, 0, 0, 0.4);
-    border-bottom: 0.06px solid rgba(0, 0, 0, 0.4);
+    border-top: 0.06px solid rgba(0, 0, 0, 0.40);
+    border-bottom: 0.06px solid rgba(0, 0, 0, 0.40);
 }
 
 .border-radius-0-125rem {
@@ -321,27 +317,19 @@ body {
 }
 
 .main-bg {
-    background: linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.6) 0%,
-            rgba(0, 0, 0, 0.6) 100%
-        ),
-        url("../img/login_bg1.jpg") center/cover no-repeat, lightgray;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("../img/login_bg1.jpg") center/cover no-repeat, lightgray;
 }
 
 .main-bg2 {
-    background: linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.6) 0%,
-            rgba(0, 0, 0, 0.6) 100%
-        ),
-        url("../img/log.jpg") center/cover no-repeat, lightgray;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("../img/log.jpg") center/cover no-repeat, lightgray;
 }
 
 /* Forms & Inputs */
 .outline-none {
     outline: none;
 }
+
+
 
 #ad-tittle {
     position: absolute;
@@ -352,7 +340,7 @@ body {
 .ad-content {
     width: 575px;
     color: white;
-    font-family: "NotoSerifTC-Regular";
+    font-family: 'NotoSerifTC-Regular';
     font-size: 1.5rem;
 }
 
@@ -381,11 +369,11 @@ body {
 #login input {
     width: 100%;
     height: 56px;
-    border: 1px solid var(--Secondary, rgba(0, 0, 0, 0.6));
+    border: 1px solid var(--Secondary, rgba(0, 0, 0, 0.60));
 }
 
 .btn {
-    background-color: var(--Secondary, rgba(0, 0, 0, 0.6));
+    background-color: var(--Secondary, rgba(0, 0, 0, 0.60));
     transition: 0.3s ease;
     color: white;
 }
@@ -400,4 +388,68 @@ body {
 
 form {
     width: 100%;
+}
+
+@media (max-width: 1099.99px) {
+    h1 {
+        font-size: 44px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    .body1 {
+        font-size: 15px;
+        font-family: 'NotoSansTC-Regular';
+        line-height: 36px;
+    }
+
+    #sub-main {
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    #sub-main >div:nth-child(1){
+        display: none  ;
+    }
+
+    #login {
+        width: 100%;
+    }
+
+
+}
+
+@media (min-width: 1100px) {
+    h1 {
+        font-size: 78px;
+    }
+
+    h2 {
+        font-size: 54px;
+    }
+
+    h3 {
+        font-size: 40px;
+    }
+
+    h4 {
+        font-size: 32px;
+    }
+
+    .body1 {
+        font-size: 20px;
+        font-family: 'NotoSansTC-Regular';
+        line-height: 36px;
+    }
 }

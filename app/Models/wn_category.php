@@ -13,5 +13,5 @@ class wn_category extends Model
 
     protected $fillable= ["uuid", "name", "alias", "status"];
 
-    protected $updated_at = "modified_at";
+    const UPDATED_AT = "modified_at";
 }
