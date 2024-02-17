@@ -778,8 +778,33 @@ fieldset {
     padding: 0.5rem 1.5rem;
 }
 
-.img_preview-container img{
-    object-fit: cover;
+.img-preview-container{
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    gap: 0.5rem;
+}
+
+.img-preview-container::-webkit-scrollbar{
+    height: 0.5rem;
+    
+}
+
+.img-preview-container::-webkit-scrollbar-track{
+    background: #f1f1f1;
+}
+
+.img-preview-container::-webkit-scrollbar-thumb{
+    background: #888;
+    border-radius: 100rem;
+}
+
+.img-preview-container::-webkit-scrollbar-thumb:hover{
+    background: #555;
+}
+
+.img-preview-container img{
+    height: 25vh;
 }
 
 @media screen and (max-width: 768px) {
@@ -792,4 +817,22 @@ fieldset {
     nav .divider {
         display: none;
     }
+}
+
+::-webkit-scrollbar{
+    width: 0.5rem;
+    
+}
+
+::-webkit-scrollbar-track{
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #888;
+    border-radius: 100rem;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #555;
 }

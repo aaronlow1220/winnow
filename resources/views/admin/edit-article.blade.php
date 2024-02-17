@@ -1,5 +1,9 @@
 @extends('admin/layout/dashboard-layout')
 
+@section('dashboard-title')
+    修改商品
+@endsection
+
 @section('dashboard-content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset('assets/vendor/ckeditor5/ckeditor.js') }}"></script>

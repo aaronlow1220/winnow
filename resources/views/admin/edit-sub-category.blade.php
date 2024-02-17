@@ -1,5 +1,9 @@
 @extends('admin/layout/dashboard-layout')
 
+@section('dashboard-title')
+    修改子類別
+@endsection
+
 @section('dashboard-content')
     <form class="func" action="{{ route('handle.editSubCategory') }}" method="POST">
         @csrf

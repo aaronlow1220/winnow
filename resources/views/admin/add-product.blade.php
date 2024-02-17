@@ -29,32 +29,35 @@
             <div class="editor-right">
                 <div class="editor-in">
                     <label for="editor-name">封面</label>
-                    <input type="file" name="product_cover" id="editor-name" class="editor-input" value="">
+                    <input type="file" name="product_cover" id="editor-cover-img" class="editor-input" value="">
+                    <div class="img-preview-container" id="img-preview-container-cover">
+                    </div>
 
                 </div>
                 <div class="editor-in">
                     <label for="editor-name">其他照片</label>
-                    <input type="file" name="product_images[]" id="editor-name" class="editor-input" value=""
+                    <input type="file" name="product_images[]" id="editor-other-imgs" class="editor-input" value=""
                         multiple="multiple">
-                        <img class="img-preview" src="{{ asset('assets/img/admin/test_img.jpg') }}" alt="">
-
-
+                    <div class="img-preview-container" id="img-preview-container-other">
+                    </div>
                 </div>
                 <div class="editor-in">
                     <label for="editor-name">名稱</label>
                     <input type="text" name="product_name" id="editor-name" class="editor-input" value="">
                 </div>
                 <div class="editor-in">
-                    <label for="editor-name">商品簡介</label>
-                    <textarea type="text" name="product_description" id="editor-name" class="editor-input" value="" rows="8"></textarea>
+                    <label for="editor-description">商品簡介</label>
+                    <textarea type="text" name="product_description" id="editor-description" class="editor-input" value=""
+                        rows="8"></textarea>
                 </div>
                 <div class="editor-in">
-                    <label for="editor-alias">價格（NT$）</label>
-                    <input type="text" name="product_price" id="editor-alias" class="editor-input" value="">
+                    <label for="editor-price">價格（NT$）</label>
+                    <input type="text" name="product_price" id="editor-price" class="editor-input" value="">
                 </div>
                 <div class="editor-in">
-                    <label for="editor-alias">優惠價（NT$）</label>
-                    <input type="text" name="product_promotion" id="editor-alias" class="editor-input" value="">
+                    <label for="editor-promo-price">優惠價（NT$）</label>
+                    <input type="text" name="product_promo_price" id="editor-promo-price" class="editor-input"
+                        value="">
                 </div>
             </div>
             <div class="editor-right">
@@ -89,4 +92,78 @@
             </div>
         </div>
     </form>
+
+    <script>
+        function removeAllChildNodes(parent) {
+            while (parent.firstChild) {
+                parent.removeChild(parent.firstChild);
+            }
+        }
+
+        function previewOtherFiles() {
+            const preview = document.querySelector("#img-preview-container-other");
+            const files = document.querySelector("#editor-other-imgs").files;
+
+            function readAndPreviewImg(file) {
+                // Make sure `file.name` matches our extensions criteria
+                if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+                    const reader = new FileReader();
+                    removeAllChildNodes(preview);
+                    reader.addEventListener(
+                        "load",
+                        () => {
+                            const image = new Image();
+                            image.title = file.name;
+                            image.src = reader.result;
+                            preview.appendChild(image);
+                        },
+                        false,
+                    );
+
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            if (files) {
+                Array.prototype.forEach.call(files, readAndPreviewImg);
+            }
+        }
+
+        const otherUpload = document.querySelector("#editor-other-imgs");
+        otherUpload.addEventListener("change", previewOtherFiles);
+
+        // ----
+
+        function previewCoverFile() {
+            const preview = document.querySelector("#img-preview-container-cover");
+            const files = document.querySelector("#editor-cover-img").files;
+
+            function readAndPreviewImg(file) {
+                // Make sure `file.name` matches our extensions criteria
+                if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+                    const reader = new FileReader();
+                    removeAllChildNodes(preview);
+                    reader.addEventListener(
+                        "load",
+                        () => {
+                            const image = new Image();
+                            image.title = file.name;
+                            image.src = reader.result;
+                            preview.appendChild(image);
+                        },
+                        false,
+                    );
+
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            if (files) {
+                Array.prototype.forEach.call(files, readAndPreviewImg);
+            }
+        }
+
+        const coverUpload = document.querySelector("#editor-cover-img");
+        coverUpload.addEventListener("change", previewCoverFile);
+    </script>
 @endsection
