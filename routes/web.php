@@ -19,25 +19,28 @@ Route::post("/testSubCategoryHandle", [pagesController::class,"testSubCategoryHa
 // Admin backend pages
 Route::name("admin.")->group(function(){
     Route::get("/admin/dashboard", [adminPagesController::class, "dashboard"])->name("dashboard");
-    Route::get("/admin/dashboard/article", [adminPagesController::class, "article_list"])->name("article");
-    Route::get("/admin/dashboard/create-article", [adminPagesController::class, "create_article"])->name("create_article");
-    Route::get("/admin/dashboard/category", [adminPagesController::class, "category"])->name("category");
-    Route::get("/admin/dashboard/product", [adminPagesController::class, "product"])->name("product");
-    Route::get("/admin/dashboard/add-product", [adminPagesController::class, "addProduct"])->name("addProduct");
-    Route::get("/admin/dashboard/edit-category/{id}", [adminPagesController::class, "editCategory"])->name("editCategory");
-    Route::get("/admin/dashboard/sub-category", [adminPagesController::class, "subCategory"])->name("subCategory");
-    Route::get("/admin/dashboard/edit-sub-category/{id}", [adminPagesController::class, "editSubCategory"])->name("editSubCategory");
-    Route::get("/admin/dashboard/user", [adminPagesController::class, "user"])->name("user");
-    Route::get("/admin/dashboard/moderator", [adminPagesController::class, "moderator"])->name("moderator");
-    Route::get("/admin/dashboard/edit-user/{id}", [adminPagesController::class, "editUser"])->name("editUser");
-    Route::get("/admin/dashboard/settings", [adminPagesController::class, "settings"])->name("settings");
+    Route::get("/admin/article", [adminPagesController::class, "article_list"])->name("article");
+    Route::get("/admin/create-article", [adminPagesController::class, "create_article"])->name("create_article");
+    Route::get("/admin/category", [adminPagesController::class, "category"])->name("category");
+    Route::get("/admin/product", [adminPagesController::class, "product"])->name("product");
+    Route::get("/admin/add-product", [adminPagesController::class, "addProduct"])->name("addProduct");
+    Route::get("/admin/edit-article/{id}", [adminPagesController::class, "editPost"])->name("editPost");
+    Route::get("/admin/edit-category/{id}", [adminPagesController::class, "editCategory"])->name("editCategory");
+    Route::get("/admin/sub-category", [adminPagesController::class, "subCategory"])->name("subCategory");
+    Route::get("/admin/edit-sub-category/{id}", [adminPagesController::class, "editSubCategory"])->name("editSubCategory");
+    Route::get("/admin/user", [adminPagesController::class, "user"])->name("user");
+    Route::get("/admin/moderator", [adminPagesController::class, "moderator"])->name("moderator");
+    Route::get("/admin/edit-user/{id}", [adminPagesController::class, "editUser"])->name("editUser");
+    Route::get("/admin/settings", [adminPagesController::class, "settings"])->name("settings");
 });
 
 // Admin handle
 Route::post("/admin/post/imageUpload",[adminImageController::class,"store"])->name("ck.upload");
 Route::name("handle.")->group(function(){
+    
     Route::post("/admin/post/get-sub-category-handle",[adminHandleController::class,"getSubCategory"])->name("getSubCategory");
     Route::post("/admin/post/edit-category-handle",[adminHandleController::class,"editCategory"])->name("editCategory");
+    Route::post("/admin/post/edit-article-handle",[adminHandleController::class,"editPost"])->name("editPost");
     Route::post("/admin/post/edit-sub-category-handle",[adminHandleController::class,"editSubCategory"])->name("editSubCategory");
     Route::post("/admin/post/edit-user-handle",[adminHandleController::class,"editUser"])->name("editUser");
     Route::get("/admin/post/reset-password-handle/{id}",[adminHandleController::class,"resetPassword"])->name("resetPassword");
@@ -62,6 +65,7 @@ Route::name('authHandle.')->group(function () {
 // General pages
 Route::get("/", [pagesController::class, "home"])->name("home");
 Route::get("/account", [pagesController::class, "account"])->name("account");
+Route::get("/shop", [pagesController::class, "shop"])->name("shop");
 Route::get("/cart", [pagesController::class, "cart"])->name("cart");
 Route::get("/accountChange/{info}", [pagesController::class,"accountChange"])->name("accountChange");
 

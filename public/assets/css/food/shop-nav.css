@@ -1,0 +1,268 @@
+body{
+    overflow-x: hidden;
+}
+
+
+.customer-interaction-icons {
+    display: flex;
+    padding: 1rem 3.375rem;
+    margin: 0;
+    gap: 1.75rem;
+}
+
+.all{
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.customer-interaction-icons img {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+.hide-textbox{
+}
+.pingtu{
+    display: flex;
+
+}
+.pingtu img{
+    width: clamp(33.75rem, 11.4063rem + 32.5vw, 50rem);
+}
+
+.textarea{
+    display: flex;
+    min-width: max-content;
+    align-items: center;
+}
+.toparea{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 48px;
+}
+
+.Shopping-content{
+    padding-top: 100px;
+}
+
+.column-content{
+    display: flex;
+    flex-direction: column;
+}
+.row-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 50px;
+    gap: 110px;
+    
+}
+.food-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    gap: 20px;
+}
+.row-content img{
+    padding-right: 20px;
+}
+.first-food img, .second-food img, .third-food img{
+    width: 100%;
+}
+
+.Shopping-mail {
+    padding-top: 200px;
+    padding: 0 max(10vw, 20px);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 400px));
+    justify-content: center;
+    gap: min(64px, 4vw);
+    row-gap: 6rem;
+    margin-bottom: 64px;
+    /* max-width: 1800px; 设置最大宽度，以防止一行中的项过多 */
+}
+
+.grid-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    /* max-width: 600px; 设置最大宽度，以防止每列中的项过多 */
+}
+
+.content{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    aspect-ratio: 4/3;
+    background-image: url("/img/foodcontent-1.png");
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    max-width: min(400px, 80vw);
+}
+
+.cash{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.shop-name{
+    margin-bottom: 0;
+}
+.lower-cash{
+    color: red;
+}
+.shop-del{
+    text-decoration: line-through;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+.Shopping-mail button a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 20px;
+  }
+  .hide-textbox{
+    display: none;
+  }
+
+  .PH-shoppigimg{
+    width: 92%;
+    display: flex;
+    justify-content: center;
+  }
+  .PH-img{
+    width: 100%;
+  }
+  .PH-shoppingtextbox{
+    width: 92%;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+  }
+  .PH-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  .PH-contenttext{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .PH-shoppingscrollbar{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  hr{
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .PH{
+    display: none;
+  }
+  .PH-shopping-content{
+    justify-content: center;
+  }
+
+  header{
+    top:0px;
+  }
+
+  
+  .handle{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  @media(min-width: 1100px) {
+    .hide-textbox{
+        display: none;
+    }
+    .PH{display: none;}
+  }
+  .PC{
+    display: grid;
+  }
+  @media(max-width: 1099px) {
+    .PH{
+        display: flex;
+    }
+    .PC{
+        display: none;
+    }
+    body{
+        gap: 64px;
+    }
+    .hide-textbox{
+        display: block;
+        width: 92%;
+    }
+    .food-content{
+        width: 92%;
+    }
+    
+    .Shopping-mail{
+      grid-template-columns: repeat(auto-fit, minmax(200px, 270px));
+      padding: 0 max(5vw, 20px);
+      row-gap: 3rem
+    }
+    .all{
+      gap: 100px;
+    }
+  }
+  @media(max-width: 800px) {
+    
+    .pingtu img{
+      width: 100%;
+    }
+    .Shopping-mail{
+      grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+      row-gap: 2rem
+    }
+    .toparea{
+      flex-wrap: wrap;
+    }
+    .pingtu{
+      width: 80%;
+    }
+    .all{
+      gap: 50px;
+    }
+    .handle{
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .toparea{
+      gap: 0;
+    }
+  }
+  

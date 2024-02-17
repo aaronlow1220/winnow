@@ -29,19 +29,54 @@
             <div class="editor-right">
                 <div class="editor-in">
                     <label for="editor-name">封面</label>
-                    <input type="text" name="categoryName" id="editor-name" class="editor-input" value="">
+                    <input type="file" name="product_cover" id="editor-name" class="editor-input" value="">
+
                 </div>
                 <div class="editor-in">
                     <label for="editor-name">其他照片</label>
-                    <input type="text" name="categoryName" id="editor-name" class="editor-input" value="">
+                    <input type="file" name="product_images[]" id="editor-name" class="editor-input" value=""
+                        multiple="multiple">
+                        <img class="img-preview" src="{{ asset('assets/img/admin/test_img.jpg') }}" alt="">
+
+
                 </div>
                 <div class="editor-in">
                     <label for="editor-name">名稱</label>
-                    <input type="text" name="categoryName" id="editor-name" class="editor-input" value="">
+                    <input type="text" name="product_name" id="editor-name" class="editor-input" value="">
                 </div>
                 <div class="editor-in">
-                    <label for="editor-alias">網址</label>
-                    <input type="text" name="alias" id="editor-alias" class="editor-input" value="">
+                    <label for="editor-name">商品簡介</label>
+                    <textarea type="text" name="product_description" id="editor-name" class="editor-input" value="" rows="8"></textarea>
+                </div>
+                <div class="editor-in">
+                    <label for="editor-alias">價格（NT$）</label>
+                    <input type="text" name="product_price" id="editor-alias" class="editor-input" value="">
+                </div>
+                <div class="editor-in">
+                    <label for="editor-alias">優惠價（NT$）</label>
+                    <input type="text" name="product_promotion" id="editor-alias" class="editor-input" value="">
+                </div>
+            </div>
+            <div class="editor-right">
+                <div class="editor-in">
+                    <fieldset>
+                        <legend>允許配送方式</legend>
+                        <div>
+                            <input type="checkbox" name="delivery-1" id="delivery-1">
+                            <label for="delivery-1">冷藏</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="delivery-2" id="delivery-2">
+                            <label for="delivery-2">常溫</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="editor-in">
+                    <label for="editor-halal">是否清真</label>
+                    <select name="is_halal" id="editor-halal" class="editor-input">
+                        <option value="1">是</option>
+                        <option value="0" selected>否</option>
+                    </select>
                 </div>
                 <div class="editor-in">
                     <label for="editor-status">狀態</label>

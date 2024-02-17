@@ -1,0 +1,247 @@
+.container {
+    max-width: 1500px;
+    width: 95%;
+    margin: 0 auto;
+  }
+  .food{
+    padding: 72px clamp(4rem, -0.5333rem + 7.1111vw, 8rem);
+    background-color: #F7F7F7;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  
+  .slider-wrapper {
+    position: relative;
+  }
+
+  
+  .slider-wrapper .slide-button {
+    position: absolute;
+    top: 50%;
+    outline: none;
+    height: 50px;
+    width: 50px;
+    z-index: 5;
+    color: #fff;
+    display: flex;
+    cursor: pointer;
+    font-size: 2.2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+  #prev-slide {
+    left: -73px; /* 适当调整左边按钮的 left 值 */
+    width: 64px;
+    height: 64px;
+    border: rgba(0, 0, 0, 0.88) solid 2px;
+    border-radius: 100%;
+    transition: ease-out 300ms;
+    opacity: 0.2;
+  }
+
+  #prev-slide:hover, #next-slide:hover{
+    background-color: rgba(0, 0, 0, 0.88);
+    transition: ease-out 300ms;
+  }
+
+  #prev-slide:hover img, #next-slide:hover img{
+    filter: invert(1) brightness(100%);
+    transition: ease-out 300ms;
+  }
+
+  #prev-slide2:active, #next-slide2:active{
+    background-color: rgba(0, 0, 0, 0.88);
+    transition: ease-out 300ms;
+  }
+
+  #prev-slide2:active img, #next-slide2:active img{
+    filter: invert(1) brightness(100%);
+    transition: ease-out 300ms;
+  }
+
+  #prev-slide2 {
+    width: 36px;
+    height: 36px;
+    border: rgba(0, 0, 0, 0.88) solid 1px;
+    border-radius: 100%;
+    transition: ease-out 300ms;
+    opacity: 0.2;
+  }
+  .foodT{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+  .foodC{
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+  }
+
+  #next-slide {
+    right: -73px; /* 适当调整右边按钮的 right 值 */
+    width: 64px;
+    height: 64px;
+    border: rgba(0, 0, 0, 0.88) solid 2px;
+    border-radius: 100%;
+    transition: ease-out 300ms;
+  }
+
+  #next-slide2 {
+    width: 36px;
+    height: 36px;
+    border: rgba(0, 0, 0, 0.88) solid 1px;
+    border-radius: 100%;
+    transition: ease-out 300ms;
+  }
+
+  .slider-wrapper .image-list {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    font-size: 0;
+    list-style: none;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    gap: 32px;
+  }
+
+  hr{
+    border: 1px solid hsl(0 0% 80% / 1);
+    width: 100%;
+    margin: 24px 0;
+  }
+  
+  .slider-wrapper .image-list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .text-area2{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+  max-width: 800px;
+  gap: 64px;
+  }
+
+  .slider-wrapper .image-list .image-item {
+    width: 325px;
+    height: 217px;
+  }
+
+  #displayedImage{
+    width: 100%;
+    max-width: 800px;
+    height: 528px;
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
+    object-fit: contain;
+  }
+
+  .food-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 60px;
+  }
+
+  .imageText{
+    font-size: 32px;
+    width: 864px;
+    
+  }
+
+  .showimage{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    max-width: 800px;
+  }
+
+  #imageText{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ph-foodbtn{
+    display: none;
+  }
+
+  @media only screen and (max-width: 1023px) {
+    .PC{
+      display: none;
+  }
+    .slider-wrapper .slide-button {
+      display: none !important;
+    }
+  
+    .slider-wrapper .image-list {
+      gap: 10px;
+      margin-bottom: 15px;
+      scroll-snap-type: x mandatory;
+    }
+  
+    .slider-wrapper .image-list .image-item {
+      width: 240px;
+      height: 160px;
+    }
+  }
+
+  @media(min-width:1020px){
+    .PH{
+        display: none;
+    }
+    .ph-size{
+        display: none;
+    }
+    .PC{
+        display: flex;
+    }
+}
+  
+  @media(max-width: 1019px) {
+    .s{
+      margin-top: 1rem;
+    }
+    .PC{
+      display: none;
+  }
+  .PH{
+      display: flex;
+  }
+    .food-content{
+      align-items: center;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .food{
+      padding: 0 16px;
+    }
+    .showimage{
+      width: 100%;
+    }
+    .text-area2{
+      align-items: center;
+      width: 100%;
+    }
+    #displayedImage{
+      filter: none;
+      height: auto;
+    }
+    .foodbtn{
+      display: none;
+    }
+    .ph-foodbtn{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+    }
+
+  }

@@ -1,0 +1,15 @@
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.cart-name ,.cart-num, .cart-sell{
+    display: flex;
+    align-items: center;
+}
+
+.cart-img{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

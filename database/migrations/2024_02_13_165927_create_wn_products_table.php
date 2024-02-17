@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string("name")->nullable();
             $table->string("description")->nullable();
             $table->string("price")->nullable();
+            $table->string("discount_price")->nullable();
             $table->string("vendor")->nullable();
             $table->string("cover_image")->nullable();
             $table->string("images")->nullable();

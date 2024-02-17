@@ -31,13 +31,13 @@
                 <a href="/dreams">
                     <div>夢想忠貞</div><img src="{{ asset('assets/img/arrow.svg') }}" />
                 </a>
-                <a href="/shopping">
+                <a href="/shop">
                     <div>忠貞購物</div><img src="{{ asset('assets/img/arrow.svg') }}" />
                 </a>
                 <a href="/about-us">
                     <div>關於我們</div><img src="{{ asset('assets/img/arrow.svg') }}" />
                 </a>
-                <a href="/contact-us">
+                <a href="#contact-section">
                     <div>聯絡我們</div><img src="{{ asset('assets/img/arrow.svg') }}" />
                 </a>
             </div>

@@ -1,0 +1,155 @@
+.visit{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-basis: 40%;
+    gap: 84px;
+}
+
+.visit_container{
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.visit h2{
+    color: rgba(0, 0, 0, 0.8);
+}
+.visit h4{
+    color: rgba(0, 0, 0, 0.6);
+}
+.visit-img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 40%;
+}
+.Way{
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    padding: 72px clamp(4rem, -0.5333rem + 7.1111vw, 8rem);
+}
+
+.for-text{
+    max-width: 627px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.way-content h1{
+}
+.forzhongzhen{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 72px clamp(4rem, -0.5333rem + 7.1111vw, 8rem);
+    background-color: #FFFFFF;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+}
+
+.image-area5{
+    width: 50%;
+    max-width: 685px;
+    display: flex;
+    justify-content: center;
+}
+#svg-text{
+    font-size: 62px;
+}
+.search_btn{
+    display: flex;
+    justify-content: center;
+}
+
+.substance-text2{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#r{
+    width: 100%;
+    max-width: 420px;
+}
+
+.for-img{
+    box-shadow: 0px 0px 15px #000000e3; 
+    width: 685px;
+}
+
+.way-img{
+    box-shadow: 0px 0px 15px #000000e3;
+    max-width: 685px;
+    width: 100%;
+}
+
+@media(min-width:1020px){
+    .PH{
+        display: none;
+    }
+    .ph-size{
+        display: none;
+    }
+    .PC{
+        display: flex;
+    }
+}
+
+@media(max-width: 1019px) {
+    .PC{
+        display: none;
+    }
+    .PH{
+        display: flex;
+    }
+    #r{
+        width: 92%;
+        max-width: 92%;
+    }
+    .visit_container{
+        width: 92%;
+        align-items: center;
+    }
+    .visit{
+        flex-direction: column;
+        align-items: center;
+    }
+    .substance-text2{
+        width: 92%;
+    }
+    .forzhongzhen{
+        align-items: center;
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+        gap: 16px;
+        padding: 0;
+    }
+    .for-img{
+        box-shadow: none;
+        width: 92%;
+    }
+    .for-text{
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+    }
+    .for-textbox{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 92%;
+        gap: 16px;
+    }
+    .image-area5{
+        width: 100%;
+        max-width: 100%;
+    }
+}

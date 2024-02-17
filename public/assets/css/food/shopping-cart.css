@@ -1,0 +1,248 @@
+body{
+    overflow-x: hidden;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.slider-text{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.shop-content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    gap: 68px;
+}
+.shopping-content{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+.Shopping-img{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.scrollbar-contents{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap:20px;
+    scroll-behavior: smooth;
+}
+.foods-scrollbar{
+    max-width: 1150px;
+    margin: 0 auto;
+}
+.slider-img{
+    aspect-ratio: 4/3;
+    background-image: url("/img/Rectangle\ 9.png");
+    background-position: center center;
+    background-size: cover;
+    max-width: min(400px, 80vw);
+    width: 270px;
+    height: 203px;
+    object-fit: contain;
+}
+.scrollbar-slider .scrollbar-contents{
+    overflow-x: hidden;
+}
+.scrollbar-slider{
+    position: relative;
+}
+
+#left-side:hover, #right-side:hover{
+    background-color: rgba(0, 0, 0, 0.88);
+    transition: ease-out 300ms;
+  }
+
+  #left-side:hover img, #right-side:hover img{
+    filter: invert(1) brightness(100%);
+    transition: ease-out 300ms;
+  }
+
+#left-side{
+    position: absolute;
+    top: 70px;
+    transform: translateX(-100%);
+    width: 64px;
+    height: 64px;
+    border: rgba(0, 0, 0, 0.88) solid 2px;
+    border-radius: 100%;
+    transition: ease-out 300ms;
+}
+
+#right-side{
+    position: absolute;
+    right: -70px;
+    bottom: 155px;
+    width: 64px;
+    height: 64px;
+    border: rgba(0, 0, 0, 0.88) solid 2px;
+    border-radius: 100%;
+    transition: ease-out 300ms;
+}
+
+.scrollbar-content:last-child {
+    margin-right: 0;
+}
+
+.foods-scrollbar button{
+    height: 70px;
+ width: 70px;
+ border-radius: 100px;
+}
+
+.content-tex{
+    border: 0.5px solid rgba(54, 54, 54, 0.413);
+    letter-spacing: 1px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sell{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shop-textbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.shopping-btn{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 13px;
+}
+
+.shopping-btn button{
+    font-size: 18px;
+    border-style: none; color: #FFFFFF; clip:  height; background-color: #252525a9; padding-top: 8px; padding-right: 35px; padding-bottom: 8px; padding-left: 35px; width: 180px;
+    
+}
+
+.shopping-btn a{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+#black{
+    color: black;
+}
+
+#black-btn{
+    background-color: #FFFFFF;
+    border: 3px solid black;
+}
+
+.shopping-btn img{
+    position: relative;
+    left: 5px;
+}
+
+.scrollbar-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.foodbar{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+
+}
+.PHscroll-conent{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.fd-miniimg{
+    width: 100%;
+}
+.scroll-img{
+    width: 30%;
+}
+.scroll-cotent{
+    width: 92%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.fd-scroll{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.textbar{
+    width: 92%;
+}
+
+.PH{
+    display: none;
+}
+
+@media only screen and (max-width: 1500px) {
+    .foods-scrollbar{
+        width: 70%;
+    }
+  }
+  
+@media(max-width: 1020px) {
+    .PH{
+        display: none;
+    }
+    .PC{
+        display: block;
+    }
+    
+}
+@media(max-width: 1019px) {
+    .PC{
+        display: none;
+    }
+    .PH{
+        display: flex;
+    }
+    .Shopping-img{
+        width: 92%;
+    }
+    .shopping-text{
+        width: 92%;
+    }
+    .shopping-image{
+        width: 100%;
+    }
+    #left-side{
+        width: 36px;
+    }
+    #right-side{
+        width: 36px;
+    }
+    #right-side img{
+        width: 18px;
+    }
+    #left-side img{
+        width: 18px;
+    }
+
+  }

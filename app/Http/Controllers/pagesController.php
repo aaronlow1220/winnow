@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\wn_category;
 use App\Models\wn_post;
+use App\Models\wn_product;
 use App\Models\wn_sub_category;
 use App\Models\wn_user;
 use Illuminate\Http\Request;
@@ -103,9 +104,10 @@ class pagesController extends Controller
         return view("cart");
     }
 
-    public function foodShop(Request $request)
+    public function shop(Request $request)
     {
-        return view("foodShop");
+        wn_product::all()->where("status", "ACTIVE");
+        return view("shop");
     }
 
     public function aboutUs(Request $request)
@@ -117,6 +119,7 @@ class pagesController extends Controller
     {
         $cat = wn_category::where("alias", $category)->first();
         $subCat = wn_sub_category::all()->where("category_uid", $cat->uuid);
+        $post = wn_post::all()->where("category_uid", $cat->uuid);
         return view("category", [
             "cat" => $cat,
             "subCat" => $subCat,

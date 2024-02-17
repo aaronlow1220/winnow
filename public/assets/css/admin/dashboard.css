@@ -683,6 +683,10 @@ main .btn-send:hover {
     gap: 1rem;
 }
 
+.editor-left{
+    width: 60%;
+}
+
 .editor-right {
     display: flex;
     flex-direction: column;
@@ -709,6 +713,7 @@ main .btn-send:hover {
 .msg-box {
     padding: 0.7rem 1rem;
     border-radius: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
 .msg-box.success {
@@ -753,11 +758,11 @@ main .btn-send:hover {
     align-items: center;
 }
 
-.info-only{
+.info-only {
     font-size: 1.5rem;
 }
 
-.reset-btn{
+.reset-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -767,6 +772,14 @@ main .btn-send:hover {
     background-color: var(--red);
     box-shadow: var(--bs);
     cursor: pointer;
+}
+
+fieldset {
+    padding: 0.5rem 1.5rem;
+}
+
+.img_preview-container img{
+    object-fit: cover;
 }
 
 @media screen and (max-width: 768px) {

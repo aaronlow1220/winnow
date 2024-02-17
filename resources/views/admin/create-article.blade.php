@@ -3,6 +3,22 @@
 @section('dashboard-content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset('assets/vendor/ckeditor5/ckeditor.js') }}"></script>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="msg-box failed">
+                <p>{{ $error }}</p>
+            </div>
+        @endforeach
+    @endif
+    @if(session()->has("success"))
+    <div class="msg-box success">
+        <p>新增成功</p>
+    </div>
+    @elseif(session()->has("failed"))
+    <div class="msg-box failed">
+        <p>新增失敗，{{ session()->get("failed") }}</p>
+    </div>
+    @endif
     <form class="func" action="{{ route('handle.storePost') }}" method="POST">
         @csrf
         <div class="func-bar">
@@ -24,17 +40,19 @@
             </a>
         </div>
         <div class="editor-container">
-            <div class="editor-left">
-                <div id="editor"></div>
-            </div>
+
             <div class="editor-right">
                 <div class="editor-in">
                     <label for="editor-title">標題</label>
-                    <input type="text" name="" id="editor-title" class="editor-input">
+                    <input type="text" name="editor_title" id="editor-title" class="editor-input">
+                </div>
+                <div class="editor-in">
+                    <label for="editor-alias">網址</label>
+                    <input type="text" name="editor_alias" id="editor-alias" class="editor-input">
                 </div>
                 <div class="editor-in">
                     <label for="editor-category">類別</label>
-                    <select name="" id="editor-category" class="editor-input">
+                    <select name="editor_category" id="editor-category" class="editor-input">
                         <option value="">--請選擇--</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->uuid }}">{{ $category->name }}</option>
@@ -43,18 +61,21 @@
                 </div>
                 <div class="editor-in">
                     <label for="editor-sub-category">子類別</label>
-                    <select name="" id="editor-sub-category" class="editor-input">
+                    <select name="editor_sub_category" id="editor-sub-category" class="editor-input">
                         <option value="">--請選擇--</option>
                     </select>
                 </div>
                 <div class="editor-in">
                     <label for="editor-status">狀態</label>
-                    <select name="" id="editor-status" class="editor-input">
-                        <option value="public">公開</option>
-                        <option value="unlisted">不公開</option>
-                        <option value="private">私人</option>
+                    <select name="editor_status" id="editor-status" class="editor-input">
+                        <option value="PUBLIC">公開</option>
+                        <option value="UNLISTED">不公開</option>
+                        <option value="PRIVATE">私人</option>
                     </select>
                 </div>
+            </div>
+            <div class="editor-left">
+                <textarea id="editor" name="editor_content"></textarea>
             </div>
         </div>
     </form>
@@ -74,21 +95,20 @@
 
         $(document).ready(function() {
             $(categorySelect).on("change", function() {
-                console.log(this.value);
                 $.ajax({
                     headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
                     },
                     url: "{{ route('handle.getSubCategory') }}",
-                    type: 'post',
+                    type: "POST",
                     data: {
                         selectCat: this.value
                     },
-                    dataType: 'JSON',
+                    dataType: "JSON",
                     success: function(response) {
                         var subCatList = 0;
                         subCategory = response.subCategory;
-                        var subCatList = $('#editor-sub-category');
+                        var subCatList = $("#editor-sub-category");
                         subCatList.empty();
 
                         subCategory.forEach(function(subCat) {

@@ -22,28 +22,44 @@ class adminPagesController extends Controller
 
     public function article_list(Request $request)
     {
-        // if(Helper::isAdmin()){
-        return view("admin/article");
-        // }
-        // return redirect("/permission-error");
+        if (Helper::isAdmin()) {
+            $articles = wn_post::all();
+            $categories = wn_category::all();
+            $sub_categories = wn_sub_category::all();
+            $users = wn_user::all()->where("is_admin", 1);
+            return view("admin/article", ["articles" => $articles, "categories" => $categories, "sub_categories" => $sub_categories, "users" => $users]);
+        }
+
+        return redirect("/permission-error");
     }
 
     public function create_article(Request $request)
     {
-        // if(Helper::isAdmin()){
-        $category = wn_category::all()->where("status", "ACTIVE");
-        return view("admin/create-article", ["categories" => $category]);
-        // }
-        // return redirect("/permission-error");
+        if (Helper::isAdmin()) {
+            $category = wn_category::all()->where("status", "ACTIVE");
+            return view("admin/create-article", ["categories" => $category]);
+        }
+        return redirect("/permission-error");
+    }
+
+    public function editPost(Request $request, $id)
+    {
+        if (Helper::isAdmin()) {
+            $post = wn_post::where("uuid", $id)->first();
+            $categories = wn_category::all()->where("status", "ACTIVE");
+            $sub_categories = wn_sub_category::all()->where("status", "ACTIVE");
+            return view("admin/edit-article", ["post" => $post, "categories" => $categories, "sub_categories" => $sub_categories]);
+        }
+        return redirect("/permission-error");
     }
 
     public function category(Request $request)
     {
-        // if(Helper::isAdmin()){
-        $category = wn_category::all();
-        return view("admin/category", ["categories" => $category]);
-        // }
-        // return redirect("/permission-error");
+        if (Helper::isAdmin()) {
+            $category = wn_category::all();
+            return view("admin/category", ["categories" => $category]);
+        }
+        return redirect("/permission-error");
     }
 
     public function editCategory(string $id)
@@ -84,11 +100,13 @@ class adminPagesController extends Controller
         // return redirect("/permission-error");
     }
 
-    public function product(Request $request){
+    public function product(Request $request)
+    {
         return view("admin/product");
     }
-    
-    public function addProduct(Request $request){
+
+    public function addProduct(Request $request)
+    {
         return view("admin/add-product");
     }
 
@@ -104,7 +122,7 @@ class adminPagesController extends Controller
     public function moderator(Request $request)
     {
         // if(Helper::isAdmin()){
-        $moderators = wn_user::all()->where("is_admin",1);
+        $moderators = wn_user::all()->where("is_admin", 1);
         return view("admin/moderator", ["moderators" => $moderators]);
         // }
         // return redirect("/permission-error");
@@ -113,17 +131,17 @@ class adminPagesController extends Controller
     public function user(Request $request)
     {
         // if(Helper::isAdmin()){
-        $users = wn_user::all()->where("is_admin",0);
+        $users = wn_user::all()->where("is_admin", 0);
         return view("admin/user", ["users" => $users]);
         // }
         // return redirect("/permission-error");
     }
 
-    public function editUser(String $id)
+    public function editUser(string $id)
     {
 
         // if(Helper::isAdmin()){
-        $users = wn_user::where("uuid",$id)->first();
+        $users = wn_user::where("uuid", $id)->first();
         return view("admin/edit-user", ["users" => $users]);
         // }
         // return redirect("/permission-error");

@@ -1,0 +1,95 @@
+.music{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    padding: 72px clamp(4rem, -0.5333rem + 7.1111vw, 8rem);
+    background-color: #FFFFFF;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+}
+
+.image-area4{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.text-area4{
+    padding-bottom: 64px;
+}
+#music-img{
+    width: 100%;
+    max-width: 850px;
+    box-shadow: 0px 0px 15px #000000e3;
+}
+.music-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 64px;
+}
+.music-textcontent{
+    width: 519px;
+}
+
+
+
+@media(min-width:1020px){
+    .PH{
+        display: none;
+    }
+    .ph-size{
+        display: none;
+    }
+    .PC{
+        display: flex;
+    }
+}
+
+@media(max-width: 1019px) {
+    .PC{
+        display: none;
+    }
+    .PH{
+        display: flex;
+    }
+    .music{
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+        gap: 16px;
+    }
+    .music-svg{
+        display: flex;
+    flex-direction: row;
+    align-items: center;
+    }
+    .music-text{
+        gap:32px;
+        width: 92%;
+    }
+    .image-area4{
+        width: 100%;
+        flex-basis: 0;
+    }
+    #music-img{
+        width: 92%;
+        max-width: 92%;
+        box-shadow: none;
+    }
+    .doremi-btn{
+        display: flex;
+        justify-content: center;
+    }
+    .text-box{
+        display: flex;
+        justify-content: center;
+    }
+    .music-textcontent{
+        width: 92%;
+    }
+    .music-textbox{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}

@@ -1,6 +1,6 @@
 @extends('admin/layout/dashboard-layout')
 
-@section("dashboard-title")
+@section('dashboard-title')
     文章管理
 @endsection
 
@@ -40,120 +40,53 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>雲南米干/米線/粑粑絲</td>
-                        <td>迷香忠貞</td>
-                        <td>雲南</td>
-                        <td>某某某</td>
-                        <td>公開</td>
-                        <td>2022/12/23</td>
-                        <td>1000000</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="wn-paginator">
-            <div class="paginator">
-                <a href="#">&laquo;</a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">&raquo;</a>
-            </div>
-        </div>
-    </div>
+                    @foreach ($articles as $article)
+                        <tr>
+                            <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
+                            <td><a href="{{ route('admin.editPost', $article->uuid) }}">{{ $article->title }}</a></td>
+                            <td>
+                                @foreach ($categories as $category)
+                                    @if ($category->uuid == $article->category_uid)
+                                        {{ $category->name }}
+                                    @break
+                                @endif
+                            @endforeach
+                        </td>
+                        <td>
+                            @foreach ($sub_categories as $sub_category)
+                                @if ($sub_category->uuid == $article->sub_category_uid)
+                                    {{ $sub_category->name }}
+                                @break
+                            @endif
+                        @endforeach
+                    </td>
+                    <td>
+                        @foreach ($users as $user)
+                            @if ($user->uuid == $article->admin_uid)
+                                {{ $user->username }}
+                            @break
+                        @endif
+                    @endforeach
+                </td>
+                <td>{{ $article->status }}</td>
+                <td>{{ $article->modified_at }}</td>
+                <td>{{ $article->hits }}</td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
+</div>
+<div class="wn-paginator">
+<div class="paginator">
+    <a href="#">&laquo;</a>
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#">&raquo;</a>
+</div>
+</div>
+</div>
 @endsection
