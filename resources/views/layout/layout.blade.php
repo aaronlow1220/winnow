@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('page-title')</title>
+    @stack("top-link")
     <link rel="stylesheet" href="{{ asset('assets/css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
     @stack('category')
@@ -12,7 +13,8 @@
 </head>
 
 <body>
-    <header id="nav" class="sticky">
+    @yield("top")
+    <nav id="nav" class="sticky">
         <nav class="flex justify-center align-items-center relative">
             <label for="burger">☰</label>
             <input type="checkbox" id="burger">
@@ -49,7 +51,7 @@
             </div>
             <div id="overlay"></div>
         </nav>
-    </header>
+    </nav>
     @yield('main-content')
     <footer>
         <div>

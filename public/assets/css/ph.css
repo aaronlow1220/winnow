@@ -1,0 +1,13 @@
+
+
+.ph-size{
+    display: flex;
+    height: 786px;
+    justify-content: center;
+}
+
+
+
+@media(max-width: 763px) {
+
+}

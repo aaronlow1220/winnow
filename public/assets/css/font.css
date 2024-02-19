@@ -1,0 +1,59 @@
+.HeadLine{
+    font-weight: bold;
+    font-size: 74px;
+
+}
+
+.SecondLine{
+    font-weight: bold;
+    font-size: 54px;
+}
+
+.Main-Titlecontent{
+    font-size: 40px;
+}
+
+.Second-Titlecontent{
+    font-size: 32px;
+}
+
+.content{
+    font-size: 20px;
+}
+
+.Last{
+    font-size: 16px;
+}
+
+
+
+@media(max-width: 1100px) {
+
+    .HeadLine{
+        font-weight: bold;
+        font-size: 44px;
+    
+    }
+    
+    .SecondLine{
+        font-weight: bold;
+        font-size: 24px;
+    }
+    
+    .Main-Titlecontent{
+        font-size: 20px;
+    }
+    
+    .Second-Titlecontent{
+        font-size: 18px;
+    }
+    
+    .content{
+        font-size: 15px;
+    }
+    
+    .Last{
+        font-size: 15px;
+    }
+}
+

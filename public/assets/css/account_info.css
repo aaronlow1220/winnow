@@ -130,7 +130,7 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
-main{
+main {
     padding: 20px 16px;
 }
 
@@ -297,9 +297,9 @@ header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.40);
 }
 
-.border-radius-0-125rem {
+/* .border-radius-0-125rem {
     border-radius: 0.125rem;
-}
+} */
 
 .bg-white {
     background-color: white;
@@ -320,18 +320,19 @@ header {
     align-items: center;
 }
 
-.btn {
-    background-color: var(--Secondary, rgba(0, 0, 0, 0.60));
-    transition: 0.3s ease;
-    color: white;
+#sub-main>div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#sub-main>div:nth-child(1)>div {
+    margin-bottom: -4px;
 }
 
 .hover-decoration:hover {
     text-decoration: underline;
-}
-
-.btn:hover {
-    background-color: var(--Main, rgba(0, 0, 0, 0.88));
 }
 
 form {
@@ -341,32 +342,51 @@ form {
 .info_card {
     display: flex;
     flex-direction: column;
-    padding: 16px 48px;
-    border: 1px solid #000000;
-    border-radius: 10px;
+    padding: 16px 0px;
+    /* padding: 16px 48px; */
+    border: 1px solid var(--Inactive);
+    /* border-radius: 10px; */
     justify-content: space-around;
     width: 100%;
 }
 
-.info_card>* {
-    height: 100px;
+.info_card>h4 {
+    margin: 0 48px;
+    height: 62px;
     display: flex;
     align-items: center;
 }
 
+.info_card>div:not(.divider, .modal) {
+    padding: 0 48px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.info_card>div:not(.divider, .modal):hover {
+    background-color: rgba(245, 245, 245, 1);
+}
+
 .info_card>div>div:nth-child(1) {
-    min-width: max-content;
+    width: 160px;
 }
 
 .info_card>div>div:nth-child(2) {
-    width: 60%;
-    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
+    text-wrap: nowrap;
+    max-width: 100%;
 }
 
 .info_card button {
-    width: 130px;
-    height: 100px;
+    position: absolute;
+    right: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
     border: none;
     background-color: transparent;
     color: var(--Secondary);
@@ -374,6 +394,7 @@ form {
     font-family: 'NotoSerifTC-Medium';
     font-weight: 500;
     min-width: max-content;
+    cursor: pointer;
 }
 
 /* .info_card button:hover{
@@ -384,39 +405,119 @@ form {
 .divider {
     margin: 0;
     padding: 0;
-    width: 100%;
-    /* 分隔線的寬度 */
-    height: 0.0625rem;
-    ;
-    /* 分隔線的高度 */
+    height: 1px;
     background-color: rgba(0, 0, 0, 0.20);
-    /* 分隔線的顏色 */
+    margin: 0 48px;
 }
 
 .edit_info_card {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    background-color: white;
+    padding: 24px 36px 32px 36px;
+    /* border-radius: 16px; */
+    border: 1px solid var(--Inactive);
+}
+
+.edit_info_card>div {
     gap: 48px;
 }
 
-.edit_info_card button {
-    height: 32px;
-    width: 32px;
+.edit_info_card>div:nth-of-type(1)>input {
+    height: 44px;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid #000000;
+    text-indent: 8px;
 }
 
-.edit_info_card>div:nth-of-type(1) {
-    gap: 24px;
+.edit_info_card>div:nth-of-type(1)>img {
+    position: fixed;
+    transform: translateX(-24px) translateY(8px);
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.edit_info_card>div:nth-of-type(1)>img:hover {
+    opacity: 1;
+}
+
+.edit_info_card>div:nth-of-type(2)>input {
+    width: 104px;
+    height: 64px;
+    border: 1px solid var(--Secondary);
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .edit_info_card>div:nth-of-type(2) {
-    gap: 48px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
 }
 
-.edit_info_card>div>input {
-    width: 193px;
-    height: 53px;
+.edit_info_card>div:nth-of-type(2)>input:nth-of-type(1) {
+    background-color: white;
+    color: var(--Secondary);
 }
 
-.edit_info_card input {
-    border: 1px solid #000000;
+.edit_info_card>div:nth-of-type(2)>input:nth-of-type(1):hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.edit_info_card>div:nth-of-type(2)>input:nth-of-type(2) {
+    background-color: var(--Secondary, rgba(0, 0, 0, 0.60));
+    color: white;
+}
+
+.edit_info_card>div:nth-of-type(2)>input:nth-of-type(2):hover {
+    background-color: var(--Main, rgba(0, 0, 0, 0.88));
+}
+
+:focus-visible {
+    outline: none;
+}
+
+.modal {
+    display: none;
+    /* 隱藏模態框 */
+    position: fixed;
+    /* 固定位置 */
+    z-index: 1;
+    /* 置於最上層 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* 全屏寬 */
+    height: 100%;
+    /* 全屏高 */
+    /* overflow: auto; */
+    /* 啟用滾動條 */
+    background-color: rgb(0, 0, 0);
+    /* 背景色 */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* 背景色，帶透明度 */
+    justify-content: center;
+    align-items: center;
+}
+
+#sub-main>a {
+    margin-top: 20px;
+    width: 161px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--Secondary);
+    transition: 0.3s ease;
+    background-color: var(--Secondary, rgba(0, 0, 0, 0.60));
+    color: white;
+    text-decoration: none;
+}
+
+#sub-main>a:hover {
+    background-color: var(--Main, rgba(0, 0, 0, 0.88));
 }
 
 @media (max-width: 1099.99px) {
@@ -427,6 +528,8 @@ form {
 
     h2 {
         font-size: 24px;
+        font-family: 'NotoSerifTC-Medium';
+        font-weight: 500;
     }
 
     h3 {
@@ -443,16 +546,86 @@ form {
         line-height: 36px;
     }
 
+
+    .caption {
+        font-size: 16px;
+        font-family: 'NotoSerifTC-Medium';
+    }
+
     :root {
         --h4: 18px;
         --body1: 15px;
     }
 
+    #sub-main {
+        gap: 16px;
+    }
+
     .card-container {
         display: flex;
-        /* flex-direction: column;
-        gap: 20px; */
     }
+
+    .edit_info_card {
+        width: 353px;
+    }
+
+    .edit_info_card>div:nth-of-type(1)>input {
+        height: 28px;
+    }
+
+    .edit_info_card>div:nth-of-type(1)>img {
+        transform: translateX(-20px) translateY(0px);
+    }
+
+    .edit_info_card>div:nth-of-type(2)>input{
+        height: 43px;
+        width: 100%;
+    }
+
+    .edit_info_card>div:nth-of-type(2) {
+        justify-content: space-between;
+    }
+
+    .info_card {
+        padding: 4px 0px;
+    }
+
+    .info_card>h4 {
+        height: 45px;
+        margin: 0 20px;
+    }
+
+    .info_card>div:not(.divider, .modal) {
+        flex-wrap: wrap;
+        height: 70px;
+        padding: 8px 20px;
+    }
+
+    .info_card>div>div:nth-child(1) {
+        height: 24px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .info_card button {
+        right: 20px;
+    }
+
+    .info_card button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .divider {
+        margin: 0 20px;
+    }
+
+    #sub-main>a {
+        width: 128px;
+        height: 43px;
+    }
+
 }
 
 @media (min-width: 1100px) {
@@ -479,13 +652,22 @@ form {
         line-height: 36px;
     }
 
+    .caption {
+        font-size: 20px;
+        font-family: 'NotoSerifTC-Medium';
+    }
+
     :root {
         --h4: 32px;
         --body1: 20px;
     }
 
-    #myname{
+    #myname {
         font-family: 'NotoSerifTC-Medium';
         font-weight: 500;
+    }
+
+    .edit_info_card {
+        width: 600px;
     }
 }

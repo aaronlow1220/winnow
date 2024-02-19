@@ -112,7 +112,7 @@ class pagesController extends Controller
 
     public function aboutUs(Request $request)
     {
-        return view("aboutUs");
+        return view("about-us");
     }
 
     public function category(string $category)

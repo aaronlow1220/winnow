@@ -1,25 +1,16 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-header{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 600px;
-  }
-  body {
-      background-color: rgb(255, 255, 255); /* 將背景顏色設為白色 */
-      position: relative;
-      overflow-y: auto;
-      overflow-x: hidden; 
-      margin: 0; 
-  }
+body {
+    background-color: rgb(255, 255, 255); /* 將背景顏色設為白色 */
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0;
+}
 
-
-
-#icon-bar{
+#icon-bar {
     z-index: 3;
     pointer-events: none;
     position: sticky;
@@ -27,107 +18,132 @@ header{
     margin-top: 10px;
 }
 
-.main-content{
-width: 100%;    
-display: flex;
-justify-content: center;
-flex-direction: row;
-}
-
-.image-area{
-    width: 50%;
-    display: flex;
+header{
+    height: max(100dvh, 600px);
     position: relative;
+}
+
+header .main-content{
+    display: flex;
+    align-items: center;
     justify-content: center;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis:50%;
+    padding: 86px 0 128px;
+    height: 100%;
+}
+
+@media all and (max-width: 800px) {
+    .main-content{
+        flex-direction: column;
     }
-    
-#main_image{
-width: 780px;
-min-width: 340px ;
+}
+header .main-content .image-area{
+    height: 100%;
+    display: flex;
+    width: 50%;
+    padding: 0 2rem;
+    justify-content: end;
 }
 
-.text-area{
-font-size: 32px;
-position: relative;
-gap: 16px;
-width: 680px;
-display: flex;
-justify-content: center;
-flex-direction: column;
+.image-area img{
+    max-width: 100%;
+    object-fit: contain;
+}
+
+header .main-content .text-area{
+    display: flex;
+    width: 50%;
+    padding: 0 2rem;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+header #down{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 3rem;
+}
+header #down img{ 
+    filter: invert(1);
+    width: 36px;
+}
+
+#nav{
+    border-top: 1px solid rgb(0,0,0,0.4);
 }
 
 
-.ALL{
+.ALL {
     display: flex;
     flex-direction: column;
 }
-.New{
+.New {
     flex-direction: column;
     padding-top: 60px;
     padding-bottom: 128px;
-    background: linear-gradient(transparent 0% ,#FFFFFF 50%);
+    background: linear-gradient(transparent 0%, #ffffff 50%);
     gap: 64px;
 }
 
-.handle{
+.handle {
     display: flex;
     flex-direction: column;
 }
-.new-text{
+.new-text {
     font-size: 34px;
 }
-.News{
+.News {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: row;
     gap: 64px;
 }
-.image-area2{
+.image-area2 {
     width: 100%;
     display: flex;
     flex-direction: column;
     flex-basis: 30%;
     gap: 26px;
 }
-.news-textbox{
+.news-textbox {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
-#news_image{
+#news_image {
     width: 100%;
     max-width: 600px;
 }
-#w{
+#w {
     width: 100%;
 }
 
-.substances{
+.substances {
     width: 30%;
     max-width: 544px;
     display: flex;
     flex-direction: column;
 }
-.second-content{
+.second-content {
     gap: 20px;
     width: 100%;
     display: flex;
 }
-.s{
+.s {
     display: flex;
     justify-content: center;
 }
-.content-img{
-    width: clamp(9.375rem, 4.2188rem + 7.5vw, 11.25rem);;
+.content-img {
+    width: clamp(9.375rem, 4.2188rem + 7.5vw, 11.25rem);
     min-width: 100px;
     display: flex;
     justify-content: center;
 }
-.substance-text{
+.substance-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -137,42 +153,21 @@ flex-direction: column;
     gap: 6px;
 }
 
-#down {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-text-align: center;
-position: relative;
-bottom: 0;
-width: 100%;
-}
-#down p {
-font-size: 24px;
-margin: 0;
-width: 100%;
-}
-#down img{
-    filter: invert(1);
-    opacity: 0.6;
-    padding-bottom: 4px;
-}
-
 .search_bar {
-display: flex;
-justify-content: center;
-background-color: rgb(255, 255, 255);
-align-items: center;
-border: 2px solid #ccc; 
-height: 62px;
-transform: translateY(-1px);
-border-style: solid none;
-overflow: hidden;     
-position: sticky; 
-width: 100%;           
-left: 50%;             
-top: 0;
-left: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    border: 2px solid #ccc;
+    height: 62px;
+    transform: translateY(-1px);
+    border-style: solid none;
+    overflow: hidden;
+    position: sticky;
+    width: 100%;
+    left: 50%;
+    top: 0;
+    left: 0;
 }
 
 /* 隱藏按鈕邊框 */
@@ -184,44 +179,46 @@ left: 0;
     padding: 20px;
     font-size: 20px;
 }
-.name_center{
+.name_center {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
 }
-.name_right{
+.name_right {
     display: flex;
     align-items: center;
     flex-direction: row;
 }
 
-
-  body::after {
-      margin: 0 auto;
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 40%;
-      height: 600vmin;
-      width: 120%;
-      background-image: 
-          linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0.5px, transparent 0px),
-          linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0.5px, transparent 0px);
-      background-size: 55vmin 50vmin;
-      pointer-events: none; /* 這樣不會影響到元素的交互 */
-      transform-origin: center; /* 確保旋轉的中心是元素的中心 */
-      transform: translate(-50%, -50%) rotate(-10deg);
-      z-index: -1;
-  }
-  /*.main-content {
+body::after {
+    margin: 0 auto;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 40%;
+    height: 600vmin;
+    width: 120%;
+    background-image: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.2) 0.5px,
+            transparent 0px
+        ),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0.5px, transparent 0px);
+    background-size: 55vmin 50vmin;
+    pointer-events: none; /* 這樣不會影響到元素的交互 */
+    transform-origin: center; /* 確保旋轉的中心是元素的中心 */
+    transform: translate(-50%, -50%) rotate(-10deg);
+    z-index: -1;
+}
+/*.main-content {
       background-color: #a91919;
       width: 80%;
       margin: 0 auto;
       height: 250px;
   }*/
 
-  .contact-section {
+.contact-section {
     padding: 4rem 0rem 2.5rem 0rem;
     display: flex;
     flex-direction: row;
@@ -230,11 +227,9 @@ left: 0;
     gap: 4rem;
 }
 
-
-
 .contact-info-r {
     text-align: right;
-    color: rgba(0, 0, 0, 0.60);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 1.25rem;
     font-family: Noto Serif TC;
     font-weight: 500;
@@ -243,7 +238,7 @@ left: 0;
 
 .contact-info-l {
     text-align: left;
-    color: rgba(0, 0, 0, 0.60);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 1.25rem;
     font-family: Noto Serif TC;
     font-weight: 500;
@@ -259,9 +254,9 @@ left: 0;
 
 .footer-text {
     width: 85%;
-    border-top: 1px rgba(0, 0, 0, 0.40) solid;
+    border-top: 1px rgba(0, 0, 0, 0.4) solid;
     text-align: center;
-    color: rgba(0, 0, 0, 0.60);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 1.25rem;
     font-family: Noto Serif TC;
     font-weight: 500;
@@ -276,17 +271,19 @@ left: 0;
     gap: 1.2em;
 }
 
-.image-area2 h2{
+.image-area2 h2 {
     color: rgba(0, 0, 0, 0.8);
 }
-.image-area2 h5{
+.image-area2 h5 {
     color: rgba(0, 0, 0, 0.6);
     margin-top: 0;
 }
-.fd-gap{
-    display: flex; flex-direction: column; gap: 64px;
+.fd-gap {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
 }
-.foodscrollbar-content{
+.foodscrollbar-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -294,91 +291,84 @@ left: 0;
     gap: 16px;
 }
 
-
-
-@media(min-width:1020px){
-    .PH{
+@media (min-width: 1020px) {
+    .PH {
         display: none;
     }
-    .ph-size{
+    .ph-size {
         display: none;
     }
-    .PC{
+    .PC {
         display: flex;
     }
 }
 
-@media(max-width: 1019px) {
-    .PC{
+@media (max-width: 1019px) {
+    .PC {
         display: none;
     }
-    .PH{
+    .PH {
         display: flex;
     }
 
-    .HeadLine{
+    .HeadLine {
         font-weight: bold;
         font-size: 44px;
-    
     }
-    .image-area{
+    .image-area {
         width: 100%;
     }
-    
-    .SecondLine{
+
+    .SecondLine {
         font-weight: bold;
         font-size: 24px;
     }
-    
-    .Main-Titlecontent{
+
+    .Main-Titlecontent {
         font-size: 20px;
     }
-    
-    .Second-Titlecontent{
+
+    .Second-Titlecontent {
         font-size: 18px;
     }
-    
-    .content{
-        font-size: 15px;
-    }
-    
-    .Last{
-        font-size: 15px;
-    }
-    
 
-    header{
+    .content {
+        font-size: 15px;
+    }
+
+    .Last {
+        font-size: 15px;
+    }
+
+    header {
         display: flex;
         flex-direction: column;
         gap: 32px;
         align-items: center;
     }
-    .main-content{
-        flex-wrap: wrap;
-    }
-    .image-area .text-area{
+    .image-area .text-area {
         width: 90%;
     }
-    .text-area{
+    .text-area {
         width: 100%;
         padding: 0 24px;
     }
 
-    .News{
+    .News {
         flex-direction: column;
         max-width: 550px;
     }
 
-    #news_image{
+    #news_image {
         max-width: 100%;
         width: 100%;
     }
 
-    .image-area2{
+    .image-area2 {
         justify-content: center;
     }
 
-    .news-text{
+    .news-text {
         display: flex;
         flex-direction: column;
         width: 92%;
@@ -386,7 +376,7 @@ left: 0;
         padding: 0 16px;
     }
 
-    .substances{
+    .substances {
         width: 100%;
         max-width: 100%;
         margin: 0 auto;
@@ -396,30 +386,29 @@ left: 0;
         width: 196px;
     }
 
-    .second-content{
+    .second-content {
         justify-content: space-between;
         padding: 0 16px;
     }
 
-    .right{
+    .right {
         transform: translateY(1.5px);
         width: 18px;
     }
-    .left{
+    .left {
         transform: translateY(1.5px);
         width: 18px;
     }
-    .New{
+    .New {
         align-items: center;
     }
-    hr{
+    hr {
         margin: 12px 0;
     }
-    .fd-gap{
+    .fd-gap {
         gap: 48px;
     }
-    #imageText{
+    #imageText {
         width: 100%;
     }
-
 }
