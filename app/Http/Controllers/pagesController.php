@@ -50,55 +50,6 @@ class pagesController extends Controller
         return view("account", ["users" => Auth::user()]);
     }
 
-    public function accountChange(string $info)
-    {
-        if (!Auth::check()) {
-            return redirect()->route("auth.login");
-        }
-        $type = "";
-        $mod = "";
-        $userData = "";
-
-        switch ($info) {
-            case "name":
-                $type = "text";
-                $mod = "名稱";
-                $userData = Auth::user()->username;
-                break;
-            case "contact-address":
-                $type = "text";
-                $mod = "聯絡地址";
-                $userData = Auth::user()->contact_address;
-                break;
-            case "delivery-address":
-                $type = "text";
-                $mod = "郵寄地址";
-                $userData = Auth::user()->delivery_address;
-
-                break;
-            case "phone":
-                $type = "text";
-                $mod = "手機";
-                $userData = Auth::user()->phone;
-                break;
-            case "telephone":
-                $type = "text";
-                $mod = "電話";
-                $userData = Auth::user()->telephone;
-
-                break;
-            case "email":
-                $type = "email";
-                $mod = "電子郵箱地址";
-                $userData = Auth::user()->email;
-                break;
-            default:
-                break;
-        }
-
-        return view("account-change", ["type" => $type, "mod" => $mod, "user" => $userData]);
-    }
-
     public function cart(Request $request)
     {
         return view("cart");

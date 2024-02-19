@@ -1,0 +1,427 @@
+@font-face {
+    font-family: 'NotoSansTC-Medium';
+    src: url(../font/NotoSansTC-Medium.otf);
+}
+
+@font-face {
+    font-family: 'NotoSansTC-Regular';
+    src: url(../font/NotoSansTC-Regular.otf);
+}
+
+@font-face {
+    font-family: 'NotoSerifTC-Medium';
+    src: url(../font/NotoSerifTC-Medium.otf);
+}
+
+@font-face {
+    font-family: 'NotoSerifTC-Regular';
+    src: url(../font/NotoSerifTC-Regular.otf);
+}
+
+@font-face {
+    font-family: 'NotoSerifTC-Bold';
+    src: url(../font/NotoSerifTC-Bold.otf);
+}
+
+/* Reset & Box Model */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'NotoSerifTC-Regular';
+}
+
+
+h1,
+h2 {
+    font-family: 'NotoSerifTC-Bold';
+}
+
+h3,
+h4 {
+    font-family: 'NotoSerifTC-Medium';
+    font-weight: 500;
+}
+
+:root {
+    --Main: rgba(0, 0, 0, 0.88);
+    --Secondary: rgba(0, 0, 0, 0.60);
+    --Inactive: rgba(0, 0, 0, 0.40);
+}
+
+.text-main {
+    color: var(--Main);
+}
+
+.text-secondary {
+    color: var(--Secondary, rgba(0, 0, 0, 0.60));
+}
+
+.text-inactive {
+    color: var(--Inactive);
+}
+
+.color-white {
+    color: white;
+}
+
+.font-notosanstc-medium {
+    font-family: 'NotoSansTC-Medium';
+}
+
+.font-notosanstc-regular {
+    font-family: 'NotoSansTC-Regular';
+}
+
+.font-notoseriftc-medium {
+    font-family: 'NotoSerifTC-Medium';
+}
+
+.font-notoseriftc-regular {
+    font-family: 'NotoSerifTC-Regular';
+}
+
+.font-notoseriftc-bold {
+    font-family: 'NotoSerifTC-Bold';
+}
+
+/* Typography */
+html,
+body {
+    font-size: 16px;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 78px;
+}
+
+h2 {
+    font-size: 54px;
+}
+
+h3 {
+    font-size: 40px;
+}
+
+h4 {
+    font-size: 32px;
+}
+
+.body1 {
+    font-size: 20px;
+    font-family: 'NotoSansTC-Regular';
+    line-height: 36px;
+}
+
+#sub-main {
+    max-width: 1400px;
+}
+
+#page_title {
+    margin: 5.75rem 0 3rem 0;
+}
+
+.tab-button {
+    font-size: 24px;
+    width: 90px;
+}
+
+.tab-content>div:nth-child(1) {
+    padding: 3.75rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 60%;
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+    gap: 1rem;
+}
+
+.m_card {
+    display: none;
+}
+
+@media (max-width: 760px) {
+    h1 {
+        font-size: 44px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    .body1 {
+        font-size: 15px;
+        font-family: 'NotoSansTC-Regular';
+        line-height: 36px;
+    }
+
+    #page_title,
+    .card-container {
+        display: flex;
+    }
+
+    main {
+        padding: 0px 16px;
+    }
+
+    #sub-main {
+        justify-content: center;
+        align-items: center;
+        max-width: 550px;
+    }
+
+    #page_title {
+        margin: 22px 0 3rem 0;
+    }
+
+    .tabs {
+        width: 100%;
+    }
+
+    .tab-button {
+        font-size: 18px;
+        width: 100%;
+    }
+/* 
+    .a {
+        width: 100%;
+    } */
+
+    .article {
+        width: 100%;
+        display: none;
+    }
+
+    .card-container {
+        width: 100%;
+    }
+
+    .card {
+        display: none;
+    }
+
+    .m_card {
+        display: flex;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        text-decoration: none;
+        flex-direction: column;
+        color: black;
+        gap: 1rem;
+    }
+
+    nav{
+        border-bottom: none;
+    }
+}
+
+.flex{
+    display: flex;
+}
+
+/* page specific */
+
+.section{
+    justify-content: center;
+    padding: 72px 16px;
+}
+
+.cart-container{
+    width: min(1000px, 80vw);
+}
+
+.cart{
+    padding: 64px 0;
+}
+
+.cart-item{
+    gap: 32px;
+    padding: 32px 0;
+    border-bottom: rgba(0, 0, 0, 10%) solid;
+    align-items: stretch;
+}
+
+.cart-item:first-child{
+    padding-top: 0;
+}
+
+.cart-item > img{
+    width: 240px;
+    aspect-ratio: 4/3;
+    align-self: start;
+}
+
+.cart-item-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.item-title{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.cart-item-info-cost{
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.cart-total{
+    align-items: baseline;
+    border: 0;
+}
+
+.cart-total img{
+    opacity: 0;
+    height: 0;
+    flex-shrink: 0;
+}
+
+.total-price{
+    width: 100%;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.price-container{
+    align-items: baseline;
+    gap: 4px;
+    width: max-content;
+}
+
+/* 計數器 */
+
+/* For Chrome, Safari, Edge, Opera 關閉預設箭頭 */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox 關閉預設箭頭 */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+.counter {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    margin-right: 8px;
+}
+
+.counter p{
+    display: flex;
+}
+
+.counter button img{
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+
+.number {
+    width: 48px;
+    text-align: center;
+    border: none;
+    line-height: initial;
+}
+
+button {
+    border: none;
+    background-color: #606060;
+    padding: 4px 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+@media all and (max-width: 760px) {
+    .section{
+        padding: 1.5rem 16px;
+    }
+    .cart{
+        padding: 2rem 0;
+    }
+    .cart-container{
+        flex-direction: column;
+        align-items: center;
+        width: min(100%, 540px);
+        gap: 16px;
+    }
+    .cart-item{
+        gap: 12px;
+        padding: 1rem 0;
+    }
+    .cart-item img{
+        width: 120px;
+    }
+    .cart-item-info-cost{
+        align-items: center;
+        gap: 0;
+    }
+
+    .cart-total{
+        padding: 2rem 0;
+    }
+
+    .cart-total img{
+        display: none;
+    }
+
+    .counter button img{
+        width: 12px;
+        height: 12px;
+        filter: invert(1);
+    }
+    
+    .number {
+        width: 36px;
+        text-align: center;
+        border: none;
+    }
+    
+    button {
+        border: none;
+        background-color: #606060;
+        padding: 4px 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+}

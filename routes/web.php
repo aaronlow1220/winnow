@@ -68,10 +68,9 @@ Route::get("/account", [pagesController::class, "account"])->name("account");
 Route::get("/shop", [pagesController::class, "shop"])->name("shop");
 Route::get("/cart", [pagesController::class, "cart"])->name("cart");
 Route::get("/about-us", [pagesController::class, "aboutUs"])->name("aboutUs");
-Route::get("/accountChange/{info}", [pagesController::class,"accountChange"])->name("accountChange");
 
 Route::name('pageHandle.')->group(function () {
-    // Route::get('/accountChange/{info}', [pagesHandleController::class, "accountChange"])->name("accountChange");
+    Route::post('/accountChange', [pagesHandleController::class, "accountChange"])->name("accountChange");
 });
 
 // Route::get("/latest-news", [pagesController::class, "latestNews"]);

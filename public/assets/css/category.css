@@ -179,7 +179,17 @@ main {
     display: flex;
     flex-direction: row;
     border-bottom: 1px rgba(0, 0, 0, 0.40) solid;
+    overflow-x: auto;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
 
+.tabs ::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
 }
 
 .tab-button {
@@ -192,6 +202,9 @@ main {
     font-family: 'NotoSerifTC-Medium';
     transition: 0.1s;
     height: 3.375rem;
+    padding: 4px 12px 4px 12px;
+    min-width: 90px;
+    flex-shrink: 0;
 }
 
 .tab-button:hover {
@@ -300,7 +313,7 @@ main {
     padding: 0;
     width: 100%;
     /* 分隔線的寬度 */
-    height: 0.0625rem;
+    height: 1px;
     ;
     /* 分隔線的高度 */
     background-color: rgba(0, 0, 0, 0.20);
@@ -355,9 +368,9 @@ main {
 
     .tab-button {
         font-size: 18px;
-        width: 100%;
     }
-/* 
+
+    /* 
     .a {
         width: 100%;
     } */
@@ -386,7 +399,7 @@ main {
         gap: 1rem;
     }
 
-    nav{
+    nav {
         border-bottom: none;
     }
 }
@@ -425,7 +438,6 @@ main {
 
     .tab-button {
         font-size: 24px;
-        width: 90px;
     }
 
     .tab-content>div:nth-child(1) {
