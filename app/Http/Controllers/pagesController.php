@@ -66,14 +66,44 @@ class pagesController extends Controller
         return view("about-us");
     }
 
-    public function category(string $category)
+    public function category(Request $request, string $category)
     {
+        if ($request->has("subCategory")) {
+            $cat = wn_category::where("alias", $category)->first();
+            $subCat = wn_sub_category::all()->where("category_uid", $cat->uuid);
+
+            $selectedSubCategory = $request->subCategory;
+            if ($request->has("article")) {
+                $selectedPost = wn_post::where("uuid", $request->article)->first();
+                return view("category", [
+                    "cat" => $cat,
+                    "subCat" => $subCat,
+                    "selectedSubCategory" => $selectedSubCategory,
+                    "post" => $selectedPost
+                ]);
+            }
+            $selectedPost = wn_post::where("sub_category_uid", $request->subCategory)->first();
+            return view("category", [
+                "cat" => $cat,
+                "subCat" => $subCat,
+                "selectedSubCategory" => $selectedSubCategory,
+                "post" => $selectedPost
+            ]);
+        }
+
         $cat = wn_category::where("alias", $category)->first();
         $subCat = wn_sub_category::all()->where("category_uid", $cat->uuid);
-        $post = wn_post::all()->where("category_uid", $cat->uuid);
+
+        $selectedSubCategory = wn_sub_category::where("category_uid", $cat->uuid)->first();
+        $selectedPost = "";
+        if ($selectedSubCategory) {
+            $selectedPost = wn_post::where("sub_category_uid", $selectedSubCategory->uuid)->first();
+        }
         return view("category", [
             "cat" => $cat,
             "subCat" => $subCat,
+            "selectedSubCategory" => $selectedSubCategory,
+            "post" => $selectedPost
         ]);
     }
 

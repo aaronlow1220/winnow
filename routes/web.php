@@ -18,6 +18,7 @@ Route::post("/testSubCategoryHandle", [pagesController::class,"testSubCategoryHa
 
 // Admin backend pages
 Route::name("admin.")->group(function(){
+    Route::get("/admin", [adminPagesController::class,"redirectForAdmin"])->name("redirectForAdmin");
     Route::get("/admin/dashboard", [adminPagesController::class, "dashboard"])->name("dashboard");
     Route::get("/admin/article", [adminPagesController::class, "article_list"])->name("article");
     Route::get("/admin/create-article", [adminPagesController::class, "create_article"])->name("create_article");

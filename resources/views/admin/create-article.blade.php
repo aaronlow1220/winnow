@@ -14,14 +14,14 @@
             </div>
         @endforeach
     @endif
-    @if(session()->has("success"))
-    <div class="msg-box success">
-        <p>新增成功</p>
-    </div>
-    @elseif(session()->has("failed"))
-    <div class="msg-box failed">
-        <p>新增失敗，{{ session()->get("failed") }}</p>
-    </div>
+    @if (session()->has('success'))
+        <div class="msg-box success">
+            <p>新增成功</p>
+        </div>
+    @elseif(session()->has('failed'))
+        <div class="msg-box failed">
+            <p>新增失敗，{{ session()->get('failed') }}</p>
+        </div>
     @endif
     <form class="func" action="{{ route('handle.storePost') }}" method="POST">
         @csrf
@@ -91,6 +91,7 @@
             ckfinder: {
                 uploadUrl: "{{ route('ck.upload', ['_token' => csrf_token()]) }}",
             },
+            image_prefillDimensions: false,
         }).catch((error) => {
             console.error(error);
         });

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('page-title')</title>
-    @stack("top-link")
+    @stack('top-link')
     <link rel="stylesheet" href="{{ asset('assets/css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
     @stack('category')
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    @yield("top")
+    @yield('top')
     <nav id="nav" class="sticky">
         <nav class="flex justify-center align-items-center relative">
             <label for="burger">☰</label>
@@ -21,27 +21,11 @@
             <a id="nav_logo" href="{{ route('home') }}"><img src="{{ asset('assets/img/Logo.png') }}"
                     alt="logo" /></a>
             <div class="flex text-secondary">
-                <a href="/latest-news">
-                    <div>最新消息</div><img src="{{ asset('assets/img/arrow.svg') }}" />
-                </a>
-                <a href="/attractions">
-                    <div>忠貞景點</div><img src="{{ asset('assets/img/arrow.svg') }}" />
-                </a>
-                <a href="/dishes">
-                    <div>迷香忠貞</div><img src="{{ asset('assets/img/arrow.svg') }}" />
-                </a>
-                <a href="/dreams">
-                    <div>夢想忠貞</div><img src="{{ asset('assets/img/arrow.svg') }}" />
-                </a>
-                <a href="/shop">
-                    <div>忠貞購物</div><img src="{{ asset('assets/img/arrow.svg') }}" />
-                </a>
-                <a href="/about-us">
-                    <div>關於我們</div><img src="{{ asset('assets/img/arrow.svg') }}" />
-                </a>
-                <a href="#contact-section">
-                    <div>聯絡我們</div><img src="{{ asset('assets/img/arrow.svg') }}" />
-                </a>
+                @foreach ($navs as $nav)
+                    <a href="/{{$nav->alias}}@foreach($firstSubCat as $subCat)@if($subCat->uuid && $subCat->category_uid==$nav->uuid)?category={{$subCat->uuid}}@break @endif @endforeach " >
+                        <div>{{$nav->name}}</div><img src="{{ asset('assets/img/arrow.svg') }}" />
+                    </a>
+                @endforeach
             </div>
             <div id="customer-interaction-icons">
                 <a href="{{ route('account') }}" class="flex"><img id="icon_person"

@@ -1,25 +1,25 @@
 @font-face {
-    font-family: "NotoSansTC-Medium";
+    font-family: 'NotoSansTC-Medium';
     src: url(../font/NotoSansTC-Medium.otf);
 }
 
 @font-face {
-    font-family: "NotoSansTC-Regular";
+    font-family: 'NotoSansTC-Regular';
     src: url(../font/NotoSansTC-Regular.otf);
 }
 
 @font-face {
-    font-family: "NotoSerifTC-Medium";
+    font-family: 'NotoSerifTC-Medium';
     src: url(../font/NotoSerifTC-Medium.otf);
 }
 
 @font-face {
-    font-family: "NotoSerifTC-Regular";
+    font-family: 'NotoSerifTC-Regular';
     src: url(../font/NotoSerifTC-Regular.otf);
 }
 
 @font-face {
-    font-family: "NotoSerifTC-Bold";
+    font-family: 'NotoSerifTC-Bold';
     src: url(../font/NotoSerifTC-Bold.otf);
 }
 
@@ -28,24 +28,25 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "NotoSerifTC-Regular";
+    font-family: 'NotoSerifTC-Regular';
 }
+
 
 h1,
 h2 {
-    font-family: "NotoSerifTC-Bold";
+    font-family: 'NotoSerifTC-Bold';
 }
 
 h3,
 h4 {
-    font-family: "NotoSerifTC-Medium";
+    font-family: 'NotoSerifTC-Medium';
     font-weight: 500;
 }
 
 :root {
     --Main: rgba(0, 0, 0, 0.88);
-    --Secondary: rgba(0, 0, 0, 0.6);
-    --Inactive: rgba(0, 0, 0, 0.4);
+    --Secondary: rgba(0, 0, 0, 0.60);
+    --Inactive: rgba(0, 0, 0, 0.40);
 }
 
 .text-main {
@@ -53,7 +54,7 @@ h4 {
 }
 
 .text-secondary {
-    color: var(--Secondary, rgba(0, 0, 0, 0.6));
+    color: var(--Secondary, rgba(0, 0, 0, 0.60));
 }
 
 .text-inactive {
@@ -65,23 +66,23 @@ h4 {
 }
 
 .font-notosanstc-medium {
-    font-family: "NotoSansTC-Medium";
+    font-family: 'NotoSansTC-Medium';
 }
 
 .font-notosanstc-regular {
-    font-family: "NotoSansTC-Regular";
+    font-family: 'NotoSansTC-Regular';
 }
 
 .font-notoseriftc-medium {
-    font-family: "NotoSerifTC-Medium";
+    font-family: 'NotoSerifTC-Medium';
 }
 
 .font-notoseriftc-regular {
-    font-family: "NotoSerifTC-Regular";
+    font-family: 'NotoSerifTC-Regular';
 }
 
 .font-notoseriftc-bold {
-    font-family: "NotoSerifTC-Bold";
+    font-family: 'NotoSerifTC-Bold';
 }
 
 /* Typography */
@@ -114,6 +115,7 @@ body {
 .flex-1-0-0 {
     flex: 1 0 0;
 }
+
 
 .flex-row {
     flex-direction: row;
@@ -259,6 +261,7 @@ header {
     max-width: 30rem;
 }
 
+
 /* Spacing */
 .text-indent-1-19em {
     text-indent: 1.19em;
@@ -286,12 +289,12 @@ header {
 }
 
 .border-top-1px {
-    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(0, 0, 0, 0.40);
 }
 
 .border-top-bottom {
-    border-top: 1px solid rgba(0, 0, 0, 0.4);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(0, 0, 0, 0.40);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.40);
 }
 
 /* .border-radius-0-125rem {
@@ -301,6 +304,7 @@ header {
 .bg-white {
     background-color: white;
 }
+
 
 /* Forms & Inputs */
 .outline-none {
@@ -316,14 +320,14 @@ header {
     align-items: center;
 }
 
-#sub-main > div:nth-child(1) {
+#sub-main>div:nth-child(1) {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#sub-main > div:nth-child(1) > div {
+#sub-main>div:nth-child(1)>div {
     margin-bottom: -4px;
 }
 
@@ -342,29 +346,29 @@ header {
     width: 100%;
 }
 
-.info_card > h4 {
+.info_card>h4 {
     margin: 0 48px;
     height: 62px;
     display: flex;
     align-items: center;
 }
 
-.info_card > div:not(.divider, .modal) {
+.info_card>div:not(.divider, .modal) {
     padding: 0 48px;
     height: 60px;
     display: flex;
     align-items: center;
 }
 
-.info_card > div:not(.divider, .modal):hover {
+.info_card>div:not(.divider, .modal):hover {
     background-color: rgba(245, 245, 245, 1);
 }
 
-.info_card > div > div:nth-child(1) {
+.info_card>div>div:nth-child(1) {
     width: 160px;
 }
 
-.info_card > div > div:nth-child(2) {
+.info_card>div>div:nth-child(2) {
     margin-right: auto;
     overflow: hidden;
     text-wrap: nowrap;
@@ -383,7 +387,7 @@ header {
     background-color: transparent;
     color: var(--Secondary);
     font-size: 32px;
-    font-family: "NotoSerifTC-Medium";
+    font-family: 'NotoSerifTC-Medium';
     font-weight: 500;
     min-width: max-content;
     cursor: pointer;
@@ -398,7 +402,7 @@ header {
     margin: 0;
     padding: 0;
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.20);
     margin: 0 48px;
 }
 
@@ -412,11 +416,11 @@ header {
     border: 1px solid var(--Inactive);
 }
 
-.edit_info_card > div {
+.edit_info_card>div {
     gap: 48px;
 }
 
-.edit_info_card > div:nth-of-type(1) > input {
+.edit_info_card>div:nth-of-type(1)>input {
     height: 44px;
     width: 100%;
     border: 0;
@@ -424,18 +428,18 @@ header {
     text-indent: 8px;
 }
 
-.edit_info_card > div:nth-of-type(1) > img {
+.edit_info_card>div:nth-of-type(1)>img {
     position: fixed;
     transform: translateX(-24px) translateY(8px);
     opacity: 0.5;
     cursor: pointer;
 }
 
-.edit_info_card > div:nth-of-type(1) > img:hover {
+.edit_info_card>div:nth-of-type(1)>img:hover {
     opacity: 1;
 }
 
-.edit_info_card > div:nth-of-type(2) > input {
+.edit_info_card>div:nth-of-type(2)>input {
     width: 104px;
     height: 64px;
     border: 1px solid var(--Secondary);
@@ -443,27 +447,27 @@ header {
     cursor: pointer;
 }
 
-.edit_info_card > div:nth-of-type(2) {
+.edit_info_card>div:nth-of-type(2) {
     display: flex;
     gap: 12px;
     justify-content: flex-end;
 }
 
-.edit_info_card > div:nth-of-type(2) > input:nth-of-type(1) {
+.edit_info_card>div:nth-of-type(2)>input:nth-of-type(1) {
     background-color: white;
     color: var(--Secondary);
 }
 
-.edit_info_card > div:nth-of-type(2) > input:nth-of-type(1):hover {
+.edit_info_card>div:nth-of-type(2)>input:nth-of-type(1):hover {
     background-color: rgb(230, 230, 230);
 }
 
-.edit_info_card > div:nth-of-type(2) > input:nth-of-type(2) {
-    background-color: var(--Secondary, rgba(0, 0, 0, 0.6));
+.edit_info_card>div:nth-of-type(2)>input:nth-of-type(2) {
+    background-color: var(--Secondary, rgba(0, 0, 0, 0.60));
     color: white;
 }
 
-.edit_info_card > div:nth-of-type(2) > input:nth-of-type(2):hover {
+.edit_info_card>div:nth-of-type(2)>input:nth-of-type(2):hover {
     background-color: var(--Main, rgba(0, 0, 0, 0.88));
 }
 
@@ -494,7 +498,7 @@ header {
     align-items: center;
 }
 
-#sub-main > a {
+#sub-main>a {
     margin-top: 20px;
     width: 161px;
     height: 56px;
@@ -503,23 +507,24 @@ header {
     justify-content: center;
     border: 1px solid var(--Secondary);
     transition: 0.3s ease;
-    background-color: var(--Secondary, rgba(0, 0, 0, 0.6));
+    background-color: var(--Secondary, rgba(0, 0, 0, 0.60));
     color: white;
     text-decoration: none;
 }
 
-#sub-main > a:hover {
+#sub-main>a:hover {
     background-color: var(--Main, rgba(0, 0, 0, 0.88));
 }
 
 @media (max-width: 1099.99px) {
+
     h1 {
         font-size: 44px;
     }
 
     h2 {
         font-size: 24px;
-        font-family: "NotoSerifTC-Medium";
+        font-family: 'NotoSerifTC-Medium';
         font-weight: 500;
     }
 
@@ -533,13 +538,14 @@ header {
 
     .body1 {
         font-size: 15px;
-        font-family: "NotoSansTC-Regular";
+        font-family: 'NotoSansTC-Regular';
         line-height: 36px;
     }
 
+
     .caption {
         font-size: 16px;
-        font-family: "NotoSerifTC-Medium";
+        font-family: 'NotoSerifTC-Medium';
     }
 
     :root {
@@ -559,20 +565,20 @@ header {
         width: 353px;
     }
 
-    .edit_info_card > div:nth-of-type(1) > input {
+    .edit_info_card>div:nth-of-type(1)>input {
         height: 28px;
     }
 
-    .edit_info_card > div:nth-of-type(1) > img {
+    .edit_info_card>div:nth-of-type(1)>img {
         transform: translateX(-20px) translateY(0px);
     }
 
-    .edit_info_card > div:nth-of-type(2) > input {
+    .edit_info_card>div:nth-of-type(2)>input{
         height: 43px;
         width: 100%;
     }
 
-    .edit_info_card > div:nth-of-type(2) {
+    .edit_info_card>div:nth-of-type(2) {
         justify-content: space-between;
     }
 
@@ -580,18 +586,18 @@ header {
         padding: 4px 0px;
     }
 
-    .info_card > h4 {
+    .info_card>h4 {
         height: 45px;
         margin: 0 20px;
     }
 
-    .info_card > div:not(.divider, .modal) {
+    .info_card>div:not(.divider, .modal) {
         flex-wrap: wrap;
         height: 70px;
         padding: 8px 20px;
     }
 
-    .info_card > div > div:nth-child(1) {
+    .info_card>div>div:nth-child(1) {
         height: 24px;
         width: 100%;
         display: flex;
@@ -611,13 +617,15 @@ header {
         margin: 0 20px;
     }
 
-    #sub-main > a {
+    #sub-main>a {
         width: 128px;
         height: 43px;
     }
+
 }
 
 @media (min-width: 1100px) {
+
     h1 {
         font-size: 78px;
     }
@@ -636,13 +644,13 @@ header {
 
     .body1 {
         font-size: 20px;
-        font-family: "NotoSansTC-Regular";
+        font-family: 'NotoSansTC-Regular';
         line-height: 36px;
     }
 
     .caption {
         font-size: 20px;
-        font-family: "NotoSerifTC-Medium";
+        font-family: 'NotoSerifTC-Medium';
     }
 
     :root {
@@ -651,7 +659,7 @@ header {
     }
 
     #myname {
-        font-family: "NotoSerifTC-Medium";
+        font-family: 'NotoSerifTC-Medium';
         font-weight: 500;
     }
 

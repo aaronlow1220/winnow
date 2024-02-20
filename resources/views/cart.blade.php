@@ -3,12 +3,14 @@
 @section('page-title', '帳號')
 
 @push('category')
-    <link rel="stylesheet" href="{{ asset('assets/css/cart.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/cart.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/btn.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/first-css/lin.css') }}">
 @endpush
 
 @section('main-content')
 <script>
-    document.addEventListener('DOMContentLoaded', async function () {
+    document.addEventListener('DOMContentLoaded', async function() {
         // 初始化總價
         function countTotal() {
             let total = 0;
@@ -61,89 +63,127 @@
     });
 </script>
 
-    <body>
-        <section class="section flex">
-            <div class="cart-container">
-                <h3>購物車</h3>
-                <form class="cart">
-                    <div class="cart-item flex">
-                        <img src="../img/2.png" alt="food1" />
-                        <div class="cart-item-info">
-                            <h4 class="item-title">麵包</h4>
-                            <div class="cart-item-info-cost">
-                                <div class="counter">
-                                    <button type="button" class="decrease">
-                                        <img src="{{ asset('assets/img/remove.svg') }}" alt="">
-                                    </button>
-                                    <input type="number" value="0" min="0" max="99"
-                                        class="number body1"></input>
-                                    <button type="button" class="increase">
-                                        <img src="{{ asset('assets/img/add.svg') }}" alt="">
-                                    </button>
-                                </div>
-                                <div class="price-container flex">
-                                    <p class="text-secondary">NT$</p>
-                                    <h3 class="price" data-price="100">100</h3>
-                                </div>
+<body>
+    <section class="section flex">
+        <div class="cart-container">
+            <h3>購物車</h3>
+            <form class="cart">
+                <div class="cart-item flex">
+                    <img src="../img/2.png" alt="food1" />
+                    <div class="cart-item-info">
+                        <h4 class="item-title">麵包</h4>
+                        <div class="cart-item-info-cost">
+                            <div class="counter">
+                                <button type="button" class="decrease">
+                                    <img src="{{ asset('assets/img/remove.svg') }}" alt="">
+                                </button>
+                                <input type="number" value="0" min="0" max="99" class="number body1"></input>
+                                <button type="button" class="increase">
+                                    <img src="{{ asset('assets/img/add.svg') }}" alt="">
+                                </button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="cart-item flex">
-                        <img src="../img/2.png" alt="food1" />
-                        <div class="cart-item-info">
-                            <h4 class="item-title">麵包</h4>
-                            <div class="cart-item-info-cost">
-                                <div class="counter">
-                                    <button type="button" class="decrease">
-                                        <img src="{{ asset('assets/img/remove.svg') }}" alt="">
-                                    </button>
-                                    <input type="number" value="0" min="0" max="99"
-                                        class="number body1"></input>
-                                    <button type="button" class="increase">
-                                        <img src="{{ asset('assets/img/add.svg') }}" alt="">
-                                    </button>
-                                </div>
-                                <div class="price-container flex">
-                                    <p class="text-secondary">NT$</p>
-                                    <h3 class="price" data-price="100">100</h3>
-                                </div>
+                            <div class="price-container flex">
+                                <p class="text-secondary">NT$</p>
+                                <h3 class="price" data-price="100">100</h3>
                             </div>
-                        </div>
-                    </div>
-                    <div class="cart-item flex">
-                        <img src="../img/2.png" alt="food1" />
-                        <div class="cart-item-info">
-                            <h4 class="item-title">麵包</h4>
-                            <div class="cart-item-info-cost">
-                                <div class="counter">
-                                    <button type="button" class="decrease">
-                                        <img src="{{ asset('assets/img/remove.svg') }}" alt="">
-                                    </button>
-                                    <input type="number" value="0" min="0" max="99"
-                                        class="number body1"></input>
-                                    <button type="button" class="increase">
-                                        <img src="{{ asset('assets/img/add.svg') }}" alt="">
-                                    </button>
-                                </div>
-                                <div class="price-container flex">
-                                    <p class="text-secondary">NT$</p>
-                                    <h3 class="price" data-price="100">100</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="cart-item cart-total flex">
-                    <img src="" alt="">
-                    <div class="total-price flex">
-                        <h3>總結：</h3>
-                        <div class="price-container flex">
-                            <p class="text-secondary">NT$</p>
-                            <h2 id="total">100</h2>
                         </div>
                     </div>
                 </div>
+                <div class="cart-item flex">
+                    <img src="../img/2.png" alt="food1" />
+                    <div class="cart-item-info">
+                        <h4 class="item-title">麵包</h4>
+                        <div class="cart-item-info-cost">
+                            <div class="counter">
+                                <button type="button" class="decrease">
+                                    <img src="{{ asset('assets/img/remove.svg') }}" alt="">
+                                </button>
+                                <input type="number" value="0" min="0" max="99" class="number body1"></input>
+                                <button type="button" class="increase">
+                                    <img src="{{ asset('assets/img/add.svg') }}" alt="">
+                                </button>
+                            </div>
+                            <div class="price-container flex">
+                                <p class="text-secondary">NT$</p>
+                                <h3 class="price" data-price="100">100</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-item flex">
+                    <img src="../img/2.png" alt="food1" />
+                    <div class="cart-item-info">
+                        <h4 class="item-title">麵包</h4>
+                        <div class="cart-item-info-cost">
+                            <div class="counter">
+                                <button type="button" class="decrease">
+                                    <img src="{{ asset('assets/img/remove.svg') }}" alt="">
+                                </button>
+                                <input type="number" value="0" min="0" max="99" class="number body1"></input>
+                                <button type="button" class="increase">
+                                    <img src="{{ asset('assets/img/add.svg') }}" alt="">
+                                </button>
+                            </div>
+                            <div class="price-container flex">
+                                <p class="text-secondary">NT$</p>
+                                <h3 class="price" data-price="100">100</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="cart-total flex">
+                <div class="cart-options">
+                    <div class="cart-option">
+                        <label for="location">地點</label>
+                        <select class="option-input" name="locations" id="locations">
+                            <option value="基隆市">基隆市</option>
+                            <option value="新北市">新北市</option>
+                            <option value="臺北市">臺北市</option>
+                            <option value="桃園市">桃園市</option>
+                            <option value="新竹市">新竹市</option>
+                            <option value="新竹縣">新竹縣</option>
+                            <option value="苗栗縣">苗栗縣</option>
+                            <option value="臺中市">臺中市</option>
+                            <option value="彰化縣">彰化縣</option>
+                            <option value="南投縣">南投縣</option>
+                            <option value="雲林縣">雲林縣</option>
+                            <option value="嘉義市">嘉義市</option>
+                            <option value="嘉義縣">嘉義縣</option>
+                            <option value="臺南市">臺南市</option>
+                            <option value="高雄市">高雄市</option>
+                            <option value="屏東縣">屏東縣</option>
+                            <option value="臺東縣">臺東縣</option>
+                            <option value="花蓮縣">花蓮縣</option>
+                            <option value="宜蘭縣">宜蘭縣</option>
+                            <option value="澎湖縣">澎湖縣</option>
+                            <option value="金門縣">金門縣</option>
+                            <option value="連江縣">連江縣</option>
+                        </select>
+                    </div>
+                    <div class="cart-option">
+                        <label for="location">配送方式</label>
+                        <input class="option-input" type="text" value="冷凍" disabled>
+                    </div>
+                    <div class="cart-option">
+                        <label for="location">交易方法</label>
+                        <input class="option-input" type="text" value="貨到付款" disabled>
+                    </div>
+                </div>
+                <div class="total-price flex">
+                    <h3>總結：</h3>
+                    <div class="price-container flex">
+                        <p class="text-secondary">NT$</p>
+                        <h2 id="total">100</h2>
+                    </div>
+                </div>
             </div>
-        </section>
-    </body>
+            <div class="check-out flex">
+                <button class="LG_button">
+                    結帳
+                </button>
+            </div>
+        </div>
+    </section>
+</body>
 @endsection

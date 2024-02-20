@@ -12,6 +12,10 @@ use App\Models\wn_user;
 
 class adminPagesController extends Controller
 {
+    public function redirectForAdmin(){
+        return redirect("admin/dashboard");
+    }
+
     public function dashboard(Request $request)
     {
         if (Helper::isAdmin()) {
