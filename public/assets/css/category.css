@@ -1,51 +1,50 @@
 @font-face {
-    font-family: 'NotoSansTC-Medium';
+    font-family: "NotoSansTC-Medium";
     src: url(../font/NotoSansTC-Medium.otf);
 }
 
 @font-face {
-    font-family: 'NotoSansTC-Regular';
+    font-family: "NotoSansTC-Regular";
     src: url(../font/NotoSansTC-Regular.otf);
 }
 
 @font-face {
-    font-family: 'NotoSerifTC-Medium';
+    font-family: "NotoSerifTC-Medium";
     src: url(../font/NotoSerifTC-Medium.otf);
 }
 
 @font-face {
-    font-family: 'NotoSerifTC-Regular';
+    font-family: "NotoSerifTC-Regular";
     src: url(../font/NotoSerifTC-Regular.otf);
 }
 
 @font-face {
-    font-family: 'NotoSerifTC-Bold';
+    font-family: "NotoSerifTC-Bold";
     src: url(../font/NotoSerifTC-Bold.otf);
 }
-
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'NotoSerifTC-Regular';
+    font-family: "NotoSerifTC-Regular";
 }
 
 h1,
 h2 {
-    font-family: 'NotoSerifTC-Bold';
+    font-family: "NotoSerifTC-Bold";
 }
 
 h3,
 h4 {
-    font-family: 'NotoSerifTC-Medium';
+    font-family: "NotoSerifTC-Medium";
     font-weight: 500;
 }
 
 :root {
     --Main: rgba(0, 0, 0, 0.88);
-    --Secondary: rgba(0, 0, 0, 0.60);
-    --Inactive: rgba(0, 0, 0, 0.40);
+    --Secondary: rgba(0, 0, 0, 0.6);
+    --Inactive: rgba(0, 0, 0, 0.4);
 }
 
 .text-main {
@@ -65,30 +64,29 @@ h4 {
 }
 
 .font-notosanstc-medium {
-    font-family: 'NotoSansTC-Medium';
+    font-family: "NotoSansTC-Medium";
 }
 
 .font-notosanstc-regular {
-    font-family: 'NotoSansTC-Regular';
+    font-family: "NotoSansTC-Regular";
 }
 
 .font-notoseriftc-medium {
-    font-family: 'NotoSerifTC-Medium';
+    font-family: "NotoSerifTC-Medium";
 }
 
 .font-notoseriftc-regular {
-    font-family: 'NotoSerifTC-Regular';
+    font-family: "NotoSerifTC-Regular";
 }
 
 .font-notoseriftc-bold {
-    font-family: 'NotoSerifTC-Bold';
+    font-family: "NotoSerifTC-Bold";
 }
 
 html,
 body {
     font-size: 16px;
 }
-
 
 .flex {
     display: flex;
@@ -130,9 +128,6 @@ body {
     max-width: 50rem;
 }
 
-
-
-
 header {
     top: 0px;
 }
@@ -172,13 +167,11 @@ main {
     width: 100%;
 }
 
-
-
 .tabs {
     background-color: white;
     display: flex;
     flex-direction: row;
-    border-bottom: 1px rgba(0, 0, 0, 0.40) solid;
+    border-bottom: 1px rgba(0, 0, 0, 0.4) solid;
     overflow-x: auto;
     white-space: nowrap;
     -ms-overflow-style: none;
@@ -193,13 +186,13 @@ main {
 }
 
 .tab-button {
-    color: var(--Inactive, rgba(0, 0, 0, 0.40));
+    color: var(--Inactive, rgba(0, 0, 0, 0.4));
     background-color: inherit;
     border: none;
     float: left;
     outline: none;
     cursor: pointer;
-    font-family: 'NotoSerifTC-Medium';
+    font-family: "NotoSerifTC-Medium";
     transition: 0.1s;
     height: 3.375rem;
     padding: 4px 12px 4px 12px;
@@ -215,7 +208,6 @@ main {
 .active-tab {
     color: var(--Main);
     border-bottom: 3px rgb(0, 0, 0) solid;
-
 }
 
 /* .a {
@@ -239,18 +231,28 @@ main {
 .tab-content img {
     width: 100%;
     max-width: 100%;
-
 }
 
 .title {
     padding: 1.25rem 0 0.75rem 0;
     color: var(--Main);
     word-wrap: break-word;
+    margin-bottom: 0.5rem;
 }
 
-.content {
+.content,
+.article p {
     color: var(--Secondary);
     word-wrap: break-word;
+}
+
+.image img {
+    height: 100%;
+    
+}
+
+.image{
+    margin: 0.5rem 0;
 }
 
 .card-container {
@@ -265,7 +267,7 @@ main {
     display: flex;
 }
 
-.card>div {
+.card > div {
     justify-content: space-between;
 }
 
@@ -284,7 +286,7 @@ main {
 .card_tittle {
     color: #000;
     font-size: 24px;
-    font-family: 'NotoSerifTC-Medium';
+    font-family: "NotoSerifTC-Medium";
     font-weight: 500;
 }
 
@@ -292,14 +294,14 @@ main {
     overflow: hidden;
     color: var(--Secondary);
     text-overflow: ellipsis;
-    font-family: 'NotoSansTC-Regular';
+    font-family: "NotoSansTC-Regular";
     font-size: 1rem;
     margin: 0;
     padding: 0;
 }
 
 .date {
-    font-family: 'NotoSansTC-Regular';
+    font-family: "NotoSansTC-Regular";
     color: var(--Inactive);
     font-size: 0.8125rem;
     font-style: normal;
@@ -314,9 +316,8 @@ main {
     width: 100%;
     /* 分隔線的寬度 */
     height: 1px;
-    ;
     /* 分隔線的高度 */
-    background-color: rgba(0, 0, 0, 0.20);
+    background-color: rgba(0, 0, 0, 0.2);
     /* 分隔線的顏色 */
 }
 
@@ -337,9 +338,10 @@ main {
         font-size: 18px;
     }
 
-    .body1 {
+    .body1,
+    .article p {
         font-size: 15px;
-        font-family: 'NotoSansTC-Regular';
+        font-family: "NotoSansTC-Regular";
         line-height: 36px;
     }
 
@@ -405,7 +407,6 @@ main {
 }
 
 @media (min-width: 1100px) {
-
     h1 {
         font-size: 78px;
     }
@@ -422,9 +423,10 @@ main {
         font-size: 32px;
     }
 
-    .body1 {
+    .body1,
+    .article p {
         font-size: 20px;
-        font-family: 'NotoSansTC-Regular';
+        font-family: "NotoSansTC-Regular";
         line-height: 36px;
     }
 
@@ -440,7 +442,7 @@ main {
         font-size: 24px;
     }
 
-    .tab-content>div:nth-child(1) {
+    .tab-content > div:nth-child(1) {
         padding: 3.75rem 0;
         display: flex;
         flex-direction: column;

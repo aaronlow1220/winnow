@@ -5,7 +5,7 @@
 @endsection
 
 @section('dashboard-content')
-    <form class="func" action="{{ route('handle.addProduct') }}" method="POST">
+    <form class="func" action="{{ route('handle.addProduct') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="func-bar">
             <button class="func-btn" type="submit">

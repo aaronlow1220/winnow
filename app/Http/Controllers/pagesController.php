@@ -99,11 +99,14 @@ class pagesController extends Controller
         if ($selectedSubCategory) {
             $selectedPost = wn_post::where("sub_category_uid", $selectedSubCategory->uuid)->first();
         }
+
+        $allPost = wn_post::all()->where("status", "PUBLIC");
         return view("category", [
             "cat" => $cat,
             "subCat" => $subCat,
             "selectedSubCategory" => $selectedSubCategory,
-            "post" => $selectedPost
+            "post" => $selectedPost,
+            "allPost" => $allPost
         ]);
     }
 

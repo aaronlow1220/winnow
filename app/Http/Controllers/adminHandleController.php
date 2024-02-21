@@ -28,14 +28,29 @@ class adminHandleController extends Controller
             "editor_content" => "required"
         ]);
 
+        $uuid = Helper::prefixedUuid("post_");
+        $cover_pic_name = "";
+
+        if ($request->hasFile("cover_pic")) {
+            $extension = $request->file("cover_pic")->getClientOriginalExtension();
+            $fileName = $uuid . "." . $extension;
+            $cover_pic_name = $fileName;
+            if(file_exists($fileName)){
+                unlink($fileName);
+            }
+            
+            $request->file("cover_pic")->move(public_path("media/post"), $fileName);
+        }
+
         $data = [
-            "uuid" => Helper::prefixedUuid("post_"),
+            "uuid" => $uuid,
             "admin_uid" => Auth::user()->uuid,
             "title" => $request->editor_title,
             "category_uid" => $request->editor_category,
             "alias" => $request->editor_alias,
             "sub_category_uid" => $request->editor_sub_category,
             "status" => $request->editor_status,
+            "media_location"=> $cover_pic_name,
             "hits" => 0,
             "content" => $request->editor_content,
         ];

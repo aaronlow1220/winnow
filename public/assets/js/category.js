@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-const navLinks = document.querySelectorAll('nav div a');
-if (navLinks && navLinks.length >= 3) {
-  navLinks[2].classList.add('text-main');
-}
+// const navLinks = document.querySelectorAll('nav div a');
+// if (navLinks && navLinks.length >= 3) {
+//   navLinks[2].classList.add('text-main');
+// }

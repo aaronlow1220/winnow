@@ -22,7 +22,7 @@
                     alt="logo" /></a>
             <div class="flex text-secondary">
                 @foreach ($navs as $nav)
-                    <a href="/{{$nav->alias}}@foreach($firstSubCat as $subCat)@if($subCat->uuid && $subCat->category_uid==$nav->uuid)?category={{$subCat->uuid}}@break @endif @endforeach " >
+                    <a href="/{{$nav->alias}}@foreach($firstSubCat as $subCat)@if($subCat->uuid && $subCat->category_uid==$nav->uuid)?category={{$subCat->uuid}}@break @endif @endforeach" >
                         <div>{{$nav->name}}</div><img src="{{ asset('assets/img/arrow.svg') }}" />
                     </a>
                 @endforeach
