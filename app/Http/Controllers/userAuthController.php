@@ -49,9 +49,9 @@ class userAuthController extends Controller
             return redirect()->intended("/");
         }
 
-        return back()->withErrors([
-            "email" => "The provided credentials do not match our records.",
-        ])->onlyInput("email");
+        return back()->with([
+            "error" => "登入失敗！請檢查帳號與密碼是否正確",
+        ])->withInput($request->only("loginEmail"));
     }
 
     public function logout(Request $request){

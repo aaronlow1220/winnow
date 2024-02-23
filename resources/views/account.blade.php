@@ -9,7 +9,6 @@
 @section('main-content')
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
-
             function bindButtonListeners() {
                 const buttons = document.querySelectorAll(
                     '.edit_info_card input[type="button"],.edit_info_card button');
@@ -177,6 +176,7 @@
 
             </div>
             <a href="order_list.html" class="caption">訂單查詢 ></a>
+            <a href="{{ route('authHandle.logout') }}" class="caption">登出 ></a>
         </div>
 
         {{-- --- --}}

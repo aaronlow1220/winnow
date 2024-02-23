@@ -30,7 +30,7 @@
                         @csrf
                         <div class="flex flex-column gap-1-5rem">
                             <input type="email" name="loginEmail" placeholder="電子郵件"
-                                class="input-width-height fs-1-25rem text-indent-1-19em  border-radius-0-125rem text-inactive">
+                                class="input-width-height fs-1-25rem text-indent-1-19em  border-radius-0-125rem text-inactive" value="{{ old('loginEmail') }}">
                             <input type="password" name="loginPassword" placeholder="密碼"
                                 class="input-width-height fs-1-25rem text-indent-1-19em  border-radius-0-125rem text-inactive">
                         </div>
@@ -45,4 +45,9 @@
             </div>
         </div>
     </main>
+    @if (session()->has("error"))
+        <script>
+            alert("{{ session()->get("error") }}");
+        </script>
+    @endif
 @endsection
