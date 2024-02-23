@@ -23,11 +23,13 @@ Route::name("admin.")->group(function(){
     Route::get("/admin/article", [adminPagesController::class, "article_list"])->name("article");
     Route::get("/admin/create-article", [adminPagesController::class, "create_article"])->name("create_article");
     Route::get("/admin/category", [adminPagesController::class, "category"])->name("category");
+    Route::get("/admin/add-category", [adminPagesController::class, "addCategory"])->name("addCategory");
     Route::get("/admin/product", [adminPagesController::class, "product"])->name("product");
     Route::get("/admin/add-product", [adminPagesController::class, "addProduct"])->name("addProduct");
     Route::get("/admin/edit-article/{id}", [adminPagesController::class, "editPost"])->name("editPost");
     Route::get("/admin/edit-category/{id}", [adminPagesController::class, "editCategory"])->name("editCategory");
     Route::get("/admin/sub-category", [adminPagesController::class, "subCategory"])->name("subCategory");
+    Route::get("/admin/add-sub-category", [adminPagesController::class, "addSubCategory"])->name("addSubCategory");
     Route::get("/admin/edit-sub-category/{id}", [adminPagesController::class, "editSubCategory"])->name("editSubCategory");
     Route::get("/admin/user", [adminPagesController::class, "user"])->name("user");
     Route::get("/admin/moderator", [adminPagesController::class, "moderator"])->name("moderator");
@@ -40,8 +42,10 @@ Route::post("/admin/post/imageUpload",[adminImageController::class,"store"])->na
 Route::name("handle.")->group(function(){
     
     Route::post("/admin/post/get-sub-category-handle",[adminHandleController::class,"getSubCategory"])->name("getSubCategory");
+    Route::post("/admin/post/add-category-handle",[adminHandleController::class,"addCategory"])->name("addCategory");
     Route::post("/admin/post/edit-category-handle",[adminHandleController::class,"editCategory"])->name("editCategory");
     Route::post("/admin/post/edit-article-handle",[adminHandleController::class,"editPost"])->name("editPost");
+    Route::post("/admin/post/add-sub-category-handle",[adminHandleController::class,"addSubCategory"])->name("addSubCategory");
     Route::post("/admin/post/edit-sub-category-handle",[adminHandleController::class,"editSubCategory"])->name("editSubCategory");
     Route::post("/admin/post/edit-user-handle",[adminHandleController::class,"editUser"])->name("editUser");
     Route::get("/admin/post/reset-password-handle/{id}",[adminHandleController::class,"resetPassword"])->name("resetPassword");

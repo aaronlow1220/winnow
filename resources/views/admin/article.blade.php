@@ -1,5 +1,7 @@
 @extends('admin/layout/dashboard-layout')
 
+@section("admin-title", "文章管理")
+
 @section('dashboard-title')
     文章管理
 @endsection
@@ -69,7 +71,7 @@
                     @endforeach
                 </td>
                 <td>{{ $article->status }}</td>
-                <td>{{ $article->modified_at }}</td>
+                <td>{{ date('Y-m-d', strtotime($article->modified_at)) }}</td>
                 <td>{{ $article->hits }}</td>
             </tr>
         @endforeach

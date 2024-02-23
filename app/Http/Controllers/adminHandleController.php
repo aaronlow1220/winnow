@@ -35,10 +35,10 @@ class adminHandleController extends Controller
             $extension = $request->file("cover_pic")->getClientOriginalExtension();
             $fileName = $uuid . "." . $extension;
             $cover_pic_name = $fileName;
-            if(file_exists($fileName)){
+            if (file_exists($fileName)) {
                 unlink($fileName);
             }
-            
+
             $request->file("cover_pic")->move(public_path("media/post"), $fileName);
         }
 
@@ -50,7 +50,7 @@ class adminHandleController extends Controller
             "alias" => $request->editor_alias,
             "sub_category_uid" => $request->editor_sub_category,
             "status" => $request->editor_status,
-            "media_location"=> $cover_pic_name,
+            "media_location" => $cover_pic_name,
             "hits" => 0,
             "content" => $request->editor_content,
         ];
@@ -65,9 +65,32 @@ class adminHandleController extends Controller
 
     public function getSubCategory(Request $request)
     {
-
         $subCategory = wn_sub_category::select("uuid", "category_uid", "name")->where("category_uid", $request->selectCat)->get();
         return response()->json(["subCategory" => $subCategory]);
+    }
+
+    public function addCategory(Request $request)
+    {
+        $table = "wn_categories";
+        $validate = $request->validate([
+            "name" => "required|unique:" . $table . ",name",
+            "alias" => "required|unique:" . $table . ",alias",
+            "status"=>"required"
+        ]);
+
+        $data = [
+            "uuid" => Helper::prefixedUuid("category_"),
+            "name" => $request->name,
+            "alias" => $request->alias,
+            "status"=> $request->status
+        ];
+
+        try {
+            wn_category::create($data);
+            return back()->with("success", "success");
+        } catch (\Illuminate\Database\QueryException $ex) {
+            return back()->with("failed", "failed");
+        }
     }
 
     public function editCategory(Request $request)
@@ -87,6 +110,32 @@ class adminHandleController extends Controller
 
         try {
             wn_category::where("uuid", $request->category)->update($data);
+            return back()->with("success", "success");
+        } catch (\Illuminate\Database\QueryException $ex) {
+            return back()->with("failed", "failed");
+        }
+    }
+
+    public function addSubCategory(Request $request)
+    {
+        $table = "wn_sub_categories";
+        $validate = $request->validate([
+            "category" => "required",
+            "name" => "required|unique:" . $table . ",name",
+            "alias" => "required|unique:" . $table . ",alias",
+            "status" => "required"
+        ]);
+
+        $data = [
+            "uuid" => Helper::prefixedUuid("subCategory_"),
+            "category_uid" => $request->category,
+            "name" => $request->name,
+            "alias" => $request->alias,
+            "status" => $request->status
+        ];
+
+        try {
+            wn_sub_category::create($data);
             return back()->with("success", "success");
         } catch (\Illuminate\Database\QueryException $ex) {
             return back()->with("failed", "failed");

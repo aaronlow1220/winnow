@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ asset('assets/css/admin/dashboard.css') }}" />
-    <title>AdminSite</title>
+    <title>@yield("admin-title")</title>
 </head>
 
 <body>
@@ -176,13 +176,10 @@
                 <img src="{{ asset('assets/img/admin/account.svg') }}" alt="" />
                 <ul class="profile-link">
                     <li>
-                        <a href="#">Profile</a>
+                        <a href="#">個人資料</a>
                     </li>
                     <li>
-                        <a href="#">Settings</a>
-                    </li>
-                    <li>
-                        <a href="#">Logout</a>
+                        <a href="{{ route('authHandle.logout') }}">登出</a>
                     </li>
                 </ul>
             </div>

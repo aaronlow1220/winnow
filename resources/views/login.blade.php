@@ -49,5 +49,11 @@
         <script>
             alert("{{ session()->get("error") }}");
         </script>
+        @elseif($errors->any())
+        <script>
+            @foreach ($errors->all() as $error)
+            alert("{{ $error }}");
+            @endforeach
+        </script>
     @endif
 @endsection

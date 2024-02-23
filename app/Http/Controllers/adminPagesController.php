@@ -66,6 +66,13 @@ class adminPagesController extends Controller
         return redirect("/permission-error");
     }
 
+    public function addCategory(Request $request){
+        if (Helper::isAdmin()) {
+            return view("admin/add-category");
+        }
+        return redirect("/permission-error");
+    }
+
     public function editCategory(string $id)
     {
         // if(Helper::isAdmin()){
@@ -89,6 +96,14 @@ class adminPagesController extends Controller
         );
         // }
         // return redirect("/permission-error");
+    }
+
+    public function addSubCategory(Request $request){
+        if (Helper::isAdmin()) {
+            $category = wn_category::all()->where("status", "ACTIVE");
+            return view("admin/add-sub-category",["categories" => $category]);
+        }
+        return redirect("/permission-error");
     }
 
     public function editSubCategory(string $id)

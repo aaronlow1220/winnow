@@ -15,7 +15,7 @@
         <nav class="flex justify-center align-items-center relative">
             <label for="burger">☰</label>
             <input type="checkbox" id="burger">
-            <a id="nav_logo" href="index.html"><img src="{{ asset('assets/img/Logo.png') }}" alt="logo" /></a>
+            <a id="nav_logo" href="{{ route('home') }}"><img src="{{ asset('assets/img/Logo.png') }}" alt="logo" /></a>
             <div class="flex text-secondary">
                 <a href="/latest-news">
                     <div>最新消息</div><img src="{{ asset('assets/img/arrow.svg') }}" />

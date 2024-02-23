@@ -16,16 +16,22 @@
     @yield('top')
     <nav id="nav" class="sticky">
         <nav class="flex justify-center align-items-center relative">
-            <label for="burger">☰</label>
+            <label id="hamburger" for="burger">☰</label>
             <input type="checkbox" id="burger">
             <a id="nav_logo" href="{{ route('home') }}"><img src="{{ asset('assets/img/Logo.png') }}"
                     alt="logo" /></a>
             <div class="flex text-secondary">
                 @foreach ($navs as $nav)
-                    <a href="/{{$nav->alias}}@foreach($firstSubCat as $subCat)@if($subCat->uuid && $subCat->category_uid==$nav->uuid)?category={{$subCat->uuid}}@break @endif @endforeach" >
-                        <div>{{$nav->name}}</div><img src="{{ asset('assets/img/arrow.svg') }}" />
-                    </a>
+                    @if ($nav->alias != 'about-us')
+                        <a
+                            href="/{{ $nav->alias }}@foreach ($firstSubCat as $subCat)@if ($subCat->uuid && $subCat->category_uid == $nav->uuid)?category={{ $subCat->uuid }}@break @endif @endforeach">
+                            <div>{{ $nav->name }}</div><img src="{{ asset('assets/img/arrow.svg') }}" />
+                        </a>
+                    @endif
                 @endforeach
+                <a href="{{ route('aboutUs') }}">
+                    <div>關於我們</div><img src="{{ asset('assets/img/arrow.svg') }}" />
+                </a>
             </div>
             <div id="customer-interaction-icons">
                 <a href="{{ route('account') }}" class="flex"><img id="icon_person"
@@ -108,6 +114,18 @@
 </div>
 </div>
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let hamburger = document.querySelector("#burger");
+        hamburger.addEventListener('change', function() {
+            if (hamburger.checked) {
+                document.body.classList.add('no-scroll');
+            } else {
+                document.body.classList.remove('no-scroll');
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

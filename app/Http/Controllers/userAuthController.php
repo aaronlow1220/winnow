@@ -37,6 +37,9 @@ class userAuthController extends Controller
         $credentials = $request->validate([
             "loginEmail" => "required|email",
             "loginPassword" => "required",
+        ],[
+            "loginEmail.required"=> "請確認電子郵件已輸入",
+            "loginPassword.required"=> "請確認密碼已輸入",
         ]);
 
         $data = [

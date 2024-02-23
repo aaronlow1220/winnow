@@ -1,5 +1,7 @@
 @extends('admin/layout/dashboard-layout')
 
+@section("admin-title", "類別管理 - 類別")
+
 @section("dashboard-title")
     類別管理 - 類別
 @endsection
@@ -7,7 +9,7 @@
 @section('dashboard-content')
     <div class="func">
         <div class="func-bar">
-            <a class="func-btn" href="{{ route('admin.create_article') }}">
+            <a class="func-btn" href="{{ route('admin.addCategory') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                     <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" fill="currentcolor" />
                 </svg>
@@ -43,7 +45,7 @@
                             <td><a href="{{ route('admin.editCategory',['id'=> $category->uuid]) }}">{{ $category->name }}</a></td>
                             <td>{{ $category->alias }}</td>
                             <td>{{ $category->status }}</td>
-                            <td>{{ $category->modified_at }}</td>
+                            <td>{{ date('Y-m-d', strtotime($category->modified_at)) }}</td>
                         </tr>
                     @endforeach
                 </tbody>

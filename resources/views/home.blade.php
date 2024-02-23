@@ -1,6 +1,6 @@
 @extends('layout/layout')
 
-@section('page-title', '帳號')
+@section('page-title', '忠貞社區發展協會')
 
 @push('top-link')
     <link rel="stylesheet" href="{{ asset('assets/css/ph.css') }}">
@@ -505,4 +505,12 @@
         </div>
     </div>
     <script src="{{ asset('assets/js/foodmap.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            let hamburger =  document.querySelector("#hamburger");
+            hamburger.addEventListener('click', function(){
+                hamburger.scrollIntoView( { behavior: "smooth"});
+            });
+        });
+    </script>
 @endsection

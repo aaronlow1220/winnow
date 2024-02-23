@@ -53,7 +53,7 @@
             }
 
             function setupCloseIconTriggers() {
-                var closeIcons = document.querySelectorAll('.modal img[src="../img/close.svg"]');
+                var closeIcons = document.querySelectorAll('.modal img');
                 closeIcons.forEach(function(icon) {
                     icon.addEventListener('click', function() {
                         var input = icon.previousElementSibling;
@@ -176,7 +176,7 @@
 
             </div>
             <a href="order_list.html" class="caption">訂單查詢 ></a>
-            <a href="{{ route('authHandle.logout') }}" class="caption">登出 ></a>
+            <a id="logOut" href="{{ route('authHandle.logout') }}" class="body1 btn-tertiary">登出</a>
         </div>
 
         {{-- --- --}}
