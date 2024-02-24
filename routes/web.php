@@ -8,17 +8,9 @@ use App\Http\Controllers\adminPagesController;
 use App\Http\Controllers\adminImageController;
 use App\Http\Controllers\adminHandleController;
 
-// test
-Route::get("/testUpload", [pagesController::class,"testUpload"])->name("testUpload");
-Route::get("/testCategory", [pagesController::class,"testCategory"])->name("testCategory");
-Route::get("/testSubCategory", [pagesController::class,"testSubCategory"])->name("testSubCategory");
-Route::post("/testUploadHandle", [pagesController::class,"testUploadHandle"])->name("testUploadHandle");
-Route::post("/testCategoryHandle", [pagesController::class,"testCategoryHandle"])->name("testCategoryHandle");
-Route::post("/testSubCategoryHandle", [pagesController::class,"testSubCategoryHandle"])->name("testSubCategoryHandle");
-
 // Admin backend pages
-Route::name("admin.")->group(function(){
-    Route::get("/admin", [adminPagesController::class,"redirectForAdmin"])->name("redirectForAdmin");
+Route::name("admin.")->group(function () {
+    Route::get("/admin", [adminPagesController::class, "redirectForAdmin"])->name("redirectForAdmin");
     Route::get("/admin/dashboard", [adminPagesController::class, "dashboard"])->name("dashboard");
     Route::get("/admin/article", [adminPagesController::class, "article_list"])->name("article");
     Route::get("/admin/create-article", [adminPagesController::class, "create_article"])->name("create_article");
@@ -38,19 +30,18 @@ Route::name("admin.")->group(function(){
 });
 
 // Admin handle
-Route::post("/admin/post/imageUpload",[adminImageController::class,"store"])->name("ck.upload");
-Route::name("handle.")->group(function(){
-    
-    Route::post("/admin/post/get-sub-category-handle",[adminHandleController::class,"getSubCategory"])->name("getSubCategory");
-    Route::post("/admin/post/add-category-handle",[adminHandleController::class,"addCategory"])->name("addCategory");
-    Route::post("/admin/post/edit-category-handle",[adminHandleController::class,"editCategory"])->name("editCategory");
-    Route::post("/admin/post/edit-article-handle",[adminHandleController::class,"editPost"])->name("editPost");
-    Route::post("/admin/post/add-sub-category-handle",[adminHandleController::class,"addSubCategory"])->name("addSubCategory");
-    Route::post("/admin/post/edit-sub-category-handle",[adminHandleController::class,"editSubCategory"])->name("editSubCategory");
-    Route::post("/admin/post/edit-user-handle",[adminHandleController::class,"editUser"])->name("editUser");
-    Route::get("/admin/post/reset-password-handle/{id}",[adminHandleController::class,"resetPassword"])->name("resetPassword");
-    Route::post("/admin/post/create-post-handle",[adminHandleController::class,"storePost"])->name("storePost");
-    Route::post("/admin/post/add-product-handle",[adminHandleController::class,"addProduct"])->name("addProduct");
+Route::post("/admin/post/imageUpload", [adminImageController::class, "store"])->name("ck.upload");
+Route::name("handle.")->group(function () {
+    Route::post("/admin/post/get-sub-category-handle", [adminHandleController::class, "getSubCategory"])->name("getSubCategory");
+    Route::post("/admin/post/add-category-handle", [adminHandleController::class, "addCategory"])->name("addCategory");
+    Route::post("/admin/post/edit-category-handle", [adminHandleController::class, "editCategory"])->name("editCategory");
+    Route::post("/admin/post/edit-article-handle", [adminHandleController::class, "editPost"])->name("editPost");
+    Route::post("/admin/post/add-sub-category-handle", [adminHandleController::class, "addSubCategory"])->name("addSubCategory");
+    Route::post("/admin/post/edit-sub-category-handle", [adminHandleController::class, "editSubCategory"])->name("editSubCategory");
+    Route::post("/admin/post/edit-user-handle", [adminHandleController::class, "editUser"])->name("editUser");
+    Route::get("/admin/post/reset-password-handle/{id}", [adminHandleController::class, "resetPassword"])->name("resetPassword");
+    Route::post("/admin/post/create-post-handle", [adminHandleController::class, "storePost"])->name("storePost");
+    Route::post("/admin/post/add-product-handle", [adminHandleController::class, "addProduct"])->name("addProduct");
 });
 
 
@@ -78,13 +69,8 @@ Route::name('pageHandle.')->group(function () {
     Route::post('/accountChange', [pagesHandleController::class, "accountChange"])->name("accountChange");
 });
 
-// Route::get("/latest-news", [pagesController::class, "latestNews"]);
-// Route::get("/dishes", [pagesController::class, "dishes"])->name("dishes");
-// Route::get("/attractions", [pagesController::class, "attractions"]);
-// Route::get("/dream", [pagesController::class, "dream"]);
-// Route::get("/food-shop", [pagesController::class, "foodShop"]);
-// Route::get("/about-us", [pagesController::class, "aboutUs"]);
+// Permission error
 Route::get("/permission-error", [pagesController::class, "permissionError"]);
 
-Route::get("/{category}", [pagesController::class, "category"])->name("category");
-Route::get("/{category}/{subCategory}/{article}", [pagesController::class, "pages"])->name("pages");
+// Dynamic pages
+Route::get("/{category}/{subCategory?}/{article?}", [pagesController::class, "category"])->name("category");

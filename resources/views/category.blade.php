@@ -1,6 +1,6 @@
 @extends('layout/layout')
 
-@section('page-title', $cat->name)
+@section('page-title', $category->name)
 
 @push('category')
     <link rel="stylesheet" href="{{ asset('assets/css/category.css') }}" />
@@ -10,12 +10,12 @@
 @section('main-content')
     <main>
         <div id="sub-main">
-            <h3 id="page_title">{{ $cat->name }}</h3>
+            <h3 id="page_title">{{ $category->name }}</h3>
 
             <div class="tabs">
-                @foreach ($subCat as $sub)
-                    <button @if ($loop->iteration === 1) class="tab-button active-tab" @else class="tab-button" @endif
-                        onclick="openTab(event, 'tab{{ $loop->iteration }}')">{{ $sub->name }}</button>
+                @foreach ($subCategory as $sc)
+                    <a href="{{ route('category', ['category' => $category->alias, 'subCategory' => $sc->alias]) }}"><button
+                            @if ($subCatAlias == $sc->alias) class="tab-button active-tab" @else class="tab-button" @endif>{{ $sc->name }}</button></a>
                 @endforeach
             </div>
 
@@ -24,14 +24,14 @@
                     <div class="article">
                         <div class="row-column">
                             <h3 class="title">
-                                @if ($post)
-                                    {{ $post->title }}
+                                @if ($article)
+                                    {{ $article->title }}
                                 @endif
                             </h3>
                             <!-- <div class="date">2023/12/10</div> -->
                         </div>
-                        @if ($post)
-                            {!! $post->content !!}
+                        @if ($article)
+                            {!! $article->content !!}
                         @else
                             目前沒有文章哦~
                         @endif
@@ -39,7 +39,7 @@
                     </div>
                     <div class="card-container">
 
-                        @foreach ($allPost as $post)
+                        {{-- @foreach ($otherPost as $post)
                             <a class="card" href="article1.html">
                                 <img src="{{ asset('media/post/' . $post->media_location) }}" alt="">
                                 <div class="flex-column">
@@ -63,7 +63,7 @@
                             </a>
 
                             <div class="divider"></div>
-                        @endforeach
+                        @endforeach --}}
                     </div>
                     <div id="tab2" class="tab-content">
                         <h3>眷村</h3>

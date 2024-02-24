@@ -23,8 +23,7 @@
             <div class="flex text-secondary">
                 @foreach ($navs as $nav)
                     @if ($nav->alias != 'about-us')
-                        <a
-                            href="/{{ $nav->alias }}@foreach ($firstSubCat as $subCat)@if ($subCat->uuid && $subCat->category_uid == $nav->uuid)?category={{ $subCat->uuid }}@break @endif @endforeach">
+                        <a href="{{ route('category', ['category' => $nav->alias]) }}">
                             <div>{{ $nav->name }}</div><img src="{{ asset('assets/img/arrow.svg') }}" />
                         </a>
                     @endif
