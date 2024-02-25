@@ -68,38 +68,106 @@ class pagesController extends Controller
 
     public function category(Request $request, string $category, ?string $subCategory = null, ?string $article = null)
     {
-        if ($category) {
-            // Get category info
-            $cat = wn_category::where("alias", $category)->first();
-            $subCat = wn_sub_category::all()->where("category_uid", $cat->uuid);
-            $arti = wn_post::all()->where("category_uid", $cat->uuid)->where("status", "PUBLIC")->first();
+        // Current category
+        $cat = wn_category::where("alias", $category)->where("status", "ACTIVE");
+        $subCat = $subCategory;
+        $arti = $article;
 
-            $no_subCat = wn_sub_category::all()->where("category_uid", $cat->uuid)->where("status", "ACTIVE");
-            if($no_subCat->isEmpty()) {
+        // if ($cat->exists()) {
+        //     // Sub category
+        //     $subCat = wn_sub_category::where("category_uid", $cat->first()->uuid)->where("status", "ACTIVE");
+        //     // Preprocessing
+        //     if ($subCategory == null) {
+        //         if (!$subCat->exists()) {
+        //             $latestPost = wn_post::where("category_uid", $cat->first()->uuid)->where("status", "PUBLIC");
+        //             if (!$latestPost->exists()) {
+        //                 return redirect()->route("post", ["category" => $category]);
+        //             }
+        //             return redirect()->route("post", ["category" => $category, "article" => $latestPost->first()->uuid]);
+        //         }
+        //         $latestPost = wn_post::where("sub_category_uid", $subCat->first()->uuid)->where("status", "PUBLIC");
+        //         if (!$latestPost->exists()) {
+        //             return redirect()->route("post", ["category" => $category, "subCategory" => $subCat->first()->alias]);
+        //         }
+        //         return redirect()->route("post", ["category" => $category, "subCategory" => $subCat->first()->alias, "article" => $latestPost->first()->uuid]);
+        //     }
+        // }
+
+        if ($cat->exists()) {
+            if ($subCategory === null) {
+                $tempSubCat = wn_sub_category::where("category_uid", $cat->first()->uuid)->where("status", "ACTIVE");
+                // If category has sub category
+                if ($tempSubCat->exists()) {
+                    $subCat = $tempSubCat->first()->alias;
+                    $tempArti = wn_post::where("sub_category_uid", $tempSubCat->first()->uuid)->where("status", "PUBLIC");
+                    if ($tempArti->exists()) {
+                        $arti = $tempArti->first()->uuid;
+                    }
+                } else {
+                    $subCat = null;
+                    $tempArti = wn_post::where("category_uid", $cat->first()->uuid)->where("status", "PUBLIC");
+                    if ($tempArti->exists()) {
+                        $arti = $tempArti->first()->uuid;
+                    }
+                }
+            }
+            else{
+                $tempSubCat = wn_sub_category::where("category_uid", $cat->first()->uuid)->where("alias", $subCategory)->where("status", "ACTIVE");
+
+                if ($tempSubCat->exists()) {
+                    $subCat = $tempSubCat->first()->alias;
+                    $tempArti = wn_post::where("sub_category_uid", $tempSubCat->first()->uuid)->where("status", "PUBLIC");
+                    if ($tempArti->exists()) {
+                        $arti = $tempArti->first()->uuid;
+                    }
+                }
+                else {
+                    $subCat = null;
+                    $tempArti = wn_post::where("category_uid", $cat->first()->uuid)->where("status", "PUBLIC");
+                    if ($tempArti->exists()) {
+                        $arti = $tempArti->first()->uuid;
+                    }
+                }
                 
             }
-            
-            if (!$subCategory) {
-                if (!$subCat->isEmpty()) {
-                    $firstCat = $subCat->first();
-                    $firstPost = wn_post::all()->where("category_uid", $cat->uuid)->where("sub_category_uid", $firstCat->uuid)->where("status", "PUBLIC");
-                    if (!$firstPost->isEmpty()) {
-                        return redirect()->route("category", ["category" => $category, "subCategory" => $firstCat->alias, "article" => $firstPost->first()->uuid]);
-                    }
-                    return redirect()->route("category", ["category" => $category, "subCategory" => $firstCat->alias]);
-                }
-            }
-            if (!$article) {
-                $selectedSubCat = wn_sub_category::where("alias", $subCategory)->where("status", "ACTIVE")->first();
-                $firstArti = wn_post::all()->where("sub_category_uid", $selectedSubCat->uuid)->where("status", "PUBLIC");
-                if (!$firstArti->isEmpty()) {
-                    return redirect()->route("category", ["category" => $category, "subCategory" => $subCategory, "article" => $firstArti->first()->uuid]);
-                }
-            }
-            $arti = wn_post::all()->where("uuid", $article)->first();
-
-            return view("category", ["category" => $cat, "subCategory" => $subCat, "article" => $arti , "subCatAlias"=>$subCategory]);
+            return redirect()->route("post", ["category" => $category, "subCategory" => $subCat, "article" => $arti]);
         }
+        // 404
+        return;
+    }
+
+    public function post(Request $request, ?string $category = null, ?string $subCategory = null, ?string $article = null)
+    {
+        if ($category) {
+            $cat = wn_category::where("alias", $category)->where("status", "ACTIVE");
+            $subCat = null;
+            $arti = null;
+            $otherPosts = null;
+
+            // If it dont have sub category
+            if ($subCategory == null) {
+                $subCat = null;
+                // If article is not exist
+                if ($article == null) {
+                    $arti = null;
+                }
+                $arti = wn_post::where("category_uid", $cat->first()->uuid)->where("status", "PUBLIC")->first();
+                $otherPosts = wn_post::all()->where("category_uid", $cat->first()->uuid)->where("status", "PUBLIC");
+            } else {
+                if ($article == null) {
+                    $arti = null;
+                }
+                $subCat = wn_sub_category::all()->where("category_uid", $cat->first()->uuid)->where("status", "ACTIVE");
+
+                $currentSelectedSubCat = $subCat->where("alias", $subCategory);
+
+                $otherPosts = wn_post::all()->where("sub_category_uid", $currentSelectedSubCat->first()->uuid)->where("status", "PUBLIC");
+
+                $arti = $otherPosts->first();
+            }
+        }
+
+        return view("category", ["category" => $cat->first(), "subCategory" => $subCat, "article" => $arti, "catAlias" => $category, "subCatAlias" => $subCategory, "otherPosts"=>$otherPosts]);
     }
 
     // For testing

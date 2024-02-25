@@ -6,7 +6,7 @@
 
 @section('dashboard-content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="{{ asset('assets/vendor/ckeditor5/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/vendor/ckeditor5/build/ckeditor.js') }}"></script>
     @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div class="msg-box failed">
@@ -101,11 +101,14 @@
         }
         let editor = document.querySelector("#editor");
 
+
         ClassicEditor.create(editor, {
             ckfinder: {
                 uploadUrl: "{{ route('ck.upload', ['_token' => csrf_token()]) }}",
             },
-            image_prefillDimensions: false,
+            mediaEmbed: {
+                previewsInData: true,
+            },
         }).catch((error) => {
             console.error(error);
         });

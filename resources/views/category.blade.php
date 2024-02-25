@@ -13,22 +13,24 @@
             <h3 id="page_title">{{ $category->name }}</h3>
 
             <div class="tabs">
-                @foreach ($subCategory as $sc)
-                    <a href="{{ route('category', ['category' => $category->alias, 'subCategory' => $sc->alias]) }}"><button
-                            @if ($subCatAlias == $sc->alias) class="tab-button active-tab" @else class="tab-button" @endif>{{ $sc->name }}</button></a>
-                @endforeach
+                @isset($subCategory)
+                    @foreach ($subCategory as $sc)
+                        <a href="{{ route('category', ['category' => $category->alias, 'subCategory' => $sc->alias]) }}"><button
+                                @if ($subCatAlias == $sc->alias) class="tab-button active-tab" @else class="tab-button" @endif>{{ $sc->name }}</button></a>
+                    @endforeach
+                @endisset
             </div>
 
             <div>
                 <div id="tab1" class="tab-content">
-                    <div class="article">
+                    <div class="article" id="article-container">
                         <div class="row-column">
                             <h3 class="title">
-                                @if ($article)
+                                @isset($article)
                                     {{ $article->title }}
-                                @endif
+                                @endisset
                             </h3>
-                            <!-- <div class="date">2023/12/10</div> -->
+                            {{-- <div class="date">2023/12/10</div> --}}
                         </div>
                         @if ($article)
                             {!! $article->content !!}
@@ -38,32 +40,34 @@
 
                     </div>
                     <div class="card-container">
-
-                        {{-- @foreach ($otherPost as $post)
-                            <a class="card" href="article1.html">
-                                <img src="{{ asset('media/post/' . $post->media_location) }}" alt="">
-                                <div class="flex-column">
-                                    <div>
-                                        <div class="card_tittle">{{ $post->title }}</div>
-                                        <p>雲南特色美食，傳說賢惠的妻子為了讓丈夫能在寒冬吃上又有營養又能祛寒的食物，以雞湯或豬骨頭湯佐以米線及其它配料裝在砂鍋裏，保溫美味又營養。</p>
+                        @isset($otherPosts)
+                            @foreach ($otherPosts as $post)
+                                <a class="card"
+                                    href="{{ route('post', ['category' => $catAlias, 'subCategory' => $subCatAlias, 'article' => $post->uuid]) }}">
+                                    <img src="{{ asset('media/post/' . $post->media_location) }}" alt="">
+                                    <div class="flex-column">
+                                        <div>
+                                            <div class="card_tittle">{{ $post->title }}</div>
+                                            <p>雲南特色美食，傳說賢惠的妻子為了讓丈夫能在寒冬吃上又有營養又能祛寒的食物，以雞湯或豬骨頭湯佐以米線及其它配料裝在砂鍋裏，保溫美味又營養。</p>
+                                        </div>
+                                        <div class="date">{{ date('Y-m-d', strtotime($post->created_at)) }}</div>
                                     </div>
-                                    <div class="date">2023/12/10</div>
-                                </div>
-                            </a>
+                                </a>
 
-                            <a class="m_card" href="m_article1.html">
-                                <img src="{{ asset('media/post/' . $post->media_location) }}" alt="">
-                                <div class="flex-column">
-                                    <div>
-                                        <div class="card_tittle">{{ $post->title }}</div>
-                                        <p>雲南特色美食，傳說賢惠的妻子為了讓丈夫能在寒冬吃上又有營養又能祛寒的食物，以雞湯或豬骨頭湯佐以米線及其它配料裝在砂鍋裏，保溫美味又營養。</p>
+                                <a class="m_card" href="m_article1.html">
+                                    <img src="{{ asset('media/post/' . $post->media_location) }}" alt="">
+                                    <div class="flex-column">
+                                        <div>
+                                            <div class="card_tittle">{{ $post->title }}</div>
+                                            <p>雲南特色美食，傳說賢惠的妻子為了讓丈夫能在寒冬吃上又有營養又能祛寒的食物，以雞湯或豬骨頭湯佐以米線及其它配料裝在砂鍋裏，保溫美味又營養。</p>
+                                        </div>
+                                        <div class="date">2023/12/10</div>
                                     </div>
-                                    <div class="date">2023/12/10</div>
-                                </div>
-                            </a>
+                                </a>
 
-                            <div class="divider"></div>
-                        @endforeach --}}
+                                <div class="divider"></div>
+                            @endforeach
+                        @endisset
                     </div>
                     <div id="tab2" class="tab-content">
                         <h3>眷村</h3>

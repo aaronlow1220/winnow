@@ -73,4 +73,5 @@ Route::name('pageHandle.')->group(function () {
 Route::get("/permission-error", [pagesController::class, "permissionError"]);
 
 // Dynamic pages
+Route::get("/c/{category}/{subCategory?}/{article?}", [pagesController::class, "post"])->name("post");
 Route::get("/{category}/{subCategory?}/{article?}", [pagesController::class, "category"])->name("category");

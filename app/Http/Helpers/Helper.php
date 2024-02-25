@@ -44,41 +44,43 @@ class Helper
     }
 
     // Image Processing
-    public static function resize_jpg($source, $destination) {
+    public static function resize_jpg($source, $destination)
+    {
         $size = getimagesize($source);
         $width = $size[0];
         $height = $size[1];
 
         $resize = 0.8;
-        $rwidth = ceil($width*$resize);
-        $rheight = ceil($height*$resize);
+        $rwidth = ceil($width * $resize);
+        $rheight = ceil($height * $resize);
 
         $original = imagecreatefromjpeg($source);
 
         $resized = imagecreatetruecolor($rwidth, $rheight);
-        imagecopyresampled($resized, $original, 0,0,0,0,$rwidth,$rheight,$width,$height);
+        imagecopyresampled($resized, $original, 0, 0, 0, 0, $rwidth, $rheight, $width, $height);
 
         imagejpeg($resized, $destination);
 
         imagedestroy($original);
         imagedestroy($resized);
-    } 
+    }
 
-    public static function resize_png($source, $destination) {
+    public static function resize_png($source, $destination)
+    {
         $size = getimagesize($source);
         $width = $size[0];
         $height = $size[1];
 
         $resize = 0.8;
-        $rwidth = ceil($width*$resize);
-        $rheight = ceil($height*$resize);
+        $rwidth = ceil($width * $resize);
+        $rheight = ceil($height * $resize);
 
         $original = imagecreatefrompng($source);
 
         $resized = imagecreatetruecolor($rwidth, $rheight);
         imagealphablending($resized, false);
         imagesavealpha($resized, true);
-        imagecopyresampled($resized, $original, 0,0,0,0,$rwidth,$rheight,$width,$height);
+        imagecopyresampled($resized, $original, 0, 0, 0, 0, $rwidth, $rheight, $width, $height);
 
         imagepng($resized, $destination);
 
@@ -86,7 +88,8 @@ class Helper
         imagedestroy($resized);
     }
 
-    public static function randomPassword() {
+    public static function randomPassword()
+    {
         $alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         $pass = array();
         $alphaLength = strlen($alphabet) - 1;
