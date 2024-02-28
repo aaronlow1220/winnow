@@ -57,8 +57,8 @@ class pagesController extends Controller
 
     public function shop(Request $request)
     {
-        wn_product::all()->where("status", "ACTIVE");
-        return view("shop");
+        $items = wn_product::all()->where("status", "PUBLIC");
+        return view("shop", ["items" => $items]);
     }
 
     public function aboutUs(Request $request)
@@ -110,8 +110,7 @@ class pagesController extends Controller
                         $arti = $tempArti->first()->uuid;
                     }
                 }
-            }
-            else{
+            } else {
                 $tempSubCat = wn_sub_category::where("category_uid", $cat->first()->uuid)->where("alias", $subCategory)->where("status", "ACTIVE");
 
                 if ($tempSubCat->exists()) {
@@ -120,15 +119,14 @@ class pagesController extends Controller
                     if ($tempArti->exists()) {
                         $arti = $tempArti->first()->uuid;
                     }
-                }
-                else {
+                } else {
                     $subCat = null;
                     $tempArti = wn_post::where("category_uid", $cat->first()->uuid)->where("status", "PUBLIC");
                     if ($tempArti->exists()) {
                         $arti = $tempArti->first()->uuid;
                     }
                 }
-                
+
             }
             return redirect()->route("post", ["category" => $category, "subCategory" => $subCat, "article" => $arti]);
         }
@@ -167,7 +165,7 @@ class pagesController extends Controller
             }
         }
 
-        return view("category", ["category" => $cat->first(), "subCategory" => $subCat, "article" => $arti, "catAlias" => $category, "subCatAlias" => $subCategory, "otherPosts"=>$otherPosts]);
+        return view("category", ["category" => $cat->first(), "subCategory" => $subCat, "article" => $arti, "catAlias" => $category, "subCatAlias" => $subCategory, "otherPosts" => $otherPosts]);
     }
 
     // For testing

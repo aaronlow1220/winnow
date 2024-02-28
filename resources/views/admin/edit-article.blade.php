@@ -6,7 +6,7 @@
 
 @section('dashboard-content')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script src="{{ asset('assets/vendor/ckeditor5/ckeditor.js') }}"></script>
+    <script src="{{ asset('assets/vendor/ckeditor5/build/ckeditor.js') }}"></script>
     @if ($errors->any())
         @foreach ($errors->all() as $error)
             <div class="msg-box failed">
@@ -47,6 +47,11 @@
         <div class="editor-container">
 
             <div class="editor-right">
+                <div class="editor-in">
+                    <label for="editor-cover-pic">封面圖</label>
+                    <input type="file" name="cover_pic" id="editor-cover-pic">
+                    <img src="{{ asset('media/post/'. $post->uuid .  '.png') }}" alt="" id="cover_pic_preview">
+                </div>
                 <div class="editor-in">
                     <label for="editor-title">標題</label>
                     <input type="text" name="editor_title" id="editor-title" class="editor-input"
@@ -95,11 +100,24 @@
     </form>
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <script>
+        let preview = document.querySelector("#cover_pic_preview");
+        let fileUp = document.querySelector("#editor-cover-pic");
+
+        fileUp.onchange = evt => {
+            const [file] = fileUp.files
+            if (file) {
+                preview.src = URL.createObjectURL(file)
+            }
+        }
         let editor = document.querySelector("#editor");
+
 
         ClassicEditor.create(editor, {
             ckfinder: {
                 uploadUrl: "{{ route('ck.upload', ['_token' => csrf_token()]) }}",
+            },
+            mediaEmbed: {
+                previewsInData: true,
             },
         }).catch((error) => {
             console.error(error);

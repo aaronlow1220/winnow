@@ -1,6 +1,8 @@
 @extends('admin/layout/dashboard-layout')
 
-@section("dashboard-title")
+@section("admin-title", "商品管理")
+
+@section('dashboard-title')
     商品管理
 @endsection
 
@@ -39,97 +41,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>手拉手東南亞特色甜點盒</td>
-                        <td>是</td>
-                        <td>NT 120</td>
-                        <td>公開</td>
-                        <td>2022/12/23</td>
-                        <td>1000000</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                        <td>cell2_2</td>
-                        <td>cell4_2</td>
-                        <td>cell5_2</td>
-                        <td>cell6_2</td>
-                        <td>cell7_2</td>
-                        <td>cell8_2</td>
-                    </tr>
-                </tbody>
+                    @foreach ($products as $product)
+                        <tr>
+                            <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
+                            <td><a href="">{{ $product->name }}</a></td>
+                            <td>
+                                @if ($product->is_halal == 1)
+                                    是
+                                @else
+                                    否
+                                @endif
+                            </td>
+                            <td>NT @if ($product->discount_price)
+                                    {{ $product->discount_price }}
+                                @else
+                                    {{ $product->price }}
+                                @endif
+                            </td>
+                            <td>{{ $product->status }}</td>
+                            <td>{{ $product->modified_at }}</td>
+                            <td>{{ $product->purchase_count }}</td>
+                        </tr>
+                    @endforeach
             </table>
         </div>
         <div class="wn-paginator">

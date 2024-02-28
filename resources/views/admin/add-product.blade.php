@@ -5,6 +5,22 @@
 @endsection
 
 @section('dashboard-content')
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="msg-box failed">
+                <p>{{ $error }}</p>
+            </div>
+        @endforeach
+    @endif
+    @if (session()->has('success'))
+        <div class="msg-box success">
+            <p>新增成功</p>
+        </div>
+    @elseif(session()->has('failed'))
+        <div class="msg-box failed">
+            <p>新增失敗，{{ session()->get('failed') }}</p>
+        </div>
+    @endif
     <form class="func" action="{{ route('handle.addProduct') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="func-bar">
@@ -62,15 +78,23 @@
             </div>
             <div class="editor-right">
                 <div class="editor-in">
+                    <label for="editor-vendor">供應商</label>
+                    <input type="text" name="product_vendor" id="editor-vendor" class="editor-input" value="">
+                </div>
+                <div class="editor-in">
                     <fieldset>
                         <legend>允許配送方式</legend>
                         <div>
-                            <input type="checkbox" name="delivery-1" id="delivery-1">
-                            <label for="delivery-1">冷藏</label>
+                            <input type="checkbox" name="delivery_method[]" id="delivery-1" value="freezing">
+                            <label for="delivery-1">冷凍</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="delivery-2" id="delivery-2">
-                            <label for="delivery-2">常溫</label>
+                            <input type="checkbox" name="delivery_method[]" id="delivery-2" value="refrigeration">
+                            <label for="delivery-2">冷藏</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="delivery_method[]" id="delivery-3" value="normal">
+                            <label for="delivery-3">常溫</label>
                         </div>
                     </fieldset>
                 </div>
@@ -84,7 +108,7 @@
                 <div class="editor-in">
                     <label for="editor-status">狀態</label>
                     <select name="status" id="editor-status" class="editor-input">
-                        <option value="ACTIVE">公開</option>
+                        <option value="PUBLIC">公開</option>
                         <option value="UNLISTED">不公開</option>
                         <option value="PRIVATE">私人</option>
                     </select>

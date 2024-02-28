@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Helpers\Helper;
+use App\Models\wn_product;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -75,14 +78,14 @@ class adminHandleController extends Controller
         $validate = $request->validate([
             "name" => "required|unique:" . $table . ",name",
             "alias" => "required|unique:" . $table . ",alias",
-            "status"=>"required"
+            "status" => "required"
         ]);
 
         $data = [
             "uuid" => Helper::prefixedUuid("category_"),
             "name" => $request->name,
             "alias" => $request->alias,
-            "status"=> $request->status
+            "status" => $request->status
         ];
 
         try {
@@ -196,7 +199,69 @@ class adminHandleController extends Controller
 
     public function addProduct(Request $request)
     {
-        return;
+        $table = "wn_product";
+
+        $validate = $request->validate([
+            "product_cover" => ["required", File::image()],
+            "product_images.*" => ["required", File::image()],
+            "product_name" => "required",
+            "product_price" => "required",
+            "delivery_method" => "required",
+            "is_halal" => "required",
+            "status" => "required",
+        ]);
+
+        $uuid = Helper::prefixedUuid("product_");
+        $other_pic = $request->file("product_images");
+
+        $data = [
+            "uuid" => $uuid,
+            "name" => $request->product_name,
+            "description" => $request->product_description,
+            "price" => $request->product_price,
+            "discount_price" => $request->product_promo_price,
+            "vendor" => $request->product_vendor,
+            "allowed_delivery_method" => json_encode($request->delivery_method),
+            "is_halal"=>$request->is_halal,
+            "status" => $request->status,
+            "purchase_count" => 0
+        ];
+
+        $path = public_path("media/product/" . $uuid);
+
+        if (!file_exists($path)) {
+            Storage::makeDirectory($path);
+        }
+
+        // Save product cover img
+        if ($request->hasFile("product_cover")) {
+            $extension = $request->file("product_cover")->getClientOriginalExtension();
+            $fileName = $uuid . "_cover." . $extension;
+            if (file_exists($fileName)) {
+                unlink($fileName);
+            }
+            $request->file("product_cover")->move($path, $fileName);
+        }
+
+        if ($request->hasFile("product_images")) {
+            $i = 0;
+            foreach ($other_pic as $pic) {
+                $extension = $pic->getClientOriginalExtension();
+                $fileName = $uuid . "_other_" . $i . "." . $extension;
+                if (file_exists($fileName)) {
+                    unlink($fileName);
+                }
+                $pic->move($path, $fileName);
+                $i++;
+            }
+        }
+
+        try {
+            wn_product::create($data);
+            return back()->with(["success" => "success"]);
+        } catch (\Illuminate\Database\QueryException $ex) {
+            return back()->with("failed", "failed");
+        }
     }
 
     public function editPost(Request $request)
@@ -208,7 +273,7 @@ class adminHandleController extends Controller
             "editor_title" => "required",
             "editor_category" => "required",
             "editor_alias" => ["required", Rule::unique($table, "alias")->ignore($request->editor_uuid, "uuid")],
-            "editor_status" => "required",
+            "status" => "required",
             "editor_content" => "required"
         ]);
 
@@ -217,7 +282,7 @@ class adminHandleController extends Controller
             "category_uid" => $request->editor_category,
             "alias" => $request->editor_alias,
             "sub_category_uid" => $request->editor_sub_category,
-            "status" => $request->editor_status,
+            "status" => $request->status,
             "content" => $request->editor_content,
         ];
 

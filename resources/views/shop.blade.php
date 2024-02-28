@@ -1,6 +1,6 @@
 @extends('layout/layout')
 
-@section('page-title', "忠貞購物")
+@section('page-title', '忠貞購物')
 
 @push('category')
     {{-- <link rel="stylesheet" href="{{ asset('assets/css/font.css') }}" /> --}}
@@ -19,160 +19,31 @@
                 <h1 class="HeadLine">忠貞購物</h1>
             </div>
         </div>
-
         <div class="Shopping-mail">
-            <div class="grid-container">
-                <div class="grid-item"></div>
-                <div class="food-content">
-                    <div class="content">
-                        <header>
-                            <h3 class="shop-name content">雲南米干/米線/粑粑絲</h3>
-                        </header>
-                        <div class="cash">
-                            <h3 class="shop-del content">售價:120元</h3>
-                            <h3 class="lower-cash content">87元</h3>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="LG_button"><a href="">點我購買 ></a></button>
-                    </div>
-                </div>
-            </div>
+            @foreach ($items as $item)
+                <div class="grid-container">
+                    <div class="grid-item"><img
+                            src="{{ asset('media/product/' . $item->uuid . '/' . $item->uuid . '_cover.jpg') }}"
+                            alt=""></div>
+                    <div class="food-content">
+                        <div class="content">
+                            <header>
+                                <h3 class="shop-name content">{{ $item->name }}</h3>
+                            </header>
+                            <div class="cash">
+                                <h3 class=" @if ($item->discount_price) shop-del @endif content">售價:
+                                    {{ $item->price }}</h3>
+                                @if ($item->discount_price)
+                                    <h3 class="lower-cash content">87元</h3>
+                                @endif
 
-            {{-- <div class="grid-container">
-                <div class="grid-item"></div>
-                <div class="food-content">
-                    <div class="content">
-                        <header>
-                            <h3 class="shop-name content">雲南米干/米線/粑粑絲</h3>
-                        </header>
-                        <div class="cash">
-                            <h3 class="content">售價:120元</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="LG_button"><a href="">點我購買 ></a></button>
                         </div>
                     </div>
-                    <div>
-                        <button class="LG_button"><a href="">點我購買 ></a></button>
-                    </div>
                 </div>
-            </div>
-
-            <div class="grid-container">
-                <div class="grid-item"></div>
-                <div class="food-content">
-                    <div class="content">
-                        <header>
-                            <h3 class="shop-name content">雲南米干/米線/粑粑絲</h3>
-                        </header>
-                        <div class="cash">
-                            <h3 class="content">售價:120元</h3>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="LG_button"><a href="">點我購買 ></a></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid-container">
-                <div class="grid-item"></div>
-                <div class="food-content">
-                    <div class="content">
-                        <header>
-                            <h3 class="shop-name content">雲南米干/米線/粑粑絲</h3>
-                        </header>
-                        <div class="cash">
-                            <h3 class="content">售價:120元</h3>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="LG_button"><a href="">點我購買 ></a></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid-container">
-                <div class="grid-item"></div>
-                <div class="food-content">
-                    <div class="content">
-                        <header>
-                            <h3 class="shop-name content">雲南米干/米線/粑粑絲</h3>
-                        </header>
-                        <div class="cash">
-                            <h3 class="content">售價:120元</h3>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="LG_button"><a href="">點我購買 ></a></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid-container">
-                <div class="grid-item"></div>
-                <div class="food-content">
-                    <div class="content">
-                        <header>
-                            <h3 class="shop-name content">雲南米干/米線/粑粑絲</h3>
-                        </header>
-                        <div class="cash">
-                            <h3 class="content">售價:120元</h3>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="LG_button"><a href="">點我購買 ></a></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid-container">
-                <div class="grid-item"></div>
-                <div class="food-content">
-                    <div class="content">
-                        <header>
-                            <h3 class="shop-name content">雲南米干/米線/粑粑絲</h3>
-                        </header>
-                        <div class="cash">
-                            <h3 class="content">售價:120元</h3>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="LG_button"><a href="">點我購買 ></a></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid-container">
-                <div class="grid-item"></div>
-                <div class="food-content">
-                    <div class="content">
-                        <header>
-                            <h3 class="shop-name content">雲南米干/米線/粑粑絲</h3>
-                        </header>
-                        <div class="cash">
-                            <h3 class="content">售價:120元</h3>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="LG_button"><a href="">點我購買 ></a></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid-container">
-                <div class="grid-item"></div>
-                <div class="food-content">
-                    <div class="content">
-                        <header>
-                            <h3 class="shop-name content">雲南米干/米線/粑粑絲</h3>
-                        </header>
-                        <div class="cash">
-                            <h3 class="content">售價:120元</h3>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="LG_button"><a href="">點我購買 ></a></button>
-                    </div>
-                </div>
-            </div> --}}
+            @endforeach
         </div>
     @endsection
