@@ -56,7 +56,7 @@
                             <p>加入</p><img src="{{ asset('assets/img/add_shopping_cart.svg') }}" alt="">
                         </button>
                     </a>
-                    <a href="" style="width: 190px;"> <button class="LG_button"
+                    <a style="width: 190px;" id="purchase"> <button class="LG_button"
                             style="width: 100%; height: 100%;">購買</button></a>
                 </div>
             </div>
@@ -190,37 +190,56 @@
         </div>
     </div>
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
-    <script>
-        let addToCard = document.querySelector("#black");
-        $(document).ready(function() {
-            $(addToCard).on("click", function() {
-                $.ajax({
-                    headers: {
-                        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-                    },
-                    url: "{{ route('pageHandle.addToCart') }}",
-                    type: "POST",
-                    data: {
-                        user_uid: "{{ Auth::user()->uuid }}",
-                        product_uid: "{{ $product->uuid }}"
-                    },
-                    dataType: "JSON",
-                    success: function(response) {
-                        let error = response.error;
-                        let status = response.uploaded
+    @if (Auth::user())
+        <script>
+            $(document).ready(function() {
+                let addToCard = document.querySelector("#black");
+                $(addToCard).on("click", function() {
+                    $.ajax({
+                        headers: {
+                            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+                        },
+                        url: "{{ route('pageHandle.addToCart') }}",
+                        type: "POST",
+                        data: {
+                            user_uid: "{{ Auth::user()->uuid }}",
+                            product_uid: "{{ $product->uuid }}"
+                        },
+                        dataType: "JSON",
+                        success: function(response) {
+                            let error = response.error;
+                            let status = response.uploaded
 
-                        if(status){
-                            alert("已成功加入購物車！");
+                            if (status) {
+                                alert("已成功加入購物車！");
+                            } else {
+                                alert("加入購物車失敗，請再試一次");
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(error);
                         }
-                        else{
-                            alert("加入購物車失敗，請再試一次");
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(error);
-                    }
+                    });
                 });
             });
-        });
-    </script>
+        </script>
+    @else
+        <script>
+            $(document).ready(function() {
+                function loginFirst() {
+                    if (window.confirm("請先登入")) {
+                        window.location.href = "{{ route('auth.login') }}"
+                    }
+                }
+                let addToCard = document.querySelector("#black");
+                let purchase = document.querySelector("#purchase")
+                $(addToCard).on("click", function() {
+                    loginFirst();
+                });
+                $(purchase).on("click", function() {
+                    loginFirst();
+                });
+            });
+        </script>
+    @endif
 @endsection

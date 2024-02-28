@@ -175,7 +175,7 @@
                 </div>
 
             </div>
-            <a href="order_list.html" class="caption">訂單查詢 ></a>
+            <a href="{{ route('orderList') }}" class="caption">訂單查詢 ></a>
             <a id="logOut" href="{{ route('authHandle.logout') }}" class="body1 btn-tertiary">登出</a>
         </div>
 
