@@ -1,46 +1,47 @@
-body{
+body {
     overflow-x: hidden;
 }
 
-.text{
+.text {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.slider-text{
+.slider-text {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.shop-content{
+.shop-content {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 80px;
     gap: 68px;
+    padding: 0 0 64px 0;
 }
-.shopping-content{
+.shopping-content {
     display: flex;
     flex-direction: column;
     gap: 100px;
 }
-.Shopping-img{
+.Shopping-img {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.scrollbar-contents{
+.scrollbar-contents {
     display: grid;
-    grid-template-columns: repeat(6,1fr);
-    gap:20px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
     scroll-behavior: smooth;
 }
-.foods-scrollbar{
+.foods-scrollbar {
     max-width: 1150px;
     margin: 0 auto;
 }
-.slider-img{
+.slider-img {
     aspect-ratio: 4/3;
     background-image: url("/img/Rectangle\ 9.png");
     background-position: center center;
@@ -50,24 +51,26 @@ body{
     height: 203px;
     object-fit: contain;
 }
-.scrollbar-slider .scrollbar-contents{
+.scrollbar-slider .scrollbar-contents {
     overflow-x: hidden;
 }
-.scrollbar-slider{
+.scrollbar-slider {
     position: relative;
 }
 
-#left-side:hover, #right-side:hover{
+#left-side:hover,
+#right-side:hover {
     background-color: rgba(0, 0, 0, 0.88);
     transition: ease-out 300ms;
-  }
+}
 
-  #left-side:hover img, #right-side:hover img{
+#left-side:hover img,
+#right-side:hover img {
     filter: invert(1) brightness(100%);
     transition: ease-out 300ms;
-  }
+}
 
-#left-side{
+#left-side {
     position: absolute;
     top: 70px;
     transform: translateX(-100%);
@@ -78,7 +81,7 @@ body{
     transition: ease-out 300ms;
 }
 
-#right-side{
+#right-side {
     position: absolute;
     right: -70px;
     bottom: 155px;
@@ -93,13 +96,13 @@ body{
     margin-right: 0;
 }
 
-.foods-scrollbar button{
+.foods-scrollbar button {
     height: 70px;
- width: 70px;
- border-radius: 100px;
+    width: 70px;
+    border-radius: 100px;
 }
 
-.content-tex{
+.content-tex {
     border: 0.5px solid rgba(54, 54, 54, 0.413);
     letter-spacing: 1px;
     padding: 10px;
@@ -110,139 +113,155 @@ body{
     gap: 24px;
 }
 
-.sell{
+.sell {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.shop-textbox{
+.shop-textbox {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 8px;
 }
 
-.shopping-btn{
+.shopping-btn {
     display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-    gap: 13px;
+    /* margin-left: auto; */
+    gap: 20px;
 }
 
-.shopping-btn button{
-    font-size: 18px;
-    border-style: none; color: #FFFFFF; clip:  height; background-color: #252525a9; padding-top: 8px; padding-right: 35px; padding-bottom: 8px; padding-left: 35px; width: 180px;
-    
-}
-
-.shopping-btn a{
+.shopping-btn a {
     text-decoration: none;
     color: white;
     font-size: 18px;
 }
 
-#black{
+#black {
+    width: 190px;
     color: black;
-}
-
-#black-btn{
-    background-color: #FFFFFF;
     border: 3px solid black;
 }
 
-.shopping-btn img{
+#black-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-style: none;
+    font-size: 24px;
+    transition: ease-out 300ms;
+    padding-top: 12px;
+    padding-right: 32px;
+    padding-bottom: 12px;
+    padding-left: 32px;
+    width: 100%;
+}
+
+.shopping-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.shopping-btn img {
     position: relative;
     left: 5px;
 }
 
-.scrollbar-content{
+.scrollbar-content {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.foodbar{
+.foodbar {
     display: flex;
     flex-direction: column;
     gap: 16px;
     align-items: center;
-
 }
-.PHscroll-conent{
+.PHscroll-conent {
     display: flex;
     flex-direction: row;
     gap: 12px;
 }
-.fd-miniimg{
+.fd-miniimg {
     width: 100%;
 }
-.scroll-img{
+.scroll-img {
     width: 30%;
 }
-.scroll-cotent{
+.scroll-cotent {
     width: 92%;
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
-.fd-scroll{
+.fd-scroll {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
-.textbar{
+.textbar {
     width: 92%;
 }
 
-.PH{
+.PH {
     display: none;
 }
 
 @media only screen and (max-width: 1500px) {
-    .foods-scrollbar{
+    .foods-scrollbar {
         width: 70%;
     }
-  }
-  
-@media(max-width: 1020px) {
-    .PH{
+}
+
+@media (max-width: 1020px) {
+    .PH {
         display: none;
     }
-    .PC{
+    .PC {
         display: block;
     }
-    
 }
-@media(max-width: 1019px) {
-    .PC{
+@media (max-width: 1019px) {
+    .PC {
         display: none;
     }
-    .PH{
+    .PH {
         display: flex;
     }
-    .Shopping-img{
+    .Shopping-img {
         width: 92%;
     }
-    .shopping-text{
+    .shopping-text {
         width: 92%;
     }
-    .shopping-image{
+    .shopping-image {
         width: 100%;
     }
-    #left-side{
+    #left-side {
         width: 36px;
     }
-    #right-side{
+    #right-side {
         width: 36px;
     }
-    #right-side img{
+    #right-side img {
         width: 18px;
     }
-    #left-side img{
+    #left-side img {
         width: 18px;
     }
-
-  }
+    #black-btn {
+        text-wrap: nowrap;
+        font-size: 16px;
+        padding-top: 10px;
+        padding-right: 24px;
+        padding-bottom: 10px;
+        padding-left: 24px;
+    }
+}

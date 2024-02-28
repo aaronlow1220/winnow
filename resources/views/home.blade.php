@@ -191,7 +191,7 @@
                                 fill="black" fill-opacity="0.88" />
                         </g>
                     </svg>
-                    <h1 class="SecondLine PH-SecondLine">忠貞美食</h1>
+                    <h1 class="SecondLine PH-SecondLine">迷香忠貞</h1>
                 </div>
 
                 <div class="fd-gap">
@@ -285,7 +285,7 @@
                                     fill="#1C1B1F" />
                             </g>
                         </svg>
-                        <h1 class="SecondLine PH-SecondLine">音樂之門</h1>
+                        <h1 class="SecondLine PH-SecondLine">夢想忠貞</h1>
                     </div>
                     <div>
                         <h3 class="content PH-content" style="width: 519px">2020年底由來自英國的手碟品牌Novapans Handpans David Wexler
@@ -415,7 +415,7 @@
                                             fill="#1C1B1F" />
                                     </g>
                                 </svg>
-                                <h1 class="SecondLine PH-SecondLine">音樂之門</h1>
+                                <h1 class="SecondLine PH-SecondLine">夢想忠貞</h1>
                             </div>
                             <div>
                                 <h3 class="content PH-content music-textcontent">2020年底由來自英國的手碟品牌Novapans Handpans David

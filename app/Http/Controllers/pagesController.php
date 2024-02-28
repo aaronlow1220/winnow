@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\wn_category;
 use App\Models\wn_post;
 use App\Models\wn_product;
+use App\Models\wn_shopping_cart;
 use App\Models\wn_sub_category;
 use App\Models\wn_user;
 use Illuminate\Http\Request;
@@ -52,13 +53,32 @@ class pagesController extends Controller
 
     public function cart(Request $request)
     {
-        return view("cart");
+        if (!Auth::check()) {
+            return redirect()->route("auth.login");
+        }
+        $cart_items = wn_shopping_cart::where("user_uid", Auth::user()->uuid)->where("status", "ACTIVE")->orderByDesc("created_at")->get();
+        $items = wn_product::where("status", "PUBLIC")->get();
+        return view("cart", ["cart_items" => $cart_items, "items" => $items]);
+    }
+
+    public function orderList(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect()->route("auth.login");
+        }
+        return view("order-list");
     }
 
     public function shop(Request $request)
     {
         $items = wn_product::all()->where("status", "PUBLIC");
         return view("shop", ["items" => $items]);
+    }
+
+    public function product(Request $request, string $id)
+    {
+        $product = wn_product::where("uuid", $id)->first();
+        return view("product", ["product" => $product]);
     }
 
     public function aboutUs(Request $request)
@@ -72,26 +92,6 @@ class pagesController extends Controller
         $cat = wn_category::where("alias", $category)->where("status", "ACTIVE");
         $subCat = $subCategory;
         $arti = $article;
-
-        // if ($cat->exists()) {
-        //     // Sub category
-        //     $subCat = wn_sub_category::where("category_uid", $cat->first()->uuid)->where("status", "ACTIVE");
-        //     // Preprocessing
-        //     if ($subCategory == null) {
-        //         if (!$subCat->exists()) {
-        //             $latestPost = wn_post::where("category_uid", $cat->first()->uuid)->where("status", "PUBLIC");
-        //             if (!$latestPost->exists()) {
-        //                 return redirect()->route("post", ["category" => $category]);
-        //             }
-        //             return redirect()->route("post", ["category" => $category, "article" => $latestPost->first()->uuid]);
-        //         }
-        //         $latestPost = wn_post::where("sub_category_uid", $subCat->first()->uuid)->where("status", "PUBLIC");
-        //         if (!$latestPost->exists()) {
-        //             return redirect()->route("post", ["category" => $category, "subCategory" => $subCat->first()->alias]);
-        //         }
-        //         return redirect()->route("post", ["category" => $category, "subCategory" => $subCat->first()->alias, "article" => $latestPost->first()->uuid]);
-        //     }
-        // }
 
         if ($cat->exists()) {
             if ($subCategory === null) {
@@ -131,7 +131,7 @@ class pagesController extends Controller
             return redirect()->route("post", ["category" => $category, "subCategory" => $subCat, "article" => $arti]);
         }
         // 404
-        return;
+        return redirect()->route("404");
     }
 
     public function post(Request $request, ?string $category = null, ?string $subCategory = null, ?string $article = null)
@@ -150,18 +150,15 @@ class pagesController extends Controller
                     $arti = null;
                 }
                 $arti = wn_post::where("category_uid", $cat->first()->uuid)->where("status", "PUBLIC")->first();
-                $otherPosts = wn_post::all()->where("category_uid", $cat->first()->uuid)->where("status", "PUBLIC");
+                $otherPosts = wn_post::where("category_uid", $cat->first()->uuid)->where("status", "PUBLIC")->orderByDesc("created_at")->get();
             } else {
                 if ($article == null) {
                     $arti = null;
                 }
                 $subCat = wn_sub_category::all()->where("category_uid", $cat->first()->uuid)->where("status", "ACTIVE");
-
                 $currentSelectedSubCat = $subCat->where("alias", $subCategory);
-
-                $otherPosts = wn_post::all()->where("sub_category_uid", $currentSelectedSubCat->first()->uuid)->where("status", "PUBLIC");
-
-                $arti = $otherPosts->first();
+                $otherPosts = wn_post::where("sub_category_uid", $currentSelectedSubCat->first()->uuid)->where("status", "PUBLIC")->orderByDesc("created_at")->get();
+                $arti = wn_post::where("uuid", $article)->where("status", "PUBLIC")->first();
             }
         }
 
@@ -169,23 +166,6 @@ class pagesController extends Controller
     }
 
     // For testing
-    public function testUpload(Request $request)
-    {
-        return view("test/testUpload");
-    }
-
-    public function testUploadHandle(Request $request)
-    {
-        $table = "wn_posts";
-
-        return;
-    }
-
-    public function testCategory(Request $request)
-    {
-        return view("test/testCategory");
-    }
-
     public function testCategoryHandle(Request $request)
     {
         $table = "wn_categories";
@@ -202,13 +182,6 @@ class pagesController extends Controller
         wn_category::create($data);
         return redirect("testCategory");
     }
-
-    public function testSubCategory(Request $request)
-    {
-        $category = wn_category::all()->where("status", "ACTIVE");
-        return view("test/testSubCategory", ["categories" => $category]);
-    }
-
     public function testSubCategoryHandle(Request $request)
     {
         $table = "wn_sub_categories";
@@ -228,7 +201,12 @@ class pagesController extends Controller
         return redirect("testSubCategory");
     }
 
-    // 404
+    public function notFound(Request $request)
+    {
+        return view("404");
+    }
+
+    // Permission Error
     public function permissionError()
     {
         return view("permissionError");

@@ -48,7 +48,7 @@
                                     <div class="flex-column">
                                         <div>
                                             <div class="card_tittle">{{ $post->title }}</div>
-                                            <p>雲南特色美食，傳說賢惠的妻子為了讓丈夫能在寒冬吃上又有營養又能祛寒的食物，以雞湯或豬骨頭湯佐以米線及其它配料裝在砂鍋裏，保溫美味又營養。</p>
+                                            
                                         </div>
                                         <div class="date">{{ date('Y-m-d', strtotime($post->created_at)) }}</div>
                                     </div>
@@ -59,7 +59,6 @@
                                     <div class="flex-column">
                                         <div>
                                             <div class="card_tittle">{{ $post->title }}</div>
-                                            <p>雲南特色美食，傳說賢惠的妻子為了讓丈夫能在寒冬吃上又有營養又能祛寒的食物，以雞湯或豬骨頭湯佐以米線及其它配料裝在砂鍋裏，保溫美味又營養。</p>
                                         </div>
                                         <div class="date">2023/12/10</div>
                                     </div>

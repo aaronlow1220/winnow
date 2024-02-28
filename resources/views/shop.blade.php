@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div>
-                            <button class="LG_button"><a href="">點我購買 ></a></button>
+                            <button class="LG_button"><a href="{{ route('product', ["id"=>$item->uuid]) }}">點我購買 ></a></button>
                         </div>
                     </div>
                 </div>

@@ -64,13 +64,17 @@ Route::get("/account", [pagesController::class, "account"])->name("account");
 Route::get("/shop", [pagesController::class, "shop"])->name("shop");
 Route::get("/cart", [pagesController::class, "cart"])->name("cart");
 Route::get("/about-us", [pagesController::class, "aboutUs"])->name("aboutUs");
+Route::get("/product/{id}", [pagesController::class, "product"])->name("product");
+Route::get("/order-list", [pagesController::class,"orderList"])->name("orderList");
 
 Route::name('pageHandle.')->group(function () {
     Route::post('/accountChange', [pagesHandleController::class, "accountChange"])->name("accountChange");
+    Route::post("/add-to-cart", [pagesHandleController::class, "addToCart"])->name("addToCart");
 });
 
 // Permission error
 Route::get("/permission-error", [pagesController::class, "permissionError"]);
+Route::get("/page-not-found", [pagesController::class, "notFound"])->name("404");
 
 // Dynamic pages
 Route::get("/c/{category}/{subCategory?}/{article?}", [pagesController::class, "post"])->name("post");

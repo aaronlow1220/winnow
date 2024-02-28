@@ -268,7 +268,7 @@ main {
 }
 
 .card > div {
-    justify-content: space-between;
+    justify-content: center;
 }
 
 /*
@@ -288,16 +288,6 @@ main {
     font-size: 24px;
     font-family: "NotoSerifTC-Medium";
     font-weight: 500;
-}
-
-.card p {
-    overflow: hidden;
-    color: var(--Secondary);
-    text-overflow: ellipsis;
-    font-family: "NotoSansTC-Regular";
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
 }
 
 .date {
@@ -453,7 +443,6 @@ main {
     .card {
         width: 100%;
         display: flex;
-        justify-content: space-between;
         text-decoration: none;
         color: black;
         gap: 1rem;

@@ -31,6 +31,7 @@
         // 初始化總價
         countTotal();
 
+
         // 設置計數器功能
         document.querySelectorAll('.counter').forEach(counter => {
             const decrease = counter.querySelector('.decrease');
@@ -68,7 +69,31 @@
         <div class="cart-container">
             <h3>購物車</h3>
             <form class="cart">
-                <div class="cart-item flex">
+                @foreach ($cart_items as $item)
+                    <div class="cart-item flex">
+                    <img src="{{ asset('media/product/'.$item->product_uid."/".$item->product_uid."_cover.jpg") }}" alt="food1" />
+                    <div class="cart-item-info">
+                        <h4 class="item-title">{{ $items->where("uuid", $item->product_uid)->first()->name }}</h4>
+                        <div class="cart-item-info-cost">
+                            <div class="counter">
+                                <button type="button" class="decrease">
+                                    <img src="{{ asset('assets/img/remove.svg') }}" alt="">
+                                </button>
+                                <input type="number" value="{{ $item->quantity }}" min="0" max="99" class="number body1"></input>
+                                <button type="button" class="increase">
+                                    <img src="{{ asset('assets/img/add.svg') }}" alt="">
+                                </button>
+                            </div>
+                            <div class="price-container flex">
+                                <p class="text-secondary">NT$</p>
+                                <h3 class="price" data-price="@if($items->where("uuid", $item->product_uid)->first()->discount_price){{ $items->where("uuid", $item->product_uid)->first()->discount_price }}@else{{ $items->where("uuid", $item->product_uid)->first()->price }}@endif">@if($items->where("uuid", $item->product_uid)->first()->discount_price){{ $items->where("uuid", $item->product_uid)->first()->discount_price }}@else{{ $items->where("uuid", $item->product_uid)->first()->price }}@endif</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                
+                {{-- <div class="cart-item flex">
                     <img src="../img/2.png" alt="food1" />
                     <div class="cart-item-info">
                         <h4 class="item-title">麵包</h4>
@@ -109,28 +134,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="cart-item flex">
-                    <img src="../img/2.png" alt="food1" />
-                    <div class="cart-item-info">
-                        <h4 class="item-title">麵包</h4>
-                        <div class="cart-item-info-cost">
-                            <div class="counter">
-                                <button type="button" class="decrease">
-                                    <img src="{{ asset('assets/img/remove.svg') }}" alt="">
-                                </button>
-                                <input type="number" value="0" min="0" max="99" class="number body1"></input>
-                                <button type="button" class="increase">
-                                    <img src="{{ asset('assets/img/add.svg') }}" alt="">
-                                </button>
-                            </div>
-                            <div class="price-container flex">
-                                <p class="text-secondary">NT$</p>
-                                <h3 class="price" data-price="100">100</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> --}}
             </form>
             <div class="cart-total flex">
                 <div class="cart-options">
