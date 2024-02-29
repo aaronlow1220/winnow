@@ -100,12 +100,12 @@
                     </span>
                 </a>
                 <ul class="side-dropdown">
-                    <li><a href="#">全部</a></li>
-                    <li><a href="#">尚未付款</a></li>
-                    <li><a href="#">待出貨</a></li>
-                    <li><a href="#">已送出</a></li>
-                    <li><a href="#">不成立</a></li>
-                    <li><a href="#">退貨/退款</a></li>
+                    <li><a href="{{ route('admin.orderList', ["status" => 'all']) }}">全部</a></li>
+                    <li><a href="{{ route('admin.orderList', ["status" => 'not-paid']) }}">尚未付款</a></li>
+                    <li><a href="{{ route('admin.orderList', ["status" => 'ship-pending']) }}">待出貨</a></li>
+                    <li><a href="{{ route('admin.orderList', ["status" => 'shipped']) }}">已送出</a></li>
+                    <li><a href="{{ route('admin.orderList', ["status" => 'canceled']) }}">不成立</a></li>
+                    <li><a href="{{ route('admin.orderList', ["status" => 'refund']) }}">退貨/退款</a></li>
                 </ul>
             </li>
             <li class="divider" data-text="人員管理">人員管理</li>

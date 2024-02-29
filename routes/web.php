@@ -27,6 +27,7 @@ Route::name("admin.")->group(function () {
     Route::get("/admin/moderator", [adminPagesController::class, "moderator"])->name("moderator");
     Route::get("/admin/edit-user/{id}", [adminPagesController::class, "editUser"])->name("editUser");
     Route::get("/admin/settings", [adminPagesController::class, "settings"])->name("settings");
+    Route::get("/admin/order-list/{status}", [adminPagesController::class, "orderList"])->name("orderList");
 });
 
 // Admin handle
@@ -65,7 +66,7 @@ Route::get("/shop", [pagesController::class, "shop"])->name("shop");
 Route::get("/cart", [pagesController::class, "cart"])->name("cart");
 Route::get("/about-us", [pagesController::class, "aboutUs"])->name("aboutUs");
 Route::get("/product/{id}", [pagesController::class, "product"])->name("product");
-Route::get("/order-list", [pagesController::class,"orderList"])->name("orderList");
+Route::get("/order-list", [pagesController::class, "orderList"])->name("orderList");
 
 Route::name('pageHandle.')->group(function () {
     Route::post('/accountChange', [pagesHandleController::class, "accountChange"])->name("accountChange");
