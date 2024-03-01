@@ -281,6 +281,7 @@ main {
     outline: none;
     height: 7.5rem;
     width: 10rem;
+    object-fit: cover;
 }
 
 .card_tittle {

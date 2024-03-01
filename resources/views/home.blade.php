@@ -60,50 +60,59 @@
                 </div>
                 <div class="News">
                     <div class="image-area2">
-                        <img src="../img/new-img1.png" id="news_image" alt="" />
+                        <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '.png') }}" id="news_image"
+                            alt="" />
                         <div class="news-textbox">
-                            <h2 class="Main-Titlecontent PH-Main-Titlecontent">忠貞仙樂飄飄 手碟音樂表演</h2>
-                            <h5 class="content PH-content">莫約民國43年期間隨國民兵一路南撤到台灣的馬家， 原世居山明水秀雲南，來到台灣落地生根。</h5>
-                            <h5 class="Last PH-Last">2023/11/29</h5>
+                            <h2 class="Main-Titlecontent PH-Main-Titlecontent">{{ $latest_news->first()->title }}</h2>
+                            <h5 class="Last PH-Last">{{ $latest_news->first()->created_at }}</h5>
                         </div>
                     </div>
 
                     <div class="substances">
                         <div class="second-content">
                             <div class="content-img">
-                                <img src="../img/new-img2.png" id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '.png') }}"
+                                    id="w" alt="" />
                             </div>
                             <div class="substance-text">
-                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">112年忠貞社區共生共學</h2>
-                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">2023/11/29</h4>
+                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">
+                                    {{ $latest_news->skip(1)->first()->title }}</h2>
+                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">
+                                    {{ $latest_news->skip(1)->first()->created_at }}</h4>
                             </div>
                         </div>
                         <hr />
 
                         <div class="second-content">
                             <div class="content-img">
-                                <img src="../img/new-img2.png" id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '.jpg') }}"
+                                    id="w" alt="" />
                             </div>
                             <div class="substance-text">
-                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">112年忠貞社區共生共學</h2>
-                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">2023/11/29</h4>
+                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">
+                                    {{ $latest_news->skip(2)->first()->title }}</h2>
+                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">
+                                    {{ $latest_news->skip(2)->first()->created_at }}</h4>
                             </div>
                         </div>
                         <hr />
 
                         <div class="second-content">
                             <div class="content-img">
-                                <img src="../img/new-img2.png" id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '.png') }}"
+                                    id="w" alt="" />
                             </div>
                             <div class="substance-text">
-                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">112年忠貞社區共生共學</h2>
-                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">2023/11/29</h4>
+                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">
+                                    {{ $latest_news->skip(3)->first()->title }}</h2>
+                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">
+                                    {{ $latest_news->skip(3)->first()->created_at }}</h4>
                             </div>
                         </div>
                         <hr />
                         <div class="s">
-                            <button class="LG_button"><a style="color: rgb(255, 255, 255); text-decoration: none"
-                                    href="">了解更多 ></a></button>
+                            <a style="color: rgb(255, 255, 255); text-decoration: none" href="{{ route('category', ['category' => "latest-news"]) }}"><button
+                                    class="LG_button">了解更多 ></button></a>
                         </div>
                     </div>
                 </div>
@@ -119,13 +128,13 @@
                 <div class="News">
                     <div class="image-area2">
                         <div class="news-image">
-                            <img src="../img/new-img1.png" id="news_image" alt="" />
+                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '.png') }}" id="news_image" alt="" />
                         </div>
                         <div class="news-text">
-                            <h2 class="Main-Titlecontent PH-Main-Titlecontent">忠貞仙樂飄飄 手碟音樂表演</h2>
-                            <h5 class="content PH-content">3/15 - 6/28 14:00 - 15:30</h5>
-                            <h5 class="Last PH-Last">遠雄龍岡社區大廳</h5>
-                            <h5 class="Last PH-Last">FREE</h5>
+                            <h2 class="Main-Titlecontent PH-Main-Titlecontent">{{ $latest_news->first()->title }}</h2>
+                            <h5 class="content PH-content">{{ $latest_news->first()->created_at }}</h5>
+                            {{-- <h5 class="Last PH-Last">遠雄龍岡社區大廳</h5>
+                            <h5 class="Last PH-Last">FREE</h5> --}}
                         </div>
                     </div>
 
@@ -133,39 +142,39 @@
                         <hr />
                         <div class="second-content">
                             <div class="substance-text">
-                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">112年忠貞社區共生共學</h2>
-                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">2023/11/29</h4>
+                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">{{ $latest_news->skip(1)->first()->title }}</h2>
+                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">{{ $latest_news->skip(1)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="../img/new-img2.png" id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '.png') }}" id="w" alt="" />
                             </div>
                         </div>
                         <hr />
 
                         <div class="second-content">
                             <div class="substance-text">
-                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">112年忠貞社區共生共學</h2>
-                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">2023/11/29</h4>
+                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">{{ $latest_news->skip(2)->first()->title }}</h2>
+                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">{{ $latest_news->skip(2)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="../img/new-img2.png" id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '.jpg') }}" id="w" alt="" />
                             </div>
                         </div>
                         <hr />
 
                         <div class="second-content">
                             <div class="substance-text">
-                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">112年忠貞社區共生共學</h2>
-                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">2023/11/29</h4>
+                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">{{ $latest_news->skip(3)->first()->title }}</h2>
+                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">{{ $latest_news->skip(3)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="../img/new-img2.png" id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '.png') }}" id="w" alt="" />
                             </div>
                         </div>
                         <hr />
                         <div class="s">
-                            <button class="LG_button"><a style="color: rgb(255, 255, 255); text-decoration: none"
-                                    href="">了解更多 ></a></button>
+                            <a style="color: rgb(255, 255, 255); text-decoration: none"
+                                    href="{{ route('category', ['category' => "latest-news"]) }}"><button class="LG_button">了解更多 ></button></a>
                         </div>
                     </div>
                 </div>
@@ -213,7 +222,8 @@
                                         style="color: rgb(255, 255, 255); text-decoration: none" href="">減肥明天的事
                                         ></a></button>
                                 <button id="next-slide2" class="slide-button material-symbols-rounded">
-                                    <img class="right" src="{{ asset('assets/img/arrow-right.svg') }}" alt="" />
+                                    <img class="right" src="{{ asset('assets/img/arrow-right.svg') }}"
+                                        alt="" />
                                 </button>
                             </div>
                         </div>
@@ -507,9 +517,11 @@
     <script src="{{ asset('assets/js/foodmap.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', async function() {
-            let hamburger =  document.querySelector("#hamburger");
-            hamburger.addEventListener('click', function(){
-                hamburger.scrollIntoView( { behavior: "smooth"});
+            let hamburger = document.querySelector("#hamburger");
+            hamburger.addEventListener('click', function() {
+                hamburger.scrollIntoView({
+                    behavior: "smooth"
+                });
             });
         });
     </script>

@@ -16,19 +16,9 @@ class pagesController extends Controller
 {
     public function home(Request $request)
     {
-        $test = "";
-        $isAdmin = "";
-        if (Auth::check()) {
-            $test = Auth::user()->email;
-            $isAdmin = Helper::isAdmin();
-            error_log("logged in");
-        } else {
-            $test = "nope";
-            error_log("not login");
-        }
+        $latest_news = wn_post::where("status", "PUBLIC")->where("category_uid", "category_28b58987-e29e-4e52-9548-b2758834d9ba")->orderByDesc("created_at")->take(4)->get();
         return view("home", [
-            "test" => $test,
-            "isAdmin" => $isAdmin
+            "latest_news" => $latest_news,
         ]);
     }
 
@@ -58,7 +48,9 @@ class pagesController extends Controller
         }
         $cart_items = wn_shopping_cart::where("user_uid", Auth::user()->uuid)->where("status", "ACTIVE")->orderByDesc("created_at")->get();
         $items = wn_product::where("status", "PUBLIC")->get();
-        return view("cart", ["cart_items" => $cart_items, "items" => $items]);
+        $user = wn_user::where("uuid", Auth::user()->uuid)->get()->first();
+
+        return view("cart", ["cart_items" => $cart_items, "items" => $items, "user" => $user]);
     }
 
     public function orderList(Request $request)
@@ -165,7 +157,8 @@ class pagesController extends Controller
         return view("category", ["category" => $cat->first(), "subCategory" => $subCat, "article" => $arti, "catAlias" => $category, "subCatAlias" => $subCategory, "otherPosts" => $otherPosts]);
     }
 
-    public function proceedPayment(Request $request){
+    public function proceedPayment(Request $request)
+    {
         return view("redirect-account-code");
     }
 

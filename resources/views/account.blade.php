@@ -187,7 +187,7 @@
                 <div class="edit_info_card">
                     <h3>姓名</h3>
                     <div>
-                        <input value="@if (!empty($users->username)) {{ $users->username }} @endif" type="text"
+                        <input value="@if (!empty($users->username)){{ $users->username }}@endif" type="text"
                             name="name" placeholder="姓名" class="text-main">
                         <img src="{{ asset('assets/img/close.svg') }}">
                     </div>
@@ -203,7 +203,7 @@
                     <h3>手機</h3>
                     <div>
                         <input type="tel" name="phone" placeholder="手機" class="text-main"
-                            value="@if (!empty($users->phone)) {{ $users->phone }} @endif">
+                            value="@if (!empty($users->phone)){{ $users->phone }}@endif">
                         <img src="{{ asset('assets/img/close.svg') }}">
                     </div>
                     <div>
@@ -218,7 +218,7 @@
                     <h3>電話</h3>
                     <div>
                         <input type="tel" name="telephone" placeholder="電話" class="text-main"
-                            value="@if (!empty($users->telephone)) {{ $users->telephone }} @endif">
+                            value="@if (!empty($users->telephone)){{ $users->telephone }}@endif">
                         <img src="{{ asset('assets/img/close.svg') }}">
                     </div>
                     <div>
@@ -234,7 +234,7 @@
                     <div>
                         <input type="email" name="email" placeholder="電子郵件" class="text-main"
                             value="
-                    @if (!empty($users->email)) {{ $users->email }} @endif">
+                    @if (!empty($users->email)){{ $users->email }}@endif">
                         <img src="{{ asset('assets/img/close.svg') }}">
                     </div>
                     <div>
@@ -249,7 +249,7 @@
                     <h3>聯絡地址</h3>
                     <div>
                         <input type="text" name="contact_address" placeholder="聯絡地址" class="text-main"
-                            value="@if (!empty($users->contact_address)) {{ $users->contact_address }} @endif">
+                            value="@if (!empty($users->contact_address)){{ $users->contact_address }}@endif">
                         <img src="{{ asset('assets/img/close.svg') }}">
                     </div>
                     <div>
@@ -264,7 +264,7 @@
                     <h3>寄送地址</h3>
                     <div>
                         <input type="text" name="delivery_address" placeholder="寄送地址" class="text-main"
-                            value="@if (!empty($users->delivery_address)) {{ $users->delivery_address }} @endif">
+                            value="@if (!empty($users->delivery_address)){{ $users->delivery_address }}@endif">
                         <img src="{{ asset('assets/img/close.svg') }}">
                     </div>
                     <div>

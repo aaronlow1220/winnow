@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Helpers\Helper;
 use App\Models\wn_order;
+use App\Models\wn_order_item;
 use App\Models\wn_product;
 use App\Models\wn_shopping_cart;
 use App\Models\wn_user;
@@ -80,35 +81,58 @@ class pagesHandleController extends Controller
         ]);
     }
 
-    public function addOrder(Request $request, string $user){
-        $cart = wn_shopping_cart::where("user_uid", $user)->where("status", "ACTIVE")->get();
-        $product = wn_product::where("status", "PUBLIC")->get();
+    public function addOrder(Request $request)
+    {
+        $cart = wn_shopping_cart::where("user_uid", $request->user_uid)->where("status", "ACTIVE")->get();
+        $orderUuid = Helper::prefixedUuid("order_");
+
         if ($cart->count() != 0) {
-            $uuid = Helper::prefixedUuid("order_");
-            $totalPrice = 0;
-            foreach ($cart as $item) {
-                $currentProduct = $product->where("uuid", $item->product_id)->first();
-                if($currentProduct->discount_price){
-                    $totalPrice += $currentProduct->discount_price * $item->quantity;
-                }else{
-                    $totalPrice += $currentProduct->price * $item->quantity;
-                }
+            $address = "";
+
+            if ($request->delivery_address == "other-address") {
+                $address = $request->custom_address;
+            } else {
+                $address = $request->delivery_address;
             }
 
-            $data=[
-                "uuid"=>$uuid,
-                "total"=>$totalPrice,
-                "delivery_method"=>$cart->count(),
+            $data = [
+                "uuid" => $orderUuid,
+                "total" => $request->order_total,
+                "delivery_method" => $request->delivery_method,
+                "delivery_address" => $address,
+                "status" => "NOT_PAID"
             ];
+
+            try {
+                wn_order::create($data);
+            } catch (\Exception $e) {
+                $e->getMessage();
+            }
         }
 
         foreach ($cart as $item) {
             $uuid = Helper::prefixedUuid("orderitem_");
-            $data = [
 
+            $data = [
+                "uuid" => $uuid,
+                "order_uid" => $orderUuid,
+                "product_uid" => $item->uuid,
+                "quantity" => $item->quantity,
+                "status" => "ACTIVE"
             ];
+
+            $update = [
+                "status" => "PROCEEDED"
+            ];
+
+            try {
+                wn_order_item::create($data);
+                wn_shopping_cart::where("uuid", $item->uuid)->get()->first()->update($update);
+            } catch (\Exception $e) {
+                $e->getMessage();
+            }
         }
 
-        return;
+        return redirect()->route("proceedPayment", ["orderId" => $orderUuid]);
     }
 }
