@@ -306,6 +306,7 @@ h4 {
     border: 0;
     gap: 2rem;
     flex-wrap: wrap;
+    padding: 2rem 0;
 }
 
 .cart-total img{
@@ -426,10 +427,6 @@ button {
     .cart-item-info-cost{
         align-items: center;
         gap: 0;
-    }
-
-    .cart-total{
-        padding: 2rem 0;
     }
 
     .cart-total img{

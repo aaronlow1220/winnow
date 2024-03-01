@@ -165,6 +165,10 @@ class pagesController extends Controller
         return view("category", ["category" => $cat->first(), "subCategory" => $subCat, "article" => $arti, "catAlias" => $category, "subCatAlias" => $subCategory, "otherPosts" => $otherPosts]);
     }
 
+    public function proceedPayment(Request $request){
+        return view("redirect-account-code");
+    }
+
     // For testing
     public function testCategoryHandle(Request $request)
     {

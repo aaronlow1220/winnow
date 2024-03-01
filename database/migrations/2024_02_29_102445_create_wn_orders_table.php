@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->string("uuid");
             $table->string("total")->nullable();
             $table->string("payment_account")->nullable();
+            $table->string("delivery_method");
+            $table->string("delivery_address");
             $table->string("status");
             $table->timestamp("created_at")->useCurrent();
             $table->timestamp("modified_at")->useCurrent()->useCurrentOnUpdate();

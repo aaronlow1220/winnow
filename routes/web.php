@@ -67,10 +67,14 @@ Route::get("/cart", [pagesController::class, "cart"])->name("cart");
 Route::get("/about-us", [pagesController::class, "aboutUs"])->name("aboutUs");
 Route::get("/product/{id}", [pagesController::class, "product"])->name("product");
 Route::get("/order-list", [pagesController::class, "orderList"])->name("orderList");
+Route::get("/order/{id}", [pagesController::class,"order"])->name("order");
+Route::get("/proceed-payment", [pagesController::class,"proceedPayment"])->name("proceedPayment");
 
 Route::name('pageHandle.')->group(function () {
     Route::post('/accountChange', [pagesHandleController::class, "accountChange"])->name("accountChange");
     Route::post("/add-to-cart", [pagesHandleController::class, "addToCart"])->name("addToCart");
+    Route::post("/update-cart", [pagesHandleController::class, "updateCart"])->name("updateCart");
+    Route::post("/add-order/{user}", [pagesHandleController::class,"addOrder"])->name("addOrder");
 });
 
 // Permission error
