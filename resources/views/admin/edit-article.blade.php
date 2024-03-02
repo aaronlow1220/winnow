@@ -48,7 +48,7 @@
 
             <div class="editor-right">
                 <div class="editor-in">
-                    <label for="editor-cover-pic">封面圖</label>
+                    <label for="editor-cover-pic">封面圖（上傳將取代舊封面）</label>
                     <input type="file" name="cover_pic" id="editor-cover-pic">
                     <img src="{{ asset('media/post/' . $post->uuid . '.png') }}" alt="" id="cover_pic_preview">
                 </div>

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('wn_order_items', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string("uuid");
+            $table->string("user_uid");
             $table->string("order_uid")->nullable();
             $table->string("product_uid")->nullable();
             $table->integer("quantity")->nullable();

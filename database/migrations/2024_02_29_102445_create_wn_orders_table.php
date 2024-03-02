@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('wn_orders', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string("uuid");
+            $table->string("user_uid");
             $table->string("total")->nullable();
             $table->string("payment_account")->nullable();
             $table->string("delivery_method");

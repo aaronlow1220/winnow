@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\wn_category;
+use App\Models\wn_order;
+use App\Models\wn_order_item;
 use App\Models\wn_post;
 use App\Models\wn_product;
 use App\Models\wn_shopping_cart;
@@ -17,8 +19,14 @@ class pagesController extends Controller
     public function home(Request $request)
     {
         $latest_news = wn_post::where("status", "PUBLIC")->where("category_uid", "category_28b58987-e29e-4e52-9548-b2758834d9ba")->orderByDesc("created_at")->take(4)->get();
+        $dishes = wn_post::where("status", "PUBLIC")->where("category_uid", "category_abee076b-1920-4117-bf47-9605a554579b")->orderByDesc("created_at")->take(6)->get();
+        $dream = wn_post::where("status", "PUBLIC")->where("category_uid", "category_b8208439-3892-4b4e-9a23-dbba1d12ed52")->get()->first();
+        $attractions = wn_post::where("status", "PUBLIC")->where("category_uid", "category_3eeedb66-f378-4ef3-ae1d-6dd703630163")->orderByDesc("created_at")->take(3)->get();
         return view("home", [
             "latest_news" => $latest_news,
+            "dishes" => $dishes,
+            "dream" => $dream,
+            "attractions" => $attractions,
         ]);
     }
 
@@ -58,7 +66,12 @@ class pagesController extends Controller
         if (!Auth::check()) {
             return redirect()->route("auth.login");
         }
-        return view("order-list");
+
+        $orders = wn_order::where("user_uid", Auth::user()->uuid)->orderByDesc("created_at")->get();
+        $products = wn_product::where("status", "PUBLIC")->get();
+        $orderItems = wn_order_item::where("user_uid", Auth::user()->uuid)->get();
+
+        return view("order-list", ["orders" => $orders, "products" => $products, "orderItems" => $orderItems]);
     }
 
     public function shop(Request $request)

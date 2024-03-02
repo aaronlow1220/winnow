@@ -21,7 +21,7 @@
         </div>
     </main>
     <script>
-        let countdown = 8; // 秒數
+        let countdown = 5; // 秒數
         let countdownElement = document.querySelector('#countdown');
 
         let intervalId = setInterval(() => {
@@ -30,7 +30,7 @@
 
             if (countdown <= 0) {
                 clearInterval(intervalId);
-                window.location.href = '../html/account_info.html';
+                window.location.href = '{{ route("orderList") }}';
             }
         }, 1000);
     </script>

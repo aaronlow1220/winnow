@@ -222,7 +222,7 @@ class adminHandleController extends Controller
             "discount_price" => $request->product_promo_price,
             "vendor" => $request->product_vendor,
             "allowed_delivery_method" => json_encode($request->delivery_method),
-            "is_halal"=>$request->is_halal,
+            "is_halal" => $request->is_halal,
             "status" => $request->status,
             "purchase_count" => 0
         ];
@@ -273,7 +273,7 @@ class adminHandleController extends Controller
             "editor_title" => "required",
             "editor_category" => "required",
             "editor_alias" => ["required", Rule::unique($table, "alias")->ignore($request->editor_uuid, "uuid")],
-            "status" => "required",
+            "editor_status" => "required",
             "editor_content" => "required"
         ]);
 
@@ -282,7 +282,7 @@ class adminHandleController extends Controller
             "category_uid" => $request->editor_category,
             "alias" => $request->editor_alias,
             "sub_category_uid" => $request->editor_sub_category,
-            "status" => $request->status,
+            "status" => $request->editor_status,
             "content" => $request->editor_content,
         ];
 

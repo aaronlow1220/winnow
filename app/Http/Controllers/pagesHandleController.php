@@ -9,6 +9,7 @@ use App\Models\wn_product;
 use App\Models\wn_shopping_cart;
 use App\Models\wn_user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class pagesHandleController extends Controller
 {
@@ -97,6 +98,7 @@ class pagesHandleController extends Controller
 
             $data = [
                 "uuid" => $orderUuid,
+                "user_uid"=> $request->user_uid,
                 "total" => $request->order_total,
                 "delivery_method" => $request->delivery_method,
                 "delivery_address" => $address,
@@ -115,8 +117,9 @@ class pagesHandleController extends Controller
 
             $data = [
                 "uuid" => $uuid,
+                "user_uid"=> $request->user_uid,
                 "order_uid" => $orderUuid,
-                "product_uid" => $item->uuid,
+                "product_uid" => $item->product_uid,
                 "quantity" => $item->quantity,
                 "status" => "ACTIVE"
             ];
@@ -134,5 +137,22 @@ class pagesHandleController extends Controller
         }
 
         return redirect()->route("proceedPayment", ["orderId" => $orderUuid]);
+    }
+
+    public function addPaymentAccount(Request $request){
+        $updateOrder = $request->uuid;
+
+        $data = [
+            "payment_account"=>$request->account_five,
+            "status" => "SHIP_PENDING"
+        ];
+
+        try {
+            wn_order::where("uuid", $updateOrder)->update($data);
+            return back()->with("success","success");
+        } catch (\Exception $e) {
+            $e->getMessage();
+            return back()->with("failed","failed");
+        }
     }
 }

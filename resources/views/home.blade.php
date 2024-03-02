@@ -111,7 +111,8 @@
                         </div>
                         <hr />
                         <div class="s">
-                            <a style="color: rgb(255, 255, 255); text-decoration: none" href="{{ route('category', ['category' => "latest-news"]) }}"><button
+                            <a style="color: rgb(255, 255, 255); text-decoration: none"
+                                href="{{ route('category', ['category' => 'latest-news']) }}"><button
                                     class="LG_button">了解更多 ></button></a>
                         </div>
                     </div>
@@ -128,7 +129,8 @@
                 <div class="News">
                     <div class="image-area2">
                         <div class="news-image">
-                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '.png') }}" id="news_image" alt="" />
+                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '.png') }}" id="news_image"
+                                alt="" />
                         </div>
                         <div class="news-text">
                             <h2 class="Main-Titlecontent PH-Main-Titlecontent">{{ $latest_news->first()->title }}</h2>
@@ -142,39 +144,49 @@
                         <hr />
                         <div class="second-content">
                             <div class="substance-text">
-                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">{{ $latest_news->skip(1)->first()->title }}</h2>
-                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">{{ $latest_news->skip(1)->first()->created_at }}</h4>
+                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">
+                                    {{ $latest_news->skip(1)->first()->title }}</h2>
+                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">
+                                    {{ $latest_news->skip(1)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '.png') }}" id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '.png') }}"
+                                    id="w" alt="" />
                             </div>
                         </div>
                         <hr />
 
                         <div class="second-content">
                             <div class="substance-text">
-                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">{{ $latest_news->skip(2)->first()->title }}</h2>
-                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">{{ $latest_news->skip(2)->first()->created_at }}</h4>
+                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">
+                                    {{ $latest_news->skip(2)->first()->title }}</h2>
+                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">
+                                    {{ $latest_news->skip(2)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '.jpg') }}" id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '.jpg') }}"
+                                    id="w" alt="" />
                             </div>
                         </div>
                         <hr />
 
                         <div class="second-content">
                             <div class="substance-text">
-                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">{{ $latest_news->skip(3)->first()->title }}</h2>
-                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">{{ $latest_news->skip(3)->first()->created_at }}</h4>
+                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">
+                                    {{ $latest_news->skip(3)->first()->title }}</h2>
+                                <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">
+                                    {{ $latest_news->skip(3)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '.png') }}" id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '.png') }}"
+                                    id="w" alt="" />
                             </div>
                         </div>
                         <hr />
                         <div class="s">
                             <a style="color: rgb(255, 255, 255); text-decoration: none"
-                                    href="{{ route('category', ['category' => "latest-news"]) }}"><button class="LG_button">了解更多 ></button></a>
+                                href="{{ route('category', ['category' => 'latest-news']) }}"><button
+                                    class="LG_button">了解更多 ></button></a>
                         </div>
                     </div>
                 </div>
@@ -206,7 +218,8 @@
                 <div class="fd-gap">
                     <div class="food-content">
                         <div class="showimage">
-                            <img id="displayedImage" src="" alt="displayed-img" />
+                            <img id="displayedImage" src="{{ asset('media/post/' . $dishes->first()->uuid . '.jpg') }}"
+                                alt="displayed-img" />
                         </div>
                         <div class="text-area2">
                             <p id="imageText"></p>
@@ -235,42 +248,13 @@
                                 <img class="left" src="{{ asset('assets/img/arrow-left.svg') }}" alt="" />
                             </button>
                             <ul class="image-list">
-                                <div class="foodscrollbar-content">
-                                    <img class="image-item" src="../img/food-img2.png" alt="img-1" />
-                                    <p class="Last">名稱</p>
-                                </div>
-                                <div class="foodscrollbar-content">
-                                    <img class="image-item" src="../img/food-img1.png" alt="img-2" />
-                                    <p class="Last">名稱</p>
-                                </div>
-                                <div class="foodscrollbar-content">
-                                    <img class="image-item" src="../img/food-img3.png" alt="img-3" />
-                                    <p class="Last">名稱</p>
-                                </div>
-                                <div class="foodscrollbar-content">
-                                    <img class="image-item" src="../img/food-img2.png" alt="img-4" />
-                                    <p class="Last">名稱</p>
-                                </div>
-                                <div class="foodscrollbar-content">
-                                    <img class="image-item" src="../img/food-img3.png" alt="img-5" />
-                                    <p class="Last">名稱</p>
-                                </div>
-                                <div class="foodscrollbar-content">
-                                    <img class="image-item" src="../img/food-img1.png" alt="img-6" />
-                                    <p class="Last">名稱</p>
-                                </div>
-                                <div class="foodscrollbar-content">
-                                    <img class="image-item" src="../img/food-img2.png" alt="img-7" />
-                                    <p class="Last">名稱</p>
-                                </div>
-                                <div class="foodscrollbar-content">
-                                    <img class="image-item" src="../img/food-img1.png" alt="img-8" />
-                                    <p class="Last">名稱</p>
-                                </div>
-                                <div class="foodscrollbar-content">
-                                    <img class="image-item" src="../img/food-img3.png" alt="img-9" />
-                                    <p class="Last">名稱</p>
-                                </div>
+                                @foreach ($dishes as $dish)
+                                    <div class="foodscrollbar-content">
+                                        <img class="image-item" src="{{ asset('media/post/' . $dish->uuid . '.png') }}"
+                                            alt="img-1" />
+                                        <p class="Last">{{ $dish->title }}</p>
+                                    </div>
+                                @endforeach
                             </ul>
                             <button id="next-slide" class="slide-button material-symbols-rounded">
                                 <img class="right" src="{{ asset('assets/img/arrow-right.svg') }}" alt="" />
@@ -298,18 +282,21 @@
                         <h1 class="SecondLine PH-SecondLine">夢想忠貞</h1>
                     </div>
                     <div>
-                        <h3 class="content PH-content" style="width: 519px">2020年底由來自英國的手碟品牌Novapans Handpans David Wexler
-                            及 Gina Chen 帶著手碟到忠貞社區與 孩子們分享，開啟國內兒童手碟音樂之門。</h3>
+                        {{-- <h2 class="content PH-content" style="width: 519px">{{ $dream->title }}</h2> --}}
                     </div>
                     <div class="doremi-btn">
-                        <button class="LG_button">
-                            <a style="color: rgb(255, 255, 255); text-decoration: none" href="">Do Re Mi ></a>
-                        </button>
+
+                        <a style="color: rgb(255, 255, 255); text-decoration: none"
+                            href="{{ route('category', ['category' => 'dreams']) }}">
+                            <button class="LG_button">Do Re Mi >
+                            </button>
+                        </a>
+
                     </div>
                 </div>
 
                 <div class="image-area4">
-                    <img src="../img/food-img1.png" id="music-img" alt="" />
+                    <img src="{{ asset('media/post/' . $dream->uuid . '.png') }}" id="music-img" alt="" />
                 </div>
             </div>
 
@@ -331,39 +318,25 @@
                 </div>
 
                 <div class="visit">
-                    <div class="visit_container">
-                        <div class="visit-img">
-                            <img src="../img/view-img1.png" id="w" alt="" />
+                    @foreach ($attractions as $attraction)
+                        <div class="visit_container">
+                            <div class="visit-img">
+                                <img src="{{ asset('media/post/' . $attraction->uuid . '.png') }}" id="w"
+                                    alt="" />
+                            </div>
+                            <div class="substance-text2">
+                                <h2 class="Second-Titlecontent PH-Second-Titlecontent">{{ $attraction->title }}</h2>
+                                {{-- <h4>2013年啓用，占地0.2公頃，設有藏族轉經輪、景頗族目瑙縱歌祈福柱等，富含雲南文化特色的設施，為「雲南文化｣為主題的特色公園。</h4> --}}
+                            </div>
                         </div>
-                        <div class="substance-text2">
-                            <h2 class="Second-Titlecontent PH-Second-Titlecontent">雲南公園</h2>
-                            <h4>2013年啓用，占地0.2公頃，設有藏族轉經輪、景頗族目瑙縱歌祈福柱等，富含雲南文化特色的設施，為「雲南文化｣為主題的特色公園。</h4>
-                        </div>
-                    </div>
-
-                    <div class="visit_container">
-                        <div class="visit-img">
-                            <img src="../img/view-img2.png" id="w" alt="" />
-                        </div>
-                        <div class="substance-text2">
-                            <h2 class="Second-Titlecontent PH-Second-Titlecontent">龍岡清真寺</h2>
-                            <h4>源約於1950年代中期泰緬邊境撤台，其中不少信奉伊斯蘭的穆斯林信徒，1964年回教協會募捐修建，1989和2022年整修成為今日的樣貌。</h4>
-                        </div>
-                    </div>
-
-                    <div class="visit_container">
-                        <div class="visit-img">
-                            <img src="../img/view-img3.png" id="w" alt="" />
-                        </div>
-                        <div class="substance-text2">
-                            <h2 class="Second-Titlecontent PH-Second-Titlecontent">忠貞市場</h2>
-                            <h4>2013年啓用，占地0.2公頃，設有藏族轉經輪、景頗族目瑙縱歌祈福柱等，富含雲南文化特色的設施，為「雲南文化｣為主題的特色公園。</h4>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div style="display: flex; justify-content: center">
-                    <button class="LG_button"><a style="color: rgb(255, 255, 255); text-decoration: none"
-                            href="">深入探索 ></a></button>
+                    <a style="color: rgb(255, 255, 255); text-decoration: none"href="{{ route('category', ["category"=>"attractions"]) }}">
+                        <button class="LG_button">
+                            深入探索 >
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -393,13 +366,16 @@
                         </h2>
                     </div>
                     <div>
-                        <button class="LG_button"><a style="color: rgb(255, 255, 255); text-decoration: none"
-                                href="">了解更多 ></a></button>
+                        <a style="color: rgb(255, 255, 255); text-decoration: none" href="{{ route('aboutUs') }}">
+                            <button class="LG_button">
+                                了解更多 >
+                            </button>
+                        </a>
                     </div>
                 </div>
 
                 <div class="image-area5">
-                    <img class="way-img" src="../img/view-img3.png" id="" alt="" />
+                    <img class="way-img" src="{{ asset('assets/img/view-img3.png') }}" id="" alt="" />
                 </div>
             </div>
 

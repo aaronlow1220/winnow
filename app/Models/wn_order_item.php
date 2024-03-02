@@ -11,7 +11,7 @@ class wn_order_item extends Model
 
     protected $table = "wn_order_items";
 
-    protected $fillable = ["uuid", "order_uid", "product_uid", "quantity", "status"];
+    protected $fillable = ["uuid", "user_uid", "order_uid", "product_uid", "quantity", "status"];
 
     const UPDATED_AT = "modified_at";
 }

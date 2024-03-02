@@ -1,5 +1,7 @@
 @extends('admin/layout/dashboard-layout')
 
+@section("admin-title", "新增文章")
+
 @section('dashboard-title')
     新增文章
 @endsection
@@ -34,7 +36,7 @@
                 </svg>
                 <span>儲存</span>
             </button>
-            <a class="func-btn" href="{{ url()->previous() }}">
+            <a class="func-btn" href="{{ route('admin.article') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                     <path
                         d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"

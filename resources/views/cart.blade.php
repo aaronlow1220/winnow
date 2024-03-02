@@ -162,7 +162,7 @@
                         </div>
                     </div>
                     <div class="check-out flex">
-                        <button class="LG_button">
+                        <button class="LG_button" type="submit">
                             結帳
                         </button>
                     </div>

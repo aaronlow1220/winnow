@@ -75,6 +75,7 @@ Route::name('pageHandle.')->group(function () {
     Route::post("/add-to-cart", [pagesHandleController::class, "addToCart"])->name("addToCart");
     Route::post("/update-cart", [pagesHandleController::class, "updateCart"])->name("updateCart");
     Route::post("/add-order", [pagesHandleController::class,"addOrder"])->name("addOrder");
+    Route::post("/add-payment-account", [pagesHandleController::class,"addPaymentAccount"])->name("addPaymentAccount");
 });
 
 // Permission error
