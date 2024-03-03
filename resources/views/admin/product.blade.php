@@ -65,7 +65,7 @@
                     @endforeach
             </table>
         </div>
-        <div class="wn-paginator">
+        {{-- <div class="wn-paginator">
             <div class="paginator">
                 <a href="#">&laquo;</a>
                 <a href="#" class="active">1</a>
@@ -76,6 +76,6 @@
                 <a href="#">6</a>
                 <a href="#">&raquo;</a>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
