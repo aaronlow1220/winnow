@@ -1,6 +1,6 @@
 @extends('admin/layout/dashboard-layout')
 
-@section("admin-title", "文章管理")
+@section('admin-title', '文章管理')
 
 @section('dashboard-title')
     文章管理

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\wn_order;
+use App\Models\wn_order_item;
 use Illuminate\Http\Request;
 use App\Http\Helpers\Helper;
 use App\Models\wn_category;
@@ -174,40 +175,50 @@ class adminPagesController extends Controller
 
     public function orderList(Request $request, string $status)
     {
-        $order = null;
+        $users = wn_user::where("status", "ACTIVE")->get();
+        $orders = null;
         $title = null;
         if (Helper::isAdmin()) {
             switch ($status) {
                 case "all":
-                    $order = wn_order::where("status", "!=", "COMPLETED")->orderByDesc("modified_at")->get();
+                    $orders = wn_order::where("status", "!=", "COMPLETED")->orderByDesc("modified_at")->get();
                     $title = "全部";
                     break;
                 case "not-paid":
-                    $order = 2;
+                    $orders = 2;
                     $title = "未付款";
                     break;
                 case "ship-pending":
-                    $order = 3;
+                    $orders = 3;
                     $title = "待出貨";
                     break;
                 case "shipped":
-                    $order = 4;
+                    $orders = 4;
                     $title = "已送出";
                     break;
                 case "canceled":
-                    $order = 5;
+                    $orders = 5;
                     $title = "不成立";
                     break;
                 case "refund":
-                    $order = 6;
+                    $orders = 6;
                     $title = "退貨/退款";
                     break;
                 default:
-                    $order = null;
+                    $orders = null;
                     $title = "查無此頁";
                     break;
             }
-            return view("admin/order-list", ["order" => $order, "title"=> $title]);
+            return view("admin/order-list", ["orders" => $orders, "title" => $title, "users" => $users]);
         }
+    }
+
+    public function order(Request $request, string $id)
+    {
+        $order=wn_order::where("uuid", $id)->get()->first();
+        $user=wn_user::where("uuid", $order->user_uid)->get()->first();
+        $orderItems = wn_order_item::where("order_uid", $id)->get();
+        $products = wn_product::where("status", "PUBLIC")->get();
+        return view("admin/order",["order"=> $order,"user"=> $user, "products"=> $products, "orderItems"=> $orderItems]);
     }
 }

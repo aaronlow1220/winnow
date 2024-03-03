@@ -28,6 +28,7 @@ Route::name("admin.")->group(function () {
     Route::get("/admin/edit-user/{id}", [adminPagesController::class, "editUser"])->name("editUser");
     Route::get("/admin/settings", [adminPagesController::class, "settings"])->name("settings");
     Route::get("/admin/order-list/{status}", [adminPagesController::class, "orderList"])->name("orderList");
+    Route::get("/admin/order/{id}", [adminPagesController::class, "order"])->name("order");
 });
 
 // Admin handle

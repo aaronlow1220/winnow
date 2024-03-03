@@ -230,17 +230,25 @@ class adminHandleController extends Controller
         $path = public_path("media/product/" . $uuid);
 
         if (!file_exists($path)) {
-            Storage::makeDirectory($path);
+            mkdir($path, 0777, true);
         }
 
         // Save product cover img
         if ($request->hasFile("product_cover")) {
             $extension = $request->file("product_cover")->getClientOriginalExtension();
-            $fileName = $uuid . "_cover." . $extension;
-            if (file_exists($fileName)) {
-                unlink($fileName);
+            if ($extension == "png") {
+                $fileName = $path . "/" . $uuid . ".jpg";
+                if (file_exists($fileName)) {
+                    unlink($fileName);
+                }
+                Helper::pngToJpg($request->file("product_cover"), $path . "/" . $uuid."_cover.jpg", 65);
+
             }
-            $request->file("product_cover")->move($path, $fileName);
+            // $fileName = $uuid . "_cover." . $extension;
+            // if (file_exists($fileName)) {
+            //     unlink($fileName);
+            // }
+            // $request->file("product_cover")->move($path, $fileName);
         }
 
         if ($request->hasFile("product_images")) {
