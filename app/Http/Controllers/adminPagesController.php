@@ -22,10 +22,14 @@ class adminPagesController extends Controller
 
     public function dashboard(Request $request)
     {
-        if (Helper::isAdmin()) {
-            return view("admin/home");
+        if (!Helper::isAdmin()) {
+
+            return redirect("/permission-error");
         }
-        return redirect("/permission-error");
+        $posts = wn_post::where("status", "PUBLIC")->orderByDesc("hits")->take(3)->get();
+        $cat = wn_category::where("status", "ACTIVE")->get();
+        $products = wn_product::where("status", "PUBLIC")->orderByDesc("purchase_count")->take(3)->get();
+        return view("admin/home", ["posts" => $posts, "products" => $products, "cat"=>$cat]);
     }
 
     public function article_list(Request $request)
@@ -185,23 +189,23 @@ class adminPagesController extends Controller
                     $title = "全部";
                     break;
                 case "not-paid":
-                    $orders = 2;
+                    $orders = wn_order::where("status", "NOT_PAID")->orderByDesc("modified_at")->get();
                     $title = "未付款";
                     break;
                 case "ship-pending":
-                    $orders = 3;
+                    $orders = wn_order::where("status", "SHIP_PENDING")->orderByDesc("modified_at")->get();
                     $title = "待出貨";
                     break;
                 case "shipped":
-                    $orders = 4;
+                    $orders = wn_order::where("status", "SHIPPED")->orderByDesc("modified_at")->get();
                     $title = "已送出";
                     break;
                 case "canceled":
-                    $orders = 5;
+                    $orders = wn_order::where("status", "CANCELED")->orderByDesc("modified_at")->get();
                     $title = "不成立";
                     break;
                 case "refund":
-                    $orders = 6;
+                    $orders = wn_order::where("status", "REFUND")->orderByDesc("modified_at")->get();
                     $title = "退貨/退款";
                     break;
                 default:
@@ -215,10 +219,10 @@ class adminPagesController extends Controller
 
     public function order(Request $request, string $id)
     {
-        $order=wn_order::where("uuid", $id)->get()->first();
-        $user=wn_user::where("uuid", $order->user_uid)->get()->first();
+        $order = wn_order::where("uuid", $id)->get()->first();
+        $user = wn_user::where("uuid", $order->user_uid)->get()->first();
         $orderItems = wn_order_item::where("order_uid", $id)->get();
         $products = wn_product::where("status", "PUBLIC")->get();
-        return view("admin/order",["order"=> $order,"user"=> $user, "products"=> $products, "orderItems"=> $orderItems]);
+        return view("admin/order", ["order" => $order, "user" => $user, "products" => $products, "orderItems" => $orderItems]);
     }
 }

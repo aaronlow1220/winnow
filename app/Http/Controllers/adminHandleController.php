@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Helpers\Helper;
+use App\Models\wn_order;
 use App\Models\wn_product;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -236,30 +237,32 @@ class adminHandleController extends Controller
         // Save product cover img
         if ($request->hasFile("product_cover")) {
             $extension = $request->file("product_cover")->getClientOriginalExtension();
-            if ($extension == "png") {
-                $fileName = $path . "/" . $uuid . ".jpg";
-                if (file_exists($fileName)) {
-                    unlink($fileName);
-                }
-                Helper::pngToJpg($request->file("product_cover"), $path . "/" . $uuid."_cover.jpg", 65);
-
+            $fileName = $path . "/" . $uuid . "_cover.jpg";
+            if (file_exists($fileName)) {
+                unlink($fileName);
             }
-            // $fileName = $uuid . "_cover." . $extension;
-            // if (file_exists($fileName)) {
-            //     unlink($fileName);
-            // }
-            // $request->file("product_cover")->move($path, $fileName);
+            if ($extension == "png") {
+                Helper::pngToJpg($request->file("product_cover"), $path . "/" . $uuid . "_cover.jpg", 65);
+
+            } else {
+                $request->file("product_cover")->move($path, $fileName);
+            }
         }
 
         if ($request->hasFile("product_images")) {
             $i = 0;
             foreach ($other_pic as $pic) {
                 $extension = $pic->getClientOriginalExtension();
-                $fileName = $uuid . "_other_" . $i . "." . $extension;
+                $fileName = $path . "/" . $uuid . "_other_" . $i . ".jpg";
                 if (file_exists($fileName)) {
                     unlink($fileName);
                 }
-                $pic->move($path, $fileName);
+                if ($extension == "png") {
+                    Helper::pngToJpg($request->file("product_cover"), $path . "/" . $uuid . "_cover.jpg", 65);
+
+                } else {
+                    $request->file("product_cover")->move($path, $fileName);
+                }
                 $i++;
             }
         }
@@ -296,6 +299,23 @@ class adminHandleController extends Controller
 
         try {
             wn_post::where("uuid", $request->editor_uuid)->update($data);
+            return back()->with("success", "success");
+        } catch (\Illuminate\Database\QueryException $ex) {
+            return back()->with("failed", "failed");
+        }
+    }
+
+    public function updateOrder(Request $request, string $id, string $status)
+    {
+
+        $order = wn_order::where("uuid", $id)->get()->first();
+
+        $data = [
+            "status" => $status,
+        ];
+
+        try {
+            $order->update($data);
             return back()->with("success", "success");
         } catch (\Illuminate\Database\QueryException $ex) {
             return back()->with("failed", "failed");

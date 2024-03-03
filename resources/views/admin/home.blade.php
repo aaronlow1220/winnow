@@ -18,21 +18,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>cell1_1</td>
-                        <td>cell2_1</td>
-                        <td>cell3_1</td>
-                    </tr>
-                    <tr>
-                        <td>cell1_2</td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                    </tr>
-                    <tr>
-                        <td>cell1_3</td>
-                        <td>cell2_3</td>
-                        <td>cell3_3</td>
-                    </tr>
+                    @foreach ($posts as $post)
+                        <tr>
+                            <td>{{ $post->title }}</td>
+                            <td>
+                                {{ $cat->where("uuid", $post->category_uid)->first()->name }}
+                            </td>
+                            <td>{{ $post->hits }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -5,38 +5,31 @@
 @endsection
 
 @section('dashboard-content')
-    <style>
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .func-btn:hover+.dropdown-content {
-            display: block;
-        }
-    </style>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="msg-box failed">
+                <p>{{ $error }}</p>
+            </div>
+        @endforeach
+    @endif
+    @if (session()->has('success'))
+        <div class="msg-box success">
+            <p>修改成功</p>
+        </div>
+    @elseif(session()->has('failed'))
+        <div class="msg-box failed">
+            <p>修改失敗，{{ session()->get('failed') }}</p>
+        </div>
+    @endif
     <div class="func">
         <div class="func-bar">
-            <a class="func-btn" href="">
+            <a class="func-btn" href="{{ route('admin.orderList', ['status' => 'all']) }}">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                    <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" fill="currentcolor" />
+                    <path
+                        d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+                        fill="currentcolor" />
                 </svg>
-                <span>新增</span>
+                <span>關閉</span>
             </a>
             <button class="func-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -47,9 +40,8 @@
                 <span>更多動作</span>
             </button>
             <div class="dropdown-content">
-                <a href="#">Action 1</a>
-                <a href="#">Action 2</a>
-                <a href="#">Action 3</a>
+                <a href="{{ route('handle.updateOrder', ['id' => $order->uuid, 'status' => 'SHIPPED']) }}">已送出訂單</a>
+                <a href="{{ route('handle.updateOrder', ['id' => $order->uuid, 'status' => 'CANCELED']) }}">取消訂單</a>
             </div>
         </div>
         <div class="order-detail">
@@ -105,10 +97,12 @@
                     @foreach ($orderItems as $item)
                         <div class="order-product">
                             <div class="order-product-img">
-                                <img class="order-product-img" src="{{ asset('media/product/'.$item->product_uid."/".$item->product_uid."_cover.jpg") }}" alt="">
+                                <img class="order-product-img"
+                                    src="{{ asset('media/product/' . $item->product_uid . '/' . $item->product_uid . '_cover.jpg') }}"
+                                    alt="">
                             </div>
                             <div class="order-product-info">
-                                <h3>{{ $products->where("uuid", $item->product_uid)->first()->name }}</h3>
+                                <h3>{{ $products->where('uuid', $item->product_uid)->first()->name }}</h3>
                                 <p>數量：{{ $item->quantity }}份</p>
                                 <p>總價：NT400</p>
                             </div>

@@ -44,6 +44,7 @@ Route::name("handle.")->group(function () {
     Route::get("/admin/post/reset-password-handle/{id}", [adminHandleController::class, "resetPassword"])->name("resetPassword");
     Route::post("/admin/post/create-post-handle", [adminHandleController::class, "storePost"])->name("storePost");
     Route::post("/admin/post/add-product-handle", [adminHandleController::class, "addProduct"])->name("addProduct");
+    Route::post("/admin/update-order/{id}/{status}", [adminHandleController::class, "updateOrder"])->name("updateOrder");
 });
 
 
@@ -68,15 +69,15 @@ Route::get("/cart", [pagesController::class, "cart"])->name("cart");
 Route::get("/about-us", [pagesController::class, "aboutUs"])->name("aboutUs");
 Route::get("/product/{id}", [pagesController::class, "product"])->name("product");
 Route::get("/order-list", [pagesController::class, "orderList"])->name("orderList");
-Route::get("/order/{id}", [pagesController::class,"order"])->name("order");
-Route::get("/proceed-payment/{orderId}", [pagesController::class,"proceedPayment"])->name("proceedPayment");
+Route::get("/order/{id}", [pagesController::class, "order"])->name("order");
+Route::get("/proceed-payment/{orderId}", [pagesController::class, "proceedPayment"])->name("proceedPayment");
 
 Route::name('pageHandle.')->group(function () {
     Route::post('/accountChange', [pagesHandleController::class, "accountChange"])->name("accountChange");
     Route::post("/add-to-cart", [pagesHandleController::class, "addToCart"])->name("addToCart");
     Route::post("/update-cart", [pagesHandleController::class, "updateCart"])->name("updateCart");
-    Route::post("/add-order", [pagesHandleController::class,"addOrder"])->name("addOrder");
-    Route::post("/add-payment-account", [pagesHandleController::class,"addPaymentAccount"])->name("addPaymentAccount");
+    Route::post("/add-order", [pagesHandleController::class, "addOrder"])->name("addOrder");
+    Route::post("/add-payment-account", [pagesHandleController::class, "addPaymentAccount"])->name("addPaymentAccount");
 });
 
 // Permission error
