@@ -50,15 +50,32 @@
                 <hr>
                 <div class="order-card-seperate">
                     <div class="order-card-part">
-                        <p>姓名：{{ $user->username }}</p>
-                        <p>地址：{{ $order->delivery_address }}</p>
-                        <p>配送方式：{{ $order->delivery_method }}</p>
+                        <div class="order-card-info">
+                            <p class="order-card-info-tip">姓名</p>
+                            <p class="order-card-info-value">{{ $user->username }}</p>
+                        </div>
+                        <div class="order-card-info">
+                            <p class="order-card-info-tip">地址</p>
+                            <p class="order-card-info-value">{{ $order->delivery_address }}</p>
+                        </div>
+                        <div class="order-card-info">
+                            <p class="order-card-info-tip">配送方式</p>
+                            <p class="order-card-info-value">{{ $order->delivery_method }}</p>
+                        </div>
                     </div>
                     <div class="order-card-part">
-                        <p>匯款帳號後五碼：{{ $order->payment_account }}</p>
-                        <p>訂單日期：{{ $order->created_at }}</p>
-                        <p>狀態：
-                            @switch($order->status)
+                        <div class="order-card-info">
+                            <p class="order-card-info-tip">匯款帳號後五碼</p>
+                            <p class="order-card-info-value">{{ $order->payment_account }}</p>
+                        </div>
+                        <div class="order-card-info">
+                            <p class="order-card-info-tip">訂單日期</p>
+                            <p class="order-card-info-value">{{ $order->created_at }}</p>
+                        </div>
+                        <div class="order-card-info">
+                            <p class="order-card-info-tip">狀態</p>
+                            <p class="order-card-info-value">
+                                @switch($order->status)
                                 @case('NOT_PAID')
                                     未付款
                                 @break
@@ -83,14 +100,15 @@
                                     未知
                                 @break
                             @endswitch
-                        </p>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="order-card">
                 <div class="order-card-title">
                     <h2>商品</h2>
-                    <span>3件</span>
+                    <span>{{ $orderItems->count() }}件</span>
                 </div>
                 <hr>
                 <div class="order-product-list">

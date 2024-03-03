@@ -844,7 +844,7 @@ fieldset {
 .order-card-part {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .order-card-seperate {
@@ -888,6 +888,16 @@ fieldset {
 
 .func-btn:hover + .dropdown-content {
     display: block;
+}
+
+.order-card-info-tip{
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--dark-grey);
+}
+
+.order-card-info-value{
+    font-size: 1.2rem;
 }
 
 @media screen and (max-width: 768px) {
