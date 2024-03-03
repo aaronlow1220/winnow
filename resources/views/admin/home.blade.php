@@ -22,7 +22,7 @@
                         <tr>
                             <td>{{ $post->title }}</td>
                             <td>
-                                {{ $cat->where("uuid", $post->category_uid)->first()->name }}
+                                {{ $cat->where('uuid', $post->category_uid)->first()->name }}
                             </td>
                             <td>{{ $post->hits }}</td>
                         </tr>
@@ -41,26 +41,16 @@
                 <thead>
                     <tr>
                         <th>標題</th>
-                        <th>分類</th>
                         <th>點擊</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>cell1_1</td>
-                        <td>cell2_1</td>
-                        <td>cell3_1</td>
-                    </tr>
-                    <tr>
-                        <td>cell1_2</td>
-                        <td>cell2_2</td>
-                        <td>cell3_2</td>
-                    </tr>
-                    <tr>
-                        <td>cell1_3</td>
-                        <td>cell2_3</td>
-                        <td>cell3_3</td>
-                    </tr>
+                    @foreach ($products as $product)
+                        <tr>
+                            <td>{{ $product->name }}</td>
+                            <td>{{ $product->purchase_count }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
