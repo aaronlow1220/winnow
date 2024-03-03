@@ -47,7 +47,6 @@ Route::name("handle.")->group(function () {
     Route::post("/admin/update-order/{id}/{status}", [adminHandleController::class, "updateOrder"])->name("updateOrder");
 });
 
-
 // Auth pages
 Route::name('auth.')->group(function () {
     Route::get("/auth/register", [pagesController::class, "register"])->name("register");
