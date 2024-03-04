@@ -22,12 +22,15 @@
                     alt="logo" /></a>
             <div class="flex text-secondary">
                 @foreach ($navs as $nav)
-                    @if ($nav->alias != 'about-us')
+                    @if ($nav->alias != 'about-us' && $nav->alias != 'contact-us')
                         <a href="{{ route('category', ['category' => $nav->alias]) }}">
                             <div>{{ $nav->name }}</div><img src="{{ asset('assets/img/arrow.svg') }}" />
                         </a>
                     @endif
                 @endforeach
+                <a href="#contact-section">
+                    <div>關於我們</div><img src="{{ asset('assets/img/arrow.svg') }}" />
+                </a>
                 <a href="{{ route('aboutUs') }}">
                     <div>關於我們</div><img src="{{ asset('assets/img/arrow.svg') }}" />
                 </a>

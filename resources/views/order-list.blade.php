@@ -199,38 +199,40 @@
                                 <div class="flex">
 
                                     <p>#{{ str_pad($order->id, 6, '0', STR_PAD_LEFT) }}</p>
-                                    <input class="checkbox" type="checkbox" id="checkbox1">
-                                    <label for="checkbox1" class="toggle">
+                                    <input class="checkbox" type="checkbox" id="checkbox{{ $loop->index }}" @if($loop->first) @else checked=false @endif >
+                                    <label for="checkbox{{ $loop->index }}" class="toggle">
                                         <div class="bar" id="bar1"></div>
                                         <div class="bar" id="bar2"></div>
                                     </label>
                                 </div>
                             </div>
                             @foreach ($orderItems as $orderItem)
-                                <div class="cart-item flex">
-                                    <img src="../img/2.png" alt="food1" />
-                                    <div class="cart-item-info">
-                                        <h4 class="item-title">
-                                            {{ $products->where('uuid', $orderItem->product_uid)->first()->name }}</h4>
-                                        <div class="cart-item-info-cost">
-                                            <div class="counter flex"
-                                                style="align-items: baseline; gap: 2px; padding: 0 12px;">
-                                                <h4>{{ $orderItem->quantity }}</h4>
-                                                <p class="text-secondary">份</p>
-                                            </div>
-                                            <div class="price-container flex">
-                                                <p class="text-secondary">NT$</p>
-                                                <h3 class="price" data-price="100">
-                                                    @if ($products->where('uuid', $orderItem->product_uid)->first()->discount_price)
-                                                        {{ $products->where('uuid', $orderItem->product_uid)->first()->discount_price * $orderItem->quantity }}
-                                                    @else
-                                                        {{ $products->where('uuid', $orderItem->product_uid)->first()->price * $orderItem->quantity }}
-                                                    @endif
-                                                </h3>
+                                @if ($orderItem->order_uid === $order->uuid)
+                                    <div class="cart-item flex">
+                                        <img src="{{ asset('media/product/'.$orderItem->product_uid."/".$orderItem->product_uid."_cover.jpg") }}" alt="food1" />
+                                        <div class="cart-item-info">
+                                            <h4 class="item-title">
+                                                {{ $products->where('uuid', $orderItem->product_uid)->first()->name }}</h4>
+                                            <div class="cart-item-info-cost">
+                                                <div class="counter flex"
+                                                    style="align-items: baseline; gap: 2px; padding: 0 12px;">
+                                                    <h4>{{ $orderItem->quantity }}</h4>
+                                                    <p class="text-secondary">份</p>
+                                                </div>
+                                                <div class="price-container flex">
+                                                    <p class="text-secondary">NT$</p>
+                                                    <h3 class="price" data-price="100">
+                                                        @if ($products->where('uuid', $orderItem->product_uid)->first()->discount_price)
+                                                            {{ $products->where('uuid', $orderItem->product_uid)->first()->discount_price * $orderItem->quantity }}
+                                                        @else
+                                                            {{ $products->where('uuid', $orderItem->product_uid)->first()->price * $orderItem->quantity }}
+                                                        @endif
+                                                    </h3>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             @endforeach
                             <div class="cart-item flex">
                                 <label for="account-five">匯款帳號末五碼</label>

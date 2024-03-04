@@ -264,9 +264,12 @@
         });
 
         // --- 地址 ---
-
         const dA = document.querySelector("#delivery-address");
         const oA = document.querySelector("#custom-address");
+
+        if(dA.value === "other-address"){
+            oA.disabled = false;
+        }
 
         $(dA).on("change", function() {
             if (dA.value === "other-address") {

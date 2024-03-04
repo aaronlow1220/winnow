@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@yield('page-title')</title>
-    @stack("login")
-    @stack("register")
+    @stack('login')
+    @stack('register')
     <link rel="stylesheet" href="{{ asset('assets/css/nav.css') }}">
 </head>
 
@@ -15,7 +15,8 @@
         <nav class="flex justify-center align-items-center relative">
             <label for="burger">☰</label>
             <input type="checkbox" id="burger">
-            <a id="nav_logo" href="{{ route('home') }}"><img src="{{ asset('assets/img/Logo.png') }}" alt="logo" /></a>
+            <a id="nav_logo" href="{{ route('home') }}"><img src="{{ asset('assets/img/Logo.png') }}"
+                    alt="logo" /></a>
             <div class="flex text-secondary">
                 <a href="/latest-news">
                     <div>最新消息</div><img src="{{ asset('assets/img/arrow.svg') }}" />
@@ -40,9 +41,9 @@
                 </a>
             </div>
             <div id="customer-interaction-icons">
-                <a href="{{ route('auth.login') }}" class="flex"><img id="icon_person"
+                <a href="{{ route('account') }}" class="flex"><img id="icon_person"
                         src="{{ asset('assets/img/Person.svg') }}" alt="login" /></a>
-                <a href="cart.html" class="flex"><img id="icon_shopping_cart"
+                <a href="{{ route('cart') }}" class="flex"><img id="icon_shopping_cart"
                         src="{{ asset('assets/img/Shopping.svg') }}" alt="shoppingCart" /></a>
             </div>
             <div id="overlay"></div>

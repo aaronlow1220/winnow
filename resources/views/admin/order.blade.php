@@ -40,7 +40,7 @@
                 <span>更多動作</span>
             </button>
             <div class="dropdown-content">
-                <a href="{{ route('handle.updateOrder', ['id' => $order->uuid, 'status' => 'SHIPPED']) }}">已送出訂單</a>
+                <a href="{{ route('handle.updateOrder', ['id' => $order->uuid, 'status' => 'SHIPPED']) }}">送出訂單</a>
                 <a href="{{ route('handle.updateOrder', ['id' => $order->uuid, 'status' => 'CANCELED']) }}">取消訂單</a>
             </div>
         </div>
@@ -76,30 +76,30 @@
                             <p class="order-card-info-tip">狀態</p>
                             <p class="order-card-info-value">
                                 @switch($order->status)
-                                @case('NOT_PAID')
-                                    未付款
-                                @break
+                                    @case('NOT_PAID')
+                                        未付款
+                                    @break
 
-                                @case('SHIP_PENDING')
-                                    待出貨
-                                @break
+                                    @case('SHIP_PENDING')
+                                        待出貨
+                                    @break
 
-                                @case('SHIPPED')
-                                    已出貨
-                                @break
+                                    @case('SHIPPED')
+                                        已出貨
+                                    @break
 
-                                @case('CANCELED')
-                                    已取消
-                                @break
+                                    @case('CANCELED')
+                                        已取消
+                                    @break
 
-                                @case('REFUND')
-                                    退貨/退款
-                                @break
+                                    @case('REFUND')
+                                        退貨/退款
+                                    @break
 
-                                @default
-                                    未知
-                                @break
-                            @endswitch
+                                    @default
+                                        未知
+                                    @break
+                                @endswitch
                             </p>
                         </div>
                     </div>

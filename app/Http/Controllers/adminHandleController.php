@@ -35,15 +35,35 @@ class adminHandleController extends Controller
         $uuid = Helper::prefixedUuid("post_");
         $cover_pic_name = "";
 
+
+
         if ($request->hasFile("cover_pic")) {
+            // $extension = $request->file("cover_pic")->getClientOriginalExtension();
+            // $fileName = $uuid . "." . $extension;
+            // $cover_pic_name = $fileName;
+            // if (file_exists($fileName)) {
+            //     unlink($fileName);
+            // }
+
+            // $request->file("cover_pic")->move(public_path("media/post"), $fileName);
             $extension = $request->file("cover_pic")->getClientOriginalExtension();
-            $fileName = $uuid . "." . $extension;
-            $cover_pic_name = $fileName;
-            if (file_exists($fileName)) {
-                unlink($fileName);
+
+            $path = public_path("media/post/" . $uuid);
+
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
             }
 
-            $request->file("cover_pic")->move(public_path("media/post"), $fileName);
+            $fileName = $uuid . ".jpg";
+            if (file_exists($path . "/" . $fileName)) {
+                unlink($path . "/" . $fileName);
+            }
+            if ($extension == "png") {
+                Helper::pngToJpg($request->file("cover_pic"), $path . "/" . $uuid . ".jpg", 50);
+
+            } else {
+                $request->file("cover_pic")->move($path, $fileName);
+            }
         }
 
         $data = [
@@ -237,12 +257,13 @@ class adminHandleController extends Controller
         // Save product cover img
         if ($request->hasFile("product_cover")) {
             $extension = $request->file("product_cover")->getClientOriginalExtension();
-            $fileName = $path . "/" . $uuid . "_cover.jpg";
-            if (file_exists($fileName)) {
-                unlink($fileName);
+            // $fileName = $path . "/" . $uuid . "_cover.jpg";
+            $fileName = $uuid . "_cover.jpg";
+            if (file_exists($path . "/" . $fileName)) {
+                unlink($path . "/" . $fileName);
             }
             if ($extension == "png") {
-                Helper::pngToJpg($request->file("product_cover"), $path . "/" . $uuid . "_cover.jpg", 65);
+                Helper::pngToJpg($request->file("product_cover"), $path . "/" . $uuid . "_cover.jpg", 50);
 
             } else {
                 $request->file("product_cover")->move($path, $fileName);
@@ -253,12 +274,13 @@ class adminHandleController extends Controller
             $i = 0;
             foreach ($other_pic as $pic) {
                 $extension = $pic->getClientOriginalExtension();
-                $fileName = $path . "/" . $uuid . "_other_" . $i . ".jpg";
+                // $fileName = $path . "/" . $uuid . "_other_" . $i . ".jpg";
+                $fileName = $uuid . "_other_" . $i . ".jpg";
                 if (file_exists($fileName)) {
                     unlink($fileName);
                 }
                 if ($extension == "png") {
-                    Helper::pngToJpg($request->file("product_cover"), $path . "/" . $uuid . "_cover.jpg", 65);
+                    Helper::pngToJpg($request->file("product_cover"), $path . "/" . $uuid . "_cover.jpg", 50);
 
                 } else {
                     $request->file("product_cover")->move($path, $fileName);
@@ -287,6 +309,25 @@ class adminHandleController extends Controller
             "editor_status" => "required",
             "editor_content" => "required"
         ]);
+
+        $path = public_path("media/product/" . $request->editor_uuid);
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+
+        if ($request->hasFile("cover_pic")) {
+            $extension = $request->file("cover_pic")->getClientOriginalExtension();
+            $fileName = $request->editor_uuid . ".jpg";
+            if (file_exists($path . "/" . $fileName)) {
+                unlink($path . "/" . $fileName);
+            }
+            if ($extension == "png") {
+                Helper::pngToJpg($request->file("product_cover"), $path . "/" . $request->editor_uuid . ".jpg", 50);
+
+            } else {
+                $request->file("product_cover")->move($path, $fileName);
+            }
+        }
 
         $data = [
             "title" => $request->editor_title,

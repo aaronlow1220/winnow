@@ -22,11 +22,15 @@ class pagesController extends Controller
         $dishes = wn_post::where("status", "PUBLIC")->where("category_uid", "category_abee076b-1920-4117-bf47-9605a554579b")->orderByDesc("created_at")->take(6)->get();
         $dream = wn_post::where("status", "PUBLIC")->where("category_uid", "category_b8208439-3892-4b4e-9a23-dbba1d12ed52")->get()->first();
         $attractions = wn_post::where("status", "PUBLIC")->where("category_uid", "category_3eeedb66-f378-4ef3-ae1d-6dd703630163")->orderByDesc("created_at")->take(3)->get();
+        $categories = wn_category::where("status", "ACTIVE")->get();
+        $subCat = wn_sub_category::where("status", "ACTIVE")->get();
         return view("home", [
             "latest_news" => $latest_news,
             "dishes" => $dishes,
             "dream" => $dream,
             "attractions" => $attractions,
+            "categories"=> $categories,
+            "subCat"=> $subCat
         ]);
     }
 

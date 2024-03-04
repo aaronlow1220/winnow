@@ -44,7 +44,7 @@ Route::name("handle.")->group(function () {
     Route::get("/admin/post/reset-password-handle/{id}", [adminHandleController::class, "resetPassword"])->name("resetPassword");
     Route::post("/admin/post/create-post-handle", [adminHandleController::class, "storePost"])->name("storePost");
     Route::post("/admin/post/add-product-handle", [adminHandleController::class, "addProduct"])->name("addProduct");
-    Route::post("/admin/update-order/{id}/{status}", [adminHandleController::class, "updateOrder"])->name("updateOrder");
+    Route::get("/admin/update-order/{id}/{status}", [adminHandleController::class, "updateOrder"])->name("updateOrder");
 });
 
 // Auth pages

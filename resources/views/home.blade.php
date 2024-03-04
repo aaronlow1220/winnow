@@ -15,6 +15,12 @@
 @endpush
 
 @section('top')
+    <style>
+        .news-link {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
     <div class="handle">
         <!-- <div id="icon-bar"></div>  -->
 
@@ -59,19 +65,22 @@
                     <h1 class="SecondLine PH-SecondLine">最新消息</h1>
                 </div>
                 <div class="News">
-                    <div class="image-area2">
-                        <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '.png') }}" id="news_image"
-                            alt="" />
-                        <div class="news-textbox">
-                            <h2 class="Main-Titlecontent PH-Main-Titlecontent">{{ $latest_news->first()->title }}</h2>
-                            <h5 class="Last PH-Last">{{ $latest_news->first()->created_at }}</h5>
+                    <a class="news-link"
+                        href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->first()->uuid]) }}">
+                        <div class="image-area2">
+                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '.jpg') }}" id="news_image"
+                                alt="" />
+                            <div class="news-textbox">
+                                <h2 class="Main-Titlecontent PH-Main-Titlecontent">{{ $latest_news->first()->title }}</h2>
+                                <h5 class="Last PH-Last">{{ $latest_news->first()->created_at }}</h5>
+                            </div>
                         </div>
-                    </div>
-
+                    </a>
                     <div class="substances">
-                        <div class="second-content">
+                        <a class="second-content news-link"
+                            href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->skip(1)->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->skip(1)->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->skip(1)->first()->uuid]) }}">
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '.png') }}"
+                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '.jpg') }}"
                                     id="w" alt="" />
                             </div>
                             <div class="substance-text">
@@ -80,10 +89,11 @@
                                 <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">
                                     {{ $latest_news->skip(1)->first()->created_at }}</h4>
                             </div>
-                        </div>
+                        </a>
                         <hr />
 
-                        <div class="second-content">
+                        <a class="second-content news-link"
+                            href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->skip(2)->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->skip(2)->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->skip(2)->first()->uuid]) }}">
                             <div class="content-img">
                                 <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '.jpg') }}"
                                     id="w" alt="" />
@@ -94,12 +104,13 @@
                                 <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">
                                     {{ $latest_news->skip(2)->first()->created_at }}</h4>
                             </div>
-                        </div>
+                        </a>
                         <hr />
 
-                        <div class="second-content">
+                        <a class="second-content news-link"
+                            href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->skip(3)->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->skip(3)->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->skip(3)->first()->uuid]) }}">
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '.png') }}"
+                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '.jpg') }}"
                                     id="w" alt="" />
                             </div>
                             <div class="substance-text">
@@ -108,12 +119,13 @@
                                 <h4 class="Last PH-Last" style="color: rgba(0, 0, 0, 0.6)">
                                     {{ $latest_news->skip(3)->first()->created_at }}</h4>
                             </div>
-                        </div>
+                        </a>
                         <hr />
                         <div class="s">
                             <a style="color: rgb(255, 255, 255); text-decoration: none"
                                 href="{{ route('category', ['category' => 'latest-news']) }}"><button
-                                    class="LG_button">了解更多 ></button></a>
+                                    class="LG_button">了解更多
+                                    ></button></a>
                         </div>
                     </div>
                 </div>
@@ -129,7 +141,7 @@
                 <div class="News">
                     <div class="image-area2">
                         <div class="news-image">
-                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '.png') }}" id="news_image"
+                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '.jpg') }}" id="news_image"
                                 alt="" />
                         </div>
                         <div class="news-text">
@@ -150,7 +162,7 @@
                                     {{ $latest_news->skip(1)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '.png') }}"
+                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '.jpg') }}"
                                     id="w" alt="" />
                             </div>
                         </div>
@@ -178,7 +190,7 @@
                                     {{ $latest_news->skip(3)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '.png') }}"
+                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '.jpg') }}"
                                     id="w" alt="" />
                             </div>
                         </div>
@@ -186,7 +198,8 @@
                         <div class="s">
                             <a style="color: rgb(255, 255, 255); text-decoration: none"
                                 href="{{ route('category', ['category' => 'latest-news']) }}"><button
-                                    class="LG_button">了解更多 ></button></a>
+                                    class="LG_button">了解更多
+                                    ></button></a>
                         </div>
                     </div>
                 </div>
@@ -250,7 +263,7 @@
                             <ul class="image-list">
                                 @foreach ($dishes as $dish)
                                     <div class="foodscrollbar-content">
-                                        <img class="image-item" src="{{ asset('media/post/' . $dish->uuid . '.png') }}"
+                                        <img class="image-item" src="{{ asset('media/post/' . $dish->uuid . '.jpg') }}"
                                             alt="img-1" />
                                         <p class="Last">{{ $dish->title }}</p>
                                     </div>
@@ -296,7 +309,7 @@
                 </div>
 
                 <div class="image-area4">
-                    <img src="{{ asset('media/post/' . $dream->uuid . '.png') }}" id="music-img" alt="" />
+                    <img src="{{ asset('media/post/' . $dream->uuid . '.jpg') }}" id="music-img" alt="" />
                 </div>
             </div>
 
@@ -321,7 +334,7 @@
                     @foreach ($attractions as $attraction)
                         <div class="visit_container">
                             <div class="visit-img">
-                                <img src="{{ asset('media/post/' . $attraction->uuid . '.png') }}" id="w"
+                                <img src="{{ asset('media/post/' . $attraction->uuid . '.jpg') }}" id="w"
                                     alt="" />
                             </div>
                             <div class="substance-text2">
@@ -332,7 +345,8 @@
                     @endforeach
                 </div>
                 <div style="display: flex; justify-content: center">
-                    <a style="color: rgb(255, 255, 255); text-decoration: none"href="{{ route('category', ["category"=>"attractions"]) }}">
+                    <a
+                        style="color: rgb(255, 255, 255); text-decoration: none"href="{{ route('category', ['category' => 'attractions']) }}">
                         <button class="LG_button">
                             深入探索 >
                         </button>
@@ -375,7 +389,7 @@
                 </div>
 
                 <div class="image-area5">
-                    <img class="way-img" src="{{ asset('assets/img/view-img3.png') }}" id="" alt="" />
+                    <img class="way-img" src="{{ asset('assets/img/view-img3.jpg') }}" id="" alt="" />
                 </div>
             </div>
 
@@ -461,7 +475,8 @@
                 </div>
                 <div style="display: flex; justify-content: center">
                     <button class="LG_button"><a style="color: rgb(255, 255, 255); text-decoration: none"
-                            href="">深入探索 ></a></button>
+                            href="">深入探索
+                            ></a></button>
                 </div>
             </div>
 
