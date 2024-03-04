@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->string("contact_address")->nullable();
             $table->string("delivery_address")->nullable();
             $table->string("status")->default("ACTIVE");
-            $table->int("is_admin")->default(0);
+            $table->integer("is_admin")->default(0);
             $table->string("google_id")->nullable();
             $table->string("facebook_id")->nullable();
             $table->string("remember_token")->nullable();
