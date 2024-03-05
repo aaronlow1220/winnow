@@ -15,8 +15,7 @@
             <div class="tabs">
                 @isset($subCategory)
                     @foreach ($subCategory as $sc)
-                        <a href="{{ route('category', ['category' => $category->alias, 'subCategory' => $sc->alias]) }}"><button
-                                @if ($subCatAlias == $sc->alias) class="tab-button active-tab" @else class="tab-button" @endif>{{ $sc->name }}</button></a>
+                        <a href="{{ route('category', ['category' => $category->alias, 'subCategory' => $sc->alias]) }}"><button @if ($subCatAlias == $sc->alias) class="tab-button active-tab" @else class="tab-button" @endif>{{ $sc->name }}</button></a>
                     @endforeach
                 @endisset
             </div>
@@ -42,10 +41,8 @@
                     <div class="card-container">
                         @isset($otherPosts)
                             @foreach ($otherPosts as $post)
-                                <a class="card"
-                                    href="{{ route('post', ['category' => $catAlias, 'subCategory' => $subCatAlias, 'article' => $post->uuid]) }}">
-                                    <img src="{{ asset('media/post/' . $post->uuid . '/' . $post->media_location) }}"
-                                        alt="">
+                                <a class="card" href="{{ route('post', ['category' => $catAlias, 'subCategory' => $subCatAlias, 'article' => $post->uuid]) }}">
+                                    <img src="{{ asset('media/post/' . $post->uuid . '/' . $post->media_location) }}" alt="">
                                     <div class="flex-column">
                                         <div>
                                             <div class="card_tittle">{{ $post->title }}</div>

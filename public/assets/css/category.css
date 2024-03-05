@@ -261,6 +261,15 @@ main {
     justify-content: center;
 }
 
+.image img {
+    height: 100%;
+    
+}
+
+.image{
+    margin: 0.5rem 0;
+}
+
 .card-container {
     width: 26.25rem;
     align-self: stretch;

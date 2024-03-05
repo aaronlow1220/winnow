@@ -234,6 +234,10 @@ body::after {
     gap: 16px;
 }
 
+.HeadLine {
+    color: rgba(0, 0, 0, 0.88);
+}
+
 @media (min-width: 1020px) {
     .PH {
         display: none;

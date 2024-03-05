@@ -30,7 +30,7 @@
                     @endif
                 @endforeach
                 <a href="#contact-section">
-                    <div>關於我們</div><img src="{{ asset('assets/img/arrow.svg') }}" />
+                    <div>聯絡我們</div><img src="{{ asset('assets/img/arrow.svg') }}" />
                 </a>
                 <a href="{{ route('aboutUs') }}">
                     <div>關於我們</div><img src="{{ asset('assets/img/arrow.svg') }}" />

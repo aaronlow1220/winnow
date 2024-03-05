@@ -68,7 +68,7 @@
                     <a class="news-link"
                         href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->first()->uuid]) }}">
                         <div class="image-area2">
-                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '.' . $latest_news->first()->uuid . '.jpg') }}"
+                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '/' . $latest_news->first()->uuid . '.jpg') }}"
                                 id="news_image" alt="" />
                             <div class="news-textbox">
                                 <h2 class="Main-Titlecontent PH-Main-Titlecontent">{{ $latest_news->first()->title }}</h2>
@@ -95,7 +95,7 @@
                         <a class="second-content news-link"
                             href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->skip(2)->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->skip(2)->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->skip(2)->first()->uuid]) }}">
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '/' . $latest_news->skip(1)->first()->uuid . '.jpg') }}"
+                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '/' . $latest_news->skip(2)->first()->uuid . '.jpg') }}"
                                     id="w" alt="" />
                             </div>
                             <div class="substance-text">
@@ -110,7 +110,7 @@
                         <a class="second-content news-link"
                             href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->skip(3)->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->skip(3)->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->skip(3)->first()->uuid]) }}">
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '/' . $latest_news->skip(1)->first()->uuid . '.jpg') }}"
+                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '/' . $latest_news->skip(3)->first()->uuid . '.jpg') }}"
                                     id="w" alt="" />
                             </div>
                             <div class="substance-text">
@@ -176,7 +176,7 @@
                                     {{ $latest_news->skip(2)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '/' . $latest_news->skip(1)->first()->uuid . '.jpg') }}"
+                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '/' . $latest_news->skip(2)->first()->uuid . '.jpg') }}"
                                     id="w" alt="" />
                             </div>
                         </div>
@@ -190,7 +190,7 @@
                                     {{ $latest_news->skip(3)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '/' . $latest_news->skip(1)->first()->uuid . '.jpg') }}"
+                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '/' . $latest_news->skip(3)->first()->uuid . '.jpg') }}"
                                     id="w" alt="" />
                             </div>
                         </div>

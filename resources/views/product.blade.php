@@ -15,7 +15,7 @@
     <div class="shopping-content">
         <div class="shop-content">
             <div class="Shopping-img">
-                <div class="image">
+                <div class="image-p">
                     <img class="shopping-image"
                         src="{{ asset('media/product/' . $product->uuid . '/' . $product->uuid . '_cover.jpg') }}"
                         alt="">
