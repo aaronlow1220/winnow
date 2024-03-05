@@ -1,7 +1,6 @@
-body{
+body {
     overflow-x: hidden;
 }
-
 
 .customer-interaction-icons {
     display: flex;
@@ -10,10 +9,10 @@ body{
     gap: 1.75rem;
 }
 
-.all{
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
+.all {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
 }
 
 .customer-interaction-icons img {
@@ -22,22 +21,19 @@ body{
     padding: 0;
     margin: 0;
 }
-.hide-textbox{
-}
-.pingtu{
+.pingtu {
     display: flex;
-
 }
-.pingtu img{
+.pingtu img {
     width: clamp(33.75rem, 11.4063rem + 32.5vw, 50rem);
 }
 
-.textarea{
+.textarea {
     display: flex;
     min-width: max-content;
     align-items: center;
 }
-.toparea{
+.toparea {
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -45,23 +41,22 @@ body{
     gap: 48px;
 }
 
-.Shopping-content{
+.Shopping-content {
     padding-top: 100px;
 }
 
-.column-content{
+.column-content {
     display: flex;
     flex-direction: column;
 }
-.row-content{
+.row-content {
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 50px;
     gap: 110px;
-    
 }
-.food-content{
+.food-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,10 +64,12 @@ body{
     font-size: 20px;
     gap: 20px;
 }
-.row-content img{
+.row-content img {
     padding-right: 20px;
 }
-.first-food img, .second-food img, .third-food img{
+.first-food img,
+.second-food img,
+.third-food img {
     width: 100%;
 }
 
@@ -97,10 +94,10 @@ body{
     /* max-width: 600px; 设置最大宽度，以防止每列中的项过多 */
 }
 
-.content{
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
+.content {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
 }
 
 .grid-item {
@@ -108,14 +105,18 @@ body{
     flex-direction: column;
     justify-content: center;
     aspect-ratio: 4/3;
-    background-image: url("/img/foodcontent-1.png");
-    background-position: center center;
-    background-size: cover;
     width: 100%;
+
     max-width: min(400px, 80vw);
+    overflow: hidden;
 }
 
-.cash{
+.grid-item img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.cash {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -123,13 +124,13 @@ body{
     gap: 10px;
 }
 
-.shop-name{
+.shop-name {
     margin-bottom: 0;
 }
-.lower-cash{
+.lower-cash {
     color: red;
 }
-.shop-del{
+.shop-del {
     text-decoration: line-through;
 }
 
@@ -137,132 +138,131 @@ body{
     display: flex;
     justify-content: center;
 }
-.Shopping-mail button a{
+.Shopping-mail button a {
     text-decoration: none;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 20px;
-  }
-  .hide-textbox{
+}
+.hide-textbox {
     display: none;
-  }
+}
 
-  .PH-shoppigimg{
+.PH-shoppigimg {
     width: 92%;
     display: flex;
     justify-content: center;
-  }
-  .PH-img{
+}
+.PH-img {
     width: 100%;
-  }
-  .PH-shoppingtextbox{
+}
+.PH-shoppingtextbox {
     width: 92%;
     display: flex;
     gap: 8px;
     flex-direction: column;
-  }
-  .PH-content{
+}
+.PH-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 8px;
-  }
-  .PH-contenttext{
+}
+.PH-contenttext {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-  }
-  .PH-shoppingscrollbar{
+}
+.PH-shoppingscrollbar {
     display: flex;
     gap: 20px;
     flex-direction: column;
-  }
+}
 
-  hr{
+hr {
     width: 100%;
     margin: 0 auto;
-  }
+}
 
-  .PH{
+.PH {
     display: none;
-  }
-  .PH-shopping-content{
+}
+.PH-shopping-content {
     justify-content: center;
-  }
+}
 
-  header{
-    top:0px;
-  }
+header {
+    top: 0px;
+}
 
-  
-  .handle{
+.handle {
     display: flex;
     flex-direction: column;
     gap: 32px;
-  }
-  
-  @media(min-width: 1100px) {
-    .hide-textbox{
+}
+
+@media (min-width: 1100px) {
+    .hide-textbox {
         display: none;
     }
-    .PH{display: none;}
-  }
-  .PC{
+    .PH {
+        display: none;
+    }
+}
+.PC {
     display: grid;
-  }
-  @media(max-width: 1099px) {
-    .PH{
+}
+@media (max-width: 1099px) {
+    .PH {
         display: flex;
     }
-    .PC{
+    .PC {
         display: none;
     }
-    body{
+    body {
         gap: 64px;
     }
-    .hide-textbox{
+    .hide-textbox {
         display: block;
         width: 92%;
     }
-    .food-content{
+    .food-content {
         width: 92%;
     }
-    
-    .Shopping-mail{
-      grid-template-columns: repeat(auto-fit, minmax(200px, 270px));
-      padding: 0 max(5vw, 20px);
-      row-gap: 3rem
+
+    .Shopping-mail {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 270px));
+        padding: 0 max(5vw, 20px);
+        row-gap: 3rem;
     }
-    .all{
-      gap: 100px;
+    .all {
+        gap: 100px;
     }
-  }
-  @media(max-width: 800px) {
-    
-    .pingtu img{
-      width: 100%;
+}
+@media (max-width: 800px) {
+    .pingtu img {
+        width: 100%;
     }
-    .Shopping-mail{
-      grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
-      row-gap: 2rem
+    .Shopping-mail {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+        row-gap: 2rem;
     }
-    .toparea{
-      flex-wrap: wrap;
+    .toparea {
+        flex-wrap: wrap;
     }
-    .pingtu{
-      width: 80%;
+    .pingtu {
+        width: 80%;
     }
-    .all{
-      gap: 50px;
+    .all {
+        gap: 50px;
     }
-    .handle{
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+    .handle {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
     }
-    .toparea{
-      gap: 0;
+    .toparea {
+        gap: 0;
     }
-  }
-  
+}

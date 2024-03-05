@@ -17,18 +17,18 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 80px;
-    gap: 68px;
+    gap: 3rem;
     padding: 0 0 64px 0;
 }
 .shopping-content {
     display: flex;
     flex-direction: column;
-    gap: 100px;
 }
 .Shopping-img {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: min-content;
 }
 
 .scrollbar-contents {
@@ -141,8 +141,12 @@ body {
 
 #black {
     width: 190px;
-    color: black;
-    border: 3px solid black;
+    /* color: rgba(0, 0, 0, 0.6); */
+    border: 3px solid rgba(0, 0, 0, 0.6);
+}
+
+#black p{
+    color: rgba(0, 0, 0, 0.6);
 }
 
 #black-btn {
@@ -158,6 +162,10 @@ body {
     padding-bottom: 12px;
     padding-left: 32px;
     width: 100%;
+}
+
+#black-btn:hover{
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .shopping-text {

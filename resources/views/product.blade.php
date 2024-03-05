@@ -71,9 +71,9 @@
                         </div>
                         <div class="slider-text">
                             <header>
-                                <h3>雲南米干/米線/粑粑絲</h3>
+                                <h3 class="content">雲南米干/米線/粑粑絲</h3>
                             </header>
-                            <h3>售價:120元</h3>
+                            <h3 class="content">售價:120元</h3>
                         </div>
                     </div>
 
@@ -82,9 +82,9 @@
                         </div>
                         <div class="slider-text">
                             <header>
-                                <h3>雲南米干/米線/粑粑絲</h3>
+                                <h3 class="content">雲南米干/米線/粑粑絲</h3>
                             </header>
-                            <h3>售價:140元</h3>
+                            <h3 class="content">售價:140元</h3>
                         </div>
                     </div>
 
@@ -93,9 +93,9 @@
                         </div>
                         <div class="slider-text">
                             <header>
-                                <h3>雲南米干/米線/粑粑絲</h3>
+                                <h3 class="content">雲南米干/米線/粑粑絲</h3>
                             </header>
-                            <h3>售價:160元</h3>
+                            <h3 class="content">售價:160元</h3>
                         </div>
                     </div>
 
@@ -104,9 +104,9 @@
                         </div>
                         <div class="slider-text">
                             <header>
-                                <h3>雲南米干/米線/粑粑絲</h3>
+                                <h3 class="content">雲南米干/米線/粑粑絲</h3>
                             </header>
-                            <h3>售價:180元</h3>
+                            <h3 class="content">售價:180元</h3>
                         </div>
                     </div>
 
@@ -115,9 +115,9 @@
                         </div>
                         <div class="slider-text">
                             <header>
-                                <h3>雲南米干/米線/粑粑絲</h3>
+                                <h3 class="content">雲南米干/米線/粑粑絲</h3>
                             </header>
-                            <h3>售價:200元</h3>
+                            <h3 class="content">售價:200元</h3>
                         </div>
                     </div>
 
@@ -126,9 +126,9 @@
                         </div>
                         <div class="slider-text">
                             <header>
-                                <h3>雲南米干/米線/粑粑絲</h3>
+                                <h3 class="content">雲南米干/米線/粑粑絲</h3>
                             </header>
-                            <h3>售價:220元</h3>
+                            <h3 class="content">售價:220元</h3>
                         </div>
                     </div>
                 </div>

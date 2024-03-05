@@ -22,9 +22,7 @@
         <div class="Shopping-mail">
             @foreach ($items as $item)
                 <div class="grid-container">
-                    <div class="grid-item"><img
-                            src="{{ asset('media/product/' . $item->uuid . '/' . $item->uuid . '_cover.jpg') }}"
-                            alt=""></div>
+                    <div class="grid-item"><img class="imgCon" src="{{ asset('media/product/' . $item->uuid . '/' . $item->uuid . '_cover.jpg') }}" alt=""></div>
                     <div class="food-content">
                         <div class="content">
                             <header>
@@ -40,7 +38,7 @@
                             </div>
                         </div>
                         <div>
-                            <button class="LG_button"><a href="{{ route('product', ["id"=>$item->uuid]) }}">點我購買 ></a></button>
+                            <a href="{{ route('product', ['id' => $item->uuid]) }}"><button class="LG_button">點我購買 ></button></a>
                         </div>
                     </div>
                 </div>

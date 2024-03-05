@@ -82,6 +82,13 @@
 
             });
 
+            function onlyNumberKey(evt) {
+                // Only ASCII character in that range allowed
+                let ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                    return false;
+                return true;
+            }
         });
     </script>
     <style>
@@ -199,7 +206,7 @@
                                 <div class="flex">
 
                                     <p>#{{ str_pad($order->id, 6, '0', STR_PAD_LEFT) }}</p>
-                                    <input class="checkbox" type="checkbox" id="checkbox{{ $loop->index }}" @if($loop->first) @else checked=false @endif >
+                                    <input class="checkbox" type="checkbox" id="checkbox{{ $loop->index }}" @if ($loop->first) @else checked=false @endif>
                                     <label for="checkbox{{ $loop->index }}" class="toggle">
                                         <div class="bar" id="bar1"></div>
                                         <div class="bar" id="bar2"></div>
@@ -209,13 +216,12 @@
                             @foreach ($orderItems as $orderItem)
                                 @if ($orderItem->order_uid === $order->uuid)
                                     <div class="cart-item flex">
-                                        <img src="{{ asset('media/product/'.$orderItem->product_uid."/".$orderItem->product_uid."_cover.jpg") }}" alt="food1" />
+                                        <img src="{{ asset('media/product/' . $orderItem->product_uid . '/' . $orderItem->product_uid . '_cover.jpg') }}" alt="food1" />
                                         <div class="cart-item-info">
                                             <h4 class="item-title">
                                                 {{ $products->where('uuid', $orderItem->product_uid)->first()->name }}</h4>
                                             <div class="cart-item-info-cost">
-                                                <div class="counter flex"
-                                                    style="align-items: baseline; gap: 2px; padding: 0 12px;">
+                                                <div class="counter flex" style="align-items: baseline; gap: 2px; padding: 0 12px;">
                                                     <h4>{{ $orderItem->quantity }}</h4>
                                                     <p class="text-secondary">份</p>
                                                 </div>
@@ -236,77 +242,11 @@
                             @endforeach
                             <div class="cart-item flex">
                                 <label for="account-five">匯款帳號末五碼</label>
-                                <input id="account-five" type="number" placeholder="請輸入匯款帳號末五碼" name="account_five"
-                                    minlength="5" maxlength="5"
-                                    value=@if ($order->payment_account) {{ $order->payment_account }} @endif>
-                                <button type="submit" class="submit" value="{{ $order->uuid }}"
-                                    name="uuid">送出</button>
+                                <input id="account-five" type="text" placeholder="請輸入匯款帳號末五碼" name="account_five" maxlength="5" value=@if ($order->payment_account) {{ $order->payment_account }} @endif onkeypress=return onlyNumberKey(event)>
+                                <button type="submit" class="submit" value="{{ $order->uuid }}" name="uuid">送出</button>
                             </div>
                         </div>
                     @endforeach
-                    {{-- <div class="unit" style="margin-bottom: 4.5rem;">
-                        <div class="date flex">
-                            <h4>2024/1/21</h4>
-                            <div class="flex">
-                                <p>#1234235</p>
-                                <input class="checkbox" type="checkbox" id="checkbox1">
-                                <label for="checkbox1" class="toggle">
-                                    <div class="bar" id="bar1"></div>
-                                    <div class="bar" id="bar2"></div>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="cart-item flex">
-                            <img src="../img/2.png" alt="food1" />
-                            <div class="cart-item-info">
-                                <h4 class="item-title">麵包</h4>
-                                <div class="cart-item-info-cost">
-                                    <div class="counter flex" style="align-items: center; gap: 2px; padding: 0 12px;">
-                                        <h4>3</h4>
-                                        <p class="text-secondary">份</p>
-                                    </div>
-                                    <div class="price-container flex">
-                                        <p class="text-secondary">NT$</p>
-                                        <h3 class="price" data-price="100">100</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cart-item flex">
-                            <img src="../img/2.png" alt="food1" />
-                            <div class="cart-item-info">
-                                <h4 class="item-title">麵包</h4>
-                                <div class="cart-item-info-cost">
-                                    <div class="counter flex" style="align-items: baseline; gap: 2px; padding: 0 12px;">
-                                        <h4>3</h4>
-                                        <p class="text-secondary">份</p>
-                                    </div>
-                                    <div class="price-container flex">
-                                        <p class="text-secondary">NT$</p>
-                                        <h3 class="price" data-price="100">100</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cart-item flex">
-                            <img src="../img/2.png" alt="food1" />
-                            <div class="cart-item-info">
-                                <h4 class="item-title">麵包</h4>
-                                <div class="cart-item-info-cost">
-                                    <div class="counter flex" style="align-items: baseline; gap: 2px; padding: 0 12px;">
-                                        <h4>3</h4>
-                                        <p class="text-secondary">份</p>
-                                    </div>
-                                    <div class="price-container flex">
-                                        <p class="text-secondary">NT$</p>
-                                        <h3 class="price" data-price="100">100</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
-
                 </form>
             </div>
         </section>

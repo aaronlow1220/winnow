@@ -248,11 +248,17 @@ main {
 
 .image img {
     height: 100%;
-    
+    width: 100%;
+    max-width: 800px;
+    object-fit: cover;
 }
 
-.image{
-    margin: 0.5rem 0;
+.image {
+    display: flex;
+    overflow: hidden;
+    min-width: 800px;
+    aspect-ratio: 4/3;
+    justify-content: center;
 }
 
 .card-container {
@@ -271,11 +277,6 @@ main {
     justify-content: center;
 }
 
-/*
-.card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-*/
 .card img {
     border: none;
     outline: none;
@@ -304,7 +305,6 @@ main {
 .divider {
     margin: 0;
     padding: 0;
-    width: 100%;
     /* 分隔線的寬度 */
     height: 1px;
     /* 分隔線的高度 */
@@ -392,9 +392,9 @@ main {
         gap: 1rem;
     }
 
-    nav {
+    /* nav {
         border-bottom: none;
-    }
+    } */
 }
 
 @media (min-width: 1100px) {
