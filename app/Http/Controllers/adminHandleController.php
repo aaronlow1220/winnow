@@ -55,6 +55,7 @@ class adminHandleController extends Controller
             }
 
             $fileName = $uuid . ".jpg";
+            $cover_pic_name = $fileName;
             if (file_exists($path . "/" . $fileName)) {
                 unlink($path . "/" . $fileName);
             }
