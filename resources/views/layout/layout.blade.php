@@ -7,6 +7,7 @@
     <title>@yield('page-title')</title>
     @stack('top-link')
     <link rel="stylesheet" href="{{ asset('assets/css/nav.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/category.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
     @stack('category')
     @stack('login')

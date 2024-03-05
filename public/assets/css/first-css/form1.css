@@ -18,12 +18,12 @@ body {
     margin-top: 10px;
 }
 
-header{
+header {
     height: max(100dvh, 600px);
     position: relative;
 }
 
-header .main-content{
+header .main-content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,38 +32,22 @@ header .main-content{
 }
 
 @media all and (max-width: 800px) {
-    .main-content{
+    .main-content {
         flex-direction: column;
     }
 }
-header .main-content .image-area{
-    height: 100%;
-    display: flex;
-    width: 50%;
-    padding: 0 2rem;
-    justify-content: end;
-}
 
-.image-area img{
+.image-area img {
     max-width: 100%;
     object-fit: contain;
     filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.3));
 }
 
-header .main-content .text-area{
-    display: flex;
-    width: 50%;
-    padding: 0 2rem;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-}
-
-.text-area .Main-Titlecontent{
+.text-area .Main-Titlecontent {
     color: var(--Secondary);
 }
 
-header #down{
+header #down {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -72,21 +56,20 @@ header #down{
     gap: 4px;
     bottom: 3rem;
 }
-header #down img{ 
+header #down img {
     filter: invert(1);
     width: 36px;
     opacity: 0.6;
 }
 @media all and (max-width: 1100px) {
-    header #down img{ 
+    header #down img {
         width: 20px;
     }
 }
 
-#nav{
-    border-top: 1px solid rgb(0,0,0,0.4);
+#nav {
+    border-top: 1px solid rgb(0, 0, 0, 0.4);
 }
-
 
 .ALL {
     display: flex;
@@ -213,67 +196,15 @@ body::after {
     width: 120%;
     background-image: linear-gradient(
             0deg,
-            rgba(0, 0, 0, 0.2) 0.5px,
+            rgba(0, 0, 0, 0.2) 0.1vw,
             transparent 0px
         ),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0.5px, transparent 0px);
+        linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0.1vw, transparent 0px);
     background-size: 55vmin 50vmin;
     pointer-events: none; /* 這樣不會影響到元素的交互 */
     transform-origin: center; /* 確保旋轉的中心是元素的中心 */
     transform: translate(-50%, -50%) rotate(-10deg);
     z-index: -1;
-}
-/*.main-content {
-      background-color: #a91919;
-      width: 80%;
-      margin: 0 auto;
-      height: 250px;
-  }*/
-
-.contact-section {
-    padding: 4rem 0rem 2.5rem 0rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 4rem;
-}
-
-.contact-info-r {
-    text-align: right;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.25rem;
-    font-family: Noto Serif TC;
-    font-weight: 500;
-    word-wrap: break-word;
-}
-
-.contact-info-l {
-    text-align: left;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.25rem;
-    font-family: Noto Serif TC;
-    font-weight: 500;
-    word-wrap: break-word;
-}
-
-.social-media-icons {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.footer-text {
-    width: 85%;
-    border-top: 1px rgba(0, 0, 0, 0.4) solid;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.25rem;
-    font-family: Noto Serif TC;
-    font-weight: 500;
-    word-wrap: break-word;
-    padding: 2rem 0rem;
 }
 
 .flex-column {
@@ -313,6 +244,23 @@ body::after {
     .PC {
         display: flex;
     }
+
+    header .main-content .image-area {
+        height: 100%;
+        display: flex;
+        width: 50%;
+        padding: 0 2rem;
+        justify-content: end;
+    }
+
+    header .main-content .text-area {
+        display: flex;
+        width: 50%;
+        padding: 0 2rem;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
 }
 
 @media (max-width: 1019px) {
@@ -328,7 +276,7 @@ body::after {
         font-size: 44px;
     }
     .image-area {
-        width: 100%;
+        width: 90%;
     }
 
     .SecondLine {
@@ -422,5 +370,9 @@ body::after {
     }
     #imageText {
         width: 100%;
+    }
+    body::after {
+        width: 90vw;
+        height: 100vh;
     }
 }

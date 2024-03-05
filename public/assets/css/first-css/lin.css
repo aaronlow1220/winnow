@@ -1,51 +1,50 @@
 @font-face {
-    font-family: 'NotoSansTC-Medium';
-    src: url(../font/NotoSansTC-Medium.otf);
+    font-family: "NotoSansTC-Medium";
+    src: url(../../font/NotoSansTC-Medium.otf);
 }
 
 @font-face {
-    font-family: 'NotoSansTC-Regular';
-    src: url(../font/NotoSansTC-Regular.otf);
+    font-family: "NotoSansTC-Regular";
+    src: url(../../font/NotoSansTC-Regular.otf);
 }
 
 @font-face {
-    font-family: 'NotoSerifTC-Medium';
-    src: url(../font/NotoSerifTC-Medium.otf);
+    font-family: "NotoSerifTC-Medium";
+    src: url(../../font/NotoSerifTC-Medium.otf);
 }
 
 @font-face {
-    font-family: 'NotoSerifTC-Regular';
-    src: url(../font/NotoSerifTC-Regular.otf);
+    font-family: "NotoSerifTC-Regular";
+    src: url(../../font/NotoSerifTC-Regular.otf);
 }
 
 @font-face {
-    font-family: 'NotoSerifTC-Bold';
-    src: url(../font/NotoSerifTC-Bold.otf);
+    font-family: "NotoSerifTC-Bold";
+    src: url(../../font/NotoSerifTC-Bold.otf);
 }
-
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'NotoSerifTC-Regular';
+    font-family: "NotoSerifTC-Regular";
 }
 
 h1,
 h2 {
-    font-family: 'NotoSerifTC-Bold';
+    font-family: "NotoSerifTC-Bold";
 }
 
 h3,
 h4 {
-    font-family: 'NotoSerifTC-Medium';
+    font-family: "NotoSerifTC-Medium";
     font-weight: 500;
 }
 
 :root {
     --Main: rgba(0, 0, 0, 0.88);
-    --Secondary: rgba(0, 0, 0, 0.60);
-    --Inactive: rgba(0, 0, 0, 0.40);
+    --Secondary: rgba(0, 0, 0, 0.6);
+    --Inactive: rgba(0, 0, 0, 0.4);
 }
 
 .text-align-right {

@@ -3,7 +3,7 @@
 @section('page-title', '忠貞購物')
 
 @push('category')
-    {{-- <link rel="stylesheet" href="{{ asset('assets/css/font.css') }}" /> --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/font.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/btn.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/first-css/lin.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/food/shop-nav.css') }}" />
