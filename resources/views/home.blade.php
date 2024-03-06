@@ -50,10 +50,8 @@
         <div class="ALL">
             <div class="New PC">
                 <div class="new-text name_center">
-                    <svg width="54" height="54" viewBox="0 0 54 54" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <mask id="mask0_876_4077" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0"
-                            width="54" height="54">
+                    <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_876_4077" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="54" height="54">
                             <rect width="54" height="54" fill="#D9D9D9" />
                         </mask>
                         <g mask="url(#mask0_876_4077)">
@@ -65,11 +63,9 @@
                     <h1 class="SecondLine PH-SecondLine">最新消息</h1>
                 </div>
                 <div class="News">
-                    <a class="news-link"
-                        href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->first()->uuid]) }}">
+                    <a class="news-link" href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->first()->uuid]) }}">
                         <div class="image-area2">
-                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '/' . $latest_news->first()->uuid . '.jpg') }}"
-                                id="news_image" alt="" />
+                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '/' . $latest_news->first()->uuid . '.jpg') }}" id="news_image" alt="" />
                             <div class="news-textbox">
                                 <h2 class="Main-Titlecontent PH-Main-Titlecontent">{{ $latest_news->first()->title }}</h2>
                                 <h5 class="Last PH-Last">{{ $latest_news->first()->created_at }}</h5>
@@ -77,11 +73,9 @@
                         </div>
                     </a>
                     <div class="substances">
-                        <a class="second-content news-link"
-                            href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->skip(1)->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->skip(1)->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->skip(1)->first()->uuid]) }}">
+                        <a class="second-content news-link" href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->skip(1)->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->skip(1)->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->skip(1)->first()->uuid]) }}">
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '/' . $latest_news->skip(1)->first()->uuid . '.jpg') }}"
-                                    id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '/' . $latest_news->skip(1)->first()->uuid . '.jpg') }}" id="w" alt="" />
                             </div>
                             <div class="substance-text">
                                 <h2 class="Second-Titlecontent PH-Second-Titlecontent">
@@ -92,11 +86,9 @@
                         </a>
                         <hr />
 
-                        <a class="second-content news-link"
-                            href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->skip(2)->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->skip(2)->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->skip(2)->first()->uuid]) }}">
+                        <a class="second-content news-link" href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->skip(2)->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->skip(2)->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->skip(2)->first()->uuid]) }}">
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '/' . $latest_news->skip(2)->first()->uuid . '.jpg') }}"
-                                    id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '/' . $latest_news->skip(2)->first()->uuid . '.jpg') }}" id="w" alt="" />
                             </div>
                             <div class="substance-text">
                                 <h2 class="Second-Titlecontent PH-Second-Titlecontent">
@@ -107,11 +99,9 @@
                         </a>
                         <hr />
 
-                        <a class="second-content news-link"
-                            href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->skip(3)->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->skip(3)->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->skip(3)->first()->uuid]) }}">
+                        <a class="second-content news-link" href="{{ route('post', ['category' => $categories->where('uuid', $latest_news->skip(3)->first()->category_uid)->first()->alias, 'subCategory' => $subCat->where('uuid', $latest_news->skip(3)->first()->sub_category_uid)->first()->alias, 'article' => $latest_news->skip(3)->first()->uuid]) }}">
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '/' . $latest_news->skip(3)->first()->uuid . '.jpg') }}"
-                                    id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '/' . $latest_news->skip(3)->first()->uuid . '.jpg') }}" id="w" alt="" />
                             </div>
                             <div class="substance-text">
                                 <h2 class="Second-Titlecontent PH-Second-Titlecontent">
@@ -122,9 +112,7 @@
                         </a>
                         <hr />
                         <div class="s">
-                            <a style="color: rgb(255, 255, 255); text-decoration: none"
-                                href="{{ route('category', ['category' => 'latest-news']) }}"><button
-                                    class="LG_button">了解更多
+                            <a style="color: rgb(255, 255, 255); text-decoration: none" href="{{ route('category', ['category' => 'latest-news']) }}"><button class="LG_button">了解更多
                                     ></button></a>
                         </div>
                     </div>
@@ -141,8 +129,7 @@
                 <div class="News">
                     <div class="image-area2">
                         <div class="news-image">
-                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '/' . $latest_news->first()->uuid . '.jpg') }}"
-                                id="news_image" alt="" />
+                            <img src="{{ asset('media/post/' . $latest_news->first()->uuid . '/' . $latest_news->first()->uuid . '.jpg') }}" id="news_image" alt="" />
                         </div>
                         <div class="news-text">
                             <h2 class="Main-Titlecontent PH-Main-Titlecontent">{{ $latest_news->first()->title }}</h2>
@@ -162,8 +149,7 @@
                                     {{ $latest_news->skip(1)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '/' . $latest_news->skip(1)->first()->uuid . '.jpg') }}"
-                                    id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(1)->first()->uuid . '/' . $latest_news->skip(1)->first()->uuid . '.jpg') }}" id="w" alt="" />
                             </div>
                         </div>
                         <hr />
@@ -176,8 +162,7 @@
                                     {{ $latest_news->skip(2)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '/' . $latest_news->skip(2)->first()->uuid . '.jpg') }}"
-                                    id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(2)->first()->uuid . '/' . $latest_news->skip(2)->first()->uuid . '.jpg') }}" id="w" alt="" />
                             </div>
                         </div>
                         <hr />
@@ -190,15 +175,12 @@
                                     {{ $latest_news->skip(3)->first()->created_at }}</h4>
                             </div>
                             <div class="content-img">
-                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '/' . $latest_news->skip(3)->first()->uuid . '.jpg') }}"
-                                    id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $latest_news->skip(3)->first()->uuid . '/' . $latest_news->skip(3)->first()->uuid . '.jpg') }}" id="w" alt="" />
                             </div>
                         </div>
                         <hr />
                         <div class="s">
-                            <a style="color: rgb(255, 255, 255); text-decoration: none"
-                                href="{{ route('category', ['category' => 'latest-news']) }}"><button
-                                    class="LG_button">了解更多
+                            <a style="color: rgb(255, 255, 255); text-decoration: none" href="{{ route('category', ['category' => 'latest-news']) }}"><button class="LG_button">了解更多
                                     ></button></a>
                         </div>
                     </div>
@@ -213,16 +195,12 @@
 
             <div class="food">
                 <div class="food-text PC name_center">
-                    <svg width="54" height="54" viewBox="0 0 54 54" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <mask id="mask0_876_4099" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0"
-                            width="54" height="54">
+                    <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_876_4099" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="54" height="54">
                             <rect width="54" height="54" fill="#D9D9D9" />
                         </mask>
                         <g mask="url(#mask0_876_4099)">
-                            <path
-                                d="M16.5289 48.9374V28.3889C14.6654 28.0918 13.0818 27.2192 11.778 25.7711C10.4741 24.323 9.82214 22.5692 9.82214 20.5096V5.0625H12.375V20.5096H16.5289V5.0625H19.0817V20.5096H23.214V5.0625H25.7668V20.5096C25.7668 22.5692 25.1149 24.323 23.811 25.7711C22.5072 27.2192 20.9307 28.0918 19.0817 28.3889V48.9374L16.5289 48.9374ZM38.7692 48.9374V30.9374H32.8413V14.7115C32.8413 12.0231 33.5971 9.78966 35.1086 8.0113C36.6201 6.23293 38.6913 5.26442 41.322 5.10576V48.9374H38.7692Z"
-                                fill="black" fill-opacity="0.88" />
+                            <path d="M16.5289 48.9374V28.3889C14.6654 28.0918 13.0818 27.2192 11.778 25.7711C10.4741 24.323 9.82214 22.5692 9.82214 20.5096V5.0625H12.375V20.5096H16.5289V5.0625H19.0817V20.5096H23.214V5.0625H25.7668V20.5096C25.7668 22.5692 25.1149 24.323 23.811 25.7711C22.5072 27.2192 20.9307 28.0918 19.0817 28.3889V48.9374L16.5289 48.9374ZM38.7692 48.9374V30.9374H32.8413V14.7115C32.8413 12.0231 33.5971 9.78966 35.1086 8.0113C36.6201 6.23293 38.6913 5.26442 41.322 5.10576V48.9374H38.7692Z" fill="black" fill-opacity="0.88" />
                         </g>
                     </svg>
                     <h1 class="SecondLine PH-SecondLine">迷香忠貞</h1>
@@ -231,26 +209,21 @@
                 <div class="fd-gap">
                     <div class="food-content">
                         <div class="showimage">
-                            <img id="displayedImage"
-                                src="{{ asset('media/post/' . $dishes->first()->uuid . '/' . $dishes->first()->uuid . '.jpg') }}"
-                                alt="displayed-img" />
+                            <img id="displayedImage" src="{{ asset('media/post/' . $dishes->first()->uuid . '/' . $dishes->first()->uuid . '.jpg') }}" alt="displayed-img" />
                         </div>
                         <div class="text-area2">
                             <p id="imageText"></p>
-                            <button class="LG_button foodbtn" style=""><a
-                                    style="color: rgb(255, 255, 255); text-decoration: none" href="">減肥明天的事
+                            <button class="LG_button foodbtn" style=""><a style="color: rgb(255, 255, 255); text-decoration: none" href="">減肥明天的事
                                     ></a></button>
 
                             <div class="ph-foodbtn">
                                 <button id="prev-slide2" class="slide-button material-symbols-rounded">
                                     <img class="left" src="{{ asset('assets/img/arrow-left.svg') }}" alt="" />
                                 </button>
-                                <button class="LG_button" style=""><a
-                                        style="color: rgb(255, 255, 255); text-decoration: none" href="">減肥明天的事
+                                <button class="LG_button" style=""><a style="color: rgb(255, 255, 255); text-decoration: none" href="">減肥明天的事
                                         ></a></button>
                                 <button id="next-slide2" class="slide-button material-symbols-rounded">
-                                    <img class="right" src="{{ asset('assets/img/arrow-right.svg') }}"
-                                        alt="" />
+                                    <img class="right" src="{{ asset('assets/img/arrow-right.svg') }}" alt="" />
                                 </button>
                             </div>
                         </div>
@@ -264,9 +237,7 @@
                             <ul class="image-list">
                                 @foreach ($dishes as $dish)
                                     <div class="foodscrollbar-content">
-                                        <img class="image-item"
-                                            src="{{ asset('media/post/' . $dish->uuid . '/' . $dish->uuid . '.jpg') }}"
-                                            alt="img-1" />
+                                        <img class="image-item" src="{{ asset('media/post/' . $dish->uuid . '/' . $dish->uuid . '.jpg') }}" alt="img-1" />
                                         <p class="Last">{{ $dish->title }}</p>
                                     </div>
                                 @endforeach
@@ -282,16 +253,12 @@
             <div class="music PC">
                 <div class="music-text">
                     <div class="music-svg name_right">
-                        <svg width="54" height="55" viewBox="0 0 54 55" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask0_1218_7930" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0"
-                                width="54" height="55">
+                        <svg width="54" height="55" viewBox="0 0 54 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="mask0_1218_7930" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="54" height="55">
                                 <rect y="0.5" width="54" height="54" fill="#D9D9D9" />
                             </mask>
                             <g mask="url(#mask0_1218_7930)">
-                                <path
-                                    d="M35.8828 44.3749C34.259 44.3749 32.8766 43.8076 31.7358 42.6732C30.5949 41.5387 30.0245 40.1611 30.0245 38.5404C30.0245 36.9077 30.5823 35.5213 31.6979 34.381C32.8135 33.2407 34.1682 32.6706 35.762 32.6706C36.3915 32.6706 36.9923 32.7593 37.5646 32.9367C38.1369 33.1141 38.674 33.363 39.1759 33.6832V15.125H48.3749V18.6428H41.7287V38.5898C41.7287 40.1968 41.1604 41.5627 40.0237 42.6876C38.887 43.8124 37.5067 44.3749 35.8828 44.3749ZM7.875 35.1152V32.5624H24.2221V35.1152H7.875ZM7.875 26.3965V23.8437H33.2264V26.3965H7.875ZM7.875 17.6779V15.125H33.2264V17.6779H7.875Z"
-                                    fill="#1C1B1F" />
+                                <path d="M35.8828 44.3749C34.259 44.3749 32.8766 43.8076 31.7358 42.6732C30.5949 41.5387 30.0245 40.1611 30.0245 38.5404C30.0245 36.9077 30.5823 35.5213 31.6979 34.381C32.8135 33.2407 34.1682 32.6706 35.762 32.6706C36.3915 32.6706 36.9923 32.7593 37.5646 32.9367C38.1369 33.1141 38.674 33.363 39.1759 33.6832V15.125H48.3749V18.6428H41.7287V38.5898C41.7287 40.1968 41.1604 41.5627 40.0237 42.6876C38.887 43.8124 37.5067 44.3749 35.8828 44.3749ZM7.875 35.1152V32.5624H24.2221V35.1152H7.875ZM7.875 26.3965V23.8437H33.2264V26.3965H7.875ZM7.875 17.6779V15.125H33.2264V17.6779H7.875Z" fill="#1C1B1F" />
                             </g>
                         </svg>
                         <h1 class="SecondLine PH-SecondLine">夢想忠貞</h1>
@@ -301,8 +268,7 @@
                     </div>
                     <div class="doremi-btn">
 
-                        <a style="color: rgb(255, 255, 255); text-decoration: none"
-                            href="{{ route('category', ['category' => 'dreams']) }}">
+                        <a style="color: rgb(255, 255, 255); text-decoration: none" href="{{ route('category', ['category' => 'dreams']) }}">
                             <button class="LG_button">Do Re Mi >
                             </button>
                         </a>
@@ -311,17 +277,14 @@
                 </div>
 
                 <div class="image-area4">
-                    <img src="{{ asset('media/post/' . $dream->uuid . '/' . $dream->uuid . '.jpg') }}" id="music-img"
-                        alt="" />
+                    <img src="{{ asset('media/post/' . $dream->uuid . '/' . $dream->uuid . '.jpg') }}" id="music-img" alt="" />
                 </div>
             </div>
 
             <div class="Way PC">
                 <div class="way-content name_center">
-                    <svg width="54" height="54" viewBox="0 0 54 54" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <mask id="mask0_1326_13677" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0"
-                            width="54" height="54">
+                    <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <mask id="mask0_1326_13677" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="54" height="54">
                             <rect width="54" height="54" fill="#D9D9D9" />
                         </mask>
                         <g mask="url(#mask0_1326_13677)">
@@ -337,8 +300,7 @@
                     @foreach ($attractions as $attraction)
                         <div class="visit_container">
                             <div class="visit-img">
-                                <img src="{{ asset('media/post/' . $attraction->uuid . '/' . $attraction->uuid . '.jpg') }}"
-                                    id="w" alt="" />
+                                <img src="{{ asset('media/post/' . $attraction->uuid . '/' . $attraction->uuid . '.jpg') }}" id="w" alt="" />
                             </div>
                             <div class="substance-text2">
                                 <h2 class="Second-Titlecontent PH-Second-Titlecontent">{{ $attraction->title }}</h2>
@@ -348,8 +310,7 @@
                     @endforeach
                 </div>
                 <div style="display: flex; justify-content: center">
-                    <a
-                        style="color: rgb(255, 255, 255); text-decoration: none"href="{{ route('category', ['category' => 'attractions']) }}">
+                    <a style="color: rgb(255, 255, 255); text-decoration: none"href="{{ route('category', ['category' => 'attractions']) }}">
                         <button class="LG_button">
                             深入探索 >
                         </button>
@@ -360,10 +321,8 @@
             <div class="forzhongzhen PC">
                 <div class="for-text">
                     <div class="for-svg name_right" id="">
-                        <svg width="56" height="56" viewBox="0 0 56 56" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <mask id="mask0_911_2557" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0"
-                                width="56" height="56">
+                        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="mask0_911_2557" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="56" height="56">
                                 <rect width="56" height="56" fill="#D9D9D9" />
                             </mask>
                             <g mask="url(#mask0_911_2557)">
@@ -375,8 +334,7 @@
                         <h1 id="Main-Titlecontent PH-Main-Titlecontent">關於忠貞</h1>
                     </div>
                     <div>
-                        <h2 class="Second-Titlecontent PH-Second-Titlecontent"
-                            style="color: rgba(0, 0, 0, 0.6); letter-spacing: 0.5px; line-height: 70px">
+                        <h2 class="Second-Titlecontent PH-Second-Titlecontent" style="color: rgba(0, 0, 0, 0.6); letter-spacing: 0.5px; line-height: 70px">
                             社區凝聚，<br />
                             地方創生，<br />
                             促進產業發展。
@@ -406,16 +364,12 @@
                     <div class="music-text">
                         <div class="music-textbox">
                             <div class="music-svg" id="name_right">
-                                <svg width="54" height="55" viewBox="0 0 54 55" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <mask id="mask0_1218_7930" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0"
-                                        y="0" width="54" height="55">
+                                <svg width="54" height="55" viewBox="0 0 54 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_1218_7930" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="54" height="55">
                                         <rect y="0.5" width="54" height="54" fill="#D9D9D9" />
                                     </mask>
                                     <g mask="url(#mask0_1218_7930)">
-                                        <path
-                                            d="M35.8828 44.3749C34.259 44.3749 32.8766 43.8076 31.7358 42.6732C30.5949 41.5387 30.0245 40.1611 30.0245 38.5404C30.0245 36.9077 30.5823 35.5213 31.6979 34.381C32.8135 33.2407 34.1682 32.6706 35.762 32.6706C36.3915 32.6706 36.9923 32.7593 37.5646 32.9367C38.1369 33.1141 38.674 33.363 39.1759 33.6832V15.125H48.3749V18.6428H41.7287V38.5898C41.7287 40.1968 41.1604 41.5627 40.0237 42.6876C38.887 43.8124 37.5067 44.3749 35.8828 44.3749ZM7.875 35.1152V32.5624H24.2221V35.1152H7.875ZM7.875 26.3965V23.8437H33.2264V26.3965H7.875ZM7.875 17.6779V15.125H33.2264V17.6779H7.875Z"
-                                            fill="#1C1B1F" />
+                                        <path d="M35.8828 44.3749C34.259 44.3749 32.8766 43.8076 31.7358 42.6732C30.5949 41.5387 30.0245 40.1611 30.0245 38.5404C30.0245 36.9077 30.5823 35.5213 31.6979 34.381C32.8135 33.2407 34.1682 32.6706 35.762 32.6706C36.3915 32.6706 36.9923 32.7593 37.5646 32.9367C38.1369 33.1141 38.674 33.363 39.1759 33.6832V15.125H48.3749V18.6428H41.7287V38.5898C41.7287 40.1968 41.1604 41.5627 40.0237 42.6876C38.887 43.8124 37.5067 44.3749 35.8828 44.3749ZM7.875 35.1152V32.5624H24.2221V35.1152H7.875ZM7.875 26.3965V23.8437H33.2264V26.3965H7.875ZM7.875 17.6779V15.125H33.2264V17.6779H7.875Z" fill="#1C1B1F" />
                                     </g>
                                 </svg>
                                 <h1 class="SecondLine PH-SecondLine">夢想忠貞</h1>
@@ -477,8 +431,7 @@
                     </div>
                 </div>
                 <div style="display: flex; justify-content: center">
-                    <button class="LG_button"><a style="color: rgb(255, 255, 255); text-decoration: none"
-                            href="">深入探索
+                    <button class="LG_button"><a style="color: rgb(255, 255, 255); text-decoration: none" href="">深入探索
                             ></a></button>
                 </div>
             </div>
