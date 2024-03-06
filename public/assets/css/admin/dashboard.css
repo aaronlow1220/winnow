@@ -746,6 +746,8 @@ main .btn-send:hover {
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: var(--bs);
+    color: var(--dark);
+
 }
 
 .setting-content-right {
@@ -890,14 +892,30 @@ fieldset {
     display: block;
 }
 
-.order-card-info-tip{
+.order-card-info-tip {
     font-size: 0.9rem;
     font-weight: 700;
     color: var(--dark-grey);
 }
 
-.order-card-info-value{
+.order-card-info-value {
     font-size: 1.2rem;
+}
+
+.setting-edit-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.setting-textBox{
+    padding: 0.5rem 0.7rem;
+    font-size: 1rem;
+}
+
+.setting-button{
+    padding: 0.5rem 0.7rem;
+    font-size: 1rem;
 }
 
 @media screen and (max-width: 768px) {

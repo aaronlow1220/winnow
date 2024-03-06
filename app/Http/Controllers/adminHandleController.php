@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Helpers\Helper;
 use App\Models\wn_order;
 use App\Models\wn_product;
+use App\Models\wn_web_setting;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
@@ -358,6 +359,21 @@ class adminHandleController extends Controller
 
         try {
             $order->update($data);
+            return back()->with("success", "success");
+        } catch (\Illuminate\Database\QueryException $ex) {
+            return back()->with("failed", "failed");
+        }
+    }
+
+    public function updateSetting(Request $request){
+        $data = [
+            "content"=>$request->setting_edit,
+        ];
+
+        $setting = wn_web_setting::where("uuid", $request->setting_id)->get()->first();
+
+        try {
+            $setting->update($data);
             return back()->with("success", "success");
         } catch (\Illuminate\Database\QueryException $ex) {
             return back()->with("failed", "failed");

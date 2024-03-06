@@ -18,19 +18,19 @@ class pagesController extends Controller
 {
     public function home(Request $request)
     {
-        $latest_news = wn_post::where("status", "PUBLIC")->where("category_uid", "category_28b58987-e29e-4e52-9548-b2758834d9ba")->orderByDesc("created_at")->take(4)->get();
-        $dishes = wn_post::where("status", "PUBLIC")->where("category_uid", "category_abee076b-1920-4117-bf47-9605a554579b")->orderByDesc("created_at")->take(6)->get();
-        $dream = wn_post::where("status", "PUBLIC")->where("category_uid", "category_b8208439-3892-4b4e-9a23-dbba1d12ed52")->get()->first();
-        $attractions = wn_post::where("status", "PUBLIC")->where("category_uid", "category_3eeedb66-f378-4ef3-ae1d-6dd703630163")->orderByDesc("created_at")->take(3)->get();
         $categories = wn_category::where("status", "ACTIVE")->get();
+        $latest_news = wn_post::where("status", "PUBLIC")->where("category_uid", $categories->where("alias", "latest-news")->first()->uuid)->orderByDesc("created_at")->take(4)->get();
+        $dishes = wn_post::where("status", "PUBLIC")->where("category_uid", $categories->where("alias", "dishes")->first()->uuid)->orderByDesc("created_at")->take(6)->get();
+        $dream = wn_post::where("status", "PUBLIC")->where("category_uid", $categories->where("alias", "dreams")->first()->uuid)->get()->first();
+        $attractions = wn_post::where("status", "PUBLIC")->where("category_uid", $categories->where("alias", "attractions")->first()->uuid)->orderByDesc("created_at")->take(3)->get();
         $subCat = wn_sub_category::where("status", "ACTIVE")->get();
         return view("home", [
             "latest_news" => $latest_news,
             "dishes" => $dishes,
             "dream" => $dream,
             "attractions" => $attractions,
-            "categories"=> $categories,
-            "subCat"=> $subCat
+            "categories" => $categories,
+            "subCat" => $subCat
         ]);
     }
 

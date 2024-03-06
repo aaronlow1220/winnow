@@ -31,7 +31,7 @@
                     <img id="main_image" src="{{ asset('assets/img/main_img.png') }}" alt="main_img" />
                 </div>
                 <div class="text-area">
-                    <h2 class="HeadLine PH-HeadLine body1">夢想忠貞</h2>
+                    <h2 class="HeadLine PH-HeadLine">夢想忠貞</h2>
                     <p class="Main-Titlecontent PH-Main-Titleconten text-secondary">
                         陪伴身邊需要愛與關懷的孩子，<br />
                         建構社區關懷系統改變家鄉孩子軌跡。

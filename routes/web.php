@@ -27,6 +27,7 @@ Route::name("admin.")->group(function () {
     Route::get("/admin/moderator", [adminPagesController::class, "moderator"])->name("moderator");
     Route::get("/admin/edit-user/{id}", [adminPagesController::class, "editUser"])->name("editUser");
     Route::get("/admin/settings", [adminPagesController::class, "settings"])->name("settings");
+    Route::get("/admin/edit-setting/{id}", [adminPagesController::class, "editSetting"])->name("editSetting");
     Route::get("/admin/order-list/{status}", [adminPagesController::class, "orderList"])->name("orderList");
     Route::get("/admin/order/{id}", [adminPagesController::class, "order"])->name("order");
 });
@@ -45,6 +46,7 @@ Route::name("handle.")->group(function () {
     Route::post("/admin/post/create-post-handle", [adminHandleController::class, "storePost"])->name("storePost");
     Route::post("/admin/post/add-product-handle", [adminHandleController::class, "addProduct"])->name("addProduct");
     Route::get("/admin/update-order/{id}/{status}", [adminHandleController::class, "updateOrder"])->name("updateOrder");
+    Route::post("/admin/update-setting", [adminHandleController::class, "updateSetting"])->name("updateSetting");
 });
 
 // Auth pages
