@@ -44,6 +44,7 @@ Route::name("handle.")->group(function () {
     Route::post("/admin/post/edit-user-handle", [adminHandleController::class, "editUser"])->name("editUser");
     Route::get("/admin/post/reset-password-handle/{id}", [adminHandleController::class, "resetPassword"])->name("resetPassword");
     Route::post("/admin/post/create-post-handle", [adminHandleController::class, "storePost"])->name("storePost");
+    Route::post("/admin/post/delete-handle-handle", [adminHandleController::class, "deletePost"])->name("deletePost");
     Route::post("/admin/post/add-product-handle", [adminHandleController::class, "addProduct"])->name("addProduct");
     Route::get("/admin/update-order/{id}/{status}", [adminHandleController::class, "updateOrder"])->name("updateOrder");
     Route::post("/admin/update-setting", [adminHandleController::class, "updateSetting"])->name("updateSetting");

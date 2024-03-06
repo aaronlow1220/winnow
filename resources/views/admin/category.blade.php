@@ -7,7 +7,7 @@
 @endsection
 
 @section('dashboard-content')
-    <div class="func">
+    <form class="func">
         <div class="func-bar">
             <a class="func-btn" href="{{ route('admin.addCategory') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -23,6 +23,9 @@
                 </svg>
                 <span>更多動作</span>
             </button>
+            <div class="dropdown-content">
+                <a href="">刪除所選</a>
+            </div>
             <div class="search-bar">
                 <input type="search" placeholder="搜尋" />
             </div>
@@ -41,7 +44,7 @@
                 <tbody>
                     @foreach ($categories as $category)
                         <tr>
-                            <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
+                            <td><input type="checkbox" name="sSelector" id="" class="sSelector" value="{{ $category->uuid }}"/></td>
                             <td><a href="{{ route('admin.editCategory',['id'=> $category->uuid]) }}">{{ $category->name }}</a></td>
                             <td>{{ $category->alias }}</td>
                             <td>{{ $category->status }}</td>
@@ -51,5 +54,5 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </form>
 @endsection

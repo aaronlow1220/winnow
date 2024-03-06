@@ -379,4 +379,26 @@ class adminHandleController extends Controller
             return back()->with("failed", "failed");
         }
     }
+
+    public function deletePost(Request $request){
+        if(!$request->sSelector){
+            return back();
+        }
+
+        $success = 0;
+        $failed = 0;
+
+        $selected = $request->sSelector;
+
+        foreach ($selected as $select){
+            try {
+                wn_post::where("uuid", $select)->delete();
+                $success++;
+            } catch (\Illuminate\Database\QueryException $ex) {
+                $failed++;
+            }
+        }
+
+        return back()->with("success", array("success_m"=> $success,"failed_m"=> $failed));
+    }
 }

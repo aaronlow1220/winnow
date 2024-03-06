@@ -7,22 +7,36 @@
 @endsection
 
 @section('dashboard-content')
-    <div class="func">
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="msg-box failed">
+                <p>{{ $error }}</p>
+            </div>
+        @endforeach
+    @endif
+    @if (session()->has('success'))
+        <div class="msg-box success">
+            <p>{{session()->get("success")["success_m"]}}筆修改成功，{{session()->get("success")["failed_m"]}}筆修改失敗</p>
+        </div>
+    @endif
+    <form class="func" method="post" action="{{ route('handle.deletePost') }}">
         <div class="func-bar">
+            @csrf
             <a class="func-btn" href="{{ route('admin.create_article') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
                     <path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z" fill="currentcolor" />
                 </svg>
                 <span>新增</span>
             </a>
-            <button class="func-btn">
+            <a class="func-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                    <path
-                        d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"
-                        fill="currentcolor" />
+                    <path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" fill="currentcolor" />
                 </svg>
                 <span>更多動作</span>
-            </button>
+            </a>
+            <div class="dropdown-content">
+                <button type="submit">刪除所選</button>
+            </div>
             <div class="search-bar">
                 <input type="search" placeholder="搜尋" />
             </div>
@@ -44,7 +58,7 @@
                 <tbody>
                     @foreach ($articles as $article)
                         <tr>
-                            <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
+                            <td><input type="checkbox" name="sSelector[]" class="sSelector" value="{{ $article->uuid }}" /></td>
                             <td><a href="{{ route('admin.editPost', $article->uuid) }}">{{ $article->title }}</a></td>
                             <td>
                                 @foreach ($categories as $category)
@@ -77,7 +91,7 @@
         @endforeach
     </tbody>
 </table>
-</div>
+</form>
 {{-- <div class="wn-paginator">
 <div class="paginator">
     <a href="#">&laquo;</a>
