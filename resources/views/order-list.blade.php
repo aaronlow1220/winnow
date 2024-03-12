@@ -28,10 +28,6 @@
                 countTotal();
             }
 
-            function closeList() {
-
-            }
-
             // 獲取所有 checkbox 
             const checkboxes = document.querySelectorAll('.checkbox');
 
@@ -79,16 +75,10 @@
                     }
 
                 });
-
             });
 
-            function onlyNumberKey(evt) {
-                // Only ASCII character in that range allowed
-                let ASCIICode = (evt.which) ? evt.which : evt.keyCode
-                if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-                    return false;
-                return true;
-            }
+
+
         });
     </script>
     <style>
@@ -241,8 +231,8 @@
                                 @endif
                             @endforeach
                             <div class="cart-item flex">
-                                <label for="account-five">匯款帳號末五碼</label>
-                                <input id="account-five" type="text" placeholder="請輸入匯款帳號末五碼" name="account_five" maxlength="5" value=@if ($order->payment_account) {{ $order->payment_account }} @endif onkeypress=return onlyNumberKey(event)>
+                                <label for="account-five{{$loop->index}}">匯款帳號末五碼</label>
+                                <input id="account-five{{$loop->index}}" type="text" inputmode="numeric" placeholder="請輸入匯款帳號末五碼" name="account_five" maxlength="5" value="@if ($order->payment_account) {{ $order->payment_account }} @endif" pattern="[0-9\s]{13,19}">
                                 <button type="submit" class="submit" value="{{ $order->uuid }}" name="uuid">送出</button>
                             </div>
                         </div>

@@ -15,8 +15,8 @@
                 <h3 class="text-main">請至訂單頁面輸入匯款帳號後五碼</h3>
             </div>
             <div class="flex flex-column align-items-center">
-                <h4 class="text-secondary" id="countdown">網頁將在 8 秒之後自動跳轉至該訂單</h4>
-                <h4 class="text-secondary">若未跳轉請<a href="../html/account_info.html">點此</a></h4>
+                <h4 class="text-secondary" id="countdown">網頁將在 5 秒之後自動跳轉至該訂單</h4>
+                <h4 class="text-secondary">若未跳轉請<a href="{{ route("orderList") }}">點此</a></h4>
             </div>
         </div>
     </main>

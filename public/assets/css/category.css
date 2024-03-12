@@ -228,7 +228,17 @@ main {
     gap: clamp(3rem, -3.875rem + 10vw, 8rem);
 }
 
-.tab-content img {
+.m-tab-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    gap: clamp(3rem, -3.875rem + 10vw, 8rem);
+}
+
+.tab-content img,
+.m-tab-content img {
     width: 100%;
     max-width: 100%;
 }
@@ -241,7 +251,8 @@ main {
 }
 
 .content,
-.article p {
+.article p,
+.m-article p {
     color: var(--Secondary);
     word-wrap: break-word;
 }
@@ -256,14 +267,7 @@ main {
 .image {
     display: flex;
     overflow: hidden;
-    min-width: 800px;
-    aspect-ratio: 4/3;
     justify-content: center;
-}
-
-.image img {
-    height: 100%;
-    
 }
 
 .image{
@@ -339,7 +343,8 @@ main {
     }
 
     .body1,
-    .article p {
+    .article p,
+    .m-article p {
         font-size: 15px;
         font-family: "NotoSansTC-Regular";
         line-height: 36px;
@@ -380,6 +385,10 @@ main {
     .article {
         width: 100%;
         display: none;
+    }
+
+    .m-article {
+        width: 100%;
     }
 
     .card-container {
@@ -424,7 +433,8 @@ main {
     }
 
     .body1,
-    .article p {
+    .article p,
+    .m-article p {
         font-size: 20px;
         font-family: "NotoSansTC-Regular";
         line-height: 36px;
@@ -442,7 +452,8 @@ main {
         font-size: 24px;
     }
 
-    .tab-content > div:nth-child(1) {
+    .tab-content > div:nth-child(1),
+    .m-tab-content > div:nth-child(1){
         padding: 3.75rem 0;
         display: flex;
         flex-direction: column;

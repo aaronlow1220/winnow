@@ -88,4 +88,5 @@ Route::get("/page-not-found", [pagesController::class, "notFound"])->name("404")
 
 // Dynamic pages
 Route::get("/c/{category}/{subCategory?}/{article?}", [pagesController::class, "post"])->name("post");
+Route::get("/m/{category}/{subCategory?}/{article?}", [pagesController::class, "mpost"])->name("mpost");
 Route::get("/{category}/{subCategory?}/{article?}", [pagesController::class, "category"])->name("category");

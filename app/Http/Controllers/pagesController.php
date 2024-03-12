@@ -174,6 +174,18 @@ class pagesController extends Controller
         return view("category", ["category" => $cat->first(), "subCategory" => $subCat, "article" => $arti, "catAlias" => $category, "subCatAlias" => $subCategory, "otherPosts" => $otherPosts]);
     }
 
+    public function mpost(Request $request, string $category, ?string $subCategory, ?string $article)
+    {
+        $cat = wn_category::where("alias", $category)->where("status", "ACTIVE")->get()->first();
+        $subCat = wn_sub_category::where("alias", $subCategory)->where("status", "ACTIVE");
+        $posts = wn_post::where("sub_category_uid", $subCat->get()->first()->uuid)->where("status", "PUBLIC")->get();
+        $arti = wn_post::where("uuid", $article)->where("status", "PUBLIC")->get()->first();
+
+        // dd($arti);
+
+        return view("m_category", ["category" => $cat, "subCategory" => $subCat, "article" => $arti, "otherPosts" => $posts, "catAlias" => $category, "subCatAlias" => $subCategory]);
+    }
+
     public function proceedPayment(Request $request)
     {
         return view("redirect-account-code");

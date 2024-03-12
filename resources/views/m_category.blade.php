@@ -12,17 +12,9 @@
         <div id="sub-main">
             <h3 id="page_title">{{ $category->name }}</h3>
 
-            <div class="tabs">
-                @isset($subCategory)
-                    @foreach ($subCategory as $sc)
-                        <a href="{{ route('category', ['category' => $category->alias, 'subCategory' => $sc->alias]) }}"><button @if ($subCatAlias == $sc->alias) class="tab-button active-tab" @else class="tab-button" @endif>{{ $sc->name }}</button></a>
-                    @endforeach
-                @endisset
-            </div>
-
             <div>
-                <div id="tab1" class="tab-content">
-                    <div class="article" id="article-container">
+                <div id="tab1" class="m-tab-content">
+                    <div class="m-article" id="article-container">
                         <div class="row-column">
                             <h3 class="title">
                                 @isset($article)
@@ -41,17 +33,6 @@
                     <div class="card-container">
                         @isset($otherPosts)
                             @foreach ($otherPosts as $post)
-                                <a class="card" href="{{ route('post', ['category' => $catAlias, 'subCategory' => $subCatAlias, 'article' => $post->uuid]) }}">
-                                    <img src="{{ asset('media/post/' . $post->uuid . '/' . $post->media_location) }}" alt="">
-                                    <div class="flex-column">
-                                        <div>
-                                            <div class="card_tittle">{{ $post->title }}</div>
-
-                                        </div>
-                                        <div class="date">{{ date('Y-m-d', strtotime($post->created_at)) }}</div>
-                                    </div>
-                                </a>
-
                                 <a class="m_card" href="{{ route('mpost', ['category' => $catAlias, 'subCategory' => $subCatAlias, 'article' => $post->uuid]) }}">
                                     <img src="{{ asset('media/post/' . $post->media_location) }}" alt="">
                                     <div class="flex-column">
