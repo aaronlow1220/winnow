@@ -42,6 +42,7 @@
 
                     @case('SHIP_PENDING')
                         <a href="{{ route('handle.updateOrder', ['id' => $order->uuid, 'status' => 'SHIPPED']) }}">送出訂單</a>
+                        <a href="">退貨/退款</a>
                     @break
 
                     @case('SHIPPED')
