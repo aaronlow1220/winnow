@@ -48,6 +48,7 @@ Route::name("handle.")->group(function () {
     Route::post("/admin/post/add-product-handle", [adminHandleController::class, "addProduct"])->name("addProduct");
     Route::get("/admin/update-order/{id}/{status}", [adminHandleController::class, "updateOrder"])->name("updateOrder");
     Route::post("/admin/update-setting", [adminHandleController::class, "updateSetting"])->name("updateSetting");
+    Route::get("/admin/settings-init-handle", [adminHandleController::class, "settingsInit"])->name("settingsInit");
 });
 
 // Auth pages

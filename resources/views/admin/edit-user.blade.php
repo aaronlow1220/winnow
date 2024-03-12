@@ -44,8 +44,8 @@
                 <div class="editor-in">
                     <label for="editor-status">狀態</label>
                     <select name="status" id="editor-status" class="editor-input">
-                        <option value="ACTIVE" @if ($users->status == 'ACTIVE') selected @endif>已啟用</option>
-                        <option value="DEACTIVE" @if ($users->status == 'DEACTIVE') selected @endif>已停用</option>
+                        <option value="ACTIVE" @if ($users->status == 'ACTIVE') selected @endif>啟用</option>
+                        <option value="DEACTIVE" @if ($users->status == 'DEACTIVE') selected @endif>停用</option>
                     </select>
                 </div>
                 <div class="editor-in">

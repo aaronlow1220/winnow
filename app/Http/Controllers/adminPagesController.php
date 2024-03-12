@@ -29,7 +29,7 @@ class adminPagesController extends Controller
         $posts = wn_post::where("status", "PUBLIC")->orderByDesc("hits")->take(3)->get();
         $cat = wn_category::where("status", "ACTIVE")->get();
         $products = wn_product::where("status", "PUBLIC")->orderByDesc("purchase_count")->take(3)->get();
-        return view("admin/home", ["posts" => $posts, "products" => $products, "cat"=>$cat]);
+        return view("admin/home", ["posts" => $posts, "products" => $products, "cat" => $cat]);
     }
 
     public function article_list(Request $request)
@@ -226,8 +226,9 @@ class adminPagesController extends Controller
         return view("admin/order", ["order" => $order, "user" => $user, "products" => $products, "orderItems" => $orderItems]);
     }
 
-    public function editSetting(Request $request, string $id){
+    public function editSetting(Request $request, string $id)
+    {
         $setting = wn_web_setting::where("uuid", $id)->get()->first();
-        return view("admin/setting-edit", ["id"=> $id, "setting"=>$setting]);
+        return view("admin/setting-edit", ["id" => $id, "setting" => $setting]);
     }
 }

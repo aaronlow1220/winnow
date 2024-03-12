@@ -868,12 +868,9 @@ fieldset {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
     top: calc(100% - 0.95rem);
-    /* Adjust the top value to position the dropdown */
     left: 8rem;
-}
-
-.dropdown-content:hover {
-    display: block;
+    gap: 0.1rem;
+    
 }
 
 .dropdown-content a,
@@ -882,6 +879,8 @@ fieldset {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .dropdown-content a:hover,
@@ -889,8 +888,10 @@ fieldset {
     background-color: #f1f1f1;
 }
 
+.dropdown-content:hover,
 .func-btn:hover + .dropdown-content {
-    display: block;
+    display: flex;
+    flex-direction: column;
 }
 
 .order-card-info-tip {

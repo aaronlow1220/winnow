@@ -26,12 +26,9 @@
             <div class="dropdown-content">
                 <a href="">刪除所選</a>
             </div>
-            <div class="search-bar">
-                <input type="search" placeholder="搜尋" />
-            </div>
         </div>
         <div class="table-container">
-            <table class="wn-table">
+            <table class="wn-table" id="wn-table">
                 <thead>
                     <tr>
                         <th><input type="checkbox" name="selectAll" id="selectAll" onclick="checkSelect()" /></th>
@@ -43,12 +40,13 @@
                 </thead>
                 <tbody>
                     @foreach ($categories as $category)
-                        <tr>
+                        <tr >
                             <td><input type="checkbox" name="sSelector" id="" class="sSelector" value="{{ $category->uuid }}"/></td>
                             <td><a href="{{ route('admin.editCategory',['id'=> $category->uuid]) }}">{{ $category->name }}</a></td>
                             <td>{{ $category->alias }}</td>
                             <td>{{ $category->status }}</td>
                             <td>{{ date('Y-m-d', strtotime($category->modified_at)) }}</td>
+                            
                         </tr>
                     @endforeach
                 </tbody>

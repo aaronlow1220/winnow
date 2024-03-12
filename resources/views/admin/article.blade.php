@@ -16,10 +16,10 @@
     @endif
     @if (session()->has('success'))
         <div class="msg-box success">
-            <p>{{session()->get("success")["success_m"]}}筆修改成功，{{session()->get("success")["failed_m"]}}筆修改失敗</p>
+            <p>{{ session()->get('success')['success_m'] }}筆修改成功，{{ session()->get('success')['failed_m'] }}筆修改失敗</p>
         </div>
     @endif
-    <form class="func" method="post" action="{{ route('handle.deletePost') }}">
+    <form class="func" id="form" method="post" action="{{ route('handle.deletePost') }}">
         <div class="func-bar">
             @csrf
             <a class="func-btn" href="{{ route('admin.create_article') }}">
@@ -35,10 +35,7 @@
                 <span>更多動作</span>
             </a>
             <div class="dropdown-content">
-                <button type="submit">刪除所選</button>
-            </div>
-            <div class="search-bar">
-                <input type="search" placeholder="搜尋" />
+                <a id="dlt-btn">刪除所選</a>
             </div>
         </div>
         <div class="table-container">
@@ -105,4 +102,9 @@
 </div>
 </div> --}}
 </div>
+<script>
+    document.getElementById("dlt-btn").onclick = function() {
+        document.getElementById("form").submit();
+    }
+</script>
 @endsection

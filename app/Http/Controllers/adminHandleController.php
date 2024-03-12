@@ -365,9 +365,10 @@ class adminHandleController extends Controller
         }
     }
 
-    public function updateSetting(Request $request){
+    public function updateSetting(Request $request)
+    {
         $data = [
-            "content"=>$request->setting_edit,
+            "content" => $request->setting_edit,
         ];
 
         $setting = wn_web_setting::where("uuid", $request->setting_id)->get()->first();
@@ -380,8 +381,9 @@ class adminHandleController extends Controller
         }
     }
 
-    public function deletePost(Request $request){
-        if(!$request->sSelector){
+    public function deletePost(Request $request)
+    {
+        if (!$request->sSelector) {
             return back();
         }
 
@@ -390,7 +392,7 @@ class adminHandleController extends Controller
 
         $selected = $request->sSelector;
 
-        foreach ($selected as $select){
+        foreach ($selected as $select) {
             try {
                 wn_post::where("uuid", $select)->delete();
                 $success++;
@@ -399,6 +401,59 @@ class adminHandleController extends Controller
             }
         }
 
-        return back()->with("success", array("success_m"=> $success,"failed_m"=> $failed));
+        return back()->with("success", array("success_m" => $success, "failed_m" => $failed));
+    }
+
+    public function settingsInit(Request $request)
+    {
+        $settings = wn_web_setting::all();
+
+        if (!$settings) {
+            $data = [
+                [
+                    "uuid" => "ca3f087a9bac9603f57abda0facc8eee",
+                    "name" => "匯款帳號",
+                    "content" => "未設定"
+                ],
+                [
+                    "uuid" => "7650487a8758fd50c87d6c9cff0aa5ac",
+                    "name" => "地址",
+                    "content" => "未設定"
+                ],
+                [
+                    "uuid" => "93e781df4729f7677af31122c1253bce",
+                    "name" => "版權",
+                    "content" => "未設定"
+                ],
+                [
+                    "uuid" => "1f0e60f4efa3d42cb3a383244d8e0d23",
+                    "name" => "Facebook 連結",
+                    "content" => "未設定"
+                ],
+                [
+                    "uuid" => "5aed058c2aed48a4f05c50b92f17cb46",
+                    "name" => "Instagram 連結",
+                    "content" => "未設定"
+                ],
+                [
+                    "uuid" => "faf62a02ad04290f7e5c150fc2844ce6",
+                    "name" => "YouTube 連結",
+                    "content" => "未設定"
+                ],
+                [
+                    "uuid" => "0aa9ce0dd9e62e1adb42101d186e272f",
+                    "name" => "電子郵箱地址",
+                    "content" => "未設定"
+                ]
+            ];
+
+            try {
+                wn_web_setting::insert($data);
+                return back()->with("success", "success");
+            } catch (\Illuminate\Database\QueryException $ex) {
+                return back()->with("failed", $ex->getMessage());
+            }
+        }
+        return back()->with("message", "message");
     }
 }

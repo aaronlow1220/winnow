@@ -23,9 +23,6 @@
                 </svg>
                 <span>更多動作</span>
             </button>
-            <div class="search-bar">
-                <input type="search" placeholder="搜尋" />
-            </div>
         </div>
         <div class="table-container">
             <table class="wn-table">
