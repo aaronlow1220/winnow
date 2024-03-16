@@ -187,13 +187,13 @@
                 </div>
             </div>
 
-            <div class="ph-size">
+            {{-- <div class="ph-size">
                 <div class="ph-new-text name_center">
                     <h1 class="SecondLine PH-SecondLine">迷<br />香<br />忠<br />貞</h1>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="food">
+            {{-- <div class="food">
                 <div class="food-text PC name_center">
                     <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <mask id="mask0_876_4099" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="54" height="54">
@@ -248,7 +248,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="music PC">
                 <div class="music-text">

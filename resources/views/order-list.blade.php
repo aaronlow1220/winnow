@@ -76,10 +76,16 @@
 
                 });
             });
-
-
-
         });
+
+        function preventNonNumericalInput(e) {
+            e = e || window.event;
+            var charCode = (typeof e.which == "undefined") ? e.keyCode : e.which;
+            var charStr = String.fromCharCode(charCode);
+
+            if (!charStr.match(/^[0-9]+$/))
+                e.preventDefault();
+        }
     </script>
     <style>
         .unit {
@@ -152,6 +158,16 @@
 
         .submit {
             color: white
+        }
+
+        .payment-section{
+            display: flex;
+            align-items: center
+        }
+
+        .payment-field,
+        .payment-submit {
+            padding: 0.5rem 1.0rem
         }
     </style>
 
@@ -230,10 +246,10 @@
                                     </div>
                                 @endif
                             @endforeach
-                            <div class="cart-item flex">
-                                <label for="account-five{{$loop->index}}">匯款帳號末五碼</label>
-                                <input id="account-five{{$loop->index}}" type="text" inputmode="numeric" placeholder="請輸入匯款帳號末五碼" name="account_five" maxlength="5" value="@if ($order->payment_account) {{ $order->payment_account }} @endif" pattern="[0-9\s]{13,19}">
-                                <button type="submit" class="submit" value="{{ $order->uuid }}" name="uuid">送出</button>
+                            <div class="cart-item payment-section flex">
+                                <label for="account-five{{ $loop->index }}">匯款帳號末五碼</label>
+                                <input class="payment-field" id="account-five{{ $loop->index }}" type="text" onkeypress="preventNonNumericalInput(event)" inputmode="numeric" placeholder="請輸入匯款帳號末五碼" name="account_five" maxlength="5" value="@if ($order->payment_account){{ $order->payment_account }}@endif">
+                                <button type="submit" class="submit payment-submit" value="{{ $order->uuid }}" name="uuid">送出</button>
                             </div>
                         </div>
                     @endforeach
