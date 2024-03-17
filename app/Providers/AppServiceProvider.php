@@ -30,5 +30,12 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with(["settings" => wn_web_setting::all(), "navs" => $category]);
         });
+
+        view()->composer("layout.auth-layout", function ($view) {
+            // Category
+            $category = wn_category::all()->where("status", "ACTIVE");
+
+            $view->with(["navs" => $category]);
+        });
     }
 }

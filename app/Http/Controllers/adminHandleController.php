@@ -446,6 +446,11 @@ class adminHandleController extends Controller
                     "uuid" => "0aa9ce0dd9e62e1adb42101d186e272f",
                     "name" => "電子郵箱地址",
                     "content" => "未設定"
+                ],
+                [
+                    "uuid" => "6f36f29881f4ced824570d8af1a29a5e",
+                    "name" => "營業時間",
+                    "content" => "未設定"
                 ]
             ];
 

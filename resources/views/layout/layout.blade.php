@@ -19,8 +19,7 @@
         <nav class="flex justify-center align-items-center relative">
             <label id="hamburger" for="burger">☰</label>
             <input type="checkbox" id="burger">
-            <a id="nav_logo" href="{{ route('home') }}"><img src="{{ asset('assets/img/Logo.png') }}"
-                    alt="logo" /></a>
+            <a id="nav_logo" href="{{ route('home') }}"><img src="{{ asset('assets/img/Logo.png') }}" alt="logo" /></a>
             <div class="flex text-secondary">
                 @foreach ($navs as $nav)
                     @if ($nav->alias != 'about-us' && $nav->alias != 'contact-us')
@@ -37,10 +36,8 @@
                 </a>
             </div>
             <div id="customer-interaction-icons">
-                <a href="{{ route('account') }}" class="flex"><img id="icon_person"
-                        src="{{ asset('assets/img/Person.svg') }}" alt="login" /></a>
-                <a href="{{ route('cart') }}" class="flex"><img id="icon_shopping_cart"
-                        src="{{ asset('assets/img/Shopping.svg') }}" alt="shoppingCart" /></a>
+                <a href="{{ route('account') }}" class="flex"><img id="icon_person" src="{{ asset('assets/img/Person.svg') }}" alt="login" /></a>
+                <a href="{{ route('cart') }}" class="flex"><img id="icon_shopping_cart" src="{{ asset('assets/img/Shopping.svg') }}" alt="shoppingCart" /></a>
             </div>
             <div id="overlay"></div>
         </nav>
@@ -52,83 +49,58 @@
                 <div id="logo-section">
                     <img src="{{ asset('assets/img/Logo.png') }}" alt="logo" />
                     <div class="social-media-icons">
-                        <a
-                            href="@foreach ($settings as $setting)
-                        @if ($setting->uuid == '1f0e60f4efa3d42cb3a383244d8e0d23')
-                            {{ $setting->content }}
-                        @break
-                    @endif @endforeach"><img
-                                src="{{ asset('assets/img/facebook.svg') }}" alt="" /></a>
-                        <a
-                            href="@foreach ($settings as $setting)
-                        @if ($setting->uuid == '5aed058c2aed48a4f05c50b92f17cb46')
-                            {{ $setting->content }}
-                        @break
-                    @endif @endforeach"><img
-                                src="{{ asset('assets/img/instagram.svg') }}" alt="" /></a>
-                        <a
-                            href="@foreach ($settings as $setting)
-                        @if ($setting->uuid == 'faf62a02ad04290f7e5c150fc2844ce6')
-                            {{ $setting->content }}
-                        @break
-                    @endif @endforeach"><img
-                                src="{{ asset('assets/img/youtube.svg') }}" alt="" /></a>
+                        <a href="{{ $settings->where('uuid', '1f0e60f4efa3d42cb3a383244d8e0d23')->first()->content }}">
+                            <img src="{{ asset('assets/img/facebook.svg') }}" alt="" />
+                        </a>
+                        <a href="{{ $settings->where('uuid', '5aed058c2aed48a4f05c50b92f17cb46')->first()->content }}">
+                            <img src="{{ asset('assets/img/instagram.svg') }}" alt="" />
+                        </a>
+                        <a href="{{ $settings->where('uuid', 'faf62a02ad04290f7e5c150fc2844ce6')->first()->content }}">
+                            <img src="{{ asset('assets/img/youtube.svg') }}" alt="" />
+                        </a>
                     </div>
                 </div>
                 <div id="contact-info">
                     <div>
                         <img src="{{ asset('assets/img/schedule.svg') }}" alt="" />
-                        <div class="body1 text-secondary">平日 8am~10pm</div>
+                        <div class="body1 text-secondary">
+                            {{ $settings->where('uuid', '6f36f29881f4ced824570d8af1a29a5e')->first()->content }}
+                        </div>
                     </div>
                     <div>
                         <img src="{{ asset('assets/img/location_on.svg') }}" alt="" />
                         <div class="body1 text-secondary">
-                            @foreach ($settings as $setting)
-                                @if ($setting->uuid == '7650487a8758fd50c87d6c9cff0aa5ac')
-                                    {{ $setting->content }}
-                                @break
-                            @endif
-                        @endforeach
+                            {{ $settings->where('uuid', '7650487a8758fd50c87d6c9cff0aa5ac')->first()->content }}
+                        </div>
+                    </div>
+                    <div>
+                        <img src="{{ asset('assets/img/alternate_email.svg') }}" alt="" />
+                        <div class="body1 text-secondary">
+                            {{ $settings->where('uuid', '0aa9ce0dd9e62e1adb42101d186e272f')->first()->content }}
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <img src="{{ asset('assets/img/alternate_email.svg') }}" alt="" />
-                    <div class="body1 text-secondary">
-                        @foreach ($settings as $setting)
-                            @if ($setting->uuid == '0aa9ce0dd9e62e1adb42101d186e272f')
-                                {{ $setting->content }}
-                            @break
-                        @endif
-                    @endforeach
-                </div>
+
+
+            </div>
+
+            <div class="footer-text">
+                {{ $settings->where('uuid', '93e781df4729f7677af31122c1253bce')->first()->content }}
             </div>
         </div>
-
-
-    </div>
-
-    <div class="footer-text">
-        @foreach ($settings as $setting)
-            @if ($setting->uuid == '93e781df4729f7677af31122c1253bce')
-                {{ $setting->content }}
-            @break
-        @endif
-    @endforeach
-</div>
-</div>
-</footer>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let hamburger = document.querySelector("#burger");
-        hamburger.addEventListener('change', function() {
-            if (hamburger.checked) {
-                document.body.classList.add('no-scroll');
-            } else {
-                document.body.classList.remove('no-scroll');
-            }
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let hamburger = document.querySelector("#burger");
+            hamburger.addEventListener('change', function() {
+                if (hamburger.checked) {
+                    document.body.classList.add('no-scroll');
+                } else {
+                    document.body.classList.remove('no-scroll');
+                }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>
