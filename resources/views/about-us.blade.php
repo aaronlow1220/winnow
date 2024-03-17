@@ -16,8 +16,7 @@
             </div>
             <div class="us-text1">
                 <h1 class="HeadLine bold">關於我們</h1>
-                <p class="Second-Titlecontent gray-text">為保存 異域孤軍文化
-                    歷史而設立的園區，包含孤軍紀念廣場、阿美米干1981、癮食聖堂、黑山銀花民族文創館，設於桃園龍岡「忠貞新村」舊址。
+                <p class="Second-Titlecontent gray-text">忠貞社區發展協會於2010年1月依法設立之非營利團體，致力於社區婦女、兒少、青年及新住民各項社區發展及福利推動，建立社區照顧服務體系為宗旨。
                 </p>
             </div>
         </div>

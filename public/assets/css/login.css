@@ -321,7 +321,7 @@ header{
 }
 
 .main-bg2 {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("../img/log.jpg") center/cover no-repeat, lightgray;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("../img/login-bg.jpg") center/cover no-repeat, lightgray;
 }
 
 /* Forms & Inputs */

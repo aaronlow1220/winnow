@@ -408,6 +408,8 @@ class adminHandleController extends Controller
     {
         $settings = wn_web_setting::all();
 
+        dd($settings);
+
         if (!$settings) {
             $data = [
                 [
