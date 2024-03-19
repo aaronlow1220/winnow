@@ -335,7 +335,7 @@ header{
 }
 
 .main-bg2 {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("../img/register_bg1.jpg") center/cover no-repeat, lightgray;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%), url("../img/reg-pic.jpg") center/cover no-repeat, lightgray;
 }
 
 

@@ -12,7 +12,7 @@
     <div class="ALL">
         <div class="justify-center flex-row align-center area1">
             <div class="us-img1">
-                <img class="img1" src="{{ asset('assets/img/m-g.jpg') }}" alt="">
+                <img class="img1" src="{{ asset('assets/img/m-g.png') }}" alt="">
             </div>
             <div class="us-text1">
                 <h1 class="HeadLine bold">關於我們</h1>
@@ -53,7 +53,7 @@
 
         <div class="area4">
             <div class="area5">
-                <img class="area5-img1" src="{{ asset('assets/img/r19.jpg') }}" alt="">
+                <img class="area5-img1" src="{{ asset('assets/img/cy.jpg') }}" alt="">
                 <div class="area5-text">
                     <h3 class="Main-Titlecontent">產業發展</h3>
                     <p class="content t-p">透過導覽活動規劃與推廣，利用在地現有之資源，建構符合市場需求形態之導覽活動，以吸引遊客到訪，促進地方產業發展。</p>
@@ -64,7 +64,7 @@
                     <h3 class="Main-Titlecontent">地方創生</h3>
                     <p class="content t-p">在活動中培訓在地或對地方創生產業之人員，成為市場地方創生之生力軍。</p>
                 </div>
-                <img class="area5-img1" src="{{ asset('assets/img/i32.jpg') }}" alt="">
+                <img class="area5-img1" src="{{ asset('assets/img/dc.jpg') }}" alt="">
             </div>
         </div>
     @endsection

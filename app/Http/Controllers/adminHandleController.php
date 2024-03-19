@@ -407,9 +407,6 @@ class adminHandleController extends Controller
     public function settingsInit(Request $request)
     {
         $settings = wn_web_setting::all();
-
-        dd($settings);
-
         if (!$settings) {
             $data = [
                 [
