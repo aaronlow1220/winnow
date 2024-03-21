@@ -259,7 +259,6 @@ class adminHandleController extends Controller
         // Save product cover img
         if ($request->hasFile("product_cover")) {
             $extension = $request->file("product_cover")->getClientOriginalExtension();
-            // $fileName = $path . "/" . $uuid . "_cover.jpg";
             $fileName = $uuid . "_cover.jpg";
             if (file_exists($path . "/" . $fileName)) {
                 unlink($path . "/" . $fileName);
@@ -276,16 +275,15 @@ class adminHandleController extends Controller
             $i = 0;
             foreach ($other_pic as $pic) {
                 $extension = $pic->getClientOriginalExtension();
-                // $fileName = $path . "/" . $uuid . "_other_" . $i . ".jpg";
                 $fileName = $uuid . "_other_" . $i . ".jpg";
                 if (file_exists($fileName)) {
                     unlink($fileName);
                 }
                 if ($extension == "png") {
-                    Helper::pngToJpg($request->file("product_cover"), $path . "/" . $uuid . "_cover.jpg", 50);
+                    Helper::pngToJpg($pic, $path . "/" . $fileName, 50);
 
                 } else {
-                    $request->file("product_cover")->move($path, $fileName);
+                    $pic->move($path, $fileName);
                 }
                 $i++;
             }

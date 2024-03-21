@@ -60,6 +60,12 @@ class Helper
         imagedestroy($bg);
     }
 
+    public static function compressJpg($originalFile, $outputFile, $quality){
+        $image = imagecreatefromjpeg($originalFile);
+        imagejpeg($image, $outputFile, $quality);
+        imagedestroy($bg);
+    }
+
     public static function randomPassword()
     {
         $alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
