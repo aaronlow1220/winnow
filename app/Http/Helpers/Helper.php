@@ -63,7 +63,7 @@ class Helper
     public static function compressJpg($originalFile, $outputFile, $quality){
         $image = imagecreatefromjpeg($originalFile);
         imagejpeg($image, $outputFile, $quality);
-        imagedestroy($bg);
+        imagedestroy($image);
     }
 
     public static function randomPassword()
