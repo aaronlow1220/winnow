@@ -442,7 +442,7 @@ class adminHandleController extends Controller
     public function settingsInit(Request $request)
     {
         $settings = wn_web_setting::all();
-        if (!$settings) {
+        if ($settings->isEmpty()) {
             $data = [
                 [
                     "uuid" => "ca3f087a9bac9603f57abda0facc8eee",
