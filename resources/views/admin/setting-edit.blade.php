@@ -34,7 +34,7 @@
             @csrf
             <h1>{{ $setting->name }}</h1>
             <input type="hidden" name="setting_id" value="{{ $id }}">
-            <input type="text" name="setting_edit" class="setting-textBox" value="@if ($setting->content) {{ $setting->content }} @endif">
+            <input type="text" name="setting_edit" class="setting-textBox" value="@if ($setting->content){{ $setting->content }}@endif">
             <button class="setting-button" type="submit">確認</button>
         </form>
     </div>
