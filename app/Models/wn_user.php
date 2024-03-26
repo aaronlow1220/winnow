@@ -11,7 +11,7 @@ class wn_user extends Authenticatable
 
     protected $table = "wn_users";
 
-    protected $fillable = ["uuid", "username", "email", "password"];
+    protected $fillable = ["uuid", "username", "email", "password", "status", "is_admin"];
 
     const UPDATED_AT = "modified_at";
 }

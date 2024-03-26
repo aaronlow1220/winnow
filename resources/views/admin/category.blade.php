@@ -1,13 +1,26 @@
 @extends('admin/layout/dashboard-layout')
 
-@section("admin-title", "類別管理 - 類別")
+@section('admin-title', '類別管理 - 類別')
 
-@section("dashboard-title")
+@section('dashboard-title')
     類別管理 - 類別
 @endsection
 
 @section('dashboard-content')
-    <form class="func">
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="msg-box failed">
+                <p>{{ $error }}</p>
+            </div>
+        @endforeach
+    @endif
+    @if (session()->has('success'))
+        <div class="msg-box success">
+            <p>{{ session()->get('success')['success_m'] }}筆修改成功，{{ session()->get('success')['failed_m'] }}筆修改失敗</p>
+        </div>
+    @endif
+    <form class="func" id="form" method="POST" action="{{ route('handle.categoryListAction') }}">
+        @csrf
         <div class="func-bar">
             <a class="func-btn" href="{{ route('admin.addCategory') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -17,14 +30,13 @@
             </a>
             <button class="func-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                    <path
-                        d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"
-                        fill="currentcolor" />
+                    <path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" fill="currentcolor" />
                 </svg>
                 <span>更多動作</span>
             </button>
             <div class="dropdown-content">
-                <a href="">刪除所選</a>
+                <input id="selectedAction" type="hidden" name="action" value="">
+                <a id="dlt-btn" data-value="remove">刪除所選</a>
             </div>
         </div>
         <div class="table-container">
@@ -40,17 +52,22 @@
                 </thead>
                 <tbody>
                     @foreach ($categories as $category)
-                        <tr >
-                            <td><input type="checkbox" name="sSelector" id="" class="sSelector" value="{{ $category->uuid }}"/></td>
-                            <td><a href="{{ route('admin.editCategory',['id'=> $category->uuid]) }}">{{ $category->name }}</a></td>
+                        <tr>
+                            <td><input type="checkbox" name="sSelector[]" id="" class="sSelector" value="{{ $category->uuid }}" /></td>
+                            <td><a href="{{ route('admin.editCategory', ['id' => $category->uuid]) }}">{{ $category->name }}</a></td>
                             <td>{{ $category->alias }}</td>
                             <td>{{ $category->status }}</td>
                             <td>{{ date('Y-m-d', strtotime($category->modified_at)) }}</td>
-                            
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </form>
+    <script>
+        document.getElementById("dlt-btn").onclick = function() {
+            document.getElementById("selectedAction").value = this.dataset.value;
+            document.getElementById("form").submit();
+        }
+    </script>
 @endsection

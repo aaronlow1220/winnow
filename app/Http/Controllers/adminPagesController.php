@@ -131,7 +131,7 @@ class adminPagesController extends Controller
 
     public function product(Request $request)
     {
-        $product = wn_product::all()->where("status", "PUBLIC");
+        $product = wn_product::all();
         return view("admin/product", ["products" => $product]);
     }
 

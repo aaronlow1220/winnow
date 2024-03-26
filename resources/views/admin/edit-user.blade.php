@@ -12,7 +12,7 @@
                 <p>修改失敗，請再試一次</p>
             </div>
         @endif
-        <input type="hidden" name="subCategory" value="{{ $users->uuid }}">
+        <input type="hidden" name="user_uid" value="{{ $users->uuid }}">
         <div class="func-bar">
             <button class="func-btn" type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">

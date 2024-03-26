@@ -61,7 +61,6 @@ class Helper
     public static function compressJpg($originalFile, $outputFile, $quality)
     {
         $image = imagecreatefromjpeg($originalFile);
-
         $img = imagescale($image, 800, -1);
         imagedestroy($image);
         imagejpeg($img, $outputFile, $quality);

@@ -187,13 +187,17 @@ class adminHandleController extends Controller
 
     public function editUser(Request $request)
     {
-        $validate = $request->validate([
-            "subCategory" => "required",
-            "subCategoryName" => "required",
-            "alias" => "required",
-            "category" => "required",
-            "status" => "required"
-        ]);
+        $data = [
+            "status" => $request->status,
+            "is_admin" => $request->isAdmin,
+        ];
+
+        try {
+            wn_user::where("uuid", $request->user_uid)->get()->first()->update($data);
+            return back()->with("success", "success");
+        } catch (\Illuminate\Database\QueryException $ex) {
+            return back()->with("failed", "failed");
+        }
     }
 
     public function resetPassword(string $id)
@@ -494,5 +498,107 @@ class adminHandleController extends Controller
             }
         }
         return back()->with("message", "message");
+    }
+
+    public function productListAction(Request $request){
+        if (!$request->sSelector) {
+            return back();
+        }
+
+        $success = 0;
+        $failed = 0;
+
+        if($request->action == "remove"){
+            $selected = $request->sSelector;
+            $data = [
+                "status" => "PRIVATE",
+            ];
+            foreach ($selected as $select) {
+                
+                try {
+                    wn_product::where("uuid", $select)->get()->first()->update($data);
+                    $success++;
+                } catch (\Illuminate\Database\QueryException $ex) {
+                    $failed++;
+                }
+            }
+        }
+        return back()->with("success", array("success_m" => $success, "failed_m" => $failed));
+    }
+
+    public function categoryListAction(Request $request){
+        if (!$request->sSelector) {
+            return back();
+        }
+
+        $success = 0;
+        $failed = 0;
+
+        if($request->action == "remove"){
+            $selected = $request->sSelector;
+            $data = [
+                "status" => "PRIVATE",
+            ];
+            foreach ($selected as $select) {
+                
+                try {
+                    wn_category::where("uuid", $select)->get()->first()->delete();
+                    $success++;
+                } catch (\Illuminate\Database\QueryException $ex) {
+                    $failed++;
+                }
+            }
+        }
+        return back()->with("success", array("success_m" => $success, "failed_m" => $failed));
+
+    }
+
+    public function subCategoryListAction(Request $request){
+        if (!$request->sSelector) {
+            return back();
+        }
+
+        $success = 0;
+        $failed = 0;
+
+        if($request->action == "remove"){
+            $selected = $request->sSelector;
+            foreach ($selected as $select) {
+                
+                try {
+                    wn_sub_category::where("uuid", $select)->get()->first()->delete();
+                    $success++;
+                } catch (\Illuminate\Database\QueryException $ex) {
+                    $failed++;
+                }
+            }
+        }
+        return back()->with("success", array("success_m" => $success, "failed_m" => $failed));
+    }
+
+    public function userListAction(Request $request){
+        if (!$request->sSelector) {
+            return back();
+        }
+
+        $success = 0;
+        $failed = 0;
+
+        if($request->action == "remove"){
+            $selected = $request->sSelector;
+            $data = [
+                "status" => "DEACTIVE",
+            ];
+            foreach ($selected as $select) {
+                
+                try {
+                    wn_user::where("uuid", $select)->get()->first()->update($data);
+                    $success++;
+                } catch (\Illuminate\Database\QueryException $ex) {
+                    $failed++;
+                }
+            }
+        }
+        return back()->with("success", array("success_m" => $success, "failed_m" => $failed));
     }
 }

@@ -138,6 +138,11 @@ class pagesController extends Controller
                 }
 
             }
+            if($category == "latest-news" && $subCategory == "all"){
+                $forNew = wn_category::where("alias", "latest-news")->get()->first();
+                $arti = wn_post::where("category_uid", $forNew->uuid)->where("status", "PUBLIC")->get()->first()->uuid;
+                return redirect()->route("post", ["category" => $category, "subCategory" => $subCat, "article" => $arti]);
+            }
             return redirect()->route("post", ["category" => $category, "subCategory" => $subCat, "article" => $arti]);
         }
         // 404
@@ -170,6 +175,13 @@ class pagesController extends Controller
                 $otherPosts = wn_post::where("sub_category_uid", $currentSelectedSubCat->first()->uuid)->where("status", "PUBLIC")->orderByDesc("created_at")->get();
                 $arti = wn_post::where("uuid", $article)->where("status", "PUBLIC")->first();
             }
+        }
+
+        if($category == "latest-news" && $subCategory == "all"){
+            $forNew = wn_category::where("alias", "latest-news")->get()->first();
+            $newOther = wn_post::where("category_uid", $forNew->uuid)->where("status", "PUBLIC")->orderByDesc("created_at")->get();
+            $arti = wn_post::where("category_uid", $forNew->uuid)->where("status", "PUBLIC")->get()->first();
+            return view("category", ["category" => $cat->first(), "subCategory" => $subCat, "article" => $arti, "catAlias" => $category, "subCatAlias" => $subCategory, "otherPosts" => $newOther]);
         }
 
         return view("category", ["category" => $cat->first(), "subCategory" => $subCat, "article" => $arti, "catAlias" => $category, "subCatAlias" => $subCategory, "otherPosts" => $otherPosts]);

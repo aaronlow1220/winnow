@@ -7,7 +7,20 @@
 @endsection
 
 @section('dashboard-content')
-    <div class="func">
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="msg-box failed">
+                <p>{{ $error }}</p>
+            </div>
+        @endforeach
+    @endif
+    @if (session()->has('success'))
+        <div class="msg-box success">
+            <p>{{ session()->get('success')['success_m'] }}筆修改成功，{{ session()->get('success')['failed_m'] }}筆修改失敗</p>
+        </div>
+    @endif
+    <form class="func" id="form" method="post" action="{{ route('handle.productListAction') }}">
+        @csrf
         <div class="func-bar">
             <a class="func-btn" href="{{ route('admin.addProduct') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -21,6 +34,10 @@
                 </svg>
                 <span>更多動作</span>
             </button>
+            <div class="dropdown-content">
+                <input id="selectedAction" type="hidden" name="action" value="">
+                <a id="dlt-btn" data-value="remove">下架所選</a>
+            </div>
         </div>
         <div class="table-container">
             <table class="wn-table">
@@ -38,7 +55,7 @@
                 <tbody>
                     @foreach ($products as $product)
                         <tr>
-                            <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
+                            <td><input type="checkbox" name="sSelector[]" id="" class="sSelector" value="{{ $product->uuid }}" /></td>
                             <td><a href="{{ route('admin.editProduct', ['id' => $product->uuid]) }}">{{ $product->name }}</a></td>
                             <td>
                                 @if ($product->is_halal == 1)
@@ -72,5 +89,11 @@
                 <a href="#">&raquo;</a>
             </div>
         </div> --}}
-    </div>
+    </form>
+    <script>
+        document.getElementById("dlt-btn").onclick = function() {
+            document.getElementById("selectedAction").value = this.dataset.value;
+            document.getElementById("form").submit();
+        }
+    </script>
 @endsection

@@ -50,6 +50,10 @@ Route::name("handle.")->group(function () {
     Route::post("/admin/post/edit-product-handle", [adminHandleController::class, "editProduct"])->name("editProduct");
     Route::get("/admin/update-order/{id}/{status}", [adminHandleController::class, "updateOrder"])->name("updateOrder");
     Route::post("/admin/update-setting", [adminHandleController::class, "updateSetting"])->name("updateSetting");
+    Route::post("/admin/category-list-action", [adminHandleController::class, "categoryListAction"])->name("categoryListAction");
+    Route::post("/admin/sub-category-list-action", [adminHandleController::class, "subCategoryListAction"])->name("subCategoryListAction");
+    Route::post("/admin/user-list-action", [adminHandleController::class, "userListAction"])->name("userListAction");
+    Route::post("/admin/product-list-action", [adminHandleController::class, "productListAction"])->name("productListAction");
     Route::get("/admin/settings-init-handle", [adminHandleController::class, "settingsInit"])->name("settingsInit");
 });
 
