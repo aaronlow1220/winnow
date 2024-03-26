@@ -32,7 +32,7 @@
                                 <h3 class=" @if ($item->discount_price) shop-del @endif content">售價:
                                     {{ $item->price }}</h3>
                                 @if ($item->discount_price)
-                                    <h3 class="lower-cash content">87元</h3>
+                                    <h3 class="lower-cash content">{{ $item->discount_price }}元</h3>
                                 @endif
 
                             </div>

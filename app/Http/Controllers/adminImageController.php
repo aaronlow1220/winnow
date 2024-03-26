@@ -13,10 +13,21 @@ class adminImageController extends Controller
             $originalName = $request->file("upload")->getClientOriginalName();
             $fileName = pathinfo($originalName, PATHINFO_FILENAME);
             $extension = $request->file("upload")->getClientOriginalExtension();
-            $fileName = $fileName . "_" . time() . "." . $extension;
+            $fileName = $fileName . "_" . time();
+            $tempEx = "";
 
-            $request->file("upload")->move(public_path("media/post"), $fileName);
-            $url = asset("media/post/" . $fileName);
+            if ($extension == "png") {
+                Helper::pngToJpg($request->file("upload"), public_path("media/post") . "/" . $fileName . ".jpg", 65);
+                $tempEx = "jpg";
+
+            } elseif ($extension == "jpg" || $extension == "jpeg") {
+                Helper::compressJpg($request->file("upload"), public_path("media/post") . "/" . $fileName . ".jpg", 65);
+                $tempEx = "jpg";
+            } else {
+                $request->file("upload")->move(public_path("media/post"), $fileName . "." . $extension);
+                $tempEx = $extension;
+            }
+            $url = asset("media/post/" . $fileName . "." . $tempEx);
             return response()->json([
                 "fileName" => $fileName,
                 "uploaded" => 1,

@@ -46,24 +46,27 @@ class Helper
     // Image Processing
     public static function pngToJpg($originalFile, $outputFile, $quality)
     {
-        // $image = imagecreatefrompng($originalFile);
-        // imagejpeg($image, $outputFile, $quality);
-        // imagedestroy($image);
-
         $image = imagecreatefrompng($originalFile);
         $bg = imagecreatetruecolor(imagesx($image), imagesy($image));
         imagefill($bg, 0, 0, imagecolorallocate($bg, 255, 255, 255));
         imagealphablending($bg, TRUE);
         imagecopy($bg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
         imagedestroy($image);
-        imagejpeg($bg, $outputFile, $quality);
+        $img = imagescale($bg, 800, -1);
+        imagejpeg($img, $outputFile, $quality);
         imagedestroy($bg);
+        imagedestroy($img);
     }
 
-    public static function compressJpg($originalFile, $outputFile, $quality){
+    public static function compressJpg($originalFile, $outputFile, $quality)
+    {
         $image = imagecreatefromjpeg($originalFile);
-        imagejpeg($image, $outputFile, $quality);
+
+        $img = imagescale($image, 800, -1);
         imagedestroy($image);
+        imagejpeg($img, $outputFile, $quality);
+        imagedestroy($image);
+        imagedestroy($img);
     }
 
     public static function randomPassword()

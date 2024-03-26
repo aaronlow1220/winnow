@@ -53,12 +53,12 @@
                                 </a>
 
                                 <a class="m_card" href="{{ route('mpost', ['category' => $catAlias, 'subCategory' => $subCatAlias, 'article' => $post->uuid]) }}">
-                                    <img src="{{ asset('media/post/' . $post->media_location) }}" alt="">
+                                    <img src="{{ asset('media/post/' . $post->uuid . '/' . $post->media_location) }}" alt="">
                                     <div class="flex-column">
                                         <div>
                                             <div class="card_tittle">{{ $post->title }}</div>
                                         </div>
-                                        <div class="date">2023/12/10</div>
+                                        <div class="date">{{ date('Y-m-d', strtotime($post->created_at)) }}</div>
                                     </div>
                                 </a>
 

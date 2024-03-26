@@ -87,7 +87,8 @@ class pagesController extends Controller
     public function product(Request $request, string $id)
     {
         $product = wn_product::where("uuid", $id)->first();
-        return view("product", ["product" => $product]);
+        $items = wn_product::all()->where("status", "PUBLIC");
+        return view("product", ["product" => $product, "items" => $items]);
     }
 
     public function aboutUs(Request $request)
@@ -189,42 +190,6 @@ class pagesController extends Controller
     public function proceedPayment(Request $request)
     {
         return view("redirect-account-code");
-    }
-
-    // For testing
-    public function testCategoryHandle(Request $request)
-    {
-        $table = "wn_categories";
-        $validate = $request->validate([
-            "categoryName" => "required|unique:" . $table . ",name",
-            "alias" => "required|unique:" . $table . ",alias"
-        ]);
-
-        $data = [
-            "uuid" => Helper::prefixedUuid("category_"),
-            "name" => $request->categoryName,
-            "alias" => $request->alias
-        ];
-        wn_category::create($data);
-        return redirect("testCategory");
-    }
-    public function testSubCategoryHandle(Request $request)
-    {
-        $table = "wn_sub_categories";
-        $validate = $request->validate([
-            "categoryUid" => "required",
-            "subCategoryName" => "required|unique:" . $table . ",name",
-            "alias" => "required|unique:" . $table . ",alias"
-        ]);
-
-        $data = [
-            "uuid" => Helper::prefixedUuid("subCategory_"),
-            "category_uid" => $request->categoryUid,
-            "name" => $request->subCategoryName,
-            "alias" => $request->alias
-        ];
-        wn_sub_category::create($data);
-        return redirect("testSubCategory");
     }
 
     public function notFound(Request $request)

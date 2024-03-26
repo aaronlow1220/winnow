@@ -231,4 +231,11 @@ class adminPagesController extends Controller
         $setting = wn_web_setting::where("uuid", $id)->get()->first();
         return view("admin/setting-edit", ["id" => $id, "setting" => $setting]);
     }
+
+    public function editProduct(Request $request, string $id)
+    {
+        $product = wn_product::where("uuid", $id)->get()->first();
+        $adm = json_decode($product->allowed_delivery_method);
+        return view("admin/edit-product", ["id" => $id, "product" => $product, "adm" => $adm]);
+    }
 }

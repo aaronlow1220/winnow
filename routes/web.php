@@ -23,6 +23,7 @@ Route::name("admin.")->group(function () {
     Route::get("/admin/sub-category", [adminPagesController::class, "subCategory"])->name("subCategory");
     Route::get("/admin/add-sub-category", [adminPagesController::class, "addSubCategory"])->name("addSubCategory");
     Route::get("/admin/edit-sub-category/{id}", [adminPagesController::class, "editSubCategory"])->name("editSubCategory");
+    Route::get("/admin/edit-product/{id}", [adminPagesController::class, "editProduct"])->name("editProduct");
     Route::get("/admin/user", [adminPagesController::class, "user"])->name("user");
     Route::get("/admin/moderator", [adminPagesController::class, "moderator"])->name("moderator");
     Route::get("/admin/edit-user/{id}", [adminPagesController::class, "editUser"])->name("editUser");
@@ -46,6 +47,7 @@ Route::name("handle.")->group(function () {
     Route::post("/admin/post/create-post-handle", [adminHandleController::class, "storePost"])->name("storePost");
     Route::post("/admin/post/delete-handle-handle", [adminHandleController::class, "deletePost"])->name("deletePost");
     Route::post("/admin/post/add-product-handle", [adminHandleController::class, "addProduct"])->name("addProduct");
+    Route::post("/admin/post/edit-product-handle", [adminHandleController::class, "editProduct"])->name("editProduct");
     Route::get("/admin/update-order/{id}/{status}", [adminHandleController::class, "updateOrder"])->name("updateOrder");
     Route::post("/admin/update-setting", [adminHandleController::class, "updateSetting"])->name("updateSetting");
     Route::get("/admin/settings-init-handle", [adminHandleController::class, "settingsInit"])->name("settingsInit");

@@ -1,6 +1,6 @@
 @extends('admin/layout/dashboard-layout')
 
-@section("admin-title", "商品管理")
+@section('admin-title', '商品管理')
 
 @section('dashboard-title')
     商品管理
@@ -17,9 +17,7 @@
             </a>
             <button class="func-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                    <path
-                        d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"
-                        fill="currentcolor" />
+                    <path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" fill="currentcolor" />
                 </svg>
                 <span>更多動作</span>
             </button>
@@ -41,7 +39,7 @@
                     @foreach ($products as $product)
                         <tr>
                             <td><input type="checkbox" name="sSelector" id="" class="sSelector" /></td>
-                            <td><a href="">{{ $product->name }}</a></td>
+                            <td><a href="{{ route('admin.editProduct', ['id' => $product->uuid]) }}">{{ $product->name }}</a></td>
                             <td>
                                 @if ($product->is_halal == 1)
                                     是
@@ -56,7 +54,7 @@
                                 @endif
                             </td>
                             <td>{{ $product->status }}</td>
-                            <td>{{ $product->modified_at }}</td>
+                            <td>{{ date('Y-m-d', strtotime($product->modified_at)) }}</td>
                             <td>{{ $product->purchase_count }}</td>
                         </tr>
                     @endforeach

@@ -11,7 +11,7 @@ class wn_product extends Model
 
     protected $table = "wn_products";
 
-    protected $fillable= ["uuid", "name", "description", "price", "vendor", "cover_image", "images", "amount", "allowed_delivery_method", "is_halal", "purchase_count", "status"];
+    protected $fillable= ["uuid", "name", "description", "price","discount_price" , "vendor", "cover_image", "images", "amount", "allowed_delivery_method", "is_halal", "purchase_count", "status"];
 
     const UPDATED_AT = "modified_at";
 }
