@@ -123,8 +123,6 @@
                         <div class="cart-options">
                             <div class="cart-option">
                                 <label for="delivery-method">配送方式</label>
-                                {{-- <input id="delivery-method" class="option-input" type="text" value="冷凍"
-                                    name="delivery_method" disabled> --}}
                                 <select class="option-input" name="delivery_method" id="delivery-method">
                                     <option value="freezing">冷凍</option>
                                     <option value="refrigeration">冷藏</option>
@@ -133,8 +131,6 @@
                             </div>
                             <div class="cart-option">
                                 <label for="delivery-address">地址</label>
-                                {{-- <input id="delivery-address" class="option-input" type="text" value="貨到付款"
-                                    name="delivery_address" disabled> --}}
                                 <select name="delivery_address" class="option-input" id="delivery-address">
                                     @if ($user->delivery_address)
                                         <option value="{{ $user->delivery_address }}">{{ $user->delivery_address }}
@@ -150,6 +146,24 @@
                                 <label for="custom_address"></label>
                                 <input class="option-input" id="custom-address" name="custom_address" type="text"
                                     placeholder="輸入其他地址" value="" disabled>
+                            </div>
+                            <div class="cart-option">
+                                <label for="contact">聯絡電話</label>
+                                <select name="contact" class="option-input" id="contact">
+                                    @if ($user->phone)
+                                        <option value="{{ $user->phone }}">{{ $user->phone }}
+                                        </option>
+                                    @endif
+                                    @if ($user->telephone)
+                                        <option value="{{ $user->telephone }}">{{ $user->telephone }}</option>
+                                    @endif
+                                    <option id="other-contact" value="other-contact">其他聯絡電話</option>
+                                </select>
+                            </div>
+                            <div class="cart-option">
+                                <label for="custom_contact"></label>
+                                <input class="option-input" id="custom-contact" name="custom_contact" type="text"
+                                    placeholder="輸入其他聯絡電話" value="" disabled>
                             </div>
                         </div>
                         <div class="total-price flex">
@@ -276,6 +290,22 @@
                 oA.disabled = false;
             } else {
                 oA.disabled = true;
+            }
+        });
+
+        // --- 地址 ---
+        const contact = document.querySelector("#contact");
+        const custonContact = document.querySelector("#custom-contact");
+
+        if(contact.value === "other-contact"){
+            custonContact.disabled = false;
+        }
+
+        $(contact).on("change", function() {
+            if (contact.value === "other-contact") {
+                custonContact.disabled = false;
+            } else {
+                custonContact.disabled = true;
             }
         });
     </script>

@@ -77,6 +77,10 @@
                             <p class="order-card-info-tip">配送方式</p>
                             <p class="order-card-info-value">{{ $order->delivery_method }}</p>
                         </div>
+                        <div class="order-card-info">
+                            <p class="order-card-info-tip">聯絡電話</p>
+                            <p class="order-card-info-value">{{ $order->contact }}</p>
+                        </div>
                     </div>
                     <div class="order-card-part">
                         <div class="order-card-info">

@@ -11,7 +11,7 @@ class wn_order extends Model
 
     protected $table = "wn_orders";
 
-    protected $fillable = ["uuid","user_uid", "total", "delivery_address", "delivery_method", "payment_account", "status"];
+    protected $fillable = ["uuid","user_uid", "total", "delivery_address", "delivery_method", "payment_account", "status", "contact"];
 
     const UPDATED_AT = "modified_at";
 }

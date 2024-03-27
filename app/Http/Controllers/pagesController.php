@@ -9,6 +9,7 @@ use App\Models\wn_post;
 use App\Models\wn_product;
 use App\Models\wn_shopping_cart;
 use App\Models\wn_sub_category;
+use App\Models\wn_web_setting;
 use App\Models\wn_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -74,8 +75,9 @@ class pagesController extends Controller
         $orders = wn_order::where("user_uid", Auth::user()->uuid)->orderByDesc("created_at")->get();
         $products = wn_product::where("status", "PUBLIC")->get();
         $orderItems = wn_order_item::where("user_uid", Auth::user()->uuid)->get();
+        $account = wn_web_setting::where("uuid", "ca3f087a9bac9603f57abda0facc8eee")->get()->first()->content;
 
-        return view("order-list", ["orders" => $orders, "products" => $products, "orderItems" => $orderItems]);
+        return view("order-list", ["orders" => $orders, "products" => $products, "orderItems" => $orderItems, "account"=>$account]);
     }
 
     public function shop(Request $request)

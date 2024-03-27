@@ -251,6 +251,9 @@
                                 <input class="payment-field" id="account-five{{ $loop->index }}" type="text" onkeypress="preventNonNumericalInput(event)" inputmode="numeric" placeholder="請輸入匯款帳號末五碼" name="account_five" maxlength="5" value="@if ($order->payment_account){{ $order->payment_account }}@endif">
                                 <button type="submit" class="submit payment-submit" value="{{ $order->uuid }}" name="uuid">送出</button>
                             </div>
+                            <div class="cart-item payment-section flex">
+                                <p>匯款帳號: {{ $account }}</p>
+                            </div>
                         </div>
                     @endforeach
                 </form>

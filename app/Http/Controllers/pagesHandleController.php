@@ -89,11 +89,18 @@ class pagesHandleController extends Controller
 
         if ($cart->count() != 0) {
             $address = "";
+            $contact = "";
 
             if ($request->delivery_address == "other-address") {
                 $address = $request->custom_address;
             } else {
                 $address = $request->delivery_address;
+            }
+
+            if ($request->contact == "other-contact") {
+                $contact = $request->custom_contact;
+            } else {
+                $contact = $request->contact;
             }
 
             $data = [
@@ -102,6 +109,7 @@ class pagesHandleController extends Controller
                 "total" => $request->order_total,
                 "delivery_method" => $request->delivery_method,
                 "delivery_address" => $address,
+                "contact" => $contact,
                 "status" => "NOT_PAID"
             ];
 
