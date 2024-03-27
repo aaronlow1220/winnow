@@ -1,7 +1,7 @@
 @extends('admin/layout/dashboard-layout')
 
 @section('dashboard-title')
-    修改商品
+    修改貼文
 @endsection
 
 @section('dashboard-content')
